@@ -1,0 +1,2190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog</title>
+    <subtitle>应许之地</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2023-11-22T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Markdown Examples 2</title>
+        <published>2023-11-22T00:00:00+00:00</published>
+        <updated>2023-11-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/markdown-example-2/"/>
+        <id>https://www.edwardzcn.me/blog/markdown-example-2/</id>
+        
+        <summary type="html">&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in &lt;del&gt;Hugo&lt;&#x2F;del&gt; Zola content files, also it shows whether basic HTML elements are decorated with CSS in a &lt;del&gt;Hugo&lt;&#x2F;del&gt; Zola theme.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>「我躲在虹桥的卫生间，不知道去哪」</title>
+        <published>2023-11-21T00:00:00+00:00</published>
+        <updated>2023-11-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na/"/>
+        <id>https://www.edwardzcn.me/Life/wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;00&quot;&gt;00&lt;&#x2F;h2&gt;
+&lt;p&gt;原文链接：https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;pZ1BmtHedR0rxBZkqN7FSA&lt;&#x2F;p&gt;
+&lt;p&gt;公司在大虹桥，所以每天下班都要从虹桥商务区步行到虹桥火车站&lt;&#x2F;p&gt;
+&lt;p&gt;也不知道从什么时候开始，我突然留意到在虹桥的地下通道里两侧边一直有住着人&lt;&#x2F;p&gt;
+&lt;p&gt;每晚都住着人&lt;&#x2F;p&gt;
+&lt;p&gt;起初我以为这应该是第二天要赶车的人，为了省住宿费所以临时凑合一晚&lt;&#x2F;p&gt;
+&lt;p&gt;后来我觉得是不是因为虹桥火车站地铁没通，所以大家提前来&lt;&#x2F;p&gt;
+&lt;p&gt;也有想想是不是因为做核酸不方便，所以……&lt;&#x2F;p&gt;
+&lt;p&gt;但是伴随着一切都开始常规化，这些情况不仅没有缓解，反而&lt;strong&gt;越来越多&lt;&#x2F;strong&gt;，比春运时候看到的还夸张&lt;&#x2F;p&gt;
+&lt;p&gt;他们到底是谁，又为什么会把这里当家&lt;&#x2F;p&gt;
+&lt;p&gt;这个好奇一直围绕着我&lt;&#x2F;p&gt;
+&lt;p&gt;直到上周五下班路上，遇到一个叫阿芬（化名）的女生&lt;&#x2F;p&gt;
+&lt;p&gt;我才慢慢知道这背后的真实原因，也确实让人唏嘘&lt;&#x2F;p&gt;
+&lt;p&gt;第一次看到阿芬的时候，其实是我想要上一个厕所，但是打开门之后却发现一个意外的画面&lt;&#x2F;p&gt;
+&lt;p&gt;我看到了她，他就住在这个厕所里的小隔间里面&lt;&#x2F;p&gt;
+&lt;p&gt;身后台面上放着她塞的鼓鼓的背包，以及装满日用品的塑料袋&lt;&#x2F;p&gt;
+&lt;p&gt;她刚用自来水洗完头，脚还穿着居家拖鞋&lt;&#x2F;p&gt;
+&lt;p&gt;看到有人进来她略微侧身回避，过了一会她打开厕所一格&lt;&#x2F;p&gt;
+&lt;p&gt;“你..是住这儿么”&lt;&#x2F;p&gt;
+&lt;p&gt;我没忍住问了这句，她有点腼腆的点了点头&lt;&#x2F;p&gt;
+&lt;p&gt;跟阿芬聊了一会，她对我也渐渐放松警惕&lt;&#x2F;p&gt;
+&lt;p&gt;我：为什么不住旅馆呢&lt;&#x2F;p&gt;
+&lt;p&gt;芬：实在没钱了，也找不到工作&lt;&#x2F;p&gt;
+&lt;p&gt;我：为什么找不到工作呢，这里机会应该很多吧&lt;&#x2F;p&gt;
+&lt;p&gt;芬说了一句让我头皮发麻的话：&lt;strong&gt;现在招工都不要感染过阳性的人&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;这件事很多人没想到，但却真实的发生着&lt;&#x2F;p&gt;
+&lt;p&gt;曾经在上海感染过疫情的人，如今正在被行业内重度歧视着&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;01&quot;&gt;01&lt;&#x2F;h2&gt;
+&lt;p&gt;阿芬3月底来的上海，希望能在这里工作，也在这里驻足&lt;&#x2F;p&gt;
+&lt;p&gt;只是没想，到很快上海就被封控了&lt;&#x2F;p&gt;
+&lt;p&gt;当时没找到工作，于是被送往救助站&lt;&#x2F;p&gt;
+&lt;p&gt;而就在救助站里，她感染了阳性&lt;&#x2F;p&gt;
+&lt;p&gt;当然这些都是意外，一切恢复之后阿芬本来认为可以很快可以恢复正常&lt;&#x2F;p&gt;
+&lt;p&gt;而没想到的是，从5月下旬开始，阿芬就在各种平台和工作群里，寻找各种机会&lt;&#x2F;p&gt;
+&lt;p&gt;也有很多条件适合的工作，但唯独一条她不行&lt;&#x2F;p&gt;
+&lt;p&gt;一个不曾听过的词汇：历史无阳&lt;&#x2F;p&gt;
+&lt;p&gt;也就是说，如果曾经感染了阳性，那么连最基础的工作，她也失去了资格&lt;&#x2F;p&gt;
+&lt;p&gt;这样的情况一直没有改变&lt;&#x2F;p&gt;
+&lt;p&gt;到了6月7日前一晚，阿芬失眠了，这是她在隔离酒店的最后一晚&lt;&#x2F;p&gt;
+&lt;p&gt;也是从6月7日这天开始，她开始流浪大虹桥&lt;&#x2F;p&gt;
+&lt;p&gt;反复尝试不同的工作机会，看到招工她觉得自己适合的就去，还担心有所隐瞒，于是主动问对方人事，她进过方舱有没有问题&lt;&#x2F;p&gt;
+&lt;p&gt;对方听完立马摇摇头：这个肯定不能要&lt;&#x2F;p&gt;
+&lt;p&gt;5月如此&lt;&#x2F;p&gt;
+&lt;p&gt;6月也这样&lt;&#x2F;p&gt;
+&lt;p&gt;到了7月，还是这样，电话那头的招工人事一直说再等等&lt;&#x2F;p&gt;
+&lt;p&gt;而阿芬这样的情况并不是个例&lt;&#x2F;p&gt;
+&lt;p&gt;她和她在火车站新认识的小伙伴都面临这个情况，这是一个庞大的群体，整个上海的服务业行业正在通过历史无阳作为一个标准在歧视大量的新冠阳性康复者&lt;&#x2F;p&gt;
+&lt;p&gt;进过1次方舱、得过1次新冠，即使你后面99次核酸阴性，你都没资格获得工作机会&lt;&#x2F;p&gt;
+&lt;p&gt;没有任何原因，就是没有资格&lt;&#x2F;p&gt;
+&lt;p&gt;就这么一个准则，把一大波人挤到大虹桥的地下通道里，让他们无所适从，也不知道要去何处&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;02&quot;&gt;02&lt;&#x2F;h2&gt;
+&lt;p&gt;前前后后两个月，他们一天比一天绝望，真的山穷水尽了&lt;&#x2F;p&gt;
+&lt;p&gt;如果不是山穷水尽，没谁会一直住在车站&lt;&#x2F;p&gt;
+&lt;p&gt;比如阿芬，对她来说，积蓄空了、手机欠费，连食物和水都成了问题&lt;&#x2F;p&gt;
+&lt;p&gt;她甚至还求助过12345热线&lt;&#x2F;p&gt;
+&lt;p&gt;对方回复的很及时&lt;&#x2F;p&gt;
+&lt;p&gt;但最后所有帮助也只限于电话询问，然后就没有然后了&lt;&#x2F;p&gt;
+&lt;p&gt;在阿芬身边，身边和她一起住车站的人正在越来越少&lt;&#x2F;p&gt;
+&lt;p&gt;有的去了车站周边，有的回了老家&lt;&#x2F;p&gt;
+&lt;p&gt;而阿芬因为种种原因，没有选择跟朋友和家人开口，而是咬牙也希望能再等等&lt;&#x2F;p&gt;
+&lt;p&gt;说不定第二天就变了，就像解封一样，&lt;strong&gt;就像可以堂食一样&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;而死撑的她，又是怎么在这活下去的&lt;&#x2F;p&gt;
+&lt;p&gt;阿芬指着火车站那条长长的大通道跟我说，这里每个能睡的角落她都睡过&lt;&#x2F;p&gt;
+&lt;p&gt;虽然窘迫，但至少住火车站就解决了住宿的问题&lt;&#x2F;p&gt;
+&lt;p&gt;然后她每天都去拼面包之类的，再加上优惠券，花销可以很少很少&lt;&#x2F;p&gt;
+&lt;p&gt;我说我想看看，她有点犯难，因为没钱缴费，手机已经停机&lt;&#x2F;p&gt;
+&lt;p&gt;我边给她连自己热点，边问她没网你是怎么团购的&lt;&#x2F;p&gt;
+&lt;p&gt;她捂着嘴笑：自己已经摸清了这附近所有可以免费蹭wifi的地方&lt;&#x2F;p&gt;
+&lt;p&gt;白天的时候她就步行到虹桥机场3楼的位置，不用进去，到那附近就有无线网&lt;&#x2F;p&gt;
+&lt;p&gt;然后东西也是这时候团购好，再带回虹桥火车站&lt;&#x2F;p&gt;
+&lt;p&gt;我一看是真的便宜，&lt;strong&gt;两斤面包就6块多，能吃两三天&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;不过她每天都只能吃面包，而且一天只能吃两顿&lt;&#x2F;p&gt;
+&lt;p&gt;买食物的钱，也是她自己下载了一些软件，每天通过签到、抢红包，赚的几块钱，然后攒上几天，就可以提现&lt;&#x2F;p&gt;
+&lt;p&gt;有一次她还用自己快餐店积分兑换了4个汉堡，兑出汉堡那天，是她来上海两个多月来最开心的一天&lt;&#x2F;p&gt;
+&lt;p&gt;只不过每次下单的时候，有一个“最低消费”，她每次都买一个1.5元的环保袋，正好还可以拿来装衣服什么的&lt;&#x2F;p&gt;
+&lt;p&gt;我说，你这又没冰箱，那么多汉堡不会坏么&lt;&#x2F;p&gt;
+&lt;p&gt;她笑说，谁那么傻一次取光，我一次买两个，然后上午一个、下午一个，一天伙食就解决啦&lt;&#x2F;p&gt;
+&lt;p&gt;说完我俩都乐了&lt;&#x2F;p&gt;
+&lt;p&gt;不过所有的真实都藏在玩笑过后的那一阵沉默里&lt;&#x2F;p&gt;
+&lt;p&gt;并不是只有阿芬这么苦，和阿芬一起的小伙伴，她们洗澡，就是接一盆水，到厕所格子间解决&lt;&#x2F;p&gt;
+&lt;p&gt;厕所里没有热水，接水时间也比较长，因为水流受限，而且还得一直把手放下面感应才能出水&lt;&#x2F;p&gt;
+&lt;p&gt;洗完头没有吹风机，就把头放在洗完手的那个烘干机下面&lt;&#x2F;p&gt;
+&lt;p&gt;有个女生，这两天她的洗发水用完了，就用自己洗面奶将就了一下&lt;&#x2F;p&gt;
+&lt;p&gt;她说效果不好，不过撑一撑也就过去了&lt;&#x2F;p&gt;
+&lt;p&gt;洗完的衣服，她们就晾在自己的行李箱上，或者搭在火车站围栏上&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;她说流浪虹桥很大一部分原因是这里有厕所，更重要的是这里的厕所有纸&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;她抽出一张差点掉地上，连忙捡起来放回去&lt;&#x2F;p&gt;
+&lt;p&gt;窘迫的时候，她们甚至连生理期用品都得计算着用&lt;&#x2F;p&gt;
+&lt;p&gt;你真的无法想象一个人在自己拮据的时候，可以把日子过的精打细算到什么程度&lt;&#x2F;p&gt;
+&lt;p&gt;有一位女生跟我说，她爸妈到现在都不知道她得了新冠、去过方舱&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;更不知道此时此刻的她正住在虹桥火车站&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Markdown Examples</title>
+        <published>2023-11-21T00:00:00+00:00</published>
+        <updated>2023-11-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/markdown-example/"/>
+        <id>https://www.edwardzcn.me/markdown-example/</id>
+        
+        <summary type="html">&lt;p&gt;This article offers a sample of basic Markdown syntax that can be used in &lt;del&gt;Hugo&lt;&#x2F;del&gt; Zola content files, also it shows whether basic HTML elements are decorated with CSS in a &lt;del&gt;Hugo&lt;&#x2F;del&gt; Zola theme.&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《台北人》读书摘录</title>
+        <published>2022-08-08T00:00:00+00:00</published>
+        <updated>2022-08-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/tai-bei-ren-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/tai-bei-ren-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;yong-yuan-de-yin-xue-yan&quot;&gt;永远的尹雪艳&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P7 “‘宋家阿姊，‘人无千日好，花无百日红’，谁又能保得住一辈子享荣华，受富贵呢？’&lt;&#x2F;p&gt;
+&lt;p&gt;于是尹雪艳便递过热毛巾给宋太太揩面，怜悯地劝说道。宋太太不肯认命，总要抽抽嗒嗒地怨怼一番：&lt;&#x2F;p&gt;
+&lt;p&gt;‘我就不信我的命又要比别人差些！像侬吧，尹家妹妹，侬一辈子是不必发愁的，自然有人会来帮衬侬。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《我承认我不曾经历沧桑》读书摘录</title>
+        <published>2022-07-26T00:00:00+00:00</published>
+        <updated>2022-07-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wo-cheng-ren-wo-bu-ceng-jing-li-cang-sang-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/wo-cheng-ren-wo-bu-ceng-jing-li-cang-sang-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;bei-bang-jia-de-dao-huo-zhe&quot;&gt;被绑架的盗火者&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P065 “我问过程齐家，他的理想是什么。在进入南科大之前，他的理想是毕了业研究汽车，这是他的兴趣。现在问他，他则说：‘我的理想是做一个全面的人，广泛接纳各种价值体系，并永远守护心中的理想和价值，以数理逻辑观察世界，又以艺术的思维生活，活得自如。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;xiang-xiang-de-zu-guo&quot;&gt;想象的祖国&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P075 “台北是很容易让人喜欢上的城市，刚到其他大城市的时候，迎面而来的往往是设计和规划过的‘城市印象’，而在台北，面对的则是一种复杂和旺盛的生命活力。规划是生活的延伸，该有树的时候便出现了树，在要有路时就有了路，所有的路都沿着房屋弯弯曲曲。人类生活是血液，城市建设则是血管，它是保护和包裹，而不是一拍脑门的设计和切割。&lt;&#x2F;p&gt;
+&lt;p&gt;台北应该是简·雅各布斯最爱的那种城市，它是自然生长的结果，这种生长是连贯、有感情且不可预测的，有自己的逻辑，规划在它面前显得如此苍白。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;zuo-jia-zhen-zheng-de-kong-ju-shi-bei-guo-jia-suo-yan-zhu&quot;&gt;作家真正的恐惧，是被“国家”所魇住&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P085 “对一位作家来说，真正的危险，与其说是来自实在的迫害，不如说他可能被硕大畸形的，或近乎趋于好转——却总是短暂的——国家面貌所催眠。&lt;&#x2F;p&gt;
+&lt;p&gt;1987 年，布罗茨基获诺贝尔文学奖时这样说。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P088 “有两类作家，一类是加缪式的。加缪曾说：‘当我只是一个作家，我将不再写作。’在他眼里，写作的过程就是政治抗争的过程。&lt;&#x2F;p&gt;
+&lt;p&gt;另一类作家，是博尔赫斯式的。他一生避免与任何现世的斗争和意识形态挂钩，对于贝隆政府，他只是低下眼帘，盖住日益失明的眼睛说：‘贝隆主义不能说是对还是错，关键是他已无法改变。’&lt;&#x2F;p&gt;
+&lt;p&gt;加缪为了承受历史的人民写作，这并没有减少他文本的纯净；博尔赫斯恪守一个写作者的本分，不额外承担任何社会义务，而丝毫没有降低他在文学史上的价值。&lt;&#x2F;p&gt;
+&lt;p&gt;作家有权保持自己的遗世独立，同时，他也必须和所生活的时代有某种同频的互动。这种互动，不是来自于意识形态的召唤，不是对苦难者的代言，不是推翻现有政权的野心，而是倾听自己良知觉醒的声音，诚实地把它记录下来。在北欧，这种声音也许诉说的是叶落花开霜起雪落地美；在苏联，这种声音诉说的也许是共产主义的冷酷；在非洲，这声音诉说的也许是种族战争带来的血腥。&lt;&#x2F;p&gt;
+&lt;p&gt;记录本身，已是反抗。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;wen-xue-zhong-de-xiang-tu-zhong-guo&quot;&gt;文学中的乡土中国&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P096 “汪曾祺重新续上了一条中国现代文学断掉的血脉，那血脉是从鲁迅的《社戏》《朝花夕拾》，到沈从文的《边城》《长河》，再到萧红的《呼兰河传》。这条血脉，属于人性的美好，再度重拾精细刻画民生百态的写法。&lt;&#x2F;p&gt;
+&lt;p&gt;《受戒》之后，乡土文学重回中国现代文学的主轴。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;zhong-guo-zuo-jia-meng-yan&quot;&gt;中国作家梦魇&lt;&#x2F;h2&gt;
+&lt;p&gt;谈起马原所作的《中国作家梦》纪录片，不是中国版《巴黎访谈》，作家们谈话的内容更多的是收入的焦虑和稿费。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P100 “那时候的刘心武由于《班主任》《5·19 长镜头》等一系列针砭时弊的小说，而成为时代最红的作家，他已经在大谈文学商业化的前景和文学作品的影视改编。采访过后的一年，他转入红学研究。&lt;&#x2F;p&gt;
+&lt;p&gt;那时候的余华还在宿舍，他一边挠着腿一边说：‘我就想写出霍桑的《红字》那样伟大的作品。’一年之后，《活着》出版了&lt;&#x2F;p&gt;
+&lt;p&gt;回看过往，有趣的是和今朝的对照。时代弄潮儿们也曾风生水起，坚守者们也曾守得云开。今日的命运和当时的豪言遥遥呼应，中间隔着中国文学失落的二十年。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P101 “鲁迅讲过最残忍的故事，不是《娜拉出走之后》，而是《在酒楼上》：革命人永远是年轻，也只能年轻，为了理想永远热泪盈眶不是作秀就是乡愿，热血总会化为虚无啊。五四时候充当启蒙者的进步青年吕纬甫，在坠入现实生活后变得颓唐失落。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《必有人重写爱情》读书摘录</title>
+        <published>2022-07-17T00:00:00+00:00</published>
+        <updated>2022-07-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/bi-you-ren-zhong-xie-ai-qing-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/bi-you-ren-zhong-xie-ai-qing-du-shu-zhai-lu/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/Life/bi-you-ren-zhong-xie-ai-qing-du-shu-zhai-lu/">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;jiu-di&quot;&gt;旧地&lt;&#x2F;h2&gt;
+&lt;p&gt;死亡总是从反面&lt;br &#x2F;&gt;
+观察一幅画&lt;&#x2F;p&gt;
+&lt;p&gt;此刻我从窗口&lt;br &#x2F;&gt;
+看见我年轻时的落日&lt;br &#x2F;&gt;
+旧地重游&lt;br &#x2F;&gt;
+我急于说出真相&lt;br &#x2F;&gt;
+可在天黑前&lt;br &#x2F;&gt;
+又能说出什么&lt;&#x2F;p&gt;
+&lt;p&gt;饮过词语之杯&lt;br &#x2F;&gt;
+更让人干渴&lt;br &#x2F;&gt;
+与河水一起援引大地&lt;br &#x2F;&gt;
+我在空山倾听&lt;br &#x2F;&gt;
+吹笛人内心的呜咽&lt;&#x2F;p&gt;
+&lt;p&gt;税收的天使们&lt;br &#x2F;&gt;
+从画的反面归来&lt;br &#x2F;&gt;
+从那些镀金的头颅&lt;br &#x2F;&gt;
+一直清点到落日&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wo-men&quot;&gt;我们&lt;&#x2F;h2&gt;
+&lt;p&gt;失魂落魄&lt;br &#x2F;&gt;
+提着灯笼追赶春天&lt;&#x2F;p&gt;
+&lt;p&gt;伤疤发亮，杯子转动&lt;br &#x2F;&gt;
+光线被创造&lt;br &#x2F;&gt;
+看那迷人的时刻：&lt;br &#x2F;&gt;
+盗贼潜入邮局&lt;br &#x2F;&gt;
+信发出叫喊&lt;&#x2F;p&gt;
+&lt;p&gt;钉子啊钉子&lt;br &#x2F;&gt;
+这歌词不可更改&lt;br &#x2F;&gt;
+木柴紧紧搂在一起&lt;br &#x2F;&gt;
+寻找听众&lt;&#x2F;p&gt;
+&lt;p&gt;寻找冬天的心&lt;br &#x2F;&gt;
+河流尽头&lt;br &#x2F;&gt;
+船夫等待着茫茫暮色&lt;&#x2F;p&gt;
+&lt;p&gt;必有人重写爱情&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ta-xiang-de-tian-kong&quot;&gt;他乡的天空&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P227 “一个城市对于一个人，往往就是中心，不在于其大小地理位置重要与否。这就好比每个国家出版的世界地图都把自己置于中心，好在地球是圆的，用不着为这打架。北加州的小镇戴维斯（Davis），对我来说就是世界的中心。这道理也简单，无论我飞到哪儿，最后都得回来——我家在这儿......&lt;&#x2F;p&gt;
+&lt;p&gt;像大多数美国人一样，我是为工作而搬到戴维斯来的；不同的是，我并没有因失去工作而搬走......&lt;&#x2F;p&gt;
+&lt;p&gt;一进入戴维斯，暮色苍茫，华灯初上。突然一股致命的乡愁袭来，我强忍泪水。戴维斯于我意味着什么？这个普普通通的美国小镇，就是我的家，一个人在大地上的住所。对于漂泊者来说，它是安定与温暖的承诺；对于我来说，它是历史之外的避难所；对于父亲来说，它是守望女儿的麦田。&lt;&#x2F;p&gt;
+&lt;p&gt;当年我师傅常对我说：‘哪儿的黄土不埋人？’这话虽有穷人的无奈，但也包含了一种绝对真理。说实话离开故乡久了，家的概念变得混乱。有时我在他乡的天空下开车，会突然感到纳闷：我在哪儿？这就是我家吗？&lt;&#x2F;p&gt;
+&lt;p&gt;我家，在不同的路标之间。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P247 “美国是许愿的土地，但对多数受苦受难的人来说却不肯兑现。当马丁·路德·金说‘我有一个梦想’时，他内心充满了绝望。O也有一个梦想，就是在美国合法留下来。我想所谓命运，都是一种对失败者结局的合法化解释，其中包含强权的意志。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;餐风饮露，听八面来风。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;wu-ye-zhi-men&quot;&gt;午夜之门&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P280 “首先由达维什讲话，他先提到‘这个血腥的春天’（this bloody spring）。他说，你们勇敢的来访就是一种突围。你们让我们感到不再孤立。‘我们意识到有太长历史和太多先知，我们懂得多元环抱的空间而不是牢房，没有人可以独霸土地或神或记忆。我们也知道历史既不公平也不优雅。而我们的任务是，作为人，我们既是人类历史的牺牲又是它的创造。’最后他说，‘而我们患的不治之症是：希望......希望将让这儿恢复其原意：爱与和平的土地。感谢你们和我们一起背负这希望的包袱。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《奶奶的星星》读书摘录</title>
+        <published>2022-05-19T00:00:00+00:00</published>
+        <updated>2022-05-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/nai-nai-de-xing-xing-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/nai-nai-de-xing-xing-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;nai-nai-de-xing-xing&quot;&gt;奶奶的星星&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P003 “‘老了，还不死？’&lt;br &#x2F;&gt;
+‘死了就怎么了？’&lt;br &#x2F;&gt;
+‘那你就再也找不着奶奶了。’&lt;br &#x2F;&gt;
+我不嚷了，也不问了，老老实实依偎在奶奶怀里。那又是世界给我的第一个可怕的印象。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P004 “夏夜，满天星斗。奶奶讲的故事与众不同，她不是说地上死一个人，天上就熄灭了一颗星，而是说，地上死一个人，天上就又多了一个星星。&lt;br &#x2F;&gt;
+‘怎么呢？’&lt;br &#x2F;&gt;
+‘人死了，就变成一个星星’&lt;br &#x2F;&gt;
+‘干吗变成星星呀？’&lt;br &#x2F;&gt;
+‘给走夜道儿的人照个亮......’&lt;br &#x2F;&gt;
+我们坐在庭院里，草茉莉都开了，各种颜色的小喇叭。掐一朵放在嘴上吹，有时候能吹响。奶奶用大芭蕉扇给我轰蚊子。凉凉的风，蓝蓝的天，闪闪的星星，永远留在我的记忆力里。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;慢慢相信，每一个活过的人，都能给后人的路途上添些光亮，也许是一颗巨星，也许是一把火炬，也许只是一支含泪的烛光。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P038 “‘不是因为别的，因为那是规矩。’爸爸说，‘就像你老太爷，出门儿几十里，一泡屎也要憋回来拉到自家的地里。因为那是规矩。那个社会，可笑和可恨的规矩太多了。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P044 “‘老了老了，没承想还赶上了好时候。’奶奶说。‘唉，你们生的是时候呀！我还有几天儿？’奶奶也常流露出遗憾。&lt;br &#x2F;&gt;
+星星。星星。星星。星星......&lt;br &#x2F;&gt;
+哪一颗星星是奶奶的呢？&lt;br &#x2F;&gt;
+我知道，奶奶是真心爱这新社会的。&lt;br &#x2F;&gt;
+那些星星都是死去的人变的，是为了给活着的人把夜路照亮......”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;然后，文革开始。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P045 “奶奶倒没有哭，她吓傻了。爸爸、妈妈也吓傻了。好多人都吓傻了。好多吓傻的人也都在做着傻事，做傻事时的样子也都足以把别人吓傻。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P049 “我一直默默地坐着。天黑了。是阴天，没有星星。奶奶这会儿在哪儿呢？干什么呢？屋里没有别人，我哭了。我想起小时候，别人对奶奶说：‘奶奶带起来的，长大了也忘不了奶奶。’奶奶笑笑说：‘等不到那会儿哟！’......海棠树的叶子落光了，没有星星。世界好像变了个样子。&lt;strong&gt;每个人的童年都有一个严肃的结尾，大约都是突然面对了一个严峻的事实，再不能睡一宿觉就把它忘掉，事后你发现，童年不复存在了。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P050 “接着是上山下乡。抡镢头的为革命而抡镢头；养妾选美的为革命而养妾选美；饥寒交迫的为革命而饥寒交迫；挥霍无度的为革命而无度地挥霍。革命又是为了什么呢？”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;文字杀人。我难以原谅自己。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P059 “‘你给我讲讲这一段行不？’&lt;br &#x2F;&gt;
+‘咳，您不懂！’&lt;br &#x2F;&gt;
+‘你不告诉我，我可不老是不懂。’&lt;br &#x2F;&gt;
+‘您懂了又怎么样？啊？又怎么样？’&lt;br &#x2F;&gt;
+奶奶分明听出了我的话外之音。她默默地坐着，一声不响。第二天晚上，她还是一字一句地兹纪念报纸，不再问我。我一看她，她的声音就变小，挺难为情似的......&lt;br &#x2F;&gt;
+**老海棠树还活着，枝叶间，星星在天上。我认定那是奶奶的星星。**据说有一种蚂蚁，遇到火就大家抱成一个球。滚过去，总有一些被烧死，也总有一些活过来，继续往前爬。人类的路本来很艰难......我就又想起了奶奶的星星。**历史，要用许多不幸和错误去铺路，人类才变得比那些蚂蚁更聪明。**人类浩荡前行，在这条路上，不是靠的恨，而是靠的爱......”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《北岛作品》读书摘录</title>
+        <published>2022-05-17T00:00:00+00:00</published>
+        <updated>2022-05-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/bei-dao-zuo-pin-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/bei-dao-zuo-pin-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;必将有人重写生活，还这世间一个清白。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;shi-ge&quot;&gt;诗歌&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;hui-da&quot;&gt;回答&lt;&#x2F;h3&gt;
+&lt;p&gt;卑鄙是卑鄙者的通行证，&lt;br &#x2F;&gt;
+高尚是高尚者的墓志铭，&lt;br &#x2F;&gt;
+看吧，在那镀金的天空中，&lt;br &#x2F;&gt;
+飘满了死者弯曲的倒影。&lt;&#x2F;p&gt;
+&lt;p&gt;冰川纪过去了，&lt;br &#x2F;&gt;
+为什么到处都是冰凌？&lt;br &#x2F;&gt;
+好望角发现了，&lt;br &#x2F;&gt;
+为什么死海里千帆相竞？&lt;&#x2F;p&gt;
+&lt;p&gt;我来到这个世界上，&lt;br &#x2F;&gt;
+只带着纸、绳索和身影，&lt;br &#x2F;&gt;
+为了在审判前，&lt;br &#x2F;&gt;
+宣读那被判决的声音：&lt;&#x2F;p&gt;
+&lt;p&gt;告诉你吧，世界&lt;br &#x2F;&gt;
+我——不——相——信！&lt;br &#x2F;&gt;
+纵使你脚下有一千名挑战者，&lt;br &#x2F;&gt;
+那就把我算作第一千零一名。&lt;&#x2F;p&gt;
+&lt;p&gt;我不相信天是蓝的，&lt;br &#x2F;&gt;
+我不相信雷的回声，&lt;br &#x2F;&gt;
+我不相信梦是假的，&lt;br &#x2F;&gt;
+我不相信死无报应。&lt;&#x2F;p&gt;
+&lt;p&gt;如果海洋注定要决堤，&lt;br &#x2F;&gt;
+就让所有的苦水都注入我心中，&lt;br &#x2F;&gt;
+如果陆地注定要上升，&lt;br &#x2F;&gt;
+就让人类重新选择生存的峰顶。&lt;&#x2F;p&gt;
+&lt;p&gt;新的转机和闪闪星斗，&lt;br &#x2F;&gt;
+正在缀满没有遮拦的天空。&lt;br &#x2F;&gt;
+那是五千年的象形文字，&lt;br &#x2F;&gt;
+那是未来人们凝视的眼睛。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;hong-fan-chuan&quot;&gt;红帆船&lt;&#x2F;h3&gt;
+&lt;p&gt;到处都是残垣断壁&lt;br &#x2F;&gt;
+路，怎么从脚下延申&lt;br &#x2F;&gt;
+滑进瞳孔的一盏盏路灯&lt;br &#x2F;&gt;
+滚出来，并不是晨星&lt;br &#x2F;&gt;
+我不想安慰你&lt;br &#x2F;&gt;
+在颤抖的枫叶上&lt;br &#x2F;&gt;
+写满关于春天的谎言&lt;br &#x2F;&gt;
+来自热带的太阳鸟&lt;br &#x2F;&gt;
+并没有落在我们的树上&lt;br &#x2F;&gt;
+而背后的森林之火&lt;br &#x2F;&gt;
+不过是尘土飞扬的黄昏&lt;&#x2F;p&gt;
+&lt;p&gt;如果大地早已冰封&lt;br &#x2F;&gt;
+就让我们面对着暖流&lt;br &#x2F;&gt;
+走向海&lt;br &#x2F;&gt;
+如果礁石是我们未来的形象&lt;br &#x2F;&gt;
+就让我们面对着海&lt;br &#x2F;&gt;
+走向落日&lt;br &#x2F;&gt;
+不，渴望燃烧&lt;br &#x2F;&gt;
+就是渴望化为灰烬&lt;br &#x2F;&gt;
+而我们只求静静地航行&lt;br &#x2F;&gt;
+你有飘散的长发&lt;br &#x2F;&gt;
+我有手臂，笔直地举起&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;xi-guan&quot;&gt;习惯&lt;&#x2F;h3&gt;
+&lt;p&gt;我习惯了你在黑暗中为我点烟&lt;br &#x2F;&gt;
+火光摇晃，你总是悄悄地问&lt;br &#x2F;&gt;
+猜猜看，我烫伤了什么&lt;&#x2F;p&gt;
+&lt;p&gt;我习惯了你坐在船头低吟&lt;br &#x2F;&gt;
+木浆淌着水，击碎雾中的阳光&lt;br &#x2F;&gt;
+你拖着疲乏而任性的步子&lt;br &#x2F;&gt;
+不肯在长椅上重温我们的旧梦&lt;br &#x2F;&gt;
+和我一起本报，你的头发甩来甩去&lt;br &#x2F;&gt;
+隔着肩头满不在乎地笑笑&lt;&#x2F;p&gt;
+&lt;p&gt;我习惯了你在山谷中大声呼喊&lt;br &#x2F;&gt;
+然后倾听两个名字追逐时的回响
+抱起书，你总要提出各种问题&lt;br &#x2F;&gt;
+一边撇着嘴，一边把答案写满小手&lt;br &#x2F;&gt;
+在冬天，在蓝幽幽的路灯下&lt;br &#x2F;&gt;
+你的呵气像围巾绕在我的脖子上&lt;&#x2F;p&gt;
+&lt;p&gt;是的，我习惯了&lt;br &#x2F;&gt;
+你敲击的火石灼烫着&lt;br &#x2F;&gt;
+我习惯了的黑暗&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;jie-xian&quot;&gt;界限&lt;&#x2F;h3&gt;
+&lt;p&gt;我要到对岸去&lt;&#x2F;p&gt;
+&lt;p&gt;河水涂改者天空的颜色&lt;br &#x2F;&gt;
+也涂改着我&lt;br &#x2F;&gt;
+我在流动&lt;br &#x2F;&gt;
+我的影子站在岸边&lt;br &#x2F;&gt;
+像一棵被雷电烧焦的树&lt;&#x2F;p&gt;
+&lt;p&gt;我要到对岸去&lt;&#x2F;p&gt;
+&lt;p&gt;对岸的树丛中&lt;br &#x2F;&gt;
+掠过一只孤独的野鸽&lt;br &#x2F;&gt;
+向我飞来&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;gui-cheng&quot;&gt;归程&lt;&#x2F;h3&gt;
+&lt;p&gt;汽笛长鸣不已&lt;br &#x2F;&gt;
+难道你还想数清&lt;br &#x2F;&gt;
+那颗梧桐树上的乌鸦&lt;br &#x2F;&gt;
+默默地记住它们&lt;br &#x2F;&gt;
+仿佛凭借这点点踪影&lt;br &#x2F;&gt;
+就不会迷失在另一场梦中&lt;&#x2F;p&gt;
+&lt;p&gt;陈叶和红色的蓓蕾&lt;br &#x2F;&gt;
+在灌木丛上摇曳&lt;br &#x2F;&gt;
+其实并没有风&lt;br &#x2F;&gt;
+而藏匿于晨光中的霜&lt;br &#x2F;&gt;
+穿越车窗时&lt;br &#x2F;&gt;
+留下你苍白的倦容&lt;&#x2F;p&gt;
+&lt;p&gt;是的，你不顾一切&lt;br &#x2F;&gt;
+总要踏上归程&lt;br &#x2F;&gt;
+昔日的短笛&lt;br &#x2F;&gt;
+在被抛弃的远方&lt;br &#x2F;&gt;
+早已经繁衍成树林&lt;br &#x2F;&gt;
+守望道路，廓清天空&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《蛤蟆先生去看心理医生》读书摘录</title>
+        <published>2022-05-12T00:00:00+00:00</published>
+        <updated>2022-05-12T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ha-ma-xian-sheng-qu-kan-xin-li-yi-sheng-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/ha-ma-xian-sheng-qu-kan-xin-li-yi-sheng-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;di-wu-zhang-cheng-chang-de-yu-yan&quot;&gt;第五章 成长的寓言&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P39 “苍鹭回答，‘我的意思是，我们的某些基本情感是与生俱来的，就好像红黄蓝三原色，对所有婴儿来说都是类似的。然而当我们作为个体开始发展的的时候，我们的情绪和反应都变得越来越个人化，就好像几种原色混合在一起就变出各式各样微妙的色调和色差来。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;儿童的基本情感&lt;&#x2F;strong&gt;&lt;br &#x2F;&gt;
+快乐和深情&lt;br &#x2F;&gt;
+愤怒&lt;br &#x2F;&gt;
+悲伤&lt;br &#x2F;&gt;
+恐惧&lt;&#x2F;p&gt;
+&lt;p&gt;这些情感加在一起就构成了所谓“自然型儿童”。&lt;&#x2F;p&gt;
+&lt;p&gt;孩童如何&lt;strong&gt;适应&lt;&#x2F;strong&gt;应对父母的行为。这里苍鹭回答了这种被动适应与成年人的主动学习的区别。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P44 “‘婴幼儿确实不能用逻辑或有意识地去想明白这些问题，’苍鹭说，‘但他们会从经验中学习。这样的学习不仅涉及用头脑思考，也涉及全部的自我。我们学到的是一种生存的策略，并发展出一套行为来应对父母和其他人。幸运的话，我们就能用余下足够的精力来享受生活。’&lt;&#x2F;p&gt;
+&lt;p&gt;‘这意味着每一个婴儿都必须学习如何调整他的基本行为，来应对自己所处的初始状况。这些调整，就像原子核一样，以后我们所有的行为都围绕着这个核心形成和发展。当然，人生后面阶段的许多其他事情也会对我们造成影响，但这些最早期的经历塑造了人格的雏形，所以我们无法否认也无法忘记它们。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-liu-zhang-tan-suo-tong-nian&quot;&gt;第六章 探索童年&lt;&#x2F;h2&gt;
+&lt;p&gt;我常听到且认同的一句话，就是世间只有一种爱以分离为目的——父母的爱。理想中的亲子关系，最终是让孩子成功独立走出这段关系。在这次咨询中，蛤蟆和苍鹭继续讨论着从自然的孩童情感调整适应成某种情感的问题。以及顺从、适应、依赖。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P64 “苍鹭答道，‘可对大多数人而言，成长的本质就是要减少并最终打破这样的依赖关系，这样才能成为一个独立自主的人。很少有人能完全达成这点，有些人能够部分达成，而很多人则会依赖一辈子。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《法治的细节》读书摘录</title>
+        <published>2022-05-10T00:00:00+00:00</published>
+        <updated>2022-05-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/fa-zhi-de-xi-jie-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/fa-zhi-de-xi-jie-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;序言部分真的写太好了，如果你还在找寻读此书的意义，抄一遍就够了。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;xu-yan&quot;&gt;序言&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;strong&gt;对公平和正义的渴望是人类的出厂设置，无需被灌输，只需要被激活。&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“苏格拉底在《美诺篇》中提醒我们注意一个悖论：一个人既不能试图去发现他所知道的东西，也不能去发现他所不知道的东西。他不能去发现他所知的东西，因为他知道了便没有必要去探寻；也不能去发现他所不知道的东西，因为那样的话，他甚至不知道他要去探寻什么。苏格拉底解决悖论的方法是认为所有的知识和探寻都只是一种&lt;strong&gt;回忆&lt;&#x2F;strong&gt;。对于无知的人只需要去提醒他，以便让他自己回忆起他所知道的东西。对&lt;strong&gt;公平&lt;&#x2F;strong&gt;和&lt;strong&gt;正义&lt;&#x2F;strong&gt;的渴望是人类的出厂设置，无需被灌输，只需要被激活。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“法治在我看来，只是一种悖论性的存在。法治要维护社会秩序，同时又要限制维护社会秩序的力量本身，防止它成为破坏社会秩序的力量。法治只是治理社会的次优或者说最不坏的选择。人们的内心深处总有一种对最优选择的追求。但是人类的经验和历史不断告诉我们，追求最优选择的初衷，最后往往会带来最坏的结果，通往地狱的道路总是看起来在走向天堂。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;序言中还有一段对“智力”与“智慧”的讨论，罗祥老师惋惜一些人虽有“智力”，却无“智慧”。这里的“智慧”和霍夫施塔特所著的《美国的反智传统》中所讲的“智识”实际上是一码事。都是一种后天形成的否定批判精神，可以说“智力”是对客观真理的追求能力，而“智慧”（智识）是主管批判反思的能力。显然根据书名，霍夫施塔特关注写这些批判家在美国历史中经历了怎样的敲打拷问。罗老师这边则更突出“智慧”的重要性，从需求的正面角度来叙述。&lt;&#x2F;p&gt;
+&lt;p&gt;罗老师自称为“法学殿堂的门童”，对于我这种学生能摸到殿堂的门槛已属荣幸。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“我很害怕自己成为这样的‘智者’。我只想和各位一起追寻&lt;strong&gt;智慧&lt;&#x2F;strong&gt;。这种智慧是一种&lt;strong&gt;否定性&lt;&#x2F;strong&gt;的智慧，那就是承认自己的无知，接受理性的有限，在各种悖论中寻找到似非而是的真理。&lt;&#x2F;p&gt;
+&lt;p&gt;我一直将自己定位为一个法学殿堂的门童，邀请各位的光临。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“当你灰心的时候，希望能够有一种力量帮你擦去掉落在心中的灰尘，让法治的热情在心中重新燃烧。当你失望的时候，也许正是因为你对法治太过盼望而沮丧。看见的不用去相信，看不见的才用去相信。在可见的视野中，我们经常看到不公平和不正义，&lt;strong&gt;这让我们对看不见的公平和正义更加充满向往&lt;&#x2F;strong&gt;。人总要对焦于某种超越生活的存在，才能告别习以为常的平庸与肤浅。因此，我们可以把这种失望看成‘矢志不渝’的‘盼望’，我们可以忍受路途中暂时的灰心和失望。&lt;strong&gt;并不是所有的怀疑都会导致虚无&lt;&#x2F;strong&gt;，&lt;strong&gt;很多怀疑示威了更加地确信&lt;&#x2F;strong&gt;。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“作为老师，有一种极大地喜悦，就是在学生身上看到自己想去追求而没能达到的希望。让我重新回答文章开头的问题（取得的成就），我理想中的成就，就是做一个好的老师，教好法律，传播法治理念，让每个人意识到自己内心幽暗的成分需要被封锁。&lt;&#x2F;p&gt;
+&lt;p&gt;过去的一年，大家将诸多荣光投射到我身上，这是我所不配的。今后的每一天，我希望法治的光芒能够照亮每个人的内心与前行的道路。&lt;&#x2F;p&gt;
+&lt;p&gt;让我们在每一天的生活中完善法治的细节。&lt;&#x2F;p&gt;
+&lt;p&gt;唯愿公平如大水滚滚，使公义如江河滔滔”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;让我们在每一天的生活中完善法治的细节。&lt;br &#x2F;&gt;
+唯愿公平如大水滚滚，使公义如江河滔滔。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《病隙随笔》读书摘录</title>
+        <published>2022-04-29T00:00:00+00:00</published>
+        <updated>2022-04-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/bing-xi-sui-bi-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/bing-xi-sui-bi-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;bing-xi-sui-bi-1&quot;&gt;病隙随笔 1&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;liu&quot;&gt;六&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P8 “不断的苦难才是不断地需要信心的原因，这是信心的原则，不可稍有更动。倘其预设下丝毫福乐，信心便容易蜕变为谋略，终难免与行贿同流。甚至光荣，也可能腐蚀信心。在没有光荣的路上，信心可要放弃吗？以苦难去做福乐的投资，或以圣洁赢取尘世的荣耀，都不是上帝对约伯的期待。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;shi-er&quot;&gt;十二&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P13 “我也曾这样祈求过神明，在地坛的老墙下，双手合十，满心敬畏（其实是满心功利）。但神明不为所动。是呀，凯撒尚且哀告无功，我是谁？古园寂静，你甚至能感到神明在傲慢地看着你，以风的穿流，以云的变幻，以野草和老树的轻响，以天高地远和时间的均匀与漫长......你只有接受这傲慢的逼迫，曾经和现在都要接受，从那悠久的空寂中听出回答。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;er-shi-yi&quot;&gt;二十一&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P21 “‘我们’和‘立场’很容易演成魔法，强制个人的情感和思想。‘文革’中的行暴者，无不是被这魔法所害——‘我们’要坚定地‘我们’，‘你们’要尽力变成‘我们’，‘我们’干吗？当然是对付‘他们’。于是沟壑越挖越深，衷心越表越烈，勇猛而至暴行，理性崩塌，信仰沦为一场热病。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《暴力拓扑学》读书摘录</title>
+        <published>2022-04-25T00:00:00+00:00</published>
+        <updated>2022-04-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/bao-li-tuo-bu-xue-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/bao-li-tuo-bu-xue-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;dao-yan&quot;&gt;导言&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P2 “暴力拓扑学首先要面对暴力的那些宏观表象，它们以排斥的形式登台亮相，即是说，它们在诸如自我与他我、内在与外在、朋友与敌人等两极化的紧张关系中得以发展，其表达方式通常都是表现式的、爆炸式的、群体式的、战争式的。远古的流血牺牲式暴力，嫉妒和复仇女神的神话暴力，统治者的杀戮暴力，刑讯暴力，皆属此类。宏观物理学上的暴力还采取一种更为精密的形式，比如通过语言暴力表现出来。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;宏观表象往往是以“排斥性暴力”的显现，但书中还提到“扩张性暴力”，脚注里也提及这二者亦译作否定性暴力和肯定性暴力。过于嘈杂的信息和交流压迫，即便不来源于他人的否定和对抗，也是一种暴力，而这种暴力在现代社会愈发变成主流。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P2 “伤害性语言所具有的暴力同物理（生理）暴力一样，向来以排斥性为基础，因为它具有污蔑性，它损人脸面，降人身份，或者夺人权利。排斥性暴力（negative Gewalt）与扩张性暴力（positive Gelwalt）是不同的，后者源于垃圾语言、过度交流和过多信息，即来自语言、交际和信息的成群积聚.”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P3 “今天的社会总是一再抹去他者或陌生人身上的排斥性。全球化进程恰恰加速了边界和差异的消失。排斥性的日益消除却并不等同于暴力的消失，因为除了排斥性暴力，还存在着扩张性暴力。实施扩张性暴力不需要敌对和统治关系。暴力不仅仅是过度的排斥，而且还意味着过度的扩张，也就是扩张性成群，它表现为过度的绩效、过度的生产和过度的交际，过量的关注和过分的积极主动。**扩张性暴力可能比排斥性暴力更为致命，因为它缺乏任何可视性和显见性，而由于其积极扩张，它还摆脱了免疫抵抗。**传染、病菌入侵和渗透这些排斥性暴力的典型特征，如今让位给了梗阻。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P3 “后现代的绩效主体之所以是自由的，因为它不受迫于一个自身之外的统治机关。事实上，它同服从主体一样不自由。外在的胁迫是克服了，可却产生了内在的压力。绩效主体发展出一种抑郁。&lt;strong&gt;暴力一直存在，分毫未减。它只是转移到了内心层面。君权社会里的斩首制度，规训社会里的畸变，绩效社会里的抑郁，都是暴力拓扑学变迁的不同阶段。暴力将会愈益内在化、心理化，并由此隐遁其形。它一再剥除他者或敌人身上的排斥性，变为直指自身。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-yi-bu-bao-li-de-hong-guan-wu-li-xue&quot;&gt;第一部 暴力的宏观物理学&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;bao-li-de-tuo-bu-xue&quot;&gt;暴力的拓扑学&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P10 “在血腥的戏剧里，君主的权力化身舞台上剑的权力，角斗表演于是成为帝王崇拜的一个本质组成部分。对杀戮暴力的夸张演绎，宣示了统治者的权力和荣耀......暴力在此毫无遮掩，它明显可见，它毫无羞耻，既不悄寂无声也不公然赤裸，而是意味深长，影响深远。无论在远古文化还是古希腊罗马时代，演绎暴力都是社会交往中一个不可或缺的核心组成部分。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P11 “前线代的君权社会是血亲社会，它的结束令暴力经受了一场拓扑式转变。如今它不再是政治交际和社会交往的一部分，它退回到次交际的、皮下的、毛细的、内在心灵的空间。它从可见转为不可见，从直接转为暗示，从生理转为心理，从战争式的转为居间的，从正面直击转为病毒性渗入。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P14 “后现代的绩效主体不屈从于任何人。它本来就不再是一个屈服顺从的主体。它积极扩张自己，解放自己，成为一个投射物（Project）。这种主体向投射物的转变其实并没有导致暴力的消失。取代外部强迫的，是自诩为自由意志的自我强迫。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;分析其发展&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P14 “这种发展与资本主义生产关系密不可分。自从生产达到一定的水平，自我剥削就远比受人剥削更有效果，功能更为强大，因为，与自我剥削相伴的是，&lt;strong&gt;感觉自己是自由的&lt;&#x2F;strong&gt;。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;bao-li-de-kao-gu-xue&quot;&gt;暴力的考古学&lt;&#x2F;h3&gt;
+&lt;p&gt;弗洛伊德认为死本能会制造出破坏性冲动，勒内·吉拉尔将暴力归因于模仿性对抗。韩举了竞争水和财欲两个例子来驳斥吉拉尔的观点。认为吉拉尔的“模仿性对抗”概念并没有把握暴力的本质。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P16 “竞争者之所以渴望水，并不是别人也喜欢水。暴力犯罪首先发生在对物的争夺上，这些物并非因为模仿性欲求才有价值，而是因为它们具有一种内在固有的价值。被争夺之物都是能够满足基本需求之物。吉拉尔的模仿理论用在财欲上也是说不通的。我想有钱，并不是因为别人也想有钱，并非模仿的欲求才让钱有了价值。钱是一个特殊的客体，因为它就是价值......模仿首先涉及的是象征层面，比如语言或行为模式，所以并不一定会引发暴力冲突。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;暴力与宗教&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P18 “暴力很可能是人类第一个宗教体验。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P19 “远古宗教是一种情结，是同（在外向化至神圣高度之后的）暴力彼此互动的结果。献祭就是最为重要的互动形式之一......在远古文化中，暴力扮演了宗教交流的主要媒介。与此同时，人们就在暴力的媒介中同暴力之神交流。一旦暴力被当作神性体验，那么与暴力的关系就迥然不同于从前了。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;惩罚是对复仇的合理化&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P24 “惩罚是对复仇的合理化，禁止了复仇的雪崩式膨胀，因为那会令复仇变得万劫不复。在远古社会，对暴力做出的唯一可能的反应就是以暴制暴。一个激进的的范式转移将惩罚体系同复仇体系区别开来。前者把暴力变成一种由个人承担的行为。它不再是非人格化的、以暴制暴的事件；它脱离了权力关系，被置于一个罪责关联当中。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P25 “惩罚性暴力（Strafgewalt）放弃了远古复仇中典型的不审而判，不再令暴力逍遥于一切监管之外。审判和定向（Richten und Richtung）彼此决定。惩罚体系遵循的并不是复仇逻辑，而是调解逻辑，而调解逻辑产生于客观的法律关系。就此而言，惩罚体系阻止了暴力肆意蔓延膨胀，因为它不同于复仇体系，它意不在制造暴力，而在预防暴力。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P26 “在现代社会，远古的暴力经济学并没有轻易消失。核军备竞赛遵循的正是远古的暴力经济学。潜在的毁灭力量像曼纳一样越积越多，为的是制造出力大无比和坚不可摧的感觉。从深层心理学层面看，远古时代的信仰——通过积蓄杀戮能力来逃避死亡——仍然奏效。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;巧合的是资本经济也显现出惊人的相似性，流进对于流血，大量财富聚集类比曼纳的手机。人们试图通过不断印刷钞票来逃避一些事情，比如经济危机。而拥有越多，人们就会有越多妄想，并认为自己掌控了越多能力来对抗死亡。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P27 “就连资本经济学也显示出同远古暴力经济学的惊人相似，不是制造流血，而是制造流金。在鲜血与金钱之间存在着一种相似的本质。资本的运作方式就像现代曼纳一样，你拥有的越多，就越强大，越坚不可摧，甚至越妄想长生不死。金钱从词源上就已经点明献祭和狂热崇拜之间的关系......于是乎，金钱也好，资本也罢，都成为一种对抗死亡的手段。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;亚里士多德提示人们，纯然的追求资本应该受到谴责，因为那样做只为求生存，而不求美好生活。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P29 “资本主义经济学把活下来编程绝对原则，不关心生活是否美好。滋养资本主义经济学的是一种幻象，即资本越多，生机越多，生存能力越大。将生与死蛮横地一刀切开，会为生活本身蒙上一件僵硬的幽灵外套。本该关注如何过上美好生活，却因担心活不下去而患了魔怔，或曰怕死癔病。&lt;strong&gt;把生活简化成生物的、生命机能的过程，让生活本身变得赤裸。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P30 “一个被怕死癔病笼罩的社会，是一个活死人社会，既不能生，也无法死。弗洛伊德也清楚这种致命的幸存辩证法，所以会用这样一句话为《合乎时代的战争与死亡》一文作结：‘&lt;strong&gt;如果你想生，那么就先面对死。&lt;&#x2F;strong&gt;’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《美国的反智传统》读书摘录</title>
+        <published>2022-04-25T00:00:00+00:00</published>
+        <updated>2022-04-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/mei-guo-de-fan-zhi-chuan-tong-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/mei-guo-de-fan-zhi-chuan-tong-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;xu-yan&quot;&gt;序言&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“通常的作者会在序言中所做的说明，我用了本书的前两章来完成：解释本书的缘起于目的，以及主要看法。但是在开头要先说清楚的是，我是用‘反智’此一主题贯穿全书来透视美国社会与文化中的若干面向。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;序言开头颇有“免责声明”的味道，可见作者起了这么个非常容易招致知识分子&#x2F;反知识分子抨击的题目，非常迫切希望澄清自己写作的目的和看法。因而看本书前两章，对比其他书籍虽有啰嗦，也值得耐下心来仔细阅读。&lt;&#x2F;p&gt;
+&lt;p&gt;下面写在序言末尾的这段话，作者引用了反理性诗人哲学家和诗人拉尔夫·爱默生的话，来阐述自己如何平衡“审视和批评自我”与“担心他人的故意曲解和夸大”。不要脸的贴近一下，回想在自己生活中，我其实也努力摆正这种周期性的自我审视，并且努力使它不被外界评论影响，不因害怕误用而畏惧。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“但这也可能令外国评论者有机可乘，因为他们经常会故意曲解夸大美国人这种自我批评的特性，来作证他们的既存偏见立场。然而，只因为害怕所做的自我检讨会被扭曲误用就畏缩，却是最糟的选择。因而，在此我要引用诗人拉尔夫·爱默生（Ralph Emerson）的话：‘让我们面对事实。我们美国就是一个肤浅的国家。伟人和伟大的民族不会自我吹嘘或是装傻，而是会诚实地站出来面对生命中地可怕之事。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-yi-bu-fen-xu-lun&quot;&gt;第一部分 绪论&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;di-yi-zhang-wo-men-shi-dai-de-fan-zhi-xian-xiang&quot;&gt;第一章 我们时代的反智现象&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P3 “虽然本书主要处理地是美国更早期地历史，但是当时勾起我的写作念头地却是 20 世纪 50 年代地政界及知识界地情况。在那十年间，一个以往很少听到的名词——反智（anti-intellectualism）成了我们全国人在自责和相互谩骂时常用的词汇。以往，人们不尊重思想的态度固然让美国的知识分子为之童心或气馁，但前所未见的是，知识圈外的大批人群怀有同样的忧虑，或者为了就这个问题进行自我批评而不惜发动一场全国性的运动。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;有关反智的定义。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P7 “何谓反智？它从来没被清楚地定义过，原因很多，其中一个就是&lt;strong&gt;它的模糊使它在争议中当标签使用时更方便&lt;&#x2F;strong&gt;......在本书中，我没有给它下一个狭窄严谨的定义，因为这样做很不合适。如果强行找出一个在逻辑上合理的定义，则在历史研究上会落于武断，因为这等于在一堆复杂的特质中挑出某一个来代表。正是反智的复杂性本身引起了我的兴趣——这种复杂性包含着有许多交点的不同态度与观念。将反智的这些态度与观念聚集起来的是**对思想生活、对被认为代表思想之人的生活所存有的怨怼与怀疑，和贬低这种生活价值的倾向。**我承认，这个说法很笼统，但如果真的要尝试定义反智，这就是我能想出的最有价值的答案。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P8 “最后，很重要的一点是搞清楚反智与哲学上的反理性主义（anti-rationalism）并不一样，否则会导致严重的误解。如尼采、索雷尔、亨利·柏格森、爱默生、沃尔特·惠特曼与威廉·詹姆斯，或是像威廉·布莱克、D.H.劳伦斯与海明威这些作家，他们的观念可称为反理性主义，但他们不是我在社会或是政治意义上使用‘反智’指的那种人......在本书中，我主要关心的是广泛的社会态度和政治行为，以及中下阶层人士对知识分子的看法，只有偶尔才会触及一些哲学上对智性的立场或理论。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《走吧——给L》北岛</title>
+        <published>2022-04-19T00:00:00+00:00</published>
+        <updated>2022-04-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/zou-ba-gei-l-bei-dao/"/>
+        <id>https://www.edwardzcn.me/Life/zou-ba-gei-l-bei-dao/</id>
+        
+        <summary type="html">&lt;p&gt;必将有人重写生活，还这世间一个清白。&lt;&#x2F;p&gt;
+&lt;p&gt;走吧，&lt;br &#x2F;&gt;
+落叶吹进山谷，&lt;br &#x2F;&gt;
+歌声却没有归宿。&lt;&#x2F;p&gt;
+&lt;p&gt;走吧，&lt;br &#x2F;&gt;
+冰上的月光，&lt;br &#x2F;&gt;
+已从河床上溢出。&lt;&#x2F;p&gt;
+&lt;p&gt;走吧，&lt;br &#x2F;&gt;
+眼睛望着同一块天空，&lt;br &#x2F;&gt;
+心敲击着暮色的鼓。&lt;&#x2F;p&gt;
+&lt;p&gt;走吧，&lt;br &#x2F;&gt;
+我们没有失去记忆，&lt;br &#x2F;&gt;
+我们去寻找生命的湖。&lt;&#x2F;p&gt;
+&lt;p&gt;走吧，&lt;br &#x2F;&gt;
+路呵路，&lt;br &#x2F;&gt;
+飘满了红罂粟。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《鼠疫》读书摘录</title>
+        <published>2022-03-30T00:00:00+00:00</published>
+        <updated>2022-03-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/shu-yi-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/shu-yi-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;《鼠疫》读书摘录&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;yi&quot;&gt;一&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P039 “‘我可知道。我也不需要化验。我有一段时间曾在中国行医，二十几年前，我曾在巴黎见到过几例类似病理。只是当时大家都不敢说出它的真实名称。公众舆论，神圣不可侵犯：不能恐慌，尤其不能恐慌。另外，正如一位同行所说：‘这不可能发生，大家都知道，这种病在西方已经绝迹。’是的，这事大家都知道，只有私人不知道。得了，里厄，您跟我一样清楚这是什么疾病。’&lt;&#x2F;p&gt;
+&lt;p&gt;里厄在思考。从诊室的窗口，他望着在远处环抱海湾的悬崖崖肩。天空虽然呈蓝色，但不打明亮，并在下午随着时间的流逝而渐渐暗淡。&lt;&#x2F;p&gt;
+&lt;p&gt;‘是的，卡斯泰尔，’里厄说，‘这几乎无法相信。但似乎很像鼠疫。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;er&quot;&gt;二&lt;&#x2F;h2&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《一个叫欧维的男人决定去死》读书摘录</title>
+        <published>2022-03-15T00:00:00+00:00</published>
+        <updated>2022-03-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/yi-ge-jiao-ou-wei-de-nan-ren-jue-ding-qu-si-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/yi-ge-jiao-ou-wei-de-nan-ren-jue-ding-qu-si-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;yi-ge-jiao-ou-wei-de-nan-ren&quot;&gt;一个叫欧维的男人&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P35 “欧维很明白为什么她的朋友都不理解她每天早晨醒来后愿意和他共度一天。他自己都不理解为什么。他为她搭了个书架，然后她用一页一页写满感情的书把它填满。欧维理解那些他看得见摸得着的东西。混凝土和水泥，玻璃和钢，工具——可以计算出来的东西。他理解直角和清晰的产品说明，可以画到纸上的东西。他是个非黑即白的男人。&lt;&#x2F;p&gt;
+&lt;p&gt;她是色彩，他的全部色彩。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;父亲对小欧维一样沉默少言，但他是统一的，“谁捡谁要”，面对汤姆对钱包的索取，他让小欧维自己决定。他还说，我们不是到处讲别人闲话的人。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P41 “欧维要是那种总是回头想一想自己是何时变成了现在这样的人，他大概会归结，就是那天，他学会了明辨是非。他记得，从那天开始，他决定尽可能做个和父亲一样的人，这样他就很满足。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;当下社会中的许多人对于“不发声支援弱者，不举报讨伐作恶人”的行为是唾弃的，他们认为这只是灾难还没有降临在这些无动于衷的人身上。但我从欧维父亲的行为准则中看到另一种可能，不到处讲别人闲话，将评价的空间留给事实，我们不主张，但我们负责任。想到《看见》，想到《闻香识女人》中作为目击者但不举报他人的查理，以及阿尔帕西诺饰演的上校在片尾那段精彩的辩论，这或许这就是一些人（并非特指西方人）所认同的观点，真实自有千钧之力。无言的事实只有一个，而在叠加人的主观感受后会不经意间衍生成不同人所坚信的“真相”，处理的最好方法，或许恰恰是本最不应该的沉默。&lt;&#x2F;p&gt;
+&lt;p&gt;欧维认同了父亲，在今后做事的时候想着“父亲会点点头”，就足够了。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P41 “父亲走的时候，他刚满十六岁。一节失控的车厢出了轨。除了一辆萨博、城郊几英里外一套破旧的房子和父亲那块变形的老腕表，欧维没有得到多少遗产。他从来没能正确解释那天对他来说到底发生了什么。但他不再快乐，之后许多年，他都没能快乐起来。&lt;&#x2F;p&gt;
+&lt;p&gt;葬礼之后，牧师要和他谈谈领养事宜，但欧维并不是从小在接受施舍的环境中长大的，牧师很快就意识到这一点。欧维还同时对牧师明确表示，之后可以预见的日子里，牧师也不用给他留着周日礼拜的位置了。并不是因为欧维不相信上帝，他对牧师解释，而是在他眼里，上帝就是个该死的狗崽子。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P42 “一刻钟后，总经理跑了出来，看着眼前这个坐在走廊靠背椅上的十六岁怪男孩，手里还拿着死去的爸爸留下的工资带。总经理清楚地知道这个男孩是谁。在终于确信无法说服这个男孩留下那笔在他看来不属于父亲的钱后，总经理只好当即雇佣欧维代替父亲来把本月剩下的活儿做完，除此之外，无计可施。欧维觉得这条件听上去合情合理，于是跟学校请假，说接下来的两周不能来上课。他再也没有回去。&lt;&#x2F;p&gt;
+&lt;p&gt;他在铁道上工作了五年。之后，一天早晨，他跳上了一列火车，与她初次相遇。这是父亲死后他第一次开怀大笑。从此以后，生活再也不一样了。&lt;&#x2F;p&gt;
+&lt;p&gt;人们总说欧维眼里的世界非黑即白，而她是色彩，他的全部色彩。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;yi-ge-jiao-ou-wei-di-nan-ren-zao-liao-yi-chuang-fang-zi&quot;&gt;一个叫欧维地男人造了一幢房子&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P81 “工地上的头儿喜欢这个勤劳的小伙子，一个星期五的午后，他带着欧维来到一堆剩余的木料跟前。那些受损的定制木料，即将扔进火堆。&lt;&#x2F;p&gt;
+&lt;p&gt;‘要是有些你能用上的，而我碰巧没看见，我就当你已经把它们烧掉了。’工头说完就走开了。&lt;&#x2F;p&gt;
+&lt;p&gt;修房子的流言在比他年长的同事之间不胫而走，好多人都过来询问。当他敲掉客厅里一堵墙的时候，一个精瘦且门牙歪斜的同事在数落了他二十分钟——说他有多愚蠢，为什么不想清楚再动手——之后。教会他如何估算承重墙受力情况。当给厨房铺地板的时候，一个壮实且少了一截小拇指的同事在叫了他三十几遍‘笨蛋’之后，教会他如何正确测量。&lt;&#x2F;p&gt;
+&lt;p&gt;一天下午，他正要收工回家的时候，发现衣旁放着一个装满旧工具的工具箱。‘给狗崽’，一张纸条上写着。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;yi-ge-jiao-ou-wei-de-nan-ren-he-yi-liang-shu-lin-li-de-qia-che&quot;&gt;一个叫欧维的男人和一辆树林里的卡车&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P136 “但对索雅来说，欧维从来都不阴沉、不尖锐，也不刻薄。对她来说，这就是他们第一次共进晚餐时那些有点褶皱的粉红色玫瑰。他把他爸爸有些紧身的棕色西装套在了自己宽阔的肩膀上。&lt;strong&gt;他对正义、道德、勤劳以及一个对错分明的世界深信不疑。并不是因为这样的人会赢得奖牌或证书，或者会被别人拍拍肩膀说声好样的，而是这样处世的人不多了，索雅知道。所以她想守住这个人。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P137 “之后，每当有朋友问她为什么会爱上他的时候，她都会回答，&lt;strong&gt;大多数人逃离火场，但欧维这样的男人冲向火场。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;yi-ge-jiao-ou-wei-de-nan-ren-he-yi-zhi-ben-lai-jiu-bu-cheng-yang-zi-de-mao&quot;&gt;一个叫欧维的男人和一只本来就不成样子的猫&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P160 “墓碑和猫都一言不发地待在他身边。欧维瞪着自己的鞋子看了好一会儿，嘟囔了一声，单膝跪到雪地上，又抹去一些雪，谨慎地把手搭在墓碑上。&lt;&#x2F;p&gt;
+&lt;p&gt;‘我想你。’他喃喃地说，眼眶中飞快地闪过一丝光芒。他感到手臂触碰到了什么柔软地东西。过了好一会儿，他才明白，是猫咪小心翼翼地把头埋在了他的掌心里。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《局外人》读书摘录</title>
+        <published>2022-02-14T00:00:00+00:00</published>
+        <updated>2022-02-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ju-wai-ren-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/ju-wai-ren-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;san&quot;&gt;三&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P85 “‘到底，他究竟是因为埋葬了母亲被起诉，还是因为杀了一个人被起诉？’众人都笑了。但是，检察官又站了起来，他披好了他的长袍，宣称：必须像这位可敬的辩护律师一样天真，才感觉不到在这两两件事之间，存在着一种深刻、悲怆、本质的关系。他鼓足了中气大声说：‘是的，我控诉这个人在埋葬一位母亲时包藏着一颗杀人犯的心。’”&lt;&#x2F;p&gt;
+&lt;p&gt;P85 “审讯结束了。走出法院登上囚车时，须臾之间我便辨识出了夏天夜晚的气息与色彩。在这辆移动的监狱里，黑暗中的我，仿佛从深深的疲倦中，一一听出了我所爱的城市在我感到心满意足的某一刻发出的所有熟悉的声响。在轻松的气氛中卖报纸的吆喝声，街心花园最后一拨的鸟鸣声，三明治摊贩的叫卖声，城市高处的弯道上电车的呻吟声，夜幕在港口降临之前天空的嘈杂声，这些声音为我重又勾画出一条闭上眼都能了然于心的路线——入狱之前我对这路线非常熟悉。是的，很久以前，这是我感到心满意足的时刻。那时，等待着我的，总是无梦的潜睡。然而时过境迁，我回到的是自己的单人牢房，等待着第二天的到来。仿佛画在夏季天空中熟悉的路径，既能通向地狱，也能通向纯真的睡眠。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;si&quot;&gt;四&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P89 “他说，他对我的灵魂很感兴趣，可从中一无所获——他告诉陪审员先生们。他说，实际上我没有灵魂，并且，没有丝毫的人性、没有任何一条留存在人们心灵中的道德准则能对我有所触及。他补充说：‘也许，我们不能因此而责备他。他不能习得做人的品行，我们也就无法抱怨他不具备这些东西。但是现在在这个法庭上，宽容的消极作用应该转为正义的至善，这更难做到，却更为高尚。尤其是此人心中的空虚，到了大家所发现的这等地步，会变成令社会衰亡的深渊。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《你当像鸟飞往你的山》读书笔记</title>
+        <published>2021-08-25T00:00:00+00:00</published>
+        <updated>2021-08-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ni-dang-xiang-niao-fei-wang-ni-de-shan-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/ni-dang-xiang-niao-fei-wang-ni-de-shan-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;xu&quot;&gt;序&lt;&#x2F;h2&gt;
+&lt;p&gt;巴克峰、父亲、童年。&lt;&#x2F;p&gt;
+&lt;p&gt;连绵山脉与芭蕾舞团般漫山遍野的野生小麦，局外人是浪漫与自由，局中人只会说：“这里有我的童年”。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P003 “父亲所有的故事都关乎我们的山，我们的山谷，我们呈锯齿状的爱达荷州。他从来没有告诉过我，如果我离开这座山，如果我飘洋过海，发现自己置身于陌生的地面，再也无法在地平线上搜寻那位公主时，我该怎么办。他从未告诉过我如何知道，我该回家了。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《我与地坛》读书摘录</title>
+        <published>2021-03-06T00:00:00+00:00</published>
+        <updated>2021-03-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wo-yu-di-tan-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/wo-yu-di-tan-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;wo-yu-di-tan&quot;&gt;我与地坛&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;er&quot;&gt;二&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“母亲生前没给我留下过什么隽永的哲言，或要我恪守的教诲，只是在她去世之后，她艰难的命运，坚忍的意志和毫不张扬的爱，随光阴流转，在我的印象重愈加鲜明深刻。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;wu&quot;&gt;五&lt;&#x2F;h3&gt;
+&lt;p&gt;上帝把漂亮和弱智这两样东西都给了她，就只剩无言和回家是对的。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“谁又能把这世界想个明白呢？世上的很多事是不堪说的。你可以抱怨上帝何以要降诸多苦难给这人间，你也可以为消灭种种苦难而奋斗，并为此享有崇高与骄傲，但只要你再多想一步你就会坠入深深的迷茫了：假如世界上没有了苦难，世界还能够存在么？要是没有愚钝，机智还有什么光荣呢？要是没了丑陋，漂亮又怎么维系自己的幸运？要是没有了恶劣和卑下，善良与高尚又将如何界定自己又如何成为美德呢？要是没有了残疾，健全会否因其司空见惯儿变得腻烦和乏味呢？我常梦想着再人间彻底消灭残疾，但可以相信，那时将由患病者代替残疾人去承担同样的苦难。如果能够把疾病也全数消灭，那么这份苦难又将由（比如说）相貌丑陋的人去承担了。就算我们连丑陋，连愚昧和卑微和一切我们所不喜欢的事物和行为，也都可以统统消灭掉，所有的人都一样健康、漂亮、聪慧、高尚，结果会怎样呢？怕是人间的剧目就全要收场了，一个失去差别的世界将是一潭死水，是一块没有感觉没有肥力的沙漠。&lt;&#x2F;p&gt;
+&lt;p&gt;看来差别永远是要有的。看来就只好接受苦难——人类的全部剧目需要它，存在的本身需要它。看来上帝又一次对了。&lt;&#x2F;p&gt;
+&lt;p&gt;于是就有一个最令人绝望的结论等在这里：由谁去充任那些苦难的角色？又有谁去体现这世间的幸福、骄傲和快乐？只好听凭偶然，是没有道理好讲的。&lt;&#x2F;p&gt;
+&lt;p&gt;就命运而言，休论公道。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;liu&quot;&gt;六&lt;&#x2F;h3&gt;
+&lt;p&gt;活着不是为了写作，写作是为了活着。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P016 ”我在这园子里坐着，我听见园神告诉我：每一个有激情的演员都难免是一个人质。每一个懂得欣赏的观众都巧妙地粉碎了一场阴谋。每一个乏味的演员都是因为他老以为这戏剧与自己无关。每一个倒霉的观众都是因为他总是坐得离舞台太近了。&lt;&#x2F;p&gt;
+&lt;p&gt;我在这园子里坐着，园神成年累月地对我说：孩子，这不是别的，这是你的罪孽和福祉。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;qi&quot;&gt;七&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“要是有些事我没说，地坛，你别以为是我忘了，我什么也没忘。但是有些事只适合收藏，不能说，也不能想，却又不能忘。它们不能编程语言，它们无法变成语言，一旦变成语言就不再是它们了。它们是一片朦胧的温馨与寂寥，是一片成熟的希望与绝望，它们的领地只有两处：心与坟墓。比如说邮票，有些是用于寄信的，有些仅仅是为了收藏。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《街拍，我的信仰》读书笔记</title>
+        <published>2021-02-15T00:00:00+00:00</published>
+        <updated>2021-02-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/jie-pai-wo-de-xin-yang-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/jie-pai-wo-de-xin-yang-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;p&gt;恰巧前两天春节假期，自己去合肥淮河路步行街初次尝试街拍。在霸都书局翻到这本书，就拿来读了读。尽管书里才讲“摄影这个职业不能心存偏见，虽然人非圣贤，但心存太多偏见的话，有时就会漏掉重要的素材”，我还是难免留下了对合肥这座城市“文化荒漠”的印象，索性把这一年书单的主题定为“生自荒漠，向往海洋”。其实，老庐阳城里有着不输金陵、长安、西南二城的文化气儿，少的可能是气息与人的关系。&lt;&#x2F;p&gt;
+&lt;p&gt;回到这本书，说来也有趣，我先认识的两位日本摄影师分别是植田正治与森山大道，二者的风格天差地别。植田老先生一辈子都走在为自己的艺术信条“搭建舞台”的路上，最富盛名的沙丘系列取景在鸟取县东北的大沙丘，和我自己也有几分缘分，恰是高中访学鸟取东高时参观过的地方。后来能在谢子龙看到他的作品展，也激动地忍不住模仿他的风格拍了几张。而森山大道，从这次所读书名也不难看出，风格要写实的多。对他而言，一切始于拍摄，终于拍摄。当然他自己也承认，自身风格和一般的摄影技巧有所偏离，特别是在度过了“青涩时期”后，他在拍摄过程中一定要把预设、主题等因素抛到脑后。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;Blog&#x2F;bg&#x2F;zhitian_01.jpg&quot; alt=&quot;zhitian_01&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;Blog&#x2F;bg&#x2F;zhitian_03.jpg&quot; alt=&quot;zhitian_03&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;很幸运能通过光影与文字认识他们两位艺术家，游走于塑造与记录之间。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;dian-dao-shui-bian-de-zhua-pai&quot;&gt;&lt;strong&gt;佃岛&lt;&#x2F;strong&gt; 水边的抓拍&lt;&#x2F;h2&gt;
+&lt;p&gt;学着让那些过去以为“毫无拍摄价值”的地方，进入到自己的镜头中。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P051 “......通过这两项工作，我明白了时间可以让一个人的意识接受彻底的洗礼，结果留下来的只有照片。在按下快门之后，印在胶卷上的景象会随着时间的流逝逐渐偏离本人当时的初衷。当然，按下快门的瞬间是我们脑中的记忆、美学、思考以及欲望的反映，然而被拍下来的一方却不知道，结果留下来的是这些不为所知的东西。”&lt;&#x2F;p&gt;
+&lt;p&gt;P053 “正因如此，今天拍摄佃岛，也是出于这种很随便的心情。十年后，或许会被后世夸赞‘这幅照片真美’。照片经历不同的时代，可以多次重生。换句话说，一切始于拍摄。比起在脑中左思右想、制造理由，不如索性多拍一些。理由这种东西，无论何时都可以找到很多。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《对青年数学家的建议》摘录的摘录</title>
+        <published>2020-10-30T00:00:00+00:00</published>
+        <updated>2020-10-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/dui-qing-nian-shu-xue-jia-de-jian-yi-zhai-lu-de-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/dui-qing-nian-shu-xue-jia-de-jian-yi-zhai-lu-de-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;只有平庸之辈才对自己的能力极为自信。你越强，你为自己所定的标准就越高——你能看见的工作超过自己手上研究的工作。许多未来的数学家会对于别的方向也有才能，也有兴趣，在开始数学生涯和从事其它事业之间会有艰难的抉择。伟大的Gauss曾在数学和语言学间动摇不定是出了名的，Pascal在年纪很轻时就放弃了数学而从事神学，而Descartes和Leibniz都同时以哲学家知名。也有些数学家如Dyson后来转变成物理学家，而另一些如Chandra和Bott则走了相反的路。&lt;&#x2F;p&gt;
+&lt;p&gt;过分孤立和内省都是危险的，把时间花在看起来无所谓的谈天上，并不真是浪费时间。&lt;&#x2F;p&gt;
+&lt;p&gt;多年来我建立了一系列的来自很多领域的例子，它们是一些能够做具体计算的例子，有助于使得一般理论容易理解。这些例子使你能够脚踏实地……一个好的例子是一个美丽的东西，它光芒四射又能说服人，它给人以洞察和理解，它是信念的基石。&lt;&#x2F;p&gt;
+&lt;p&gt;如果把数学研究和作出证明等同起来，那就错了。事实上，可以说数学研究的真正创造性的侧面是在证明阶段之前……如果把数学比喻成演戏，那么，就需要从思想开始，然后发展故事情节，写出对话，给出表演的指示，真正的演出才可以看成是证明，就是思想的执行……证明是创造性的想象力和批判性的推理间长期相互作用的最终产物。一个计划如果没有证明就是不完全的，但是没有有想象力的输入，这个计划就不可能启动。&lt;&#x2F;p&gt;
+&lt;p&gt;一个好的问题是有前提条件的：它是在某个背景下产生的，有自己的根。要想得到进展，就得要懂得这些根。自己找到的问题总是更好，这就是理由的所在。你应该去自己找问题，问自己找到的问题，而不是导师放在盘子里给你的问题。如果你知道问题是从哪来的，知道为什么要问这样的问题，就已经在求解的道路上走了一半。&lt;&#x2F;p&gt;
+&lt;p&gt;不要把“初等”和“容易”混为一谈……事实上，有许多定理为例，只要稍微精密复杂一点，就能使它的证明容易懂得多，而且把深藏其下的思想拿出来，而一个避免使用更复杂概念的初等处理反而会把正在进行的过程隐藏起来。同时，也要避免把细微精密与高质量等同起来……以为使用了别出心裁的、复杂的语言就意味着在做深刻的工作。
+如果你对于挫败感不习惯的话，数学就可能对你不是一个理想的职业。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《战争时期的日本精神史》读书笔记</title>
+        <published>2020-09-28T00:00:00+00:00</published>
+        <updated>2020-09-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/zhan-zheng-shi-qi-de-ri-ben-jing-shen-shi-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/zhan-zheng-shi-qi-de-ri-ben-jing-shen-shi-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;dao-du-yi-duan-zhi-bi-yao&quot;&gt;导读 异端之必要&lt;&#x2F;h2&gt;
+&lt;p&gt;译者谈鹤见俊辅。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;i “最后一次谈及鹤见俊辅，是在一家过分拥挤的意大利餐厅里。这是纽约 4 月的一个傍晚，我与坂本龙一斜对而坐。”&lt;&#x2F;p&gt;
+&lt;p&gt;“在一张餐巾纸上，我写下了几个日本知识分子的名字，丸山真男、加藤周一以及鹤见俊辅。在我有限的理解中，他们是战后日本社会的关键人物，他们的思想与行动塑造了一代人的成长。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;iv “他最重要的‘转向’研究也是如此。1959 年至 1961 年间，他与合作者完成了三卷本《转向》，追溯并讨论为何在战时日本，知识分子们，不论他们是马克思主义者、自由派，还是宗教人士，皆在国家权力的强制下，半强迫、半自愿地转变了思想。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;vii “专制，这种政治生活之癌，是如何一点点侵蚀一个健康肌体，而人们又是怎样丧失抵抗能力的。与德国、意大利不同，日本从未有过一个魅力四射的独裁者，一个总是掩藏于幕后的天皇与一群技术官僚，导致了这一切的发生。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;viii “教育也是如此，在小学与士兵的教育中，采用以天皇神话为中心的世界观，而高等教育则以欧洲为模板，相信天皇的权威要被限制在宪法之内。前者是‘显教’，后者则是‘密教’。在鹤见俊辅看来，明治时代的缔造者们设计了一套方案，希望‘显教’与‘密教’共存，彼此制衡，但最后显教部分吞没了密教部分。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;yi-xiang-1931-nian-zhi-1945-nian-de-ri-ben-qu-jin&quot;&gt;一 向 1931 年至 1945 年的日本趋近&lt;&#x2F;h2&gt;
+&lt;p&gt;几点随想奠定基调。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P001 “从现在开始，我要谈论的主题是，1931 年至 1945 年的日本精神史。在进入主题之前，我先说明几点随想。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;语言与信任&lt;&#x2F;strong&gt;：&lt;&#x2F;p&gt;
+&lt;p&gt;一个有意思的现象，说英语的日本人不值得信任。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P001 “1945 年至 1952 年美军占领日本期间，我曾就此再三向遇见的美国人说明。因此，对我来说，我希望各位在我试图谈论日本之际，对我所说出的话，都能稍打折扣，再予思考。”&lt;&#x2F;p&gt;
+&lt;p&gt;P002 “在我看来，借用欧化语言的表述，未必意味着思考本身的欧化。但由于在短期间内，从欧洲语言中借用如此之多的语汇，就某种意义而言，现代的日本人可说也变得难以了解自己。确实，就某个层面而言，我们已经失去自觉自身思维方式的思路。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;成为开端&lt;&#x2F;strong&gt;：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P002 “其次，我想强调的是，我希望这门课成为一个开端，借此让我们理解战争期间日本发生了什么，日本之外的地方又发生了什么，以及非战争期间的时代，日本和日本以外的地区发生过什么样的状况。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;脱离标准范式&lt;&#x2F;strong&gt;：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P003 “那些被当成脱离标准范式的现象，反而更能表现出该社会的文化特征。1931 年至 1945 年日本所发生的事情，不能视为明治初年以来，近代日本史中的一个偶发事件而加以抹杀。”
+“我们是经由错误成长，并且是经由自觉到我们所犯的错误中，包含的真理与价值而成长。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;历史的区分&lt;&#x2F;strong&gt;：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P003 “第四，以历史的区分而言，我们在此把第二次世界大战的肇始，设定于 1931 年中日战争（即九一八事变）的爆发。1931 年日本的陆军领导者再中国的满洲开启战端，并进而在这个地区建立日军的傀儡政权。这种方法对整个世界而言，实乃前所未见。因而后来也导致意大利的墨索里尼和德国的希特勒都加以仿效。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P004 “当然，倘若外国人对日本的兴趣仅仅是出于异国情调，他的爱好与观点必然维持在其出生国所受的各种文化熏陶。在这样的情况下与日本文化的接触，只是在其原本的各种价值观上，蒙上了一层日本文化的外衣，整个内涵依然没有改变。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;作者的观点，要了解日本文化“真貌”，空间结构下，将中、日、朝放到一起思考，还要再加上对应的时间结构，因而掌握日本再 1931 年至 1945 年漫长争战中的历史背景，就变得至关重要了。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P006 “如何诠释现代的事件，常因我们平时抱持的偏见而有所歧异......单靠被报道出的事并不足恃，因为未被报道的事也包含许多重要的事实。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;突然联想起《有所不为的反叛者》里所提及的“遗忘的重要性”，如果此处以孤岛表示历史显露出的部分，我们不应完全忽略潜藏在遗忘之海之下的真相。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;er-guan-yu-zhuan-xiang&quot;&gt;二 关于转向&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P007 “首先，我说明一下‘转向’的背景。1905 年日俄战争结束，对日本而言是个崭新时代的开端。自 1867 年明治新政府成立以来，约莫四十年间，日本国民都生活在必须攀登‘文明阶梯’——如果说真有这种东西的话——的使命感之中。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P008 “（反德川政府）运动的倡导者在权力实际转移之前，几乎都为理想捐躯了。例如，吉田寅次郎、桥本左内、坂本龙马、高杉晋作等人。其后，西乡隆盛、大久保利通、木户孝允等，被视为实现这些先烈的构想、成功地推翻德川幕府并建立新政府的重要人物。&lt;&#x2F;p&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;p&gt;在进入明治时代之后，这些志士们短期内依然保留着一种&lt;strong&gt;敏锐的自觉&lt;&#x2F;strong&gt;，清楚地意识到，参与推翻幕府运动中的精英分子都已不在人世。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;随着先驱入土，最为纯粹的那些思想或许也被带进了地底。后继者们最初还保持着敏锐的自觉与勤勉质朴的特点，但维系不久了。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P009 “在此，我不以明治维新为起点，而谈及幕末到日俄战争这段时间领导阶层的气氛，主要是想凸显明治时代的领导阶层，与承继其后的大正、昭和时代领导阶层的对比。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;日本借鉴中国古科考制度创立了基于学校入学考试制定的身份制度。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P010 “诚如罗纳德·多尔（Ronald Philip Dore）在《学历社会——新文明病》中所述，日本政府早在 1880 年就已经使用考试制度选拔公务人员。当时东京帝国大学法学院的毕业生，任职公务人员不需经过考试，并且保证一开始就能担任较高的职位。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;东 大 新 人 会，要了解东大新人会的重要性，首先建立起 1917 俄国革命对日本大学生产生了重要影响的认识。不过从作者的描述中，我读出了无奈学生太过年轻，领导人根源性改变初始想法仍然不变其领导地位，导致了集体的转向，这种转向在年轻一带中很难称得上背叛，因为他们认为本该如此。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P013 “1918 年 12 月，东京大学法学院的学生赤松克麿、宫崎龙介和石渡春雄创立了‘东大新人会’。组织纲领是由赤松起草，内容如下：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;吾人配合世界文化之势——人类解放的新趋势，并努力促进之。&lt;&#x2F;li&gt;
+&lt;li&gt;吾人致力从事现代日本之合理改造运动。”&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;最初&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P014 “这群新人会的成员对于 20 世纪 20 年代，组织共同阵线阻止军国主义的议题并不感兴趣。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;不久，创始人与初始成员纷纷转向，而他们的带动作用是可怕的。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;赤松克麿&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“不久，新人会的创始人和创始成员背离了社会主义运动，转而趋向国家社会主义。新人会创始人赤松克麿，1922 年加入日本共产党，其后又脱离共产党，1930 年出任社会民众党的总书记。此后，他开始阐述天皇的责任，认为天皇的责任就是保护国民的利益。这种观点导引他把‘九一八事变’的发生，和建立‘满洲国’的举动正当化。他已经在替日本寻找可以和定为国策的侵略中国政策并存的民主化与社会主义化的道路了。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;宫崎龙介&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“另一位新人会的创始人宫崎龙介，在太平洋战争发生前的时期，即以内阁总理大臣近卫麿公爵的密使身份进行活动，劝说中国国民党与日本合作。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;麻生久&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“新人会创始成员之一的麻生久，曾以 30 年代社会大众党重要领导人的身份，推动工会的领导人与倾向国家社会主义的改革派军官结合。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;佐野学&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“其他创始成员之中，以佐野学最为重要。他二十七岁时，以东京帝国大学毕业生的身份参加东大新人会。1933 年，他四十一岁，担任日本共产党的委员长，同时也是共产党的最高领导人，与同为中央委员委员的锅山贞亲，在狱中发表‘转向’的共同声明。”&lt;&#x2F;p&gt;
+&lt;p&gt;“佐野学与锅山贞亲撤回他们之前所有的主张：&lt;strong&gt;废除天皇制&lt;&#x2F;strong&gt;、&lt;strong&gt;赋予包括被殖民的各民族在内所有民族的自治权等&lt;&#x2F;strong&gt;；并且，他们也撤回了原本所有论点的总结——&lt;strong&gt;反对日本政府的‘九一八事变’政策&lt;&#x2F;strong&gt;。他们改口说，要从苏联的桎梏中解放自己，对天皇及其所代表的文化价值表示尊敬，以发展日本的社会主义。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;佐野学，日共当时的最高负责人，并没有因立场的改变，而提出退党申请。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P016 “佐野与锅山的共同声明发表后，‘转向’一词变成那个时代的流行语。这个词汇被一般民众纳入日常生活用语之中。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;一段插曲，“转向”词汇的诞生，本是“方向转换”的缩写，但是提出不同词汇的两个人思想主张却又不同。&lt;&#x2F;p&gt;
+&lt;p&gt;明治社会主义者山川均发表《无产阶级运动的方向转换》，提出前卫分子必须回到无产阶级群众中。而德国研学回国的福本和夫则批判山川的 i 昂发，他认为共产主义者应该自觉本身的思考方法，并使之转向，以此对同时代的社会能有所行动。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“于是‘方向转换’被缩写而产生‘转向’一词，意指人妖自觉其自身思索的过程，并给予符合自身思想水准的新方向。也就是说，在这个意义下，‘转向’之前的思想是一种顺从社会习惯行动的惰性思想。”&lt;&#x2F;p&gt;
+&lt;p&gt;“在学生间成为流行语的‘转向’一词，后来被依《治安维持法》设置、对危险言行进行调查的思想警察所采用......被置身在这种技巧下受到诱导的青年，虽然以前依循福本和夫定义的转向之路前进。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P017 “这就是 20 世纪 30 年代以后，‘转向’一词被纳入日本日常用语，并广泛使用的整个历史经纬。主要的意义在于，在国家权力之下造成思想的转变是可能发生的。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;转向还是背叛？&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P018 “至于‘背叛’——这个词带有明显的贬损意味。有人向警察秘密告自己以前的同志时，就用这个字眼，这种场合或许可以称作背叛。然而，如果我们将 1931 年至 1945 年日本所发生的转向现象，一律都已‘背叛’的恶名统称的话，我们就会丧失&lt;strong&gt;从谬误中发掘真理的机会&lt;&#x2F;strong&gt;。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;后面这段话也是我读的时候的感觉，以家国之转向反过来思考人生的‘转向’。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P019 “我不断地问自己下面的问题：在漫长的人生中，有人能不经历‘转向’的吗？导引这些人‘转向’的条件是什么？他们如何将他们的‘转向’正当化？经历过战争后，回顾‘转向’的时候，他们是怎么思考的？&lt;&#x2F;p&gt;
+&lt;p&gt;在我看来，这些问题在我们研究 1931 年至 1945 年间的日本时，是极为重要的。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《计算机程序设计艺术卷1》读书笔记</title>
+        <published>2020-09-10T00:00:00+00:00</published>
+        <updated>2020-09-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ji-suan-ji-cheng-xu-she-ji-yi-shu-juan-1-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/ji-suan-ji-cheng-xu-she-ji-yi-shu-juan-1-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;p&gt;这本“圣经”体量太大，所以笔者只记录自己想记录的或者有必要记录的。&lt;&#x2F;p&gt;
+&lt;p&gt;根据作者所提整套丛书的内容总览，卷 1（基本算法）可以看成整套丛书的交集，包含了其他卷都需要用到的基本内容，不仅可以作为阅读其他各卷的参考书，还可以用作一些课程的教材，比如离散数学（1.1 节、1.2 节、1.3.3 节和 2.3.4 节），数据结构（主要是第 2 章）。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《我执》读书笔记</title>
+        <published>2020-07-16T00:00:00+00:00</published>
+        <updated>2020-07-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wo-zhi-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/wo-zhi-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;P006 “《我执》写的，正是一种极度强烈的‘有我’的文学；《我执》记录的，正是唯有透过这种‘有我之境’才会出现的奇异景致。”&lt;&#x2F;p&gt;
+&lt;p&gt;P014 “《我执》有浓厚的忏悔录风格，哪里来自奥古斯丁哪些来自卢梭，无法一一细表。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月一日 题解&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P003 “我知道了；这一切谎言与妄想，卑鄙与怯懦。它们就像颜料和素材，正好可以涂抹出一整座城市，以及其中无数的场景和遭遇。你所见到的，只不过是种偶然。握的越紧越是徒然。此之谓我执。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月三日 不可分类者&lt;&#x2F;p&gt;
+&lt;p&gt;归类，你又属于哪一类呢？&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P038 “所谓归类，其实就是我们常常会被问到的：‘你喜欢哪一类型的人？’似乎在我们爱一个人以前，首先爱的是一个类型，一种体相，一种性格和特质。这样的类型也许像柏拉图的‘理型’，不存在于此世，只能再脑海之中飘浮。”&lt;&#x2F;p&gt;
+&lt;p&gt;“理想的类型。顾名思义，在理想的世界里面”。&lt;&#x2F;p&gt;
+&lt;p&gt;“可是或许有那么一刻，我们会发现一个不能归类的人，甚至与理想的类型完全沾不上。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月四日 禁欲&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P40 “对于知识与智能，吾人也不应滥情，随意张口就说：‘我爱智慧’；反该默默地谦卑地爱他，自己构想那最终地完美结局。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月五日 真理&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P41 “当恋人在对方的身上看到了纯真，他就会以为自己得到真理，他以为自己看到了别人看不见的真实，拥有了一座他人既没发现更不理解的隐秘花园。”&lt;&#x2F;p&gt;
+&lt;p&gt;P42 “在真实与虚伪之间往复，在信与不信之间来回，这是恋人和信徒共有的特征。上一刻仍沉浸在出魂的狂喜之中，下一刻瞬即被冷漠刺醒。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月六日 树犹如此&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P44 “一棵树的长成，是多么不容易呀。释迦牟尼总爱以树取喻，从其种子的抽芽开始说起，再看根部的延展深入，再到枝干的茁长，树叶的繁茂，花开花落，结实果熟，恰好是生命的循环，更是无数因缘（如阳光，雨水和空气）凑合的成就。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月七日 解谜&lt;&#x2F;p&gt;
+&lt;p&gt;爱与被爱着的关系——主奴辩证法。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P45 “你控制了我的身心，不过我看穿了你的真实。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;八月九日 真名&lt;&#x2F;p&gt;
+&lt;p&gt;请呼唤，我的真名。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P51 “奇幻小说的忠实读者，想必都知道‘真名’是怎么回事。传说世界万物俱有真名，一种呈现其真实本质的名字，与一般表面的名字不同，由于它掌握了事物最核心的秘密，所以必须密藏起来，隐而补彰。只有别具慧心天赋异禀的人和经过修炼的魔法师才能找到这个名字，并且呼召它，从而操控事物运行的轨道。”&lt;&#x2F;p&gt;
+&lt;p&gt;“这就是为什么法师可以呼风唤雨了，因为我们凡人只知风叫做‘风’雨叫做‘雨’，但法师知道风和雨真正的名字，他知道它们的本质是什么。”&lt;&#x2F;p&gt;
+&lt;p&gt;P52 “其实这不是小说家们凭空捏造的幻想，而是一种源远流长的信念变形……”&lt;&#x2F;p&gt;
+&lt;p&gt;“恋人也相信真名的魔力，他们总不满足于对方表面的名字，那些人尽皆知、身份证上工整打印的通名；他们喜欢别造昵称，觉得这才是对方的核心。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《孤独六讲》读书笔记</title>
+        <published>2020-07-02T00:00:00+00:00</published>
+        <updated>2020-07-02T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/gu-du-liu-jiang-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/gu-du-liu-jiang-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;liang-ban-xu-yan&quot;&gt;两版序言&lt;&#x2F;h2&gt;
+&lt;p&gt;早期哲学思想上的不同造成了如今“孤独”在中西方文化中含义的不同。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“西方从‘太阳’、‘唯一’发展出‘孤独’这个词，产生类似庄子哲学‘独与天地精神往来’的自负的孤独感”&lt;&#x2F;p&gt;
+&lt;p&gt;“汉语从儒家人际伦理的缺失发展出‘孤独’二字，总使人哀婉悲悯。”&lt;&#x2F;p&gt;
+&lt;p&gt;“两个不同的文化，从语文开始，赋予了‘孤独’不同的生命意涵。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;序言谈柏拉图的《飨宴篇》，现今的人类都是不完整的，在神的惩罚下，每个人都被劈成了两半，终其一生去寻找本该完整一体。按照作者的理解，《飨宴篇》核心主题在探讨“Eros”——纯粹的肉身之爱，在爱欲渴望中孤独摸索的真情实感。有孤独，但是最物质的“孤独”，当然也最易缺失，最重要。所以作者将相关的内容放置在开头部分《情欲孤独》。不过，作者想谈的“孤独”不仅于此，孤独不一定是某种缺失，或是寻找，也是对自己的尊重。“明白你是谁，成为你自己”，正如新版序言最后所写到。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“你要足够完整，才能健康地去爱其他的人，去照顾和负担其他的人。”&lt;&#x2F;p&gt;
+&lt;p&gt;“孤独的核心价值是——跟自己在一起。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;旧版自序是蒋勋于二〇〇七年所写，比新版序言内容略少，看起来更像是杂糅了不同“孤独”的含义。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“美学的本质或许就是孤独。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;语言联通生活，却沟通浮于表面，语言是孤独的。&lt;&#x2F;p&gt;
+&lt;p&gt;革命颠覆社会，却最终在废墟上流泪，革命也是孤独的。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“我的对话只是自己的独白。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《Minecraft诞生纪录片》观后感</title>
+        <published>2020-06-14T00:00:00+00:00</published>
+        <updated>2020-06-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/minecraftdan-sheng-ji-lu-pian-guan-hou-gan/"/>
+        <id>https://www.edwardzcn.me/Life/minecraftdan-sheng-ji-lu-pian-guan-hou-gan/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;So, do you have any words of advice to people out there that, you know, trying to become an indie developer?
+所以你有没有给那些人们一些建议，比如鼓励他们努力成为一个独立开发者？&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Notch 的建议&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I think that the best advice I can give everyone is, &quot;Don&#x27;t listen to advice&quot;, buf if you are going to listen to advice, then making sure you actually do something is good advice. If you just sit around planning something and not doing it, you&#x27;re not actually gonna get anywhere.
+我想给每个人最好的建议是，“不要听他人的建议”，如果你一定要听的话，那么实实在在做事就是好建议。如果你只是坐着空想而不做，那么你什么都不会收获。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《武汉人》读书摘录</title>
+        <published>2020-06-14T00:00:00+00:00</published>
+        <updated>2020-06-14T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wu-yi-ren-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/wu-yi-ren-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;我没读过《武汉日记》，但我读完了《武汉人》。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;di-yi-bu-fen-wu-yi-zhe-ge-di-fang&quot;&gt;第一部分 “武汉这个地方”&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;wu-yi-zhe-ge-di-fang&quot;&gt;武汉这个地方&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P1 “武汉这个地方一直被人们称做‘江城’。它之所以有着如此的称呼，自然是因为它坐落在中国最大的河流长江之滨的缘故。其实将武汉称做‘湖城’也是不错的。它是‘千湖之省’湖北省的首府，环绕着它的湖泊至少也有一百个左右。这些湖泊便如明珠或玉佩劈挂在武汉的身上，有风吹过时，你说不定会听到它满身叮当作响的声音。旧居的老人们能听得出，那是江之涛和湖之浪因风的撩拨而发出的回应。”&lt;&#x2F;p&gt;
+&lt;p&gt;P2 “三镇的风格不知是哪一年定下的，或许始自张之洞督鄂的时候。虽说现在已随时间的推移和都市的现代化而发生了莫大的变化，但是这种特色却仍明显地存在着。”&lt;&#x2F;p&gt;
+&lt;p&gt;P3 “同许多著名的大都市一样，武汉不仅是个商业都市，也是个工业基地和科研基地。它有着沧桑往事，也有着血泪历史；有着租界之耻辱，也有着反抗之传奇；有着建设高潮，也有着‘文革’笑话；有着英雄，也有着娼妓；有着水一样的车辆和虹霓不眠的夜晚，也有着豪华的酒店和热闹的超市；有着绿树红墙，也有着环境污染；有着平静和美，也有着暴富赤贫。总之，现代都市们所享有的繁华先进和与之并存的都市诟病，武汉也都不差少。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;yi-ge-ren-he-yi-zuo-cheng-shi&quot;&gt;一个人和一座城市&lt;&#x2F;h3&gt;
+&lt;p&gt;张之洞成就了武汉，武汉也成就了张之洞。他在人生最成熟的年纪抵达武汉，将所有经历积淀成实业，推动了武汉近百年的发展历程。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P6 “历经了清流党的高谈阔论，历经了山西巡抚的兴革岁月，历经了两广总督的对法作战，阅历早已促使张之洞由一个空谈者成为一个实干家。武汉这个潜力无限的场地便成为他的收功之地。张之洞督鄂十九年，他成就了武汉，而武汉也成就了张之洞。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;汉阳炼铁厂成为中国最早的官办钢铁企业，为武汉的工业基础作了最初也是最重要的奠基。芦汉铁路的四通八达、“汉阳造”像如今的“Made in China”一样打响名号，还有“张公堤”、“自强学堂”等一系列对武汉民生、教育事业影响深刻的举措。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P8 “张之洞所做的这一切，用两个字形容，就叫‘&lt;strong&gt;开放&lt;&#x2F;strong&gt;’。在一个人存政兴、人亡政熄的年代，张之洞全然以他个人的能量使得地处内地、经济封闭保守的武汉拥有它生平最大的一次起飞。”
+“可以说，张之洞当年的政绩至今仍影响着武汉，而时间却已经过去了百年。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;在离开武汉后，他的门生们兴建纪念性楼堂，以追忆张之洞之政绩，那时他还没有撒手而去，在世者被世人所纪念，是无数为政者梦寐以求的事情。然后他却说“点缀名胜，眺览江山，大是佳事，何必为区区一迂儒病翁乎。”谦逊可见。&lt;&#x2F;p&gt;
+&lt;p&gt;而方方是这样解释为何从此一人讲起武汉的。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P10 “站在张公堤上，心里充满对这个人的感佩，就觉得要写武汉近百年间发生过的故事，必须从这个人写起，必须从这道堤写起。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《有所不为的反叛者》读书摘录</title>
+        <published>2020-06-03T00:00:00+00:00</published>
+        <updated>2020-06-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/you-suo-bu-wei-de-fan-pan-zhe-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/you-suo-bu-wei-de-fan-pan-zhe-du-shu-zhai-lu/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/Life/you-suo-bu-wei-de-fan-pan-zhe-du-shu-zhai-lu/">&lt;p&gt;又回到那个读史都会碰到的问题：“历史有什么用？”&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P001 “历史学系的学生和教师最怕被问到，偏偏又被问得最多的一个问题，是‘历史有什么用’。其实这是一个&lt;strong&gt;伪问题&lt;&#x2F;strong&gt;，历史是人类精神的基本构造，是人类的思维形式，离开了历史就不会有人类的思维。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;不过多一个字的另一个问题——历史学有什么用？&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P001 “历史是对过去的讲述，无比巨大、混沌一团的过去中被赋予了秩序和意义并且被讲述出来那很小很小的一部分，才是我们所说的历史。被讲出来的历史就不再等同于过去；过去的无数方向、无数现缩被简化成历史的单一方向和单一线索，&lt;strong&gt;过去无可计数的参与者被简化为少数人群及其精英&lt;&#x2F;strong&gt;，主人公和中心人物出现了，目的和意义诞生了。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;想起了过去写作文，从杂乱无序的文字与流水账式记录中，加工出核心人物，中心思想，要体现目的和意义。但历史不是文学创作，似乎历史的确需要梳理，可梳理裁剪的历史应该被如何看待？加粗字与“少数人的历史不是历史”有何差别，可能我还需要岁月磨砺与阅读积累才能理解吧。&lt;&#x2F;p&gt;
+&lt;p&gt;回到历史学。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P001 “从过去中选择原料、组织模型和生产历史，是人类最古老、最基本的智力活动，面对历史的生成、演变、发展和应用这个过程进行考察的学科就是历史学。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;谈历史学家的三大美德。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P002 “历史学家有三大美德：&lt;strong&gt;批判&lt;&#x2F;strong&gt;、&lt;strong&gt;怀疑&lt;&#x2F;strong&gt;和&lt;strong&gt;想象力&lt;&#x2F;strong&gt;。”
+...
+“我们面对旧的史学知识，首先需要的是批判和怀疑。批判性思维是人类理性的基础，历史思维的价值就在其批判性。可以说，我们熟悉的历史，包含着大量的神话与伪史，其中有些将会被揭穿，剔除和取代，有些则因史料匮乏，证据单一而使质疑者无可奈何。怀疑与批判的美德使我们不仅用于揭破神话、创造新知，而且有助于我们在那些暂时难以撼动的新老神话面前保持警惕、保持距离。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;历史的论辩是一种不同意，一种对已有论述的质疑、纠正、提升或抗争，实在过去的混沌中重新发现或发明关联、模式、意义与秩序。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P003 “如果沉浸在已有论述中不加怀疑、不加批判，那就成了旧历史的囚徒，就失去了选择的能力。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《看见》读书摘录</title>
+        <published>2020-05-25T00:00:00+00:00</published>
+        <updated>2020-05-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/kan-jian-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/kan-jian-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;xu-yan&quot;&gt;序言&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“要想‘看见’，就要从蒙昧中睁开眼来。”
+“这才是最困难的地方，因为蒙昧就是我自身，像石头一样成了心里的坝。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-yi-zhang-bie-dang-liao-zhu-chi-ren-jiu-bu-shi-ren-liao&quot;&gt;第一章 别当了主持人就不是人了&lt;&#x2F;h2&gt;
+&lt;h2 id=&quot;di-er-zhang-na-ge-wen-re-de-tiao-dong-jiu-shi-huo-zhao&quot;&gt;第二章 那个温热的跳动就是活着&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P34 “九年后，再看二〇〇三年对他的采访，那时候我还不能明白这个人为什么说话语速这么慢，脸上一点表情都没有。现在我理解了，那是沉痛。”
+“我用了很长时间说服他接受参访。我说：‘你不用作什么判断和结论，只要描述你看到、听到、感觉到的，就可以了。’”
+“在电话里，他沉默了一下说：‘回忆太痛苦了。’”
+“‘是，’我说，‘但痛苦也是一种清洗，是对牺牲人的告慰。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;恐慌，是最可怕的吗？&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P38 “我做的节目播出后，有同行说：‘你们在制造恐慌。’当时我身边坐着时任《财经》杂志主编的胡舒立，她说：‘比恐慌更可怕的是轻慢。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-san-zhang-shuang-cheng-de-chuang-shang&quot;&gt;第三章 双城的创伤&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P55 “它们没有被呈现，这是一个新闻媒体的‘政治正确’。我们叙述了一个事情的基本框架，但只是一个简陋的框架，以保护大众能够理解和接受这个‘真相’。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;当柴静对采访小男孩不抱希望时，不曾想正是因为几个月前的非典报道，成了两人相互信任的突破口。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P42 “我不抱希望地问了这么一句，但他说：‘我愿意’。”
+我蹲在地上，有一秒钟没回过神，居然问他：‘为什么？’
+他说：‘因为我看过你关于非典地报道。’
+几个月前做非典报道得到的所有荣誉称赞，都比不上这一句。&lt;&#x2F;p&gt;
+&lt;p&gt;P55 “对人的认识有多深，呈现才有多深”
+“做这期节目的时候，我对人的了解还远远不够，只下了个简易的判断。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;故事的末尾，终于不再是那句“让我们期待一个民主与法治的社会早日来到”。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P56 “一分多钟，我怔怔地看着他地背影，都没有意识到镜头已经摇回来对着我了，直到海南轻声说‘说点什么’，我愣了一下，说了我的感受：‘看着孩子在采访中离开，我们知道他还有很多话没有说出来，也许那些话才是服毒地真正原因，双城事件调查到最后，我们发现，最大的谜，其实是孩子的内心世界，能不能打开它，可能是每个人都需要面对的问题。’”
+“这个一分四十四秒的长镜头用在了节目结尾，后来在我的职业生涯中常被提起，说这时镜头前的即兴评述能力什么的。但这个段落，对我来说，跟那些无关，它只是撬起了深扎在我头脑里的一根桩子。之前我坐在演播室里的时候，总认未结尾的评论必须是一个答案，说出‘让我们期待一个民主与法治的社会早日来到’才可以收拾回家，**就好像这演播室只是一个布景，我只是在表演一个职业。**我从来没想过一个节目会以无解来结尾，一直到我明白真实的世界即是可能如此。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《文化商人——21世纪的出版业》读后感</title>
+        <published>2019-12-26T00:00:00+00:00</published>
+        <updated>2019-12-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wen-hua-shang-ren-21shi-ji-de-chu-ban-ye-du-hou-gan/"/>
+        <id>https://www.edwardzcn.me/Life/wen-hua-shang-ren-21shi-ji-de-chu-ban-ye-du-hou-gan/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/Life/wen-hua-shang-ren-21shi-ji-de-chu-ban-ye-du-hou-gan/">&lt;p&gt;以英美出版业为首的英语世界出版业的确与我所了解到的中国出版界大有不同。首先是分工的细化，或许是历史上对知识产权的重视，英美很早就有了著作代理人这样的角色，成为著作人和出版商之间的桥梁，这一角色是书本第二章主要介绍的内容。出版社，集团等概念也充分反映出整个行业的细化，而这些是我从未了解过的（或许也是因为我并不属于这个行业，对中国出版业了解不深）&lt;&#x2F;p&gt;
+&lt;p&gt;读完之后顺便咨询了些文新院的同学，毕业以后做编辑，进入出版业的同学有多少？所有人的回答都是，不多。学姐A：“学长学姐以及他们这一届很少去当回复的”，学姐B：“应该有吧，但是我身边没有，实习有一些对口的岗位”，学姐C咨询了一下她的辅导员，回复说：“身边没有，整个年级数量也不多，差不多10来个人吧”。对比整个年级近200人的数量，也是非常小众的一部分人。而同届同学D则回复：“没有了解过，应该有的吧。我们大部分毕业了是去读研，很少是直接工作的。专业内想当老师的偏多，当然想去新媒体或者新闻行业的也有。” 像我所在层级的学校步入这个行业的都很少，也可以从一个侧面反映出我国出版业整体人才吸引力不足。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《Justice公正》桑德尔教授公共课观后感+读书摘录</title>
+        <published>2019-08-29T00:00:00+00:00</published>
+        <updated>2019-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/justicegong-zheng-sang-de-er-jiao-shou-gong-gong-ke-guan-hou-gan-du-shu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/Life/justicegong-zheng-sang-de-er-jiao-shou-gong-gong-ke-guan-hou-gan-du-shu-zhai-lu/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;di-yi-zhang-zuo-zheng-dang-de-shi&quot;&gt;第一章 做正当的事&lt;&#x2F;h2&gt;
+&lt;p&gt;对于灾患情况下一些物价被抬长，反价格欺诈法的出现在人群中出现了一些争论声，以“查理”飓风袭击美国为例，有的人反对，这样讲到，&lt;strong&gt;“根据市场所产生的价格索价，不是欺诈，也不是贪婪或无耻之举，而只是物品和服务在自由社会中分配的方式。尽管价格暴涨着实令人恼怒，但这些愤怒并不构成干涉自由市场的”正当理由。高价格才能促使更多的生产流入患灾地区。”&lt;strong&gt;而另一些人则维护反价格欺诈法，&lt;&#x2F;strong&gt;“在危急关头，比如当人们逃命时，或者在飓风后为家人寻求基本日用品时，在索要过高价格，政府不能袖手旁观。”&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;关于反价格欺诈的争论引发了一些道德和法律相关的棘手问题：物品和服务的销售商利用一场自然灾害，根据市场需求随意定价，这是否是不正当的？如果不正当，那么法律应当做些什么呢？政府是否应当禁止价格欺诈——即使这样做干涉了购买者和销售者的交易自由。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;fu-li-zi-you-yu-de-xing&quot;&gt;福利、自由与德性&lt;&#x2F;h3&gt;
+&lt;p&gt;法律的出台，制定的问题，以及我们如何组织一个社会，这些都是关于公正（Justice）的问题，想要解答它们，我们必须探索公正的含义。&lt;&#x2F;p&gt;
+&lt;p&gt;有些人对于反价格欺诈法的争论，背后的福利、自由的问题以及一些人们对于这些话题（尽管他们没有切身受到飓风影响）所表达出来的情绪波动，都表征着背后的一种我们潜意识里的道德论证。&lt;&#x2F;p&gt;
+&lt;p&gt;我个人觉得尽管潜意识里已经进行过自我的道德论证，对于深入的讨论，对社会有贡献的讨论，我们有必要将这种论证明确化，以避免其仅出自一种本能的、直觉的反应。这种情绪常被看做是一种原始的、不应当干涉公共政策或法律的感情。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;雅各比：“把商贩们看做魔鬼并不能加快弗罗里达重建的脚步。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;政治哲学中一个重要问题：一个公正的社会应当努力推进其公民的德性吗？或者，法律是否应当在各种德性观念中保持中立，以使公民们能够自由地为自己选择最佳的生活方式？&lt;&#x2F;p&gt;
+&lt;p&gt;传统观点认为，对于这一问题的不同解答区分了古代和现代的两种政治思考。在某种意义上是对的，亚里士多德教导我们公正意味着给予人们所应得，我们不得不决定哪些德性值得尊敬和奖赏，&lt;strong&gt;如果不首先反思哪种是人们最想要的生活方式，我们就不能弄明白什么是公正的宪法&lt;&#x2F;strong&gt;。对他而言，法律不可能中立于良善生活的各种问题。&lt;&#x2F;p&gt;
+&lt;p&gt;与此相对，现代政治哲学家们——从 18 世纪的伊曼纽尔·康德（Immanuel Kant）到 20 世纪的约翰·罗尔斯（John Rawls）——认为，&lt;strong&gt;那界定我们各种权利的公正原则，应当不依赖于任何特殊的德性观念或最佳生活方式的观念&lt;&#x2F;strong&gt;，反过来讲，一个公正的社会应当尊重每个人选择它自己的关于良善生活观念的自由。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《电子产业兴衰史》读书笔记</title>
+        <published>2019-04-15T00:00:00+00:00</published>
+        <updated>2019-04-15T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ri-ben-dian-zi-chan-ye-xing-shuai-shi-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/ri-ben-dian-zi-chan-ye-xing-shuai-shi-du-shu-bi-ji/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/Life/ri-ben-dian-zi-chan-ye-xing-shuai-shi-du-shu-bi-ji/">&lt;h2 id=&quot;di-1zhang-yi-ge-da-chan-ye-zheng-zai-cong-xiao-shi&quot;&gt;第1章 一个大产业正在从消失&lt;&#x2F;h2&gt;
+&lt;p&gt;ICT产业得贸易赤字额与天然气增加得进口额持平&lt;&#x2F;p&gt;
+&lt;p&gt;2000年之前作为令战后新兴经济体骄傲得两大出口商品是电子产品和汽车，然而当来到21世纪，两个产业的发展却是南辕北辙。&lt;&#x2F;p&gt;
+&lt;p&gt;1991年，处于泡沫经济下的，当时媒体还给出如下的评述：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P002 “继汽车之后，电子产品成为了赚取外汇的又一大得力干将。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;关注两产业的贸易收支也可以明显观察到，2000年之前二者可谓势均力敌，但在之后汽车的贸易顺差虽然出现了大幅波动（受一定经济危机的影响），但总体趋势还是上升的，在2013年仍然保证了12万亿元的顺差，而电子产业确实逐渐走低，2013年彻底转变为贸易赤字。&lt;&#x2F;p&gt;
+&lt;p&gt;这里需要区分书中几个常见缩写&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;ICT&lt;&#x2F;code&gt;：（Information and Communication Technology，信息技术与通信技术）。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;电子产业&lt;&#x2F;code&gt;：在国民经济计算中主要用来衡量电子产品&lt;strong&gt;制造业&lt;&#x2F;strong&gt;的发展情况。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;信息通信产业&lt;&#x2F;code&gt;：在总务省以及其他机构的统计中，主要用来表现整个信息通信产业的附加值（主要以邮政、报纸、出版、广告等），与电子产业关系密切。&lt;&#x2F;p&gt;
+&lt;p&gt;虽然根据总务省的相关调查统计结果，信息通信产业和电子产业对名义GDP的贡献以及产值、进出口等都是下跌趋势，但明显信息通信产业没有电子产业下滑的那么明显。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;dian-zi-chan-ye-fa-zhan-de-san-ge-shi-qi&quot;&gt;电子产业发展的三个时期&lt;&#x2F;h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;电子产业发展的黄金时期——1970~1985年&lt;&#x2F;p&gt;
+&lt;p&gt;1970年前，整体经济形式良好，但经济的主角是钢铁和造船业等。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P010 “1970~1985年，的产业结构发生了很大的变化。从1973年开始，钢铁的生产量和原原油的进口量开始减少。与之相对，国内对硅（半导体集成电路的材料）的需求与日俱增。以钢铁产业为代表的‘厚重长大’产业陷入成长低迷，半导体等‘轻薄短小’产业则高速成长”。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;20世纪70年代之后，电子产业在世界范围内开始具有举足轻重的作用。实际上，这一时期电子产业的发展主要靠出口。内需上升三倍，而出口则增加了11倍之多（数据来源经济产业省资源能源统计）。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;1985年之后贸易顺差开始减少&lt;&#x2F;p&gt;
+&lt;p&gt;贸易顺差一路看涨的情景在85年发生了转折，出口不再强劲。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P012 进入1985年之后，出口的增长速度变慢，反之进口则开始稳步增加，直接导致了贸易顺差的减少。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;同时，硅需求增长也同步放缓，变相反映出国内电子产业增幅速度变缓。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2000年之前，内需增长拉动电子产业的发展&lt;&#x2F;p&gt;
+&lt;p&gt;内需拉动（主导）阶段，当时经济形势，1985-2000年，经济在泡沫经济的狂潮中崩溃，陷入了人们说的“异常事态”。整体经济增速放缓。&lt;strong&gt;失去的二十年&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;不过或许，内需主导是健全的结构转变？否则电子产业的低迷期会来的更加早一些?&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;2000年以后电子产业总体衰退&lt;&#x2F;p&gt;
+&lt;p&gt;国内产值在2000年之后急剧下降。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P014 “&lt;strong&gt;GDP几乎没有增长，而电子产业产值却是‘10年减半’&lt;&#x2F;strong&gt;，从生产的角度来看，电子产业是急速衰退的”。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;然而电子零部件出口的持续增长（整体表现强劲），勉强维持了电子产业整体的贸易顺差，但是2008年之后（也是受经济危机的受害者）零部件出口减少，电子产业整体最终转为了贸易赤字。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;后续章节着重关注在各个领域，电视、通信、计算机、半导体等究竟发生了什么，以及为什么会发生这些问题。&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《迦陵说词讲稿》读书笔记</title>
+        <published>2019-03-31T00:00:00+00:00</published>
+        <updated>2019-03-31T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/jia-ling-shuo-ci-jiang-gao-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/jia-ling-shuo-ci-jiang-gao-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;p&gt;依旧主要为内容摘录&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;di-yi-jiang-cong-xi-fang-wen-lun-kan-hua-jian-ci-de-mei-gan-te-zhi&quot;&gt;第一讲 从西方文论看花间词的美感特质。&lt;&#x2F;h2&gt;
+&lt;p&gt;传统文学批评是模糊的、泛泛的，叶先生的学生们常常提出，希望她做些更详细、更有逻辑条理性的分析。我们的课堂上，学生缺乏这种主导课堂的能力以及向授课教师提出要求的勇气。&lt;&#x2F;p&gt;
+&lt;p&gt;先提出困惑&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P3 “词作为一种很重要的韵文形式，虽然再中国文学史上占有一席地位，但词学本身却一直是在困惑、矛盾和争议之中发展下来的。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;花间词里写什么？美女。还有什么？爱情。所有的作者都是男性，而他们都要用女性的口吻、女性的语言，写女性的情思。然而中国的传统文学观念是“诗言志，文载道”，而且诗不但要言志，其中最好还要有寄托，如果以传统文学观念去衡量五代以来发展出的词学，那结论是显然的，词学从一开始就不符合传统的文学标准。&lt;&#x2F;p&gt;
+&lt;p&gt;然而词所配合的乐曲在当时是一种新兴的音乐，曲调非常悦耳，有很强的吸引力，广泛在民间流行，这种市井中的快速传播大量丰富了词的创作。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P8 “你现在看任二北先生他们整理的敦煌的曲子，你就会发现它里面有错字、别字及文法不通的现象。因此那个时候这些民间曲子不被人重视，从隋唐以来，这些曲子没有人整理，没有人印刷，一直埋没无传。直到晚清，我们才发现我们竟有如此之多的民间的瑰宝长眠于窟穴之中。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;文人雅士们喜欢填词，一方面是真的感慨这种流行曲子之美，另一方面，可能更重要的，是因为表达的天性一直受着“诗言志，文载道”观念的制约。对于美女与爱情这种形式难以找到合适的形式表达。&lt;&#x2F;p&gt;
+&lt;p&gt;然而这种发展是纠结和妥协的，文人们一方面希望用这种新的形式表达真情实感，一方面又顾及他人（甚至自己叩问自己）这种小词是不是传统观念的叛逆。因而他们也寻找理由与解释为自己开脱、辩解。如黄庭坚所讲“空中语耳”，解释所写都不是作者本人的真感受、真性情，亦或是如晏几道以多义性诡辩之。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《枪炮、病菌与钢铁》读书笔记</title>
+        <published>2019-03-25T00:00:00+00:00</published>
+        <updated>2019-03-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/qiang-pao-bing-jun-yu-gang-tie-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/qiang-pao-bing-jun-yu-gang-tie-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type=2&amp;id=451991086&amp;auto=1&amp;height=66&quot;&gt;&lt;&#x2F;iframe&gt;
+&lt;h2 id=&quot;qian-yan-ye-li-de-wen-ti&quot;&gt;前言 耶利的问题&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P2“耶利的问题：‘为什么你们白人制造了那么多的货物并将它们运到新几内亚来，而我们黑人却几乎没有属于我们自己的货物呢？’”&lt;&#x2F;p&gt;
+&lt;p&gt;P3 “在普通新几内亚人的生活方式和普通欧洲人或普通美国人的生活方式之间仍然存在着巨大的差异。类似的差异同样把世界上其他民族的生活方式区别了开来。这些巨大的差异必定具有人们可能认为显而易见的重要原因。”&lt;&#x2F;p&gt;
+&lt;p&gt;P3 “关于这个问题的解决办法，专业的历史学家们仍然意见不一：大多数人甚至不再问这样的问题了。”&lt;&#x2F;p&gt;
+&lt;p&gt;P3 “在 25 年后撰写的本书就是试图对耶利的问题作出回答。”&lt;&#x2F;p&gt;
+&lt;p&gt;P10 “在传统的新几内亚社会中，聪明人比不那么聪明的人更有可能逃脱导致高死亡率的死因。然而，在传统的欧洲社会中，流行性疾病造成的死亡率的差异与智力几乎没有任何关系，而是与取决于人体化学细节的遗传抵抗力有关。例如，血型为 B 或 O 的人比血型为 A 的人对天花有更强的抵抗力。就是说，促进智力基因的自然选择，在新几内亚比在人口稠密、政治上复杂的社会可能要无情得多，因为在这样的社会里，对人体化学组成得自然选择反而更有效力。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;如果说之前读到得历史著作对历史进程必然性的分析是基于分布在各大陆的民族在政治、军事、文化等等方面的差异而来的，那么本书想要探究的则是这些差异的来源和产生模式。相较于讨论为什么欧洲人能够
+屠杀或者正如其他民族的直接原因，这本书着眼于分析，为什么是欧洲人而不是非洲人、亚洲人能够屠杀或者征服其他民族，这种差异是如何从零慢慢演变出来的。是对历史进程终极原因的探索。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《無印良品的改革》读书笔记</title>
+        <published>2019-01-24T00:00:00+00:00</published>
+        <updated>2019-01-24T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wu-yin-liang-pin-de-gai-ge-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/wu-yin-liang-pin-de-gai-ge-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;xu-yan-xin-wu-yin-shen-hua-de-kai-duan&quot;&gt;序言 新“無印神话”的开端&lt;&#x2F;h2&gt;
+&lt;p&gt;無印良品在日本的三大直营店：有乐盯店、京都的 Platz 店与打扮的难波店，其中有乐盯店是一家主要负责向社会大众宣传無印良品的店铺，几乎汇聚了全部经营的商品。&lt;&#x2F;p&gt;
+&lt;p&gt;笔者采访一位职场女性，问是否经常来，得到的答复是这样的。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P005 “是的。这些日杂物品只是看看就令人心情愉快，平时换季的时候我也会来这里买衣服。实际上我也买优衣库的衣服，但是由于细节设计上没有特点，所以只是作为内搭穿在里面。与此相比，無印的没一件服装都很有风格，所以我很喜欢。在我还上高中的时候就经常来购物了，但不知从何时起，無印的商品和店铺失去了特色，觉得失望之后有段时间就没有来过了。但是，从三四年前無印又变的非常吸引人，因此我很高兴又来购物”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;诞生既是荣耀，不知为何跌落，却又重回巅峰。这本书大概讲述的，就是讲这样一个世界品牌的故事。&lt;&#x2F;p&gt;
+&lt;p&gt;理念、感性与科学的有机结合。在生活理念中看到科学量化的务实，却绝不会倒向向性价比等纯粹科学量化的指标，而是站立在理念这感性的一方。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;di-1-zhang-wu-yin-liang-pin-de-dan-sheng-ji-qi-xun-su-fa-zhan&quot;&gt;第 1 章 無印良品的诞生及其迅速发展&lt;&#x2F;h2&gt;
+&lt;p&gt;西友创立無印良品，本就是走在“品牌热的对立面”，一句“因为合理，所以便宜”广告，打破了人们购物的思维定势，从而引导人们重新审视品牌、价格、品质三者之间的关系。好称无品牌（No Brand）的無印良品，恰恰是宣传的这样一种不愿拘泥于民族品牌而诞生的 New Brand。&lt;&#x2F;p&gt;
+&lt;p&gt;广告海报上写着如下内容&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P010 “不依赖品牌和包装来选择商品。这不仅与热情的生活方式相结合，也是一种重要的态度。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;無印良品品牌诞生的原动力：做质量不低于民族品牌但不为品牌做无用功（无谓支出）的优质产品。&lt;&#x2F;p&gt;
+&lt;p&gt;無印良品的商品开发及生产的基本理念：选择优质原材料、不断改良生产工序、商品采用简约包装。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;sheng-huo-xi-qi-yu-sheng-huo-mei-xue-de-jian-nan-xuan-ze&quot;&gt;生活习气与生活美学的艰难选择&lt;&#x2F;h3&gt;
+&lt;p&gt;二者实现的途径都要求回归生活本质，但是内涵却大不相同。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P027 “但是，要正确划分‘生活习气’和‘生活美学’之间的界线是极其苦难的。所以，商品上架前的最后检查都交给了富于感性的设计师团队。正是装也判断商品合适与否的顾问团队，在無印良品的发展过程中发挥了巨大的作用。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;wu-yin-liang-pin-cong-xi-you-ji-tuan-de-du-li&quot;&gt;無印良品从西友集团的独立&lt;&#x2F;h3&gt;
+&lt;p&gt;木内任负责人时期，对無印良品不能掌握自己商品的众多核心信息（诸如完整的销售记录，开发成本等）而对品牌深感忧虑，在他的眼里，無印良品错过了成为子公司的最佳时节，现在却成为了西友的门面工程，这与品牌的初衷越走越远。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P013 “也就是说，‘西武集团式特色’一直将品牌形象摆在前面，这样一来，無印良品的经营就变成了‘看不见的经营’，这正是木内先生深感危机的原因。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《不得贪胜》读书笔记</title>
+        <published>2018-11-26T00:00:00+00:00</published>
+        <updated>2018-11-26T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/bu-de-tan-sheng-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/bu-de-tan-sheng-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h1 id=&quot;yin-yan-ren-sheng-ru-qi-bu-de-tan-sheng&quot;&gt;引言 人生如棋，不得贪胜&lt;&#x2F;h1&gt;
+&lt;p&gt;《围棋十绝》&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;不得贪胜：越是对胜利存有贪念，越得不到胜利。&lt;&#x2F;li&gt;
+&lt;li&gt;入界宜缓：穿越警戒线时要缓慢。&lt;&#x2F;li&gt;
+&lt;li&gt;功彼顾我：向外攻击对方的时候要回首自身形势。&lt;&#x2F;li&gt;
+&lt;li&gt;弃子争先：即使丢掉部分棋子也要抢到先手。&lt;&#x2F;li&gt;
+&lt;li&gt;舍小取大：放弃小的利益追求大的收获。&lt;&#x2F;li&gt;
+&lt;li&gt;逢危需弃：遇到危及情况要弃子。&lt;&#x2F;li&gt;
+&lt;li&gt;慎勿轻速：不要轻率快速行棋。&lt;&#x2F;li&gt;
+&lt;li&gt;动须相应：每步行棋需相互配合。&lt;&#x2F;li&gt;
+&lt;li&gt;彼强自保：如果对方势力强大则需先谋求自身安全。&lt;&#x2F;li&gt;
+&lt;li&gt;势孤取和：形势危孤则首选平和。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;《围棋九品》&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;九品守拙：方式笨拙愚蠢，但是懂得这种守卫的方法。&lt;&#x2F;li&gt;
+&lt;li&gt;八品若愚：笨拙但是懂得下围棋的方法。&lt;&#x2F;li&gt;
+&lt;li&gt;七品斗力：拥有可以争战的力量，围棋下得有力。&lt;&#x2F;li&gt;
+&lt;li&gt;六品小巧：懂得用小的技巧。&lt;&#x2F;li&gt;
+&lt;li&gt;五品用智：下围棋时略表现出智慧。&lt;&#x2F;li&gt;
+&lt;li&gt;四品通幽：下围棋时仿佛已经进入深奥的围棋世界。&lt;&#x2F;li&gt;
+&lt;li&gt;三品具体：博采众长，了解围棋得远近。&lt;&#x2F;li&gt;
+&lt;li&gt;二品坐照：坐着能够洞察整个围棋世界。&lt;&#x2F;li&gt;
+&lt;li&gt;一品入神：下围棋到达神的境界。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;“您认为围棋是什么？”
+当时我是这样回答的：
+“我认为围棋就是不断向远方前进。”
+现在我仍然是这么认为的。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《金融的本质：伯南克四讲美联储》读书笔记</title>
+        <published>2018-10-28T00:00:00+00:00</published>
+        <updated>2018-10-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/jin-rong-de-ben-zhi-bo-nan-ke-si-jiang-mei-lian-chu-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/jin-rong-de-ben-zhi-bo-nan-ke-si-jiang-mei-lian-chu-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;di-yi-jiang-mei-lian-chu-de-qi-yuan-yu-shi-ming&quot;&gt;第一讲 美联储的起源与使命&lt;&#x2F;h2&gt;
+&lt;p&gt;本讲先说说中央银行的定一、职能、以及他是符合在美国出现的，我还会介绍美联储如何应对其第一次重大挑战，即
+20世纪30年代的经济大萧条。&lt;&#x2F;p&gt;
+&lt;p&gt;第二讲中，回顾二战后美联储的发展状况、80年代如何战胜通胀，格林斯潘任期内的
+“大缓和”时期，以及1945年后发生的其它一些变化。危机如何形成，以及导致08~009年经济危机的部分原因。&lt;&#x2F;p&gt;
+&lt;p&gt;第三讲中，近期发生的事件，此轮金融危机最严重的阶段，危机发生的原因和后果，还有美联储褐其他政策制定者对
+危机的应对等。&lt;&#x2F;p&gt;
+&lt;p&gt;第四讲中，危机的后果，危机后的经济衰退和美联储的应对措施（包括货币政策），以及金融监管方面的变革。此外，还会对
+金融危机如何改变央行的运作方式，以及美联储未来会如何运作，进行一些前瞻性的讨论。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;yang-xing-shi-shen-me&quot;&gt;央行是什么&lt;&#x2F;h3&gt;
+&lt;p&gt;中央银行的职能，第一个是维持宏观经济稳定，即追求经济稳定增长，避免大幅度波动（如衰退等），并维持低通胀，
+经济稳定只能。另一个职能，也是这一系列讲座重点探讨的一个功能，就是金融稳定职能，中央银行要尽可能保证金融系统
+的正常运作，尤其要尽可能防止金融恐慌，避免发生金融危机。&lt;&#x2F;p&gt;
+&lt;p&gt;稳定经济方面的工具主要是货币政策：公开市场买卖证券来降低或提高短期利率，调整隔夜拆借利率。&lt;&#x2F;p&gt;
+&lt;p&gt;应对金融恐慌的工具主要是流动性供给：短期信贷平息市场情绪，维持金融机构稳定性，“最后贷款人”工具。&lt;&#x2F;p&gt;
+&lt;p&gt;第三个工具是金融监管：评估，非中央银行独有。系列讲座不予以详谈。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;shen-me-shi-jin-rong-kong-huang&quot;&gt;什么是金融恐慌&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P007 “总体来说，金融恐慌是由大家对金融机构失去信心而引起的。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P009 “如果金融机构持有期限较长的非流动性资产——非流动性意味着出售这些资产（如贷款）需要花费相当多
+的时间和精力，而支持这些资产的资金（如发放贷款的资金）却主要来自资产负债表另一侧的短期负债（如储蓄），
+那么金融恐慌随时都有可能发生。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;关于央行职能和相应政策，白芝浩。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P010 “在恐慌时期，中央银行应大量放款，只要找上门来的人有抵押物，就可以放宽给他，中央银行需要持有
+安全的抵押物，以确保能收回贷款，因此这些抵押必须是优质安全的，否则贷款时就必须带着计算。当然中央银行
+还应征收惩罚税率，这样人们才不会利用这种恐慌局势来占便宜。人们愿意支付较高水平的利率，这表明他们确实
+急需现金。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;jin-ben-wei-de-li-yu-bi&quot;&gt;金本位的利与弊&lt;&#x2F;h3&gt;
+&lt;p&gt;南北战争结束到20世纪30年代，美国实行的一直是金本位制。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P013 “真正的金本位制会创造出一个自我管理的货币体系，而这样的货币体系至少能部分替代央行的职能。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P013 “不幸的是，金本位制还远非完善的货币体系。比如，金本位制造成了极大的资源浪费，从一处地下（开采处）
+转移到另一处地下（美联储），除此以外，实际表明金本位制还会导致许多更严重的金融及经济问题。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;金本位带来的还有：央行货币政策工具受到限制，国家间固定汇率体系，投机冲击。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;mei-lian-chu-de-qi-yuan&quot;&gt;美联储的起源&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P017 “1913年，在所有研究全部完成以后，国会终于通过了《联邦储备法案》，奠定了美联储成立的基础，威尔逊
+总统把签署《联邦储备法案》看作自己执政期间最重要的国内政治成就。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;之前有过两次尝试，但是由于以商业街为代表的普通民众和以华尔街为代表的资本家之间存在重大分歧，即美联储是否能
+代表整个国家的利益，前两次尝试均以失败告终。&lt;&#x2F;p&gt;
+&lt;p&gt;威尔逊总统通过在各城市分散建立12个联邦储备银行，而非在华盛顿建立一家中央银行，解决了两大群体的主要纠纷。12个
+联邦储备区，其中每一个区都有一家联邦储备银行。华盛顿的联邦储备委员会监管着整个系统。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P019 “当美联储制定货币政策时，它会考虑整个国家所有联邦储备银行的意见，再在国家层面上制定相关政策。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《我辈孤雏》读书笔记</title>
+        <published>2018-08-22T00:00:00+00:00</published>
+        <updated>2018-08-22T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/wo-bei-gu-chu-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/wo-bei-gu-chu-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type=2&amp;id=41462155&amp;auto=1&amp;height=66&quot;&gt;&lt;&#x2F;iframe&gt;
+&lt;h2 id=&quot;di-yi-bu&quot;&gt;第一部&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P29 “我一时之间竟说不上话，后来总算把话吐出来：‘您真是太仁慈了，先生，您的协助，我感激不尽，而且我也不希望您以为我不懂事。
+不过有一点请您谅解，我觉得我不该在这个时候返回英国。’上校一时之间并没有反应......”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-er-bu&quot;&gt;第二部&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P68 “接下来是针针见血的猛烈抨击，她对督察所用的这一招，我早已熟悉，而日后也还要听她陈述其中概要好多次；她先泛泛地批评英国政府，
+再把火力集中到私人企业，特别是摩根洋行身上，说他们不该从印度，输入这么庞大数量地鸦片到中国，然后冷眼旁观这整个民族陷入悲惨与堕落，
+说的时候，母亲地声音常常高张欲裂，不过都尖而未破，她双眼始终不曾放松......”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P139 “这么多年来，她让我敬畏有加，可现在我明白这一切全是装腔作势：她丝毫无法控制这个逐渐将我们吞没的混乱世界，
+她只是个可悲的小女人，全靠伪装在我眼中建立她的形象，当巨大势力相互冲突斗争之际，她根本贱于蝼蚁。
+我站在走廊上瞪着她，眼神鄙夷至极。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《银河帝国8：我，机器人》读书笔记</title>
+        <published>2018-08-10T00:00:00+00:00</published>
+        <updated>2018-08-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/yin-he-di-guo-8-wo-ji-qi-ren-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/yin-he-di-guo-8-wo-ji-qi-ren-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;ji-qi-ren-xue-san-da-fa-ze&quot;&gt;机器人学三大法则&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;机器人不得伤害人类，或因不作为而使人类受到伤害。&lt;&#x2F;li&gt;
+&lt;li&gt;除非违背第一法则，机器人必须服从人类的命令。&lt;&#x2F;li&gt;
+&lt;li&gt;在不违背第一及第二法则的情况下，机器人必须保护自己。&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《刺杀骑士团长》读书笔记</title>
+        <published>2018-08-06T00:00:00+00:00</published>
+        <updated>2018-08-06T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ci-sha-qi-shi-tuan-chang-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/ci-sha-qi-shi-tuan-chang-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;iframe frameborder=&quot;no&quot; border=&quot;0&quot; marginwidth=&quot;0&quot; marginheight=&quot;0&quot; width=330 height=86 src=&quot;&#x2F;&#x2F;music.163.com&#x2F;outchain&#x2F;player?type=2&amp;id=452814326&amp;auto=1&amp;height=66&quot;&gt;&lt;&#x2F;iframe&gt;
+&lt;h2 id=&quot;di-1bu-xian-xing-li-nian-pian&quot;&gt;第1部 显形理念篇&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P95 “免色这个人物身上，总好像有悄然潜伏的什么。那个秘密已经放进带锁的小盒，深深埋入地下。很早以前埋的，如今上面长满绵柔茂密的绿草。
+而知晓埋那个小盒的场所的，这个世界上唯独免色一人。我不能不在其微笑的深处感觉出拥有那一类型的秘密带来的孤独。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P193 “就是有这一种类的梦。支离破碎犬牙交错的梦。每一块碎片诚然有其量感，但因相互纠缠而抵消了一尽。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P204 “我的感情在永无休止的沉默中犹如以刀具做成的沉重的摆子一样从一个极端画着大大的弧线摆向另一个极端。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P226 “就是说，在我们的人生中，现实与非现实的界线往往很难捕捉。那条界线看上去总是经常来来去去，就像每天兴之所至地随便移动的国境线——必须好好留意其
+动向才行。否则，就不知道自己现在是在哪一边了。我刚才说再在洞中停留下去可能危险，就是这个意思。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《解忧杂货店》读书笔记</title>
+        <published>2018-07-13T00:00:00+00:00</published>
+        <updated>2018-07-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/jie-you-za-huo-dian-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/jie-you-za-huo-dian-du-shu-bi-ji/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/Life/jie-you-za-huo-dian-du-shu-bi-ji/">&lt;h2 id=&quot;di-yi-zhang-hui-da-zai-niu-nai-xiang-li&quot;&gt;第一章 回答在牛奶箱里&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P49 “让深爱的人放弃梦想，这比死还让我痛苦。即使分隔两地，我们的心也会永远在一起。你不要有任何顾虑，我希望你无怨无悔地去追寻梦想。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-san-zhang-zai-si-yu-che-shang-deng-dao-tian-liang&quot;&gt;第三章 在思域车上等到天亮&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P101 “不管是骚扰还是恶作剧，写这些信给浪失杂货店的人，和普通的咨询者再本质上是一样的。他们都是内心破了个洞，重要的东西正从那个破洞逐渐流失。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P106 “这么多年咨询信看下来，让我逐渐明白了一件事。很多时候，咨询的人心里已经有了答案，来咨询只是想确认自己的决定是对的。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P107 “或许雄治留恋的不是杂货店，二十烦恼咨询。他觉得一旦关了店离开这里，就不会有人来找他咨询了。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P175 “人与人之间情断义绝，并不需要什么具体的理由，就算表面上有，也很可能只是心已经离开的结果，事后才编造出的借口而已。因为倘若心没有离开，当将会导致关系破裂的事态发生时，理应有人努力去挽救。如果没有，说明其实关系早已破裂。所以那四个人谁也没有挽救披头士乐队，就像看客一般，眼睁睁看着船只沉没。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Last page “我衷心的祈祷你可以相信你自己，无悔地燃烧自己的人生。”&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《如何阅读一本书》读书笔记</title>
+        <published>2018-07-13T00:00:00+00:00</published>
+        <updated>2018-07-13T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ru-he-yue-du-yi-ben-shu-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/ru-he-yue-du-yi-ben-shu-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;di-yi-pian-yue-du-de-ceng-ci&quot;&gt;第一篇 阅读的层次&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;di-yi-zhang-yue-du-de-huo-li-yu-yi-shu&quot;&gt;第一章 阅读的活力与艺术&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P9 “‘阅读的人’（readers），是指那些今天仍然习惯于从书写文字中汲取大量资讯，以增进对世界了解的人。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P10 “太多的咨询就如童太少的资讯一样，都是一种对理解力的阻碍。换句话说，现代的媒体正以压倒性的泛滥资讯阻碍了我们的理解力。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《1Q84》读书笔记</title>
+        <published>2018-04-08T00:00:00+00:00</published>
+        <updated>2018-04-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/1q84-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/1q84-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;di-yi-bu&quot;&gt;第一部&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P371 “世界这个东西，青豆啊，就是一种记忆和相反的另一种记忆永无休止的斗争。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-er-bu&quot;&gt;第二部&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P262 “人的生命虽然本质上是孤独的存在，却不是孤立的存在。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P270 “但店内除了天吾，只有一对像是大学生的青年男女并肩坐在吧台前，正在交头接耳，起劲地说着悄悄话。望着他们，天吾感到了许久不曾有过的深深地寂寞。在这个世界上，自己是孤独的，和谁都没有关联。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P274 “我当时看见了月亮。青豆也看见了同一个月亮。浮在下午三点半依然十分明亮的天上的灰色岩块。沉默而孤独的卫星。两人并肩而立，望着那个月亮。但是，那究竟意味着什么？难道月亮会领我去青豆所在的地方吗？”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P276 “天吾专注着望着月光，心中从远古时代传承下来的记忆般的东西被唤醒了。远在人类获得火、工具和语言之前，月亮就始终不变地是人们的朋友。它作为天赐地灯火，不时照亮黑暗的世界，缓解了人们的恐惧。它地圆缺给了人们时间观念。对月亮这种无偿地感谢之情，纵然在黑暗已从绝大部分地域驱逐的现在，似乎依然牢牢烙印在人类的遗传因子里。作为一种温暖的集体记忆。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《黑豹》观后感</title>
+        <published>2018-03-17T00:00:00+00:00</published>
+        <updated>2018-03-17T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/hei-bao-guan-hou-gan/"/>
+        <id>https://www.edwardzcn.me/Life/hei-bao-guan-hou-gan/</id>
+        
+        <summary type="html">&lt;p&gt;总的来说，是近几年漫威出的质量比较高的一部电影了，没有过分卖腐，卖情怀。一点点人格之间的矛盾，一点点反思，剧情衔接也很不错，虽然有一点套路，但是在可接受的范围内。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《岛上书店》读书笔记</title>
+        <published>2018-03-16T00:00:00+00:00</published>
+        <updated>2018-03-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/dao-shang-shu-dian-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/dao-shang-shu-dian-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;shu-zhong-shu-mu&quot;&gt;书中书目&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;P97《白鲸》 赫尔曼·麦尔维尔&lt;&#x2F;li&gt;
+&lt;li&gt;P99《古拉格群岛》 索尔仁尼琴&lt;&#x2F;li&gt;
+&lt;li&gt;P99《纳尼亚传奇》系列 C.S.刘易斯&lt;&#x2F;li&gt;
+&lt;li&gt;P107 《洛城机密》詹姆斯·埃尔罗伊 犯罪小说&lt;&#x2F;li&gt;
+&lt;li&gt;P119 《真爱如血》电视剧&lt;&#x2F;li&gt;
+&lt;li&gt;P132 《好人难寻》弗兰纳里·奥康纳&lt;&#x2F;li&gt;
+&lt;li&gt;P135 《卡拉维拉显驰名的跳蛙》 马克吐温&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《亲爱的安德烈》读书笔记</title>
+        <published>2018-03-16T00:00:00+00:00</published>
+        <updated>2018-03-16T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/qin-ai-de-an-de-lie-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/qin-ai-de-an-de-lie-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;ren-shi-yi-ge-shi-ba-sui-de-ren&quot;&gt;认识一个十八岁的人&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P4 “虽然心中有爱，但是爱，冻结在经年累月的沉默里，好像一个疼痛的伤口，没有纱布可绑。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P5 “我们是两代人，中间隔个三十年。我们也是两国人，中间隔个东西文化。我们原来也可能再他十八岁那年，就像水上浮萍一样各自荡开，从此天涯淡泊。    日后的人生旅程，当然还是要漂萍离散——人生哪有恒长的厮守？但是三年的海上旗语，茹月色满怀，我还奢求什么呢。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-1feng-xin-shi-ba-sui-na-yi-nian&quot;&gt;第1封信 十八岁那一年&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P13 “那‘愚昧无知’的渔村，确实没有给我知识，但是给了我一种能力，悲悯同情的能力。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P14 “你们这一代‘定锚’的价值是什么？终极的关怀是什么？你认为美丽的热带鱼游泳也要在P乎方向吗？或者，你要挑衅地说，这是一个无谓的问题，因为热带鱼只为自己而活？”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-3feng-xin-tao-bi-guo-jia&quot;&gt;第3封信 逃避国家&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P21 “觉得德国是个不错得国家这种感觉是没有人敢显露，大家都要藏起来的。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P25 “如果是五十个德国人在街上大喊‘德国第一；’德国万岁‘，会把人给吓死，第二天可以上《纽约时报》了，对吧？”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《1988：我想和这个世界谈谈》读书笔记</title>
+        <published>2018-03-03T00:00:00+00:00</published>
+        <updated>2018-03-03T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/1988-wo-xiang-he-zhe-ge-shi-jie-tan-tan-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/1988-wo-xiang-he-zhe-ge-shi-jie-tan-tan-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;P45 “我说，丁丁哥哥，你去做什么啊？
+丁丁哥哥说，我去和他们谈谈。
+我说，你和谁谈谈啊？
+丁丁哥哥唇边露出微笑，急切地说，这个世界。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P62 “这样的旅行在我年少时曾经幻想过无数次，夜晚的国道李，我等待着自己梦寐以求的女子，开着自己梦寐以求的车，去往未知旅程的终点。未知旅程怎么会有终点，旅途上没有疲劳和困意，我们聊着电影和音乐，穿越群山和丛林，最终停在一泓无人的湖水旁边，有一个没有任何经济头脑的人开的酒店，干净便宜。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P86 “混乱的地面道路是最好的地方。1988就像我周围的人，国道就像这个杂乱的世界，在越无序的地方，我越能寻觅到安全感。这安全感的代价就是你要时刻集中精神，否则你就会被庞大的交通工具碾过。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P87 “生活它不是深渊，它是你走过的平原和你想登上的高山，它就像我们睡过的每一张床，你从来不会陷下去，也许它不属于我们，但它一定属于你，你觉得它在往下，是因为引力，它绝不会把你拖下深渊，它指向让你伏在地上，听听它的声音，当你休息好了，听够了，你随时可以站起来，你懂吗？”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《水滴直播，让你我的隐私再也不滴水不漏》</title>
+        <published>2018-02-20T00:00:00+00:00</published>
+        <updated>2018-02-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/shui-di-zhi-bo-rang-ni-wo-de-yin-si-zai-ye-bu-di-shui-bu-lou/"/>
+        <id>https://www.edwardzcn.me/Life/shui-di-zhi-bo-rang-ni-wo-de-yin-si-zai-ye-bu-di-shui-bu-lou/</id>
+        
+        <summary type="html">&lt;p&gt;无意间从朋友圈里看到了一条说说，主体内容是一段搬运自微博：“嘻哈公社”的自媒体采访视频，很短，但简单，却很现实。不知道是不是因为上了大学，看新闻的时间少了，还是真的社会已经适应了这种“直播”的存在，而我成了另类？&lt;&#x2F;p&gt;
+&lt;p&gt;抛开直播圈的其他乱象不说（你们都懂，某平台的某些知名主播的蛇皮操作，各种公关闹剧简直是一出年末大戏），我一直以为直播和生活的界限还是分的很开的。直播归直播，那是镜头上的人物，是在表演，可以有感情的虚假，可以有套路，可以有剧本，起码和“生活”总隔着一个界限。这个界限，你说不出是个怎样的存在，但都能感觉到它在这里，真实的在这里。&lt;&#x2F;p&gt;
+&lt;p&gt;我也依稀记得斗鱼之前有过一个户外板块（不知道现在是否还存在），专门供主播分享户外生活的点点滴滴，直播里自然会出现其他“路人”，不过“路人”们都清楚的明白，有一个手持的直播设备在对着自己，无论愿意还是不愿意，至少，他们都是知情者，清楚自己已经穿过那条“界限”，站在这个直播平台提供的“舞台”上，成为了万千观众眼中的表演者。&lt;&#x2F;p&gt;
+&lt;p&gt;然而，我从未想到过，我会被剥夺这份知情权，被永远剥夺。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《野火集》读书笔记</title>
+        <published>2018-02-20T00:00:00+00:00</published>
+        <updated>2018-02-20T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ye-huo-ji-du-shu-bi-ji/"/>
+        <id>https://www.edwardzcn.me/Life/ye-huo-ji-du-shu-bi-ji/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;P10 “说穿了，龙应台所传承、传递的野火，其实就是一种乌托邦的想象。教导我们在现代的荒原上培养价值的火种，批判的火种，或点灯或放火，在众多的小天地和大天地，边缘和中间之间，找到一种新的文化串联的策略......”《野火集》中野火的多层含义，一方面是指如同普罗米修斯为人类带来神火，龙应台给台湾带来思想与意识观念的”野火“，她这个”盗火的玉娇龙“，背负着维护古典价值的使命，在哪个时代挂起漫野的星星之火。&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P11 “如福柯所说，我们一再发现自己处于开始的位置；因为这样，我们更应该一起思索未来，以新的火焰挑战者、文化挑战者为己任，化被动为主动，大力叩问个体生命的意义，将我们共同的困境，化成一场戏剧性的自我追寻，扩张梦想的蓝图和坐标，脚踢东西文明，甚至期待有一天，将龙应台的野火放回西方去。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P24 “……倒觉得八零年代就是太近的昨天，时间很长，路却走得不十分远。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P28 “八零年代，我从台北走到北京，在从莫斯科走到东伯里的大街上，秋色萧萧，已是年代末了。我看见作家在对群众演说，群众在对天空呐喊，天空，默然下起了冷雨，雨水冲洗着人们脸上悲愤激情的泪水。 那是一个最坏也最好的时代，最黑暗也最光明的时代。因为黑暗，所以人们充满了追求光明的力气和反抗黑暗的激情，而且黑白分明，奋斗的目标多么明确。力气、激情、目标明确——八零年代是理想主义风起云涌的时代。只有在得到”光明“之后，在”光明“中面对个人自我的黑暗，发现那黑暗更深不可测，我们才进入了疑惑不安的九零年代，世纪之末。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《天幕红尘》读后感</title>
+        <published>2018-02-19T00:00:00+00:00</published>
+        <updated>2018-02-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/tian-mu-hong-chen-du-hou-gan/"/>
+        <id>https://www.edwardzcn.me/Life/tian-mu-hong-chen-du-hou-gan/</id>
+        
+        <summary type="html">&lt;p&gt;转自豆瓣 &lt;a href=&quot;https:&#x2F;&#x2F;book.douban.com&#x2F;subject&#x2F;24748615&#x2F;&quot;&gt;原文地址&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;数年前，看电视剧《天道》的时候，面对剧尾的那一场诉讼，我佩服得五体投地，于是，给某人出了一道题：如果一个农村家庭作坊被人谴责为滥用童工，怎么辩护？
+彼时，还算是民商法才子的某人给了一个答案。但是，我依然觉得是电视剧中的辩护词更赞。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>
