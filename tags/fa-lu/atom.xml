@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog - 法律</title>
+    <subtitle>Promised land</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/fa-lu/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-05-10T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/fa-lu/atom.xml</id>
+    <entry xml:lang="en">
+        <title>《法治的细节》摘录</title>
+        <published>2022-05-10T00:00:00+00:00</published>
+        <updated>2022-05-10T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/reading/fa-zhi-de-xi-jie-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/reading/fa-zhi-de-xi-jie-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;序言部分真的写太好了，如果你还在费力找寻读此书的意义，先看序言。&lt;br&gt;
+唯愿公平如大水滚滚，使公义如江河滔滔。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>《Justice》摘录</title>
+        <published>2019-08-29T00:00:00+00:00</published>
+        <updated>2019-08-29T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/reading/justice-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/reading/justice-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;What&#x27;s the Right Thing to Do?&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

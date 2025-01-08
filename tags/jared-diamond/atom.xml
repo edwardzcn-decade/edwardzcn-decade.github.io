@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog - Jared Diamond</title>
+    <subtitle>Promised land</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/jared-diamond/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2019-03-25T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/jared-diamond/atom.xml</id>
+    <entry xml:lang="en">
+        <title>《枪炮、病菌与钢铁》摘录</title>
+        <published>2019-03-25T00:00:00+00:00</published>
+        <updated>2019-03-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/reading/qiang-pao-bing-jun-yu-gang-tie-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/reading/qiang-pao-bing-jun-yu-gang-tie-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;笔记是按初版写的，非常独特的历史视角。再版&lt;del&gt;似乎删减了一些&lt;&#x2F;del&gt;。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

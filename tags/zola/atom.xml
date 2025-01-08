@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>🌟Edwardzcn blog - Zola</title>
-    <subtitle>应许之地</subtitle>
+    <subtitle>Promised land</subtitle>
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/zola/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
@@ -28,7 +28,7 @@
         
     </entry>
     <entry xml:lang="en">
-        <title>My Second Post</title>
+        <title>Github Footnotes Test</title>
         <published>2025-01-01T00:00:00+00:00</published>
         <updated>2025-01-01T00:00:00+00:00</updated>
         
@@ -40,10 +40,59 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/example2/"/>
-        <id>https://www.edwardzcn.me/example2/</id>
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/github-footnotes-test/"/>
+        <id>https://www.edwardzcn.me/github-footnotes-test/</id>
         
-        <content type="html" xml:base="https://www.edwardzcn.me/example2/">&lt;p&gt;This is my first post in Zola. It is tagged with Rust and Zola.&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://www.edwardzcn.me/github-footnotes-test/">&lt;h1 id=&quot;introduction-to-markdown-on-github&quot;&gt;Introduction to Markdown on GitHub&lt;&#x2F;h1&gt;
+&lt;p&gt;Markdown is a lightweight markup language that you can use to add formatting elements to plaintext text documents. It’s a great tool for writing documentation, READMEs, or blog posts.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;features-of-github-markdown&quot;&gt;Features of GitHub Markdown&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;1-headers&quot;&gt;1. Headers&lt;&#x2F;h3&gt;
+&lt;p&gt;Use &lt;code&gt;#&lt;&#x2F;code&gt; symbols to create headers of different levels:&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;markdown&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-markdown &quot;&gt;&lt;code class=&quot;language-markdown&quot; data-lang=&quot;markdown&quot;&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;# H1 Header
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;## H2 Header
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;### H3 Header
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8fa1b3;&quot;&gt;#### H4 Header
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Item 1&lt;&#x2F;li&gt;
+&lt;li&gt;Item 2
+&lt;ul&gt;
+&lt;li&gt;Subitem 2.1&lt;&#x2F;li&gt;
+&lt;li&gt;Subitem 2.2&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h2 id=&quot;footnotes&quot;&gt;Footnotes&lt;&#x2F;h2&gt;
+&lt;p&gt;This is a sentence with a footnote&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;[1]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;benefits-of-using-markdown&quot;&gt;Benefits of Using Markdown&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;simplicity&quot;&gt;Simplicity&lt;&#x2F;h3&gt;
+&lt;p&gt;Markdown is straightforward to learn and use. Its syntax is intuitive and doesn&#x27;t require extensive knowledge&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;[2]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;portability&quot;&gt;Portability&lt;&#x2F;h3&gt;
+&lt;p&gt;Since Markdown files are plain text, they can be viewed and edited on almost any device. This makes them highly portable and versatile&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-3-1&quot;&gt;&lt;a href=&quot;#fn-3&quot;&gt;[3]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;integration&quot;&gt;Integration&lt;&#x2F;h3&gt;
+&lt;p&gt;Markdown integrates well with many platforms, including GitHub, GitLab, and static site generators. Its compatibility allows for a seamless writing and publishing experience&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-4-1&quot;&gt;&lt;a href=&quot;#fn-4&quot;&gt;[4]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;task-lists&quot;&gt;Task Lists&lt;&#x2F;h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot; checked=&quot;&quot;&#x2F;&gt;
+Completed task&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;input disabled=&quot;&quot; type=&quot;checkbox&quot;&#x2F;&gt;
+Incomplete task&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;hr&gt;&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;My reference (this will show in the bottom of the page). &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;To add line breaks within a footnote, prefix new lines with 2 spaces.
+Try it out! &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;
+&lt;p&gt;Text editors, IDEs, and even some web browsers support Markdown natively. &lt;a href=&quot;#fr-3-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;
+&lt;p&gt;Static site generators like Jekyll and Hugo heavily rely on Markdown for content creation. &lt;a href=&quot;#fr-4-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
 </content>
         
     </entry>

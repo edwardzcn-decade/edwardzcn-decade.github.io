@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog - Gustave Le Bon</title>
+    <subtitle>Promised land</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/gustave-le-bon/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2018-01-08T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/gustave-le-bon/atom.xml</id>
+    <entry xml:lang="en">
+        <title>《乌合之众——群体心理研究》摘录</title>
+        <published>2018-01-08T00:00:00+00:00</published>
+        <updated>2018-01-08T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/reading/wu-he-zhi-zhong-qun-ti-xin-li-yan-jiu-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/reading/wu-he-zhi-zhong-qun-ti-xin-li-yan-jiu-zhai-lu/</id>
+        
+        <summary type="html">&lt;p&gt;从野蛮到文明，一路追逐着梦想，而当这种梦想失去了力量，便开始衰落，走向死亡，这就是一个民族的生命周期。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

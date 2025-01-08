@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog - 韩炳哲</title>
+    <subtitle>Promised land</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/han-bing-zhe/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-04-25T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/han-bing-zhe/atom.xml</id>
+    <entry xml:lang="en">
+        <title>《暴力拓扑学》摘录</title>
+        <published>2022-04-25T00:00:00+00:00</published>
+        <updated>2022-04-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/reading/topology-of-violence-excerpt/"/>
+        <id>https://www.edwardzcn.me/reading/topology-of-violence-excerpt/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;dao-yan&quot;&gt;导言&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P2 “暴力拓扑学首先要面对暴力的那些宏观表象，它们以排斥的形式登台亮相，即是说，它们在诸如自我与他我、内在与外在、朋友与敌人等两极化的紧张关系中得以发展，其表达方式通常都是表现式的、爆炸式的、群体式的、战争式的。远古的流血牺牲式暴力，嫉妒和复仇女神的神话暴力，统治者的杀戮暴力，刑讯暴力，皆属此类。宏观物理学上的暴力还采取一种更为精密的形式，比如通过语言暴力表现出来。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;宏观表象往往是以“排斥性暴力”的显现，但书中还提到“扩张性暴力”，脚注里也提及这二者亦译作否定性暴力和肯定性暴力。过于嘈杂的信息和交流压迫，即便不来源于他人的否定和对抗，也是一种暴力，而这种暴力在现代社会愈发变成主流。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P2 “伤害性语言所具有的暴力同物理（生理）暴力一样，向来以排斥性为基础，因为它具有污蔑性，它损人脸面，降人身份，或者夺人权利。排斥性暴力（negative Gewalt）与扩张性暴力（positive Gelwalt）是不同的，后者源于垃圾语言、过度交流和过多信息，即来自语言、交际和信息的成群积聚.”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P3 “今天的社会总是一再抹去他者或陌生人身上的排斥性。全球化进程恰恰加速了边界和差异的消失。排斥性的日益消除却并不等同于暴力的消失，因为除了排斥性暴力，还存在着扩张性暴力。实施扩张性暴力不需要敌对和统治关系。暴力不仅仅是过度的排斥，而且还意味着过度的扩张，也就是扩张性成群，它表现为过度的绩效、过度的生产和过度的交际，过量的关注和过分的积极主动。**扩张性暴力可能比排斥性暴力更为致命，因为它缺乏任何可视性和显见性，而由于其积极扩张，它还摆脱了免疫抵抗。**传染、病菌入侵和渗透这些排斥性暴力的典型特征，如今让位给了梗阻。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P3 “后现代的绩效主体之所以是自由的，因为它不受迫于一个自身之外的统治机关。事实上，它同服从主体一样不自由。外在的胁迫是克服了，可却产生了内在的压力。绩效主体发展出一种抑郁。&lt;strong&gt;暴力一直存在，分毫未减。它只是转移到了内心层面。君权社会里的斩首制度，规训社会里的畸变，绩效社会里的抑郁，都是暴力拓扑学变迁的不同阶段。暴力将会愈益内在化、心理化，并由此隐遁其形。它一再剥除他者或敌人身上的排斥性，变为直指自身。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;di-yi-bu-bao-li-de-hong-guan-wu-li-xue&quot;&gt;第一部 暴力的宏观物理学&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;bao-li-de-tuo-bu-xue&quot;&gt;暴力的拓扑学&lt;&#x2F;h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P10 “在血腥的戏剧里，君主的权力化身舞台上剑的权力，角斗表演于是成为帝王崇拜的一个本质组成部分。对杀戮暴力的夸张演绎，宣示了统治者的权力和荣耀......暴力在此毫无遮掩，它明显可见，它毫无羞耻，既不悄寂无声也不公然赤裸，而是意味深长，影响深远。无论在远古文化还是古希腊罗马时代，演绎暴力都是社会交往中一个不可或缺的核心组成部分。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P11 “前线代的君权社会是血亲社会，它的结束令暴力经受了一场拓扑式转变。如今它不再是政治交际和社会交往的一部分，它退回到次交际的、皮下的、毛细的、内在心灵的空间。它从可见转为不可见，从直接转为暗示，从生理转为心理，从战争式的转为居间的，从正面直击转为病毒性渗入。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P14 “后现代的绩效主体不屈从于任何人。它本来就不再是一个屈服顺从的主体。它积极扩张自己，解放自己，成为一个投射物（Project）。这种主体向投射物的转变其实并没有导致暴力的消失。取代外部强迫的，是自诩为自由意志的自我强迫。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;分析其发展&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P14 “这种发展与资本主义生产关系密不可分。自从生产达到一定的水平，自我剥削就远比受人剥削更有效果，功能更为强大，因为，与自我剥削相伴的是，&lt;strong&gt;感觉自己是自由的&lt;&#x2F;strong&gt;。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h3 id=&quot;bao-li-de-kao-gu-xue&quot;&gt;暴力的考古学&lt;&#x2F;h3&gt;
+&lt;p&gt;弗洛伊德认为死本能会制造出破坏性冲动，勒内·吉拉尔将暴力归因于模仿性对抗。韩举了竞争水和财欲两个例子来驳斥吉拉尔的观点。认为吉拉尔的“模仿性对抗”概念并没有把握暴力的本质。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P16 “竞争者之所以渴望水，并不是别人也喜欢水。暴力犯罪首先发生在对物的争夺上，这些物并非因为模仿性欲求才有价值，而是因为它们具有一种内在固有的价值。被争夺之物都是能够满足基本需求之物。吉拉尔的模仿理论用在财欲上也是说不通的。我想有钱，并不是因为别人也想有钱，并非模仿的欲求才让钱有了价值。钱是一个特殊的客体，因为它就是价值......模仿首先涉及的是象征层面，比如语言或行为模式，所以并不一定会引发暴力冲突。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;暴力与宗教&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P18 “暴力很可能是人类第一个宗教体验。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P19 “远古宗教是一种情结，是同（在外向化至神圣高度之后的）暴力彼此互动的结果。献祭就是最为重要的互动形式之一......在远古文化中，暴力扮演了宗教交流的主要媒介。与此同时，人们就在暴力的媒介中同暴力之神交流。一旦暴力被当作神性体验，那么与暴力的关系就迥然不同于从前了。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;惩罚是对复仇的合理化&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P24 “惩罚是对复仇的合理化，禁止了复仇的雪崩式膨胀，因为那会令复仇变得万劫不复。在远古社会，对暴力做出的唯一可能的反应就是以暴制暴。一个激进的的范式转移将惩罚体系同复仇体系区别开来。前者把暴力变成一种由个人承担的行为。它不再是非人格化的、以暴制暴的事件；它脱离了权力关系，被置于一个罪责关联当中。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P25 “惩罚性暴力（Strafgewalt）放弃了远古复仇中典型的不审而判，不再令暴力逍遥于一切监管之外。审判和定向（Richten und Richtung）彼此决定。惩罚体系遵循的并不是复仇逻辑，而是调解逻辑，而调解逻辑产生于客观的法律关系。就此而言，惩罚体系阻止了暴力肆意蔓延膨胀，因为它不同于复仇体系，它意不在制造暴力，而在预防暴力。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P26 “在现代社会，远古的暴力经济学并没有轻易消失。核军备竞赛遵循的正是远古的暴力经济学。潜在的毁灭力量像曼纳一样越积越多，为的是制造出力大无比和坚不可摧的感觉。从深层心理学层面看，远古时代的信仰——通过积蓄杀戮能力来逃避死亡——仍然奏效。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;巧合的是资本经济也显现出惊人的相似性，流进对于流血，大量财富聚集类比曼纳的手机。人们试图通过不断印刷钞票来逃避一些事情，比如经济危机。而拥有越多，人们就会有越多妄想，并认为自己掌控了越多能力来对抗死亡。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P27 “就连资本经济学也显示出同远古暴力经济学的惊人相似，不是制造流血，而是制造流金。在鲜血与金钱之间存在着一种相似的本质。资本的运作方式就像现代曼纳一样，你拥有的越多，就越强大，越坚不可摧，甚至越妄想长生不死。金钱从词源上就已经点明献祭和狂热崇拜之间的关系......于是乎，金钱也好，资本也罢，都成为一种对抗死亡的手段。”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;亚里士多德提示人们，纯然的追求资本应该受到谴责，因为那样做只为求生存，而不求美好生活。&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P29 “资本主义经济学把活下来编程绝对原则，不关心生活是否美好。滋养资本主义经济学的是一种幻象，即资本越多，生机越多，生存能力越大。将生与死蛮横地一刀切开，会为生活本身蒙上一件僵硬的幽灵外套。本该关注如何过上美好生活，却因担心活不下去而患了魔怔，或曰怕死癔病。&lt;strong&gt;把生活简化成生物的、生命机能的过程，让生活本身变得赤裸。&lt;&#x2F;strong&gt;”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P30 “一个被怕死癔病笼罩的社会，是一个活死人社会，既不能生，也无法死。弗洛伊德也清楚这种致命的幸存辩证法，所以会用这样一句话为《合乎时代的战争与死亡》一文作结：‘&lt;strong&gt;如果你想生，那么就先面对死。&lt;&#x2F;strong&gt;’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
+</feed>

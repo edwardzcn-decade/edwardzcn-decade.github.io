@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog - 新闻</title>
+    <subtitle>Promised land</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/xin-wen/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2020-05-25T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/xin-wen/atom.xml</id>
+    <entry xml:lang="en">
+        <title>《看见》摘录</title>
+        <published>2020-05-25T00:00:00+00:00</published>
+        <updated>2020-05-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/reading/i-saw-excerpt/"/>
+        <id>https://www.edwardzcn.me/reading/i-saw-excerpt/</id>
+        
+        <summary type="html">&lt;p&gt;真实的人性有无尽的可能。善当然存在，但恶也可能一直存在。歉意不一定能弥补，伤害却有可能被原谅。我不需要通稿，给我真实，真实自有千钧，历史终将回响。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

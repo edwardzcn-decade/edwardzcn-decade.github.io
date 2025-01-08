@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en" dir="i18n_dir">
+
+<head>
+  
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>🌟Edwardzcn blog</title>
+
+
+<meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
+
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;xiao-shuo&#x2F;">
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+</noscript>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      ignoreHtmlClass: "no-mathjax",
+      processHtmlClass: "mathjax"
+    }
+  };
+</script>
+
+  
+</head>
+
+<body
+  class="list "
+  id="top">
+  
+  
+<script>
+  if (localStorage.getItem("pref-theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <ul class="lang-switch">
+          <li>en</li>
+          <li>zh-cn</li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading" title="Reading">
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags" title="Tags">
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot">
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="12" width="12">
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+</a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola">
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height="12" width="12">
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+  
+  <main class="main">
+    
+
+  <!-- taxonomy header (mostly used in single template) just below the nav bar -->
+<header class="page-header">
+  <div class="breadcrumbs">
+      <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+      <a href="https:&#x2F;&#x2F;www.edwardzcn.me/tags">Tags
+        
+          🏷️
+        
+          
+        
+        
+      </a>&nbsp;»&nbsp;
+      <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;xiao-shuo&#x2F;">小说</a>
+  </div>
+  <h1>小说
+    
+    <a href="https://www.edwardzcn.me/tags/xiao-shuo/atom.xml" title="RSS" aria-label="RSS">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="23">
+        <path d="M4 11a9 9 0 0 1 9 9"></path>
+        <path d="M4 4a16 16 0 0 1 16 16"></path>
+        <circle cx="5" cy="19" r="1"></circle>
+      </svg>
+    </a>
+    
+</h1>
+</header>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《台北人》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><blockquote>
+<p>《孽子》中的“孽子”二字实在抓住了中华文化中的“孝”这一部分以及在现代社会中这种“要求”与自我发现中的冲突感。有这二字，这本书便已经吸引我有着读下去的期待 —— Yu</p>
+</blockquote>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2022-08-08 00:00:00 +0000">2022-08-08</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1922 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《台北人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;tai-bei-ren-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《奶奶的星星》摘录</h2>
+  </header>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2022-05-19 00:00:00 +0000">2022-05-19</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;981 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《奶奶的星星》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;nai-nai-de-xing-xing-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《鼠疫》摘录</h2>
+  </header>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2022-03-30 00:00:00 +0000">2022-03-30</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;224 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《鼠疫》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;shu-yi-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《一个叫欧维的男人决定去死》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><p>生命会是彩色的。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2022-03-15 00:00:00 +0000">2022-03-15</span>&nbsp;·&nbsp;17 min&nbsp;·&nbsp;3221 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《一个叫欧维的男人决定去死》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;en-man-som-heter-ove-excerpt&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《局外人》摘录</h2>
+  </header>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2022-02-14 00:00:00 +0000">2022-02-14</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;961 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《局外人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;l-etranger-excerpt&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《你当像鸟飞往你的山》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><p>序</p>
+<p>巴克峰、父亲、童年。</p>
+<p>连绵山脉与芭蕾舞团般漫山遍野的野生小麦，局外人是浪漫与自由，局中人只会说：“这里有我的童年”。</p>
+<blockquote>
+<p>P003 “父亲所有的故事都关乎我们的山，我们的山谷，我们呈锯齿状的爱达荷州。他从来没有告诉过我，如果我离开这座山，如果我飘洋过海，发现自己置身于陌生的地面，再也无法在地平线上搜寻那位公主时，我该怎么办。他从未告诉过我如何知道，我该回家了。”</p>
+</blockquote>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2021-08-25 00:00:00 +0000">2021-08-25</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1491 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《你当像鸟飞往你的山》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;educated-tara-westover-excerpt&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《我辈孤雏》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><h2 id="di-yi-bu">第一部</h2>
+<blockquote>
+<p>P29 “我一时之间竟说不上话，后来总算把话吐出来：‘您真是太仁慈了，先生，您的协助，我感激不尽，而且我也不希望您以为我不懂事。
+不过有一点请您谅解，我觉得我不该在这个时候返回英国。’上校一时之间并没有反应......”</p>
+</blockquote>
+<h2 id="di-er-bu">第二部</h2>
+<blockquote>
+<p>P68 “接下来是针针见血的猛烈抨击，她对督察所用的这一招，我早已熟悉，而日后也还要听她陈述其中概要好多次；她先泛泛地批评英国政府，
+再把火力集中到私人企业，特别是摩根洋行身上，说他们不该从印度，输入这么庞大数量地鸦片到中国，然后冷眼旁观这整个民族陷入悲惨与堕落，
+说的时候，母亲地声音常常高张欲裂，不过都尖而未破，她双眼始终不曾放松......”</p>
+</blockquote>
+<blockquote>
+<p>P139 “这么多年来，她让我敬畏有加，可现在我明白这一切全是装腔作势：她丝毫无法控制这个逐渐将我们吞没的混乱世界，
+她只是个可悲的小女人，全靠伪装在我眼中建立她的形象，当巨大势力相互冲突斗争之际，她根本贱于蝼蚁。
+我站在走廊上瞪着她，眼神鄙夷至极。”</p>
+</blockquote>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-08-22 00:00:00 +0000">2018-08-22</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1871 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《我辈孤雏》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;wo-bei-gu-chu-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《银河帝国8：我，机器人》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><h2 id="ji-qi-ren-xue-san-da-fa-ze">机器人学三大法则</h2>
+<ol>
+<li>机器人不得伤害人类，或因不作为而使人类受到伤害。</li>
+<li>除非违背第一法则，机器人必须服从人类的命令。</li>
+<li>在不违背第一及第二法则的情况下，机器人必须保护自己。</li>
+</ol>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-08-10 00:00:00 +0000">2018-08-10</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;724 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《银河帝国8：我，机器人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;yin-he-di-guo-8-wo-ji-qi-ren-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《刺杀骑士团长》摘录笔记</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><p>后半部没有读完</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-08-06 00:00:00 +0000">2018-08-06</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;621 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《刺杀骑士团长》摘录笔记" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;ci-sha-qi-shi-tuan-chang-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《解忧杂货店》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><p>“我衷心的祈祷你可以相信你自己，无悔地燃烧自己的人生。”</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-07-13 00:00:00 +0000">2018-07-13</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;419 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《解忧杂货店》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;the-miracles-of-the-namiya-general-store-excerpt&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《1Q84》摘录</h2>
+  </header>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-04-08 00:00:00 +0000">2018-04-08</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;797 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《1Q84》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;1q84-excerpt&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《岛上书店》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><p>因为从心底害怕自己不值得被爱，我们独来独往，
+然而就是因为独来独往，才让我们以为自己不值得被爱。
+有一天，你不知道是什么时候，你会驱车上路。
+有一天，你不知道是什么时候，你会遇到他（她）。
+你会被爱，因为你今生第一次真正不再孤单。
+你会选择不在孤单下去。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-03-16 00:00:00 +0000">2018-03-16</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;744 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《岛上书店》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;dao-shang-shu-dian-zhai-lu&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《1988：我想和这个世界谈谈》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><blockquote>
+<p>P62 “这样的旅行在我年少时曾经幻想过无数次，夜晚的国道里，我等待着自己梦寐以求的女子，开着自己梦寐以求的车，去往未知旅程的终点。未知旅程怎么会有终点，旅途上没有疲劳和困意，我们聊着电影和音乐，穿越群山和丛林，最终停在一泓无人的湖水旁边，有一个没有任何经济头脑的人开的酒店，干净便宜。”</p>
+</blockquote>
+<p>六年后再翻到这篇摘抄，发现我将“我带着自己梦寐以求的女子”，无意间错打成了“我等待着...”，也不知是韩寒再版的书真做了如此改动，还是潜意识作祟，“等待”与“带”，就留在这里吧。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-03-03 00:00:00 +0000">2018-03-03</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1072 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《1988：我想和这个世界谈谈》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;1988-i-want-to-talk-with-the-world-excerpt&#x2F;"></a>
+</article>
+
+<article class="post-entry">
+  <header class="entry-header">
+      <h2>《天幕红尘》与豆豆</h2>
+  </header>
+  
+  <div class="entry-content">
+      <p><p>转自豆瓣 <a href="https://book.douban.com/subject/24748615/">书籍链接</a>，<a href="https://book.douban.com/review/6539282/">书评</a>。</p>
+<p>数年前，看电视剧《天道》的时候，面对剧尾的那一场诉讼，我佩服得五体投地，于是，给某人出了一道题：如果一个农村家庭作坊被人谴责为滥用童工，怎么辩护？
+彼时，还算是民商法才子的某人给了一个答案。但是，我依然觉得是电视剧中的辩护词更赞。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2018-02-19 00:00:00 +0000">2018-02-19</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;770 words&nbsp;·&nbsp;edwardzcn-decade
+  </footer>
+  <a class="entry-link" aria-label="post link to 《天幕红尘》与豆豆" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading&#x2F;tian-mu-hong-chen-yu-dou-dou&#x2F;"></a>
+</article>
+
+
+  </main>
+  
+  <footer class="footer">
+  
+  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+  
+  <span>
+      Powered by
+      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+      <a href="https://github.com/edwardzcn-decade/zola-theme-cela" rel="noopener" target="_blank">Cela</a>
+  </span>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+<script>
+  let menu = document.getElementById('menu')
+  if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          var id = this.getAttribute("href").substr(1);
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                  behavior: "smooth"
+              });
+          } else {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+          }
+          if (id === "top") {
+              history.replaceState(null, null, " ");
+          } else {
+              history.pushState(null, null, `#${id}`);
+          }
+      });
+  });
+
+</script>
+
+
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+
+</script>
+
+
+
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+      if (document.body.className.includes("dark")) {
+          document.body.classList.remove('dark');
+          localStorage.setItem("pref-theme", 'light');
+      } else {
+          document.body.classList.add('dark');
+          localStorage.setItem("pref-theme", 'dark');
+      }
+  })
+
+</script>
+
+
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+      const container = codeblock.parentNode.parentNode;
+
+      const copybutton = document.createElement('button');
+      copybutton.classList.add('copy-code');
+      copybutton.innerText = 'copy';
+      function copyingDone() {
+          copybutton.innerText = 'copied!';
+          setTimeout(() => {
+              copybutton.innerText = 'copy';
+          }, 2000);
+      }
+
+      copybutton.addEventListener('click', (cb) => {
+          if ('clipboard' in navigator) {
+              var content = codeblock.textContent;
+              if(codeblock.firstChild.tagName == 'TABLE') {
+                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
+              }
+              navigator.clipboard.writeText(content);
+              copyingDone();
+              return;
+          }
+
+          const range = document.createRange();
+          range.selectNodeContents(codeblock);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+              document.execCommand('copy');
+              copyingDone();
+          } catch (e) { };
+          selection.removeRange(range);
+      });
+
+      if (container.classList.contains("highlight")) {
+          container.appendChild(copybutton);
+      } else if (container.parentNode.firstChild == container) {
+          // td containing LineNos
+      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+          // table containing LineNos and code
+          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+      } else {
+          // code blocks not having highlight as parent class
+          codeblock.parentNode.appendChild(copybutton);
+      }
+  });
+</script>
+
+
+
+  
+
+
+  
+  
+  
+</body>
+
+</html>
