@@ -5,8 +5,48 @@
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2023-11-22T00:00:00+00:00</updated>
+    <updated>2025-01-01T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/atom.xml</id>
+    <entry xml:lang="en">
+        <title>My First Post</title>
+        <published>2025-01-01T00:00:00+00:00</published>
+        <updated>2025-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/example/"/>
+        <id>https://www.edwardzcn.me/example/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/example/">&lt;p&gt;This is my first post in Zola. It is tagged with Rust and Zola.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>My Second Post</title>
+        <published>2025-01-01T00:00:00+00:00</published>
+        <updated>2025-01-01T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/example2/"/>
+        <id>https://www.edwardzcn.me/example2/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/example2/">&lt;p&gt;This is my first post in Zola. It is tagged with Rust and Zola.&lt;&#x2F;p&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Markdown Examples 2</title>
         <published>2023-11-22T00:00:00+00:00</published>
@@ -2131,59 +2171,6 @@
 &lt;p&gt;抛开直播圈的其他乱象不说（你们都懂，某平台的某些知名主播的蛇皮操作，各种公关闹剧简直是一出年末大戏），我一直以为直播和生活的界限还是分的很开的。直播归直播，那是镜头上的人物，是在表演，可以有感情的虚假，可以有套路，可以有剧本，起码和“生活”总隔着一个界限。这个界限，你说不出是个怎样的存在，但都能感觉到它在这里，真实的在这里。&lt;&#x2F;p&gt;
 &lt;p&gt;我也依稀记得斗鱼之前有过一个户外板块（不知道现在是否还存在），专门供主播分享户外生活的点点滴滴，直播里自然会出现其他“路人”，不过“路人”们都清楚的明白，有一个手持的直播设备在对着自己，无论愿意还是不愿意，至少，他们都是知情者，清楚自己已经穿过那条“界限”，站在这个直播平台提供的“舞台”上，成为了万千观众眼中的表演者。&lt;&#x2F;p&gt;
 &lt;p&gt;然而，我从未想到过，我会被剥夺这份知情权，被永远剥夺。&lt;&#x2F;p&gt;
-</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>《野火集》读书笔记</title>
-        <published>2018-02-20T00:00:00+00:00</published>
-        <updated>2018-02-20T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/ye-huo-ji-du-shu-bi-ji/"/>
-        <id>https://www.edwardzcn.me/Life/ye-huo-ji-du-shu-bi-ji/</id>
-        
-        <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;P10 “说穿了，龙应台所传承、传递的野火，其实就是一种乌托邦的想象。教导我们在现代的荒原上培养价值的火种，批判的火种，或点灯或放火，在众多的小天地和大天地，边缘和中间之间，找到一种新的文化串联的策略......”《野火集》中野火的多层含义，一方面是指如同普罗米修斯为人类带来神火，龙应台给台湾带来思想与意识观念的”野火“，她这个”盗火的玉娇龙“，背负着维护古典价值的使命，在哪个时代挂起漫野的星星之火。&lt;&#x2F;p&gt;
-&lt;&#x2F;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;P11 “如福柯所说，我们一再发现自己处于开始的位置；因为这样，我们更应该一起思索未来，以新的火焰挑战者、文化挑战者为己任，化被动为主动，大力叩问个体生命的意义，将我们共同的困境，化成一场戏剧性的自我追寻，扩张梦想的蓝图和坐标，脚踢东西文明，甚至期待有一天，将龙应台的野火放回西方去。”&lt;&#x2F;p&gt;
-&lt;&#x2F;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;P24 “……倒觉得八零年代就是太近的昨天，时间很长，路却走得不十分远。”&lt;&#x2F;p&gt;
-&lt;&#x2F;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;P28 “八零年代，我从台北走到北京，在从莫斯科走到东伯里的大街上，秋色萧萧，已是年代末了。我看见作家在对群众演说，群众在对天空呐喊，天空，默然下起了冷雨，雨水冲洗着人们脸上悲愤激情的泪水。 那是一个最坏也最好的时代，最黑暗也最光明的时代。因为黑暗，所以人们充满了追求光明的力气和反抗黑暗的激情，而且黑白分明，奋斗的目标多么明确。力气、激情、目标明确——八零年代是理想主义风起云涌的时代。只有在得到”光明“之后，在”光明“中面对个人自我的黑暗，发现那黑暗更深不可测，我们才进入了疑惑不安的九零年代，世纪之末。”&lt;&#x2F;p&gt;
-&lt;&#x2F;blockquote&gt;
-</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>《天幕红尘》读后感</title>
-        <published>2018-02-19T00:00:00+00:00</published>
-        <updated>2018-02-19T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/Life/tian-mu-hong-chen-du-hou-gan/"/>
-        <id>https://www.edwardzcn.me/Life/tian-mu-hong-chen-du-hou-gan/</id>
-        
-        <summary type="html">&lt;p&gt;转自豆瓣 &lt;a href=&quot;https:&#x2F;&#x2F;book.douban.com&#x2F;subject&#x2F;24748615&#x2F;&quot;&gt;原文地址&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;数年前，看电视剧《天道》的时候，面对剧尾的那一场诉讼，我佩服得五体投地，于是，给某人出了一道题：如果一个农村家庭作坊被人谴责为滥用童工，怎么辩护？
-彼时，还算是民商法才子的某人给了一个答案。但是，我依然觉得是电视剧中的辩护词更赞。&lt;&#x2F;p&gt;
 </summary>
         
     </entry>

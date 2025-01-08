@@ -243,10 +243,45 @@
         <loc>https://www.edwardzcn.me/blog/page/1/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/categories/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/categories/programming/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/categories/programming/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/example/</loc>
+        <lastmod>2025-01-01</lastmod>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/example2/</loc>
+        <lastmod>2025-01-01</lastmod>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/markdown-example/</loc>
         <lastmod>2023-11-21</lastmod>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/music/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/music/cheer-chen/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/music/jay-chou/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/tags/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/tags/rust/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/tags/zola/</loc>
     </url>
 </urlset>
