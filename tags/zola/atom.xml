@@ -8,26 +8,6 @@
     <updated>2025-01-01T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/tags/zola/atom.xml</id>
     <entry xml:lang="en">
-        <title>My First Post</title>
-        <published>2025-01-01T00:00:00+00:00</published>
-        <updated>2025-01-01T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/example/"/>
-        <id>https://www.edwardzcn.me/example/</id>
-        
-        <content type="html" xml:base="https://www.edwardzcn.me/example/">&lt;p&gt;This is my first post in Zola. It is tagged with Rust and Zola.&lt;&#x2F;p&gt;
-</content>
-        
-    </entry>
-    <entry xml:lang="en">
         <title>Github Footnotes Test</title>
         <published>2025-01-01T00:00:00+00:00</published>
         <updated>2025-01-01T00:00:00+00:00</updated>
