@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en" dir="i18n_dir">
+
+<head>
+  
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>VSCode使用跳板机远程登陆共享内网穿透</title>
+
+
+<meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
+
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou&#x2F;">
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+</noscript>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      ignoreHtmlClass: "no-mathjax",
+      processHtmlClass: "mathjax"
+    }
+  };
+</script>
+
+  
+</head>
+
+<body
+  class=""
+  id="top">
+  
+  
+<script>
+  if (localStorage.getItem("pref-theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <ul class="lang-switch">
+          <li>en</li>
+          <li>zh</li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading" title="Reading">
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags" title="Tags">
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot">
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola">
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+  
+  <main class="main">
+    
+<article class="post-single">
+  <header class="post-header">
+      <div class="breadcrumbs">
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou&#x2F;">VSCode使用跳板机远程登陆共享内网穿透</a>
+      </div>
+      <h1 class="post-title">VSCode使用跳板机远程登陆共享内网穿透</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;656 words&nbsp;·&nbsp;edwardzcn-decade
+      
+          &nbsp;|&nbsp;<a href="/content/blog&#x2F;programming&#x2F;VSCode使用跳板机远程登陆共享内网穿透.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details  open>
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#background" aria-label="Background">Background</a>
+          
+        </li>
+        
+        <li>
+          <a href="#ji-qun-pei-zhi" aria-label="集群配置">集群配置</a>
+          
+        </li>
+        
+        <li>
+          <a href="#vscode-ssh-configuration" aria-label="VSCode SSH Configuration">VSCode SSH Configuration</a>
+          
+        </li>
+        
+        <li>
+          <a href="#other-tips" aria-label="Other Tips">Other Tips</a>
+          
+        </li>
+        
+        <li>
+          <a href="#reference" aria-label="Reference">Reference</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>2025-01 记录：古早的VSCode使用说明。</p>
+<span id="continue-reading"></span>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-dark.png" alt="VSCode_01" /></p>
+<h2 id="background">Background</h2>
+<p>VSCode 19 年加入的 Remote Development 功能极大的方便了用户通过本地 VSCode 界面操作远程服务器、容器或者<a href="https://docs.microsoft.com/windows/wsl">WSL</a>，兼有好看易用的 GUI、插件生态与 Linux shell，可以说是很多轻度服务器使用者的福音了。根据<a href="https://code.visualstudio.com/docs/remote/remote-overview">官网描述</a>，VSCode Remote Development 可以用来做很多事情，比如：</p>
+<ol>
+<li>隔离远程与本地环境</li>
+<li>在远程配置不适用本地的工具或环境</li>
+<li>直接调试或部署在服务器上的应用（比如网站）</li>
+</ol>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-remote.png" alt="VSCode_02" /></p>
+<p>我因为操作服务器比较多，也有些 vim/emacs 基础，之前一直使用<a href="https://mobaxterm.mobatek.net/">MobaXTerm</a>+<a href="https://github.com/tmux/tmux">tmux</a>+<a href="https://www.gnu.org/software/emacs/">emacs</a>来进行服务器上的开发。多机实验则会再用上<a href="https://git-scm.com/downloads">git</a>来进行代码同步和版本控制。整套工具包🧰用起来还是很舒畅自然的，只是最近的多机实验需要频繁调试改动某一台机器上部分代码，主要问题和需求</p>
+<ul>
+<li>希望能有更方便的窗口来单独管理（<del>更重要的原因是我 vim/emacs 技术不够起飞</del>）。</li>
+<li>该机器并没有外网端口，需要借助跳板机 ssh 才可以使用。</li>
+</ul>
+<h2 id="ji-qun-pei-zhi">集群配置</h2>
+<p>我实验的配置一共五个计算节点，由一台 n1 服务器充当跳板机，n2、n4、n5（n3 有外部端口但不使用）不提供外部端口，仅能从 n1 跳转，均禁止密码访问（为了防止被矿工爆破）</p>
+<h2 id="vscode-ssh-configuration">VSCode SSH Configuration</h2>
+<p>我使用 VSCode 的配置如下</p>
+<pre data-lang="ssh" style="background-color:#2b303b;color:#c0c5ce;" class="language-ssh "><code class="language-ssh" data-lang="ssh"><span>Host USTC-n1
+</span><span>  HostName your-externel-ip
+</span><span>  User your-user-name
+</span><span>  Port your-port
+</span><span>
+</span><span>Host USTC-n2
+</span><span>  HostName your-internel-ip
+</span><span>  User your-user-name
+</span><span>  ProxyJump USTC-n1
+</span></code></pre>
+<p>注意区分外网 IP<code>your-externel-ip</code>（外界访问集群的 IP）与内网 IP<code>your-internel</code>，当然如果设置了 hostname，也可以直接替换，比如在我的配置里将内网 IP 替换为 n2。</p>
+<p>配置成功后，<code>F1</code>建输入 <code>Connect to Host...</code> 然后选择 USTC-n2 进行测试，成功后结果如下图:</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-remote-success.png" alt="VSCode_03" /></p>
+<h2 id="other-tips">Other Tips</h2>
+<p>当然配置文件还有很多其他选项可用，比如使用<code>ProxyCommand</code>或是密钥配置之类的。</p>
+<p>更多奇技淫巧可以参考 <a href="https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks">Tips and Tricks</a></p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://www.cnblogs.com/azureology/p/14620969.html">VScode remote配置跳板机实现远程登陆 | Azure's Blog</a></li>
+<li><a href="https://code.visualstudio.com/blogs/2021/02/16/extension-bisect">Visual Studio Code Blog</a></li>
+</ol>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;vscode&#x2F;">VScode</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+  </main>
+  
+  <footer class="footer">
+  
+  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+  
+  <span>
+      Powered by
+      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+      <a href="https://github.com/edwardzcn-decade/zola-theme-cela" rel="noopener" target="_blank">Cela</a>
+  </span>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+<script>
+  let menu = document.getElementById('menu')
+  if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          var id = this.getAttribute("href").substr(1);
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                  behavior: "smooth"
+              });
+          } else {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+          }
+          if (id === "top") {
+              history.replaceState(null, null, " ");
+          } else {
+              history.pushState(null, null, `#${id}`);
+          }
+      });
+  });
+
+</script>
+
+
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+
+</script>
+
+
+
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+      if (document.body.className.includes("dark")) {
+          document.body.classList.remove('dark');
+          localStorage.setItem("pref-theme", 'light');
+      } else {
+          document.body.classList.add('dark');
+          localStorage.setItem("pref-theme", 'dark');
+      }
+  })
+
+</script>
+
+
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+      const container = codeblock.parentNode.parentNode;
+
+      const copybutton = document.createElement('button');
+      copybutton.classList.add('copy-code');
+      copybutton.innerText = 'copy';
+      function copyingDone() {
+          copybutton.innerText = 'copied!';
+          setTimeout(() => {
+              copybutton.innerText = 'copy';
+          }, 2000);
+      }
+
+      copybutton.addEventListener('click', (cb) => {
+          if ('clipboard' in navigator) {
+              var content = codeblock.textContent;
+              if(codeblock.firstChild.tagName == 'TABLE') {
+                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
+              }
+              navigator.clipboard.writeText(content);
+              copyingDone();
+              return;
+          }
+
+          const range = document.createRange();
+          range.selectNodeContents(codeblock);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+              document.execCommand('copy');
+              copyingDone();
+          } catch (e) { };
+          selection.removeRange(range);
+      });
+
+      if (container.classList.contains("highlight")) {
+          container.appendChild(copybutton);
+      } else if (container.parentNode.firstChild == container) {
+          // td containing LineNos
+      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+          // table containing LineNos and code
+          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+      } else {
+          // code blocks not having highlight as parent class
+          codeblock.parentNode.appendChild(copybutton);
+      }
+  });
+</script>
+
+
+
+  
+
+
+  
+  <script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+  
+  
+</body>
+
+</html>

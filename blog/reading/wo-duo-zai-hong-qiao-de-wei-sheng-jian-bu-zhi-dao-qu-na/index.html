@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en" dir="i18n_dir">
+
+<head>
+  
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>「我躲在虹桥的卫生间，不知道去哪」</title>
+
+
+<meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
+
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;reading&#x2F;wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na&#x2F;">
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+</noscript>
+
+
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
+    },
+    options: {
+      ignoreHtmlClass: "no-mathjax",
+      processHtmlClass: "mathjax"
+    }
+  };
+</script>
+
+  
+</head>
+
+<body
+  class=""
+  id="top">
+  
+  
+<script>
+  if (localStorage.getItem("pref-theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <ul class="lang-switch">
+          <li>en</li>
+          <li>zh</li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading" title="Reading">
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags" title="Tags">
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot">
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola">
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+  
+  <main class="main">
+    
+<article class="post-single">
+  <header class="post-header">
+      <div class="breadcrumbs">
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na&#x2F;">「我躲在虹桥的卫生间，不知道去哪」</a>
+      </div>
+      <h1 class="post-title">「我躲在虹桥的卫生间，不知道去哪」</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2023-11-21 00:00:00 +0000">2023-11-21</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;2858 words&nbsp;·&nbsp;edwardzcn-decade
+      
+          &nbsp;|&nbsp;<a href="/content/blog&#x2F;reading&#x2F;「我躲在虹桥的卫生间，不知道去哪」.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details  open>
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#00" aria-label="00">00</a>
+          
+        </li>
+        
+        <li>
+          <a href="#01" aria-label="01">01</a>
+          
+        </li>
+        
+        <li>
+          <a href="#02" aria-label="02">02</a>
+          
+        </li>
+        
+        <li>
+          <a href="#03" aria-label="03">03</a>
+          
+        </li>
+        
+        <li>
+          <a href="#04" aria-label="04">04</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>原文链接 aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvcFoxQm10SGVkUjByeEJaa3FON0ZTQQ==</p>
+<p>文字藏于节点之间，记得那些撰写的人。</p>
+<h2 id="00">00</h2>
+<p>公司在大虹桥，所以每天下班都要从虹桥商务区步行到虹桥火车站</p>
+<p>也不知道从什么时候开始，我突然留意到在虹桥的地下通道里两侧边一直有住着人</p>
+<p>每晚都住着人</p>
+<p>起初我以为这应该是第二天要赶车的人，为了省住宿费所以临时凑合一晚</p>
+<p>后来我觉得是不是因为虹桥火车站地铁没通，所以大家提前来</p>
+<p>也有想想是不是因为做核酸不方便，所以……</p>
+<p>但是伴随着一切都开始常规化，这些情况不仅没有缓解，反而<strong>越来越多</strong>，比春运时候看到的还夸张</p>
+<p>他们到底是谁，又为什么会把这里当家</p>
+<p>这个好奇一直围绕着我</p>
+<p>直到上周五下班路上，遇到一个叫阿芬（化名）的女生</p>
+<p>我才慢慢知道这背后的真实原因，也确实让人唏嘘</p>
+<p>第一次看到阿芬的时候，其实是我想要上一个厕所，但是打开门之后却发现一个意外的画面</p>
+<p>我看到了她，他就住在这个厕所里的小隔间里面</p>
+<p>身后台面上放着她塞的鼓鼓的背包，以及装满日用品的塑料袋</p>
+<p>她刚用自来水洗完头，脚还穿着居家拖鞋</p>
+<p>看到有人进来她略微侧身回避，过了一会她打开厕所一格</p>
+<p>“你..是住这儿么”</p>
+<p>我没忍住问了这句，她有点腼腆的点了点头</p>
+<p>跟阿芬聊了一会，她对我也渐渐放松警惕</p>
+<p>我：为什么不住旅馆呢</p>
+<p>芬：实在没钱了，也找不到工作</p>
+<p>我：为什么找不到工作呢，这里机会应该很多吧</p>
+<p>芬说了一句让我头皮发麻的话：<strong>现在招工都不要感染过阳性的人</strong></p>
+<p>这件事很多人没想到，但却真实的发生着</p>
+<p>曾经在上海感染过疫情的人，如今正在被行业内重度歧视着</p>
+<h2 id="01">01</h2>
+<p>阿芬3月底来的上海，希望能在这里工作，也在这里驻足</p>
+<p>只是没想，到很快上海就被封控了</p>
+<p>当时没找到工作，于是被送往救助站</p>
+<p>而就在救助站里，她感染了阳性</p>
+<p>当然这些都是意外，一切恢复之后阿芬本来认为可以很快可以恢复正常</p>
+<p>而没想到的是，从5月下旬开始，阿芬就在各种平台和工作群里，寻找各种机会</p>
+<p>也有很多条件适合的工作，但唯独一条她不行</p>
+<p>一个不曾听过的词汇：历史无阳</p>
+<p>也就是说，如果曾经感染了阳性，那么连最基础的工作，她也失去了资格</p>
+<p>这样的情况一直没有改变</p>
+<p>到了6月7日前一晚，阿芬失眠了，这是她在隔离酒店的最后一晚</p>
+<p>也是从6月7日这天开始，她开始流浪大虹桥</p>
+<p>反复尝试不同的工作机会，看到招工她觉得自己适合的就去，还担心有所隐瞒，于是主动问对方人事，她进过方舱有没有问题</p>
+<p>对方听完立马摇摇头：这个肯定不能要</p>
+<p>5月如此</p>
+<p>6月也这样</p>
+<p>到了7月，还是这样，电话那头的招工人事一直说再等等</p>
+<p>而阿芬这样的情况并不是个例</p>
+<p>她和她在火车站新认识的小伙伴都面临这个情况，这是一个庞大的群体，整个上海的服务业行业正在通过历史无阳作为一个标准在歧视大量的新冠阳性康复者</p>
+<p>进过1次方舱、得过1次新冠，即使你后面99次核酸阴性，你都没资格获得工作机会</p>
+<p>没有任何原因，就是没有资格</p>
+<p>就这么一个准则，把一大波人挤到大虹桥的地下通道里，让他们无所适从，也不知道要去何处</p>
+<h2 id="02">02</h2>
+<p>前前后后两个月，他们一天比一天绝望，真的山穷水尽了</p>
+<p>如果不是山穷水尽，没谁会一直住在车站</p>
+<p>比如阿芬，对她来说，积蓄空了、手机欠费，连食物和水都成了问题</p>
+<p>她甚至还求助过12345热线</p>
+<p>对方回复的很及时</p>
+<p>但最后所有帮助也只限于电话询问，然后就没有然后了</p>
+<p>在阿芬身边，身边和她一起住车站的人正在越来越少</p>
+<p>有的去了车站周边，有的回了老家</p>
+<p>而阿芬因为种种原因，没有选择跟朋友和家人开口，而是咬牙也希望能再等等</p>
+<p>说不定第二天就变了，就像解封一样，<strong>就像可以堂食一样</strong></p>
+<p>而死撑的她，又是怎么在这活下去的</p>
+<p>阿芬指着火车站那条长长的大通道跟我说，这里每个能睡的角落她都睡过</p>
+<p>虽然窘迫，但至少住火车站就解决了住宿的问题</p>
+<p>然后她每天都去拼面包之类的，再加上优惠券，花销可以很少很少</p>
+<p>我说我想看看，她有点犯难，因为没钱缴费，手机已经停机</p>
+<p>我边给她连自己热点，边问她没网你是怎么团购的</p>
+<p>她捂着嘴笑：自己已经摸清了这附近所有可以免费蹭wifi的地方</p>
+<p>白天的时候她就步行到虹桥机场3楼的位置，不用进去，到那附近就有无线网</p>
+<p>然后东西也是这时候团购好，再带回虹桥火车站</p>
+<p>我一看是真的便宜，<strong>两斤面包就6块多，能吃两三天</strong></p>
+<p>不过她每天都只能吃面包，而且一天只能吃两顿</p>
+<p>买食物的钱，也是她自己下载了一些软件，每天通过签到、抢红包，赚的几块钱，然后攒上几天，就可以提现</p>
+<p>有一次她还用自己快餐店积分兑换了4个汉堡，兑出汉堡那天，是她来上海两个多月来最开心的一天</p>
+<p>只不过每次下单的时候，有一个“最低消费”，她每次都买一个1.5元的环保袋，正好还可以拿来装衣服什么的</p>
+<p>我说，你这又没冰箱，那么多汉堡不会坏么</p>
+<p>她笑说，谁那么傻一次取光，我一次买两个，然后上午一个、下午一个，一天伙食就解决啦</p>
+<p>说完我俩都乐了</p>
+<p>不过所有的真实都藏在玩笑过后的那一阵沉默里</p>
+<p>并不是只有阿芬这么苦，和阿芬一起的小伙伴，她们洗澡，就是接一盆水，到厕所格子间解决</p>
+<p>厕所里没有热水，接水时间也比较长，因为水流受限，而且还得一直把手放下面感应才能出水</p>
+<p>洗完头没有吹风机，就把头放在洗完手的那个烘干机下面</p>
+<p>有个女生，这两天她的洗发水用完了，就用自己洗面奶将就了一下</p>
+<p>她说效果不好，不过撑一撑也就过去了</p>
+<p>洗完的衣服，她们就晾在自己的行李箱上，或者搭在火车站围栏上</p>
+<p><strong>她说流浪虹桥很大一部分原因是这里有厕所，更重要的是这里的厕所有纸</strong></p>
+<p>她抽出一张差点掉地上，连忙捡起来放回去</p>
+<p>窘迫的时候，她们甚至连生理期用品都得计算着用</p>
+<p>你真的无法想象一个人在自己拮据的时候，可以把日子过的精打细算到什么程度</p>
+<p>有一位女生跟我说，她爸妈到现在都不知道她得了新冠、去过方舱</p>
+<p><strong>更不知道此时此刻的她正住在虹桥火车站</strong></p>
+<span id="continue-reading"></span><h2 id="03">03</h2>
+<p>我从解封开始就注意到虹桥火车站的人开始变多</p>
+<p>一直到6月下旬，很多人已经离开虹桥火车站回了老家</p>
+<p>在写下这篇文字的时候，像阿芬这样的人已经越来越少出现在虹桥火车站</p>
+<p>他们中，有的想办法通过各种渠道找到一份日结类工作，去做物流分拣员、外卖、仓库管理员等</p>
+<p>但所谓的想办法，也只是当别人不问你阳没阳过的时候，你也不主动说而已</p>
+<p>然后就这样混到一份工作</p>
+<p>更多的人，则是离开上海，灰头土脸的回老家</p>
+<p>再有的就像阿芬和她的小姐妹们一样，<strong>依然在等待中</strong></p>
+<p>当然等待也是有倒计时的</p>
+<p>因为从6月下旬开始，虹桥火车站考虑到商务区和火车站交通，开始清退闲杂人员</p>
+<p>我尝试了一下，晚上12点在虹桥火车站那条长长通道坐下或者躺着</p>
+<p>不用半小时就会有人找到你请你离开</p>
+<p>旁边虹桥天地、龙湖天街的购物公区，到了12点因为疫情管控也需要清场</p>
+<p>于是这些人只能搬到火车站周边</p>
+<p>比如天桥上，还有那种不用的电梯口</p>
+<p>他们依然坚持着，希望守得云开，能够找到一份工作，哪怕日结，手里有钱，心里才有底，才好回家</p>
+<p>有的甚至夫妻二人携家带口，被迫滞留</p>
+<p>他们就在等着，一直等着，等着一个证明可以恢复他们正常工作的身份</p>
+<p>这个身份叫：<strong>阳性康复和正常人一样</strong></p>
+<p>有点唏嘘有点感慨，这个城市把他们挤到最后一个角落，但是他们依然没有离开</p>
+<p>最近的上海持续高温，40度的天气似乎要持续很长一段时间</p>
+<p>不知道此时此刻的他们，现在怎么样</p>
+<h2 id="04">04</h2>
+<p>为什么要试着写这篇文章</p>
+<p>一个是我们真实看到，一个也觉得有点不可思议</p>
+<p>所有的感染者本质上都是受害者，而现在一些底层人员阳性之后的康复之后，似乎在经历第二次伤害</p>
+<p>今天我们因为意外记录下一个个体，本质上也是希望我们的文字可以多一点呼吁，可以对所有个体都能够一视同仁</p>
+<p>给他们机会</p>
+<p>让他们工作</p>
+<p>复产复工，这个词汇前面不应该有前缀</p>
+<p>最后阿芬跟我说，她也给了自己一个期限</p>
+<p>如果7月15日，还是现在这样的情况的话，她也回河南老家了</p>
+<p>“为什么是7月15日”</p>
+<p>她说没什么特殊含义，因为也忍不了多久了</p>
+<p>“但也有不甘，所以就给自己设了个最后期限”</p>
+<p>嗯，自己给自己的最后期限</p>
+<p>说到这里，我脑子突然闪过一个画面</p>
+<p>你说会不会有一天，突然在上海发布上看到一条推送，大概内容关于：<strong>所有机构部门，不得歧视新冠阳性康复者</strong></p>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;404&#x2F;">404</a></li>
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;covid-19&#x2F;">COVID-19</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;tai-bei-ren-zhai-lu&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>《台北人》摘录</span>
+    </a>
+    
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+  </main>
+  
+  <footer class="footer">
+  
+  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+  
+  <span>
+      Powered by
+      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+      <a href="https://github.com/edwardzcn-decade/zola-theme-cela" rel="noopener" target="_blank">Cela</a>
+  </span>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+<script>
+  let menu = document.getElementById('menu')
+  if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          var id = this.getAttribute("href").substr(1);
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                  behavior: "smooth"
+              });
+          } else {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+          }
+          if (id === "top") {
+              history.replaceState(null, null, " ");
+          } else {
+              history.pushState(null, null, `#${id}`);
+          }
+      });
+  });
+
+</script>
+
+
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+
+</script>
+
+
+
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+      if (document.body.className.includes("dark")) {
+          document.body.classList.remove('dark');
+          localStorage.setItem("pref-theme", 'light');
+      } else {
+          document.body.classList.add('dark');
+          localStorage.setItem("pref-theme", 'dark');
+      }
+  })
+
+</script>
+
+
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+      const container = codeblock.parentNode.parentNode;
+
+      const copybutton = document.createElement('button');
+      copybutton.classList.add('copy-code');
+      copybutton.innerText = 'copy';
+      function copyingDone() {
+          copybutton.innerText = 'copied!';
+          setTimeout(() => {
+              copybutton.innerText = 'copy';
+          }, 2000);
+      }
+
+      copybutton.addEventListener('click', (cb) => {
+          if ('clipboard' in navigator) {
+              var content = codeblock.textContent;
+              if(codeblock.firstChild.tagName == 'TABLE') {
+                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
+              }
+              navigator.clipboard.writeText(content);
+              copyingDone();
+              return;
+          }
+
+          const range = document.createRange();
+          range.selectNodeContents(codeblock);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+              document.execCommand('copy');
+              copyingDone();
+          } catch (e) { };
+          selection.removeRange(range);
+      });
+
+      if (container.classList.contains("highlight")) {
+          container.appendChild(copybutton);
+      } else if (container.parentNode.firstChild == container) {
+          // td containing LineNos
+      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+          // table containing LineNos and code
+          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+      } else {
+          // code blocks not having highlight as parent class
+          codeblock.parentNode.appendChild(copybutton);
+      }
+  });
+</script>
+
+
+
+  
+
+
+  
+  <script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+  
+  
+</body>
+
+</html>
