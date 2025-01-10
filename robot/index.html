@@ -10,6 +10,7 @@
 <title>🌟Edwardzcn blog</title>
 
 
+
 <meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
 
 
@@ -56,28 +57,16 @@
 </noscript>
 
 
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    },
-    options: {
-      ignoreHtmlClass: "no-mathjax",
-      processHtmlClass: "mathjax"
-    }
-  };
-</script>
+  
 
   
 </head>
 
 <body
-  class="list "
-  id="top">
-  
-  
+class="list "
+id="top">
+
+
 <script>
   if (localStorage.getItem("pref-theme") === "dark") {
     document.body.classList.add("dark");
@@ -190,7 +179,7 @@
         
         
       <li>
-        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading" title="Reading">
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading">
           <span>Reading</span></a>
       </li>
       
@@ -212,6 +201,16 @@
       <li>
         <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
           <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me#" title="Search">
+          <span>Search</span></a>
       </li>
       
         
@@ -259,33 +258,178 @@
   </nav>
 </header>
 
-  
-  <main class="main">
-    
 
-<!-- Gallery header -->
+<main class="main">
+  
+
+<!-- robot header -->
 <header class="page-header">
     <div class="breadcrumbs">
         <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>
     </div>
-    <h1>
+    <h1>Robots
       
-      <a href="https://www.edwardzcn.me/atom.xml" title="RSS" aria-label="RSS">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="23">
-          <path d="M4 11a9 9 0 0 1 9 9"></path>
-          <path d="M4 4a16 16 0 0 1 16 16"></path>
-          <circle cx="5" cy="19" r="1"></circle>
-        </svg>
-      </a>
-      
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=24 width=24>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+
   </h1>
 </header>
 
-<!-- Gallery items -->
+<!-- robot items -->
+<div class="post-entry">
+  <style>
+    .post-entry:active {
+      transform: none !important;
+    }
+  </style>
+  <header class="entry-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; ">
+    <h2>My Tools</h2>
+  </header>
+  <div class="tool-section">
+    <div class="tool-label">
+      <h4>Base64 En/Decode</h4>
+    </div>
+    <div class="tool-inputs">
+      <div class="input-group">
+        <input placeholder="Text to be encoded"></input>
+        <div class="button-container">
+          <button onclick="encodeBase64()">Encode</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <input placeholder="Text to be decoded"></input>
+        <div class="button-container">
+          <button onclick="decodeBase64()">Decode</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  </main>
+  <div class="tool-section">
+    <div class="tool-label">
+      <h4>MD5 Hash Generator</h4>
+    </div>
+    <div class="tool-inputs">
+      <div class="input-group">
+        <input placeholder="Enter text here"></input>
+        <div class="button-container">
+          <button onclick="generateMD5()">Generate MD5</button>
+        </div>
+      </div>
+      <div class="input-group">
+        <input placeholder="MD5 hash will appear here"></input>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="post-entry">
+  <header class="entry-header" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; ">
+    <h2>Send WeChat Message</h2>
+  </header>
+  <div class="tool-section">
+    <form id="wechat-message-form" class="tool-inputs">
+      <div class="input-group">
+        <input id="wechat-contact-name" placeholder="Wechat"></input>
+      </div>
+      <div class="input-group">
+        <input id="wechat-message-content" placeholder="Your message"></input>
+      </div>
+      <div class="button-container">
+        <button type="button" onclick="sendWeChatMessage()">发送消息</button>
+      </div>
+    </form>
+  </div>
+  <div id="wechat-response" class="tool-response" style="margin-top: 20px; text-align: center; color: green;">
+    <!-- 返回信息将显示在这里 -->
+  </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+<script>
+  function encodeBase64() {
+  const input = document.querySelector('.tool-section:nth-of-type(1) .input-group:nth-of-type(1) input');
+  const output = document.querySelector('.tool-section:nth-of-type(1) .input-group:nth-of-type(2) input');
+  if (!input || !output) {
+    console.error("Input or output field not found.");
+    return;
+  }
+
+  const text = input.value;
+
+  if (text.trim() === "") {
+    alert("Please enter text to encode.");
+    return;
+  }
+
+  try {
+    const encoded = btoa(text); // Base64 encode
+    output.value = encoded;
+  } catch (error) {
+    alert("Error encoding text: " + error.message);
+  }
+}
+
+// Base64 decode
+function decodeBase64() {
+  const input = document.querySelector('.tool-section:nth-of-type(1) .input-group:nth-of-type(2) input');
+  const output = document.querySelector('.tool-section:nth-of-type(1) .input-group:nth-of-type(1) input');
   
-  <footer class="footer">
+  if (!input || !output) {
+    console.error("Input or output field not found.");
+    return;
+  }
+
+  const text = input.value;
+
+  if (text.trim() === "") {
+    alert("Please enter Base64 encoded text to decode.");
+    return;
+  }
+
+  try {
+    const decoded = atob(text); // Base64 decode
+    output.value = decoded;
+  } catch (error) {
+    alert("Error decoding text: " + error.message);
+  }
+}
+
+// MD5 生成函数
+function generateMD5() {
+  const input = document.querySelector('.tool-section:nth-of-type(2) .input-group:nth-of-type(1) input');
+  const output = document.querySelector('.tool-section:nth-of-type(2) .input-group:nth-of-type(2) input');
+
+  if (!input || !output) {
+    console.error("Input or output field not found.");
+    return;
+  }
+
+  const text = input.value;
+
+  if (text.trim() === "") {
+    alert("Please enter text to hash.");
+    return;
+  }
+
+  try {
+    const hash = CryptoJS.MD5(text).toString(); // 使用 CryptoJS 生成 MD5
+    output.value = hash;
+  } catch (error) {
+    alert("Error generating MD5 hash: " + error.message);
+  }
+}
+
+</script>
+
+</main>
+
+<footer class="footer">
   
   <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
   
@@ -418,13 +562,21 @@
 
 
 
-  
 
 
-  
-  <script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
-  
-  
+
+<div id="searchbox" class="hidden">
+  <div class="search-modal">
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+    <button id="searchButton">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+
+
 </body>
 
 </html>

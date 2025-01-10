@@ -10,6 +10,7 @@
 <title>🌟Edwardzcn blog</title>
 
 
+
 <meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
 
 
@@ -56,28 +57,16 @@
 </noscript>
 
 
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    },
-    options: {
-      ignoreHtmlClass: "no-mathjax",
-      processHtmlClass: "mathjax"
-    }
-  };
-</script>
+  
 
   
 </head>
 
 <body
-  class="list "
-  id="top">
-  
-  
+class="list "
+id="top">
+
+
 <script>
   if (localStorage.getItem("pref-theme") === "dark") {
     document.body.classList.add("dark");
@@ -190,7 +179,7 @@
         
         
       <li>
-        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading" title="Reading">
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading">
           <span>Reading</span></a>
       </li>
       
@@ -212,6 +201,16 @@
       <li>
         <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
           <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me#" title="Search">
+          <span>Search</span></a>
       </li>
       
         
@@ -259,9 +258,9 @@
   </nav>
 </header>
 
+
+<main class="main">
   
-  <main class="main">
-    
 
   <!-- taxonomy header (mostly used in single template) just below the nav bar -->
 <header class="page-header">
@@ -379,9 +378,9 @@
 </article>
 
 
-  </main>
-  
-  <footer class="footer">
+</main>
+
+<footer class="footer">
   
   <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
   
@@ -514,13 +513,21 @@
 
 
 
-  
 
 
-  
-  <script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
-  
-  
+
+<div id="searchbox" class="hidden">
+  <div class="search-modal">
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+    <button id="searchButton">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+
+
 </body>
 
 </html>

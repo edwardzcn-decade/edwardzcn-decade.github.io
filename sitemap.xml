@@ -17,6 +17,33 @@
         <loc>https://www.edwardzcn.me/blog/page/1/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/blog/page/10/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/3/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/4/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/5/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/6/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/7/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/8/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/page/9/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/blog/programming/</loc>
     </url>
     <url>
@@ -271,12 +298,6 @@
         <loc>https://www.edwardzcn.me/categories/gong-ju/page/1/</loc>
     </url>
     <url>
-        <loc>https://www.edwardzcn.me/categories/programming/</loc>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/categories/programming/page/1/</loc>
-    </url>
-    <url>
         <loc>https://www.edwardzcn.me/categories/sui-bi/</loc>
     </url>
     <url>
@@ -361,24 +382,7 @@
         <loc>https://www.edwardzcn.me/gallery/</loc>
     </url>
     <url>
-        <loc>https://www.edwardzcn.me/github-footnotes-test/</loc>
-        <lastmod>2025-01-01</lastmod>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/markdown-example/</loc>
-        <lastmod>2023-11-21</lastmod>
-    </url>
-    <url>
         <loc>https://www.edwardzcn.me/music/</loc>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/music/cheer-chen/</loc>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/music/jay-chou/</loc>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/page/1/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/robot/</loc>
@@ -513,9 +517,6 @@
         <loc>https://www.edwardzcn.me/tags/richard-hofstadter/</loc>
     </url>
     <url>
-        <loc>https://www.edwardzcn.me/tags/rust/</loc>
-    </url>
-    <url>
         <loc>https://www.edwardzcn.me/tags/san-wen/</loc>
     </url>
     <url>
@@ -574,9 +575,6 @@
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/zheng-zhi/</loc>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/tags/zola/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/zh/</loc>

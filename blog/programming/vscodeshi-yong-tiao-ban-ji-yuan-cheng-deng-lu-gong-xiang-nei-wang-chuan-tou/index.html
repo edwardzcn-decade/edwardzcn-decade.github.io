@@ -10,7 +10,9 @@
 <title>VSCode使用跳板机远程登陆共享内网穿透</title>
 
 
-<meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
+
+
+<meta name="keywords" content="VScode">
 
 
 
@@ -58,28 +60,30 @@
 </noscript>
 
 
-<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']]
-    },
-    options: {
-      ignoreHtmlClass: "no-mathjax",
-      processHtmlClass: "mathjax"
-    }
-  };
-</script>
+  
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        ignoreHtmlClass: "no-mathjax",
+        processHtmlClass: "mathjax"
+      }
+    };
+  </script>
+  
 
   
 </head>
 
 <body
-  class=""
-  id="top">
-  
-  
+class=""
+id="top">
+
+
 <script>
   if (localStorage.getItem("pref-theme") === "dark") {
     document.body.classList.add("dark");
@@ -192,7 +196,7 @@
         
         
       <li>
-        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;reading" title="Reading">
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading">
           <span>Reading</span></a>
       </li>
       
@@ -214,6 +218,16 @@
       <li>
         <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
           <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me#" title="Search">
+          <span>Search</span></a>
       </li>
       
         
@@ -261,9 +275,9 @@
   </nav>
 </header>
 
+
+<main class="main">
   
-  <main class="main">
-    
 <article class="post-single">
   <header class="post-header">
       <div class="breadcrumbs">
@@ -290,9 +304,11 @@
 
 
 
-<span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;656 words&nbsp;·&nbsp;edwardzcn-decade
+<span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;657 words&nbsp;·&nbsp;edwardzcn-decade
       
-          &nbsp;|&nbsp;<a href="/content/blog&#x2F;programming&#x2F;VSCode使用跳板机远程登陆共享内网穿透.md" rel="noopener noreferrer" target="_blank">Suggest Changes</a>
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:VSCode使用跳板机远程登陆共享内网穿透" target="_blank">Email me</a>
+
       
       </div>
       
@@ -347,6 +363,7 @@
       <p>2025-01 记录：古早的VSCode使用说明。</p>
 <span id="continue-reading"></span>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-dark.png" alt="VSCode_01" /></p>
+<p>$x_1$</p>
 <h2 id="background">Background</h2>
 <p>VSCode 19 年加入的 Remote Development 功能极大的方便了用户通过本地 VSCode 界面操作远程服务器、容器或者<a href="https://docs.microsoft.com/windows/wsl">WSL</a>，兼有好看易用的 GUI、插件生态与 Linux shell，可以说是很多轻度服务器使用者的福音了。根据<a href="https://code.visualstudio.com/docs/remote/remote-overview">官网描述</a>，VSCode Remote Development 可以用来做很多事情，比如：</p>
 <ol>
@@ -364,7 +381,7 @@
 <p>我实验的配置一共五个计算节点，由一台 n1 服务器充当跳板机，n2、n4、n5（n3 有外部端口但不使用）不提供外部端口，仅能从 n1 跳转，均禁止密码访问（为了防止被矿工爆破）</p>
 <h2 id="vscode-ssh-configuration">VSCode SSH Configuration</h2>
 <p>我使用 VSCode 的配置如下</p>
-<pre data-lang="ssh" style="background-color:#2b303b;color:#c0c5ce;" class="language-ssh "><code class="language-ssh" data-lang="ssh"><span>Host USTC-n1
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>Host USTC-n1
 </span><span>  HostName your-externel-ip
 </span><span>  User your-user-name
 </span><span>  Port your-port
@@ -405,6 +422,18 @@
 
 <nav class="paginav">
     
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-yu-di-tan-zhai-lu&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>《我与地坛》摘录</span>
+    </a>
+    
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;educated-tara-westover-excerpt&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>《你当像鸟飞往你的山》摘录</span>
+    </a>
     
 </nav>
 
@@ -414,9 +443,9 @@
 
 </article>
 
-  </main>
-  
-  <footer class="footer">
+</main>
+
+<footer class="footer">
   
   <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
   
@@ -549,13 +578,21 @@
 
 
 
-  
 
 
-  
-  <script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
-  
-  
+
+<div id="searchbox" class="hidden">
+  <div class="search-modal">
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+    <button id="searchButton">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+
+
 </body>
 
 </html>
