@@ -5,8 +5,236 @@
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-01-16T00:00:00+00:00</updated>
+    <updated>2025-01-18T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/atom.xml</id>
+    <entry xml:lang="en">
+        <title>ArmSom-Sige5开发版折腾Armbian记录</title>
+        <published>2025-01-18T00:00:00+00:00</published>
+        <updated>2025-01-18T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu/"/>
+        <id>https://www.edwardzcn.me/blog/programming/armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/blog/programming/armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu/">&lt;p&gt;记录过年回家前的一次折腾，把ArmSom-Sige5开发版&lt;del&gt;刷了社区版Armbian又降回板子厂商提供的unofficial Armbian&lt;&#x2F;del&gt;，配置软路由功能兼有Linux环境开发体验。&lt;&#x2F;p&gt;
+&lt;p&gt;免责声明：初次接触开发版&lt;del&gt;我也忘记哪里看到ArmSom的广告就买了，可能我只是喜欢他家的💜紫色外壳&lt;&#x2F;del&gt;，不保证本文有参考价值，仅作为个人踩坑记录。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian0.jpeg&quot; alt=&quot;sige5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;gu-jian-emmcshao-xie&quot;&gt;固件eMMC烧写&lt;&#x2F;h2&gt;
+&lt;p&gt;因为手头没有可用的microSD卡，选择type-C数据线直连电脑和板子烧录固件到eMMC。具体步骤如下：&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;zhun-bei-gong-zuo&quot;&gt;准备工作&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;两根type-C线，一根用于开发版和电脑连接，一根为开发版供电。&lt;&#x2F;li&gt;
+&lt;li&gt;准备 MiniLoader （ArmSom官方提供，sige5为RK3576_MiniLoaderAll）&lt;&#x2F;li&gt;
+&lt;li&gt;准备 System Image
+&lt;ul&gt;
+&lt;li&gt;我使用的是ArmSom提供的unofficial Armbian镜像&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;armbian&#x2F;community&#x2F;releases&#x2F;&quot;&gt;Armbian Community 镜像&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;其他镜像请参考&lt;a href=&quot;https:&#x2F;&#x2F;docs.armsom.org&#x2F;zh&#x2F;armsom-sige5&quot;&gt;ArmSom Sige5文档&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;烧录工具
+&lt;ul&gt;
+&lt;li&gt;Windows 使用 RKDevTool（ArmSom官方提供）&lt;&#x2F;li&gt;
+&lt;li&gt;Linux&#x2F;macOS 使用 &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;rockchip-linux&#x2F;rkdeveloptool&quot;&gt;rkdeveloptool&lt;&#x2F;a&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;shao-lu-bu-zou&quot;&gt;烧录步骤&lt;&#x2F;h3&gt;
+&lt;p&gt;进入 Maskrom 模式，参考&lt;a href=&quot;https:&#x2F;&#x2F;docs.armsom.org&#x2F;zh&#x2F;getting-start&#x2F;flash-img#232-usb%E7%BA%BF%E7%83%A7%E5%BD%95%E5%88%B0emmc&quot;&gt;镜像烧录步骤&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;断开所有供电电线，连接开发版和电脑&lt;&#x2F;li&gt;
+&lt;li&gt;使用一根Type-C线连接开发版Type-C口（非供电接口）和电脑的usb接口，使用软件检测
+&lt;ul&gt;
+&lt;li&gt;Windows RKDevTool 下方显示 &lt;code&gt;No Devices Found&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;Linux&#x2F;macOS 运行 &lt;code&gt;rkdevelotool ld&lt;&#x2F;code&gt; 显示 &lt;code&gt;not found any devices!&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;按住Mashrom按键，使用另一根Type-C线连接开发版Type-C口（供电接口）和电源
+&lt;ul&gt;
+&lt;li&gt;Windows RKDevTool 下方显示 “Found One Loader Device”，可松开按键&lt;&#x2F;li&gt;
+&lt;li&gt;Linux&#x2F;macOS 运行 &lt;code&gt;rkdevelotool ld&lt;&#x2F;code&gt; 检测到设备 &lt;code&gt;DevNo=1 Vid=0x2207,Pid=0x350e,LocationID=201    Maskrom&lt;&#x2F;code&gt;，可松开按键&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;根据下面的平台&#x2F;软件选择要烧录的 System Image 进行烧录&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;h4 id=&quot;windows-rkdevtool&quot;&gt;Windows RkDevTool&lt;&#x2F;h4&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian1.png&quot; alt=&quot;RKDevTool&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;其中 Loader Path 为MiniLoader路径，Image Path 为所烧录镜像的路径。起始地址为 0x0000 无需修改，注意勾选 Write by Address，点击 Run 开始烧录。右侧Download image完成即烧录完成。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;linux-macos-rkdeveloptool&quot;&gt;Linux&#x2F;macOS rkdeveloptool&lt;&#x2F;h4&gt;
+&lt;p&gt;命令行执行&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rkdeveloptool&lt;&#x2F;span&gt;&lt;span&gt; db RK3576_MiniLoaderAll.bin
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rkdeveloptool&lt;&#x2F;span&gt;&lt;span&gt; wl 0x0000 Armbian_community_25.2.0-trunk.86_Armsom-sige5_noble_vendor_6.1.75_gnome_desktop.img
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rkdeveloptool&lt;&#x2F;span&gt;&lt;span&gt; rd
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;等待烧录完成。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;armbian-chu-shi-pei-zhi&quot;&gt;Armbian 初始配置&lt;&#x2F;h2&gt;
+&lt;p&gt;开发版接电，使用HDMI接口外接显示器，我烧录的是带有GNOME桌面环境的Armbian镜像，初次登录需要一些配置，还不能直接进入桌面系统。&lt;a href=&quot;https:&#x2F;&#x2F;docs.armbian.com&#x2F;User-Guide_Getting-Started&#x2F;&quot;&gt;Armbian 默认登录root密码为1234&lt;&#x2F;a&gt;。初始配置包含以下：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;Welcome to Armbian!
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Documentation: https:&#x2F;&#x2F;docs.armbian.com&#x2F; | Community support: https:&#x2F;&#x2F;forum.armbian.com&#x2F;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;IP address:  Network connection timeout!
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Create root password: ********
+&lt;&#x2F;span&gt;&lt;span&gt;Repeat root password: ********
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Shell: BASH
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Please provide a username (eg. your first name): ?
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;Create user (Jane) password: ********
+&lt;&#x2F;span&gt;&lt;span&gt;Repeat user (Jane) password: ********
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;...
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;完成配置后桌面系统会重启进入GNOME桌面，非桌面系统会新建 ssh 对话。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;armbian-xi-tong-huan-yuan&quot;&gt;Armbian 系统换源&lt;&#x2F;h2&gt;
+&lt;p&gt;由于国内网络问题，进入系统首先更换镜像源&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;[1]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt; &lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;[2]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;，Armbian是构建在Debian或Ubuntu发行版上，需要编辑：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list&#x2F;armbian.list&lt;&#x2F;code&gt;armbian专属软件源和&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list&lt;&#x2F;code&gt;发行版基础的软件源。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;armbian-zhuan-shu-ruan-jian-yuan-huan-yuan&quot;&gt;Armbian 专属软件源换源&lt;&#x2F;h3&gt;
+&lt;p&gt;可参考 &lt;a href=&quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;help&#x2F;armbian&#x2F;&quot;&gt;TUNA Mirror Help&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;或者使用下面的镜像选择脚本&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;#!&#x2F;bin&#x2F;bash
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\033[0;32m&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\033[0;36m&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RED&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\033[0;31m&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span&gt;=&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;\033[0m&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOURCE_FILE&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;armbian.list&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE&lt;&#x2F;span&gt;&lt;span&gt;=$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;grep -Eo &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https?:&#x2F;&#x2F;[^ ]+&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOURCE_FILE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;head -n&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt; 1)
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;[[ &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; == *&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;tuna.tsinghua.edu.cn&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;]]&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE_NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Tsinghua 清华大学镜像源&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;elif &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;[[ &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; == *&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ustc.edu.cn&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;]]&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE_NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;USTC 中国科学技术大学镜像源&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;elif &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;[[ &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; == *&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;apt.armbian.com&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;* &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;]]&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE_NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;官方镜像源&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE_NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;未知镜像源&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}======================================&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}   Armbian Mirror Switcher Script    &lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}======================================&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;[ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-n &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}当前源：&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}镜像源名称：&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CURRENT_SOURCE_NAME&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RED&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}未检测到有效的源配置！&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}请选择要切换的镜像源:&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;1. Tsinghua 清华大学源 (https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;2. USTC 中国科学技术大学源 (https:&#x2F;&#x2F;mirrors.ustc.edu.cn)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;3. 恢复为默认的官方源 (http:&#x2F;&#x2F;apt.armbian.com)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-ne &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}请输入选项 (1, 2 或 3): &lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;read &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-r&lt;&#x2F;span&gt;&lt;span&gt; choice
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;case &lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;choice &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;in
+&lt;&#x2F;span&gt;&lt;span&gt;    1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}切换到 Tsinghua 源...&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; sed&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span&gt;.bak&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -E &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn#g&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOURCE_FILE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}源已成功更换为 Tsinghua 清华大学镜像！&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        ;;
+&lt;&#x2F;span&gt;&lt;span&gt;    2&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}切换到 USTC 源...&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; sed&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span&gt;.bak&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -E &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https:&#x2F;&#x2F;mirrors.ustc.edu.cn#g&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOURCE_FILE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}源已成功更换为 USTC 中国科学技术大学镜像！&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        ;;
+&lt;&#x2F;span&gt;&lt;span&gt;    3&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}恢复为默认的官方源...&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; sed&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span&gt;.bak&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -E &lt;&#x2F;span&gt;&lt;span&gt;&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#http:&#x2F;&#x2F;apt.armbian.com#g&lt;&#x2F;span&gt;&lt;span&gt;&amp;#39; &amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SOURCE_FILE&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}源已恢复为默认的官方镜像！&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        ;;
+&lt;&#x2F;span&gt;&lt;span&gt;    *&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;RED&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}无效输入！请重新运行脚本并选择 1, 2 或 3。&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;exit&lt;&#x2F;span&gt;&lt;span&gt; 1
+&lt;&#x2F;span&gt;&lt;span&gt;        ;;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;esac
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-ne &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}是否立即更新软件包索引？(y&#x2F;n): &lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;read &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-r&lt;&#x2F;span&gt;&lt;span&gt; update_choice
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;if &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;[[ &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;update_choice&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot; =~ ^&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;[&lt;&#x2F;span&gt;&lt;span&gt;Yy&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;]&lt;&#x2F;span&gt;&lt;span&gt;$ &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;]]&lt;&#x2F;span&gt;&lt;span&gt;; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;then
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}更新软件包索引...&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt-get update
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}软件包索引更新完成！&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;else
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;CYAN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}已跳过更新软件包索引。&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#b48ead;&quot;&gt;fi
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;-e &lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;GREEN&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}镜像源切换操作完成！&lt;&#x2F;span&gt;&lt;span&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;{&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;fa-xing-ban-ji-chu-debian-ubuntu-huan-yuan&quot;&gt;发行版基础Debian&#x2F;Ubuntu 换源&lt;&#x2F;h3&gt;
+&lt;p&gt;根据登录开发版 motd 信息获取确定发行版基础&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-2&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;[2]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;，比如我的显示如下：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian2.png&quot; alt=&quot;motd&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Noble 表示基于 Ubuntu 24.04 (noble)&lt;&#x2F;p&gt;
+&lt;p&gt;或者可以使用&lt;code&gt;cat &#x2F;etc&#x2F;os-release&lt;&#x2F;code&gt;获取详细系统信息&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;edwardzcn@armsom-sige5:~$&lt;&#x2F;span&gt;&lt;span&gt; cat &#x2F;etc&#x2F;os-release
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PRETTY_NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Armbian 24.11.3 noble&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Ubuntu&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;VERSION_ID&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;24.04&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;VERSION&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;24.04 LTS (Noble Numbat)&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;VERSION_CODENAME&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;noble
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ID&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;ubuntu
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ID_LIKE&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;debian
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;HOME_URL&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;www.armbian.com&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;SUPPORT_URL&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;forum.armbian.com&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;BUG_REPORT_URL&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;www.armbian.com&#x2F;bugs&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PRIVACY_POLICY_URL&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;https:&#x2F;&#x2F;www.armbian.com&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;UBUNTU_CODENAME&lt;&#x2F;span&gt;&lt;span&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;noble
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;LOGO&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;armbian-logo&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ARMBIAN_PRETTY_NAME&lt;&#x2F;span&gt;&lt;span&gt;=&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;Armbian 24.11.3 noble&lt;&#x2F;span&gt;&lt;span&gt;&amp;quot;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;确定是ubuntu还是debian就可以选择镜像源，以清华源为例&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;清华大学Debian源 https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;help&#x2F;debian&lt;&#x2F;li&gt;
+&lt;li&gt;清华大学Ubuntu Ports源 https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;help&#x2F;ubuntu-ports&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;注意Ubuntu系要选择ubuntu-port源，换源可参考 &lt;a href=&quot;https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;help&#x2F;ubuntu-ports&#x2F;&quot;&gt;TUNA Mirror help&lt;&#x2F;a&gt; 或者 &lt;a href=&quot;https:&#x2F;&#x2F;mirrors.ustc.edu.cn&#x2F;help&#x2F;ubuntu-ports.html&quot;&gt;USTC Mirror Help&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;还是以使用清华源为例，手动修改&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; nano &#x2F;etc&#x2F;apt&#x2F;sources.list
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble main restricted universe multiverse
+&lt;&#x2F;span&gt;&lt;span&gt;# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble main restricted universe multiverse
+&lt;&#x2F;span&gt;&lt;span&gt;deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-updates main restricted universe multiverse
+&lt;&#x2F;span&gt;&lt;span&gt;# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-updates main restricted universe multiverse
+&lt;&#x2F;span&gt;&lt;span&gt;deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-backports main restricted universe multiverse
+&lt;&#x2F;span&gt;&lt;span&gt;# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-backports main restricted universe multiverse
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;现在你&lt;del&gt;不用看着10+Kbps的网速干着急&lt;&#x2F;del&gt;可放心使用&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt update
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt upgrade
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;瞧瞧你的板子，说实话ASCII画我还是喜欢原来那个大A。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt install neofetch&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;neofetch
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian3.png&quot; alt=&quot;neofetch&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;armbian-ji-chu-lu-you&quot;&gt;Armbian 基础路由&lt;&#x2F;h2&gt;
+&lt;hr&gt;&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;cyp0633.icu&#x2F;post&#x2F;armbian-r2s&#x2F;&quot;&gt;Armbian，更适合 R2S 软路由的系统&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;xiau.net&#x2F;990.html&#x2F;&quot;&gt;夏的博客 | Armbian换源教程&lt;&#x2F;a&gt;. &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-2-2&quot;&gt;↩2&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>「我在泰缅边境调查电诈产业200天」</title>
         <published>2025-01-16T00:00:00+00:00</published>
@@ -2077,26 +2305,6 @@
         <summary type="html">&lt;p&gt;转自豆瓣 &lt;a href=&quot;https:&#x2F;&#x2F;book.douban.com&#x2F;subject&#x2F;24748615&#x2F;&quot;&gt;书籍链接&lt;&#x2F;a&gt;，&lt;a href=&quot;https:&#x2F;&#x2F;book.douban.com&#x2F;review&#x2F;6539282&#x2F;&quot;&gt;书评&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
 &lt;p&gt;数年前，看电视剧《天道》的时候，面对剧尾的那一场诉讼，我佩服得五体投地，于是，给某人出了一道题：如果一个农村家庭作坊被人谴责为滥用童工，怎么辩护？
 彼时，还算是民商法才子的某人给了一个答案。但是，我依然觉得是电视剧中的辩护词更赞。&lt;&#x2F;p&gt;
-</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>《乌合之众——群体心理研究》摘录</title>
-        <published>2018-01-08T00:00:00+00:00</published>
-        <updated>2018-01-08T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/reading/wu-he-zhi-zhong-qun-ti-xin-li-yan-jiu-zhai-lu/"/>
-        <id>https://www.edwardzcn.me/blog/reading/wu-he-zhi-zhong-qun-ti-xin-li-yan-jiu-zhai-lu/</id>
-        
-        <summary type="html">&lt;p&gt;从野蛮到文明，一路追逐着梦想，而当这种梦想失去了力量，便开始衰落，走向死亡，这就是一个民族的生命周期。&lt;&#x2F;p&gt;
 </summary>
         
     </entry>

@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en" dir="i18n_dir">
+
+<head>
+  
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>ArmSom-Sige5开发版折腾Armbian记录</title>
+
+
+
+
+<meta name="keywords" content="Armbian">
+
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu&#x2F;">
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+</noscript>
+
+
+  
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        ignoreHtmlClass: "no-mathjax",
+        processHtmlClass: "mathjax"
+      }
+    };
+  </script>
+  
+
+  
+</head>
+
+<body
+class=""
+id="top">
+
+
+<script>
+  if (localStorage.getItem("pref-theme") === "dark") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <ul class="lang-switch">
+          <li>en</li>
+          <li>zh</li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading">
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags" title="Tags">
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me#" title="Search">
+          <span>Search</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot">
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola">
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+
+<main class="main">
+  
+<article class="post-single">
+  <header class="post-header">
+      <div class="breadcrumbs">
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu&#x2F;">ArmSom-Sige5开发版折腾Armbian记录</a>
+      </div>
+      <h1 class="post-title">ArmSom-Sige5开发版折腾Armbian记录</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1660 words&nbsp;·&nbsp;edwardzcn-decade
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版折腾Armbian记录" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details  open>
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#gu-jian-emmcshao-xie" aria-label="固件eMMC烧写">固件eMMC烧写</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#zhun-bei-gong-zuo" aria-label="准备工作">准备工作</a>
+              
+            </li>
+            
+            <li>
+              <a href="#shao-lu-bu-zou" aria-label="烧录步骤">烧录步骤</a>
+              
+              <ul>
+                
+                <li><a href="#windows-rkdevtool" aria-label="Windows RkDevTool">Windows RkDevTool</a></li>
+                
+                <li><a href="#linux-macos-rkdeveloptool" aria-label="Linux&#x2F;macOS rkdeveloptool">Linux&#x2F;macOS rkdeveloptool</a></li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#armbian-chu-shi-pei-zhi" aria-label="Armbian 初始配置">Armbian 初始配置</a>
+          
+        </li>
+        
+        <li>
+          <a href="#armbian-xi-tong-huan-yuan" aria-label="Armbian 系统换源">Armbian 系统换源</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#armbian-zhuan-shu-ruan-jian-yuan-huan-yuan" aria-label="Armbian 专属软件源换源">Armbian 专属软件源换源</a>
+              
+            </li>
+            
+            <li>
+              <a href="#fa-xing-ban-ji-chu-debian-ubuntu-huan-yuan" aria-label="发行版基础Debian&#x2F;Ubuntu 换源">发行版基础Debian&#x2F;Ubuntu 换源</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#armbian-ji-chu-lu-you" aria-label="Armbian 基础路由">Armbian 基础路由</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>记录过年回家前的一次折腾，把ArmSom-Sige5开发版<del>刷了社区版Armbian又降回板子厂商提供的unofficial Armbian</del>，配置软路由功能兼有Linux环境开发体验。</p>
+<p>免责声明：初次接触开发版<del>我也忘记哪里看到ArmSom的广告就买了，可能我只是喜欢他家的💜紫色外壳</del>，不保证本文有参考价值，仅作为个人踩坑记录。</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian0.jpeg" alt="sige5" /></p>
+<h2 id="gu-jian-emmcshao-xie">固件eMMC烧写</h2>
+<p>因为手头没有可用的microSD卡，选择type-C数据线直连电脑和板子烧录固件到eMMC。具体步骤如下：</p>
+<h3 id="zhun-bei-gong-zuo">准备工作</h3>
+<ul>
+<li>两根type-C线，一根用于开发版和电脑连接，一根为开发版供电。</li>
+<li>准备 MiniLoader （ArmSom官方提供，sige5为RK3576_MiniLoaderAll）</li>
+<li>准备 System Image
+<ul>
+<li>我使用的是ArmSom提供的unofficial Armbian镜像</li>
+<li><a href="https://github.com/armbian/community/releases/">Armbian Community 镜像</a></li>
+<li>其他镜像请参考<a href="https://docs.armsom.org/zh/armsom-sige5">ArmSom Sige5文档</a></li>
+</ul>
+</li>
+<li>烧录工具
+<ul>
+<li>Windows 使用 RKDevTool（ArmSom官方提供）</li>
+<li>Linux/macOS 使用 <a href="https://github.com/rockchip-linux/rkdeveloptool">rkdeveloptool</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="shao-lu-bu-zou">烧录步骤</h3>
+<p>进入 Maskrom 模式，参考<a href="https://docs.armsom.org/zh/getting-start/flash-img#232-usb%E7%BA%BF%E7%83%A7%E5%BD%95%E5%88%B0emmc">镜像烧录步骤</a></p>
+<ol>
+<li>断开所有供电电线，连接开发版和电脑</li>
+<li>使用一根Type-C线连接开发版Type-C口（非供电接口）和电脑的usb接口，使用软件检测
+<ul>
+<li>Windows RKDevTool 下方显示 <code>No Devices Found</code></li>
+<li>Linux/macOS 运行 <code>rkdevelotool ld</code> 显示 <code>not found any devices!</code></li>
+</ul>
+</li>
+<li>按住Mashrom按键，使用另一根Type-C线连接开发版Type-C口（供电接口）和电源
+<ul>
+<li>Windows RKDevTool 下方显示 “Found One Loader Device”，可松开按键</li>
+<li>Linux/macOS 运行 <code>rkdevelotool ld</code> 检测到设备 <code>DevNo=1 Vid=0x2207,Pid=0x350e,LocationID=201    Maskrom</code>，可松开按键</li>
+</ul>
+</li>
+<li>根据下面的平台/软件选择要烧录的 System Image 进行烧录</li>
+</ol>
+<h4 id="windows-rkdevtool">Windows RkDevTool</h4>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian1.png" alt="RKDevTool" /></p>
+<p>其中 Loader Path 为MiniLoader路径，Image Path 为所烧录镜像的路径。起始地址为 0x0000 无需修改，注意勾选 Write by Address，点击 Run 开始烧录。右侧Download image完成即烧录完成。</p>
+<h4 id="linux-macos-rkdeveloptool">Linux/macOS rkdeveloptool</h4>
+<p>命令行执行</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">rkdeveloptool</span><span> db RK3576_MiniLoaderAll.bin
+</span><span style="color:#bf616a;">rkdeveloptool</span><span> wl 0x0000 Armbian_community_25.2.0-trunk.86_Armsom-sige5_noble_vendor_6.1.75_gnome_desktop.img
+</span><span style="color:#bf616a;">rkdeveloptool</span><span> rd
+</span></code></pre>
+<p>等待烧录完成。</p>
+<h2 id="armbian-chu-shi-pei-zhi">Armbian 初始配置</h2>
+<p>开发版接电，使用HDMI接口外接显示器，我烧录的是带有GNOME桌面环境的Armbian镜像，初次登录需要一些配置，还不能直接进入桌面系统。<a href="https://docs.armbian.com/User-Guide_Getting-Started/">Armbian 默认登录root密码为1234</a>。初始配置包含以下：</p>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>Welcome to Armbian!
+</span><span>
+</span><span>Documentation: https://docs.armbian.com/ | Community support: https://forum.armbian.com/
+</span><span>
+</span><span>IP address:  Network connection timeout!
+</span><span>
+</span><span>Create root password: ********
+</span><span>Repeat root password: ********
+</span><span>
+</span><span>Shell: BASH
+</span><span>
+</span><span>Please provide a username (eg. your first name): ?
+</span><span>
+</span><span>Create user (Jane) password: ********
+</span><span>Repeat user (Jane) password: ********
+</span><span>
+</span><span>...
+</span></code></pre>
+<p>完成配置后桌面系统会重启进入GNOME桌面，非桌面系统会新建 ssh 对话。</p>
+<h2 id="armbian-xi-tong-huan-yuan">Armbian 系统换源</h2>
+<p>由于国内网络问题，进入系统首先更换镜像源<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup> <sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>，Armbian是构建在Debian或Ubuntu发行版上，需要编辑：</p>
+<ul>
+<li><code>/etc/apt/sources.list/armbian.list</code>armbian专属软件源和</li>
+<li><code>/etc/apt/sources.list</code>发行版基础的软件源。</li>
+</ul>
+<h3 id="armbian-zhuan-shu-ruan-jian-yuan-huan-yuan">Armbian 专属软件源换源</h3>
+<p>可参考 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/armbian/">TUNA Mirror Help</a></p>
+<p>或者使用下面的镜像选择脚本</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
+</span><span style="color:#65737e;">#!/bin/bash
+</span><span style="color:#bf616a;">GREEN</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0;32m</span><span>&#39;
+</span><span style="color:#bf616a;">CYAN</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0;36m</span><span>&#39;
+</span><span style="color:#bf616a;">RED</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0;31m</span><span>&#39;
+</span><span style="color:#bf616a;">NC</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0m</span><span>&#39;
+</span><span>
+</span><span style="color:#bf616a;">SOURCE_FILE</span><span>=&quot;</span><span style="color:#a3be8c;">/etc/apt/sources.list.d/armbian.list</span><span>&quot;
+</span><span>
+</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">grep -Eo </span><span>&#39;</span><span style="color:#a3be8c;">https?://[^ ]+</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot; | </span><span style="color:#bf616a;">head -n</span><span style="color:#a3be8c;"> 1)
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; == *&quot;</span><span style="color:#a3be8c;">tuna.tsinghua.edu.cn</span><span>&quot;* </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Tsinghua 清华大学镜像源</span><span>&quot;
+</span><span style="color:#b48ead;">elif </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; == *&quot;</span><span style="color:#a3be8c;">ustc.edu.cn</span><span>&quot;* </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">USTC 中国科学技术大学镜像源</span><span>&quot;
+</span><span style="color:#b48ead;">elif </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; == *&quot;</span><span style="color:#a3be8c;">apt.armbian.com</span><span>&quot;* </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">官方镜像源</span><span>&quot;
+</span><span style="color:#b48ead;">else
+</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">未知镜像源</span><span>&quot;
+</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}======================================</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}   Armbian Mirror Switcher Script    </span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}======================================</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span style="color:#bf616a;">-n </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; </span><span style="color:#96b5b4;">]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}当前源：</span><span>$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}镜像源名称：</span><span>$</span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#b48ead;">else
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">RED</span><span style="color:#a3be8c;">}未检测到有效的源配置！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}请选择要切换的镜像源:</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;</span><span style="color:#a3be8c;">1. Tsinghua 清华大学源 (https://mirrors.tuna.tsinghua.edu.cn)</span><span>&quot;
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;</span><span style="color:#a3be8c;">2. USTC 中国科学技术大学源 (https://mirrors.ustc.edu.cn)</span><span>&quot;
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;</span><span style="color:#a3be8c;">3. 恢复为默认的官方源 (http://apt.armbian.com)</span><span>&quot;
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-ne </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}请输入选项 (1, 2 或 3): </span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#96b5b4;">read </span><span style="color:#bf616a;">-r</span><span> choice
+</span><span>
+</span><span style="color:#b48ead;">case </span><span>$</span><span style="color:#bf616a;">choice </span><span style="color:#b48ead;">in
+</span><span>    1</span><span style="color:#b48ead;">)
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}切换到 Tsinghua 源...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        </span><span style="color:#bf616a;">sudo</span><span> sed</span><span style="color:#bf616a;"> -i</span><span>.bak</span><span style="color:#bf616a;"> -E </span><span>&#39;</span><span style="color:#a3be8c;">s#https?://(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https://mirrors.tuna.tsinghua.edu.cn#g</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot;
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}源已成功更换为 Tsinghua 清华大学镜像！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        ;;
+</span><span>    2</span><span style="color:#b48ead;">)
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}切换到 USTC 源...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        </span><span style="color:#bf616a;">sudo</span><span> sed</span><span style="color:#bf616a;"> -i</span><span>.bak</span><span style="color:#bf616a;"> -E </span><span>&#39;</span><span style="color:#a3be8c;">s#https?://(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https://mirrors.ustc.edu.cn#g</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot;
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}源已成功更换为 USTC 中国科学技术大学镜像！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        ;;
+</span><span>    3</span><span style="color:#b48ead;">)
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}恢复为默认的官方源...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        </span><span style="color:#bf616a;">sudo</span><span> sed</span><span style="color:#bf616a;"> -i</span><span>.bak</span><span style="color:#bf616a;"> -E </span><span>&#39;</span><span style="color:#a3be8c;">s#https?://(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#http://apt.armbian.com#g</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot;
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}源已恢复为默认的官方镜像！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        ;;
+</span><span>    *</span><span style="color:#b48ead;">)
+</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">RED</span><span style="color:#a3be8c;">}无效输入！请重新运行脚本并选择 1, 2 或 3。</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>        </span><span style="color:#96b5b4;">exit</span><span> 1
+</span><span>        ;;
+</span><span style="color:#b48ead;">esac
+</span><span>
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-ne </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}是否立即更新软件包索引？(y/n): </span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#96b5b4;">read </span><span style="color:#bf616a;">-r</span><span> update_choice
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">update_choice</span><span>&quot; =~ ^</span><span style="color:#b48ead;">[</span><span>Yy</span><span style="color:#b48ead;">]</span><span>$ </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}更新软件包索引...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span>    </span><span style="color:#bf616a;">sudo</span><span> apt-get update
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}软件包索引更新完成！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#b48ead;">else
+</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}已跳过更新软件包索引。</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}镜像源切换操作完成！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
+</span></code></pre>
+<h3 id="fa-xing-ban-ji-chu-debian-ubuntu-huan-yuan">发行版基础Debian/Ubuntu 换源</h3>
+<p>根据登录开发版 motd 信息获取确定发行版基础<sup class="footnote-reference" id="fr-2-2"><a href="#fn-2">[2]</a></sup>，比如我的显示如下：</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian2.png" alt="motd" /></p>
+<p>Noble 表示基于 Ubuntu 24.04 (noble)</p>
+<p>或者可以使用<code>cat /etc/os-release</code>获取详细系统信息</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">edwardzcn@armsom-sige5:~$</span><span> cat /etc/os-release
+</span><span style="color:#bf616a;">PRETTY_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Armbian 24.11.3 noble</span><span>&quot;
+</span><span style="color:#bf616a;">NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Ubuntu</span><span>&quot;
+</span><span style="color:#bf616a;">VERSION_ID</span><span>=&quot;</span><span style="color:#a3be8c;">24.04</span><span>&quot;
+</span><span style="color:#bf616a;">VERSION</span><span>=&quot;</span><span style="color:#a3be8c;">24.04 LTS (Noble Numbat)</span><span>&quot;
+</span><span style="color:#bf616a;">VERSION_CODENAME</span><span>=</span><span style="color:#a3be8c;">noble
+</span><span style="color:#bf616a;">ID</span><span>=</span><span style="color:#a3be8c;">ubuntu
+</span><span style="color:#bf616a;">ID_LIKE</span><span>=</span><span style="color:#a3be8c;">debian
+</span><span style="color:#bf616a;">HOME_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://www.armbian.com</span><span>&quot;
+</span><span style="color:#bf616a;">SUPPORT_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://forum.armbian.com</span><span>&quot;
+</span><span style="color:#bf616a;">BUG_REPORT_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://www.armbian.com/bugs</span><span>&quot;
+</span><span style="color:#bf616a;">PRIVACY_POLICY_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://www.armbian.com</span><span>&quot;
+</span><span style="color:#bf616a;">UBUNTU_CODENAME</span><span>=</span><span style="color:#a3be8c;">noble
+</span><span style="color:#bf616a;">LOGO</span><span>=&quot;</span><span style="color:#a3be8c;">armbian-logo</span><span>&quot;
+</span><span style="color:#bf616a;">ARMBIAN_PRETTY_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Armbian 24.11.3 noble</span><span>&quot;
+</span></code></pre>
+<p>确定是ubuntu还是debian就可以选择镜像源，以清华源为例</p>
+<ul>
+<li>清华大学Debian源 https://mirrors.tuna.tsinghua.edu.cn/help/debian</li>
+<li>清华大学Ubuntu Ports源 https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports</li>
+</ul>
+<p>注意Ubuntu系要选择ubuntu-port源，换源可参考 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/">TUNA Mirror help</a> 或者 <a href="https://mirrors.ustc.edu.cn/help/ubuntu-ports.html">USTC Mirror Help</a></p>
+<p>还是以使用清华源为例，手动修改<code>/etc/apt/sources.list</code></p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> nano /etc/apt/sources.list
+</span></code></pre>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble main restricted universe multiverse
+</span><span># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble main restricted universe multiverse
+</span><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-updates main restricted universe multiverse
+</span><span># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-updates main restricted universe multiverse
+</span><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-backports main restricted universe multiverse
+</span><span># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-backports main restricted universe multiverse
+</span></code></pre>
+<p>现在你<del>不用看着10+Kbps的网速干着急</del>可放心使用</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt update
+</span><span style="color:#bf616a;">sudo</span><span> apt upgrade
+</span></code></pre>
+<p>瞧瞧你的板子，说实话ASCII画我还是喜欢原来那个大A。</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt install neofetch</span><span style="color:#bf616a;"> -y </span><span>&amp;&amp; </span><span style="color:#bf616a;">neofetch
+</span></code></pre>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian3.png" alt="neofetch" /></p>
+<h2 id="armbian-ji-chu-lu-you">Armbian 基础路由</h2>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p><a href="https://cyp0633.icu/post/armbian-r2s/">Armbian，更适合 R2S 软路由的系统</a> <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p><a href="https://xiau.net/990.html/">夏的博客 | Armbian换源教程</a>. <a href="#fr-2-1">↩</a> <a href="#fr-2-2">↩2</a></p>
+</li>
+</ol>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;armbian&#x2F;">Armbian</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-zai-tai-mian-bian-jing-diao-cha-dian-zha-chan-ye-200tian&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>「我在泰缅边境调查电诈产业200天」</span>
+    </a>
+    
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  
+  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+  
+  <span>
+      Powered by
+      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+  </span>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+<script>
+  let menu = document.getElementById('menu')
+  if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          var id = this.getAttribute("href").substr(1);
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                  behavior: "smooth"
+              });
+          } else {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+          }
+          if (id === "top") {
+              history.replaceState(null, null, " ");
+          } else {
+              history.pushState(null, null, `#${id}`);
+          }
+      });
+  });
+
+</script>
+
+
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+
+</script>
+
+
+
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+      if (document.body.className.includes("dark")) {
+          document.body.classList.remove('dark');
+          localStorage.setItem("pref-theme", 'light');
+      } else {
+          document.body.classList.add('dark');
+          localStorage.setItem("pref-theme", 'dark');
+      }
+  })
+
+</script>
+
+
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+      const container = codeblock.parentNode.parentNode;
+
+      const copybutton = document.createElement('button');
+      copybutton.classList.add('copy-code');
+      copybutton.innerText = 'copy';
+      function copyingDone() {
+          copybutton.innerText = 'copied!';
+          setTimeout(() => {
+              copybutton.innerText = 'copy';
+          }, 2000);
+      }
+
+      copybutton.addEventListener('click', (cb) => {
+          if ('clipboard' in navigator) {
+              var content = codeblock.textContent;
+              if(codeblock.firstChild.tagName == 'TABLE') {
+                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
+              }
+              navigator.clipboard.writeText(content);
+              copyingDone();
+              return;
+          }
+
+          const range = document.createRange();
+          range.selectNodeContents(codeblock);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+              document.execCommand('copy');
+              copyingDone();
+          } catch (e) { };
+          selection.removeRange(range);
+      });
+
+      if (container.classList.contains("highlight")) {
+          container.appendChild(copybutton);
+      } else if (container.parentNode.firstChild == container) {
+          // td containing LineNos
+      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+          // table containing LineNos and code
+          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+      } else {
+          // code blocks not having highlight as parent class
+          codeblock.parentNode.appendChild(copybutton);
+      }
+  });
+</script>
+
+
+
+
+
+
+<div id="searchbox" class="hidden">
+  <div class="search-modal">
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+    <button id="searchButton">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+
+
+</body>
+
+</html>
