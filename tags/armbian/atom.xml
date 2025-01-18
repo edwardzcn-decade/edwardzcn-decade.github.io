@@ -223,13 +223,168 @@
 &lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt install neofetch&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -y &lt;&#x2F;span&gt;&lt;span&gt;&amp;amp;&amp;amp; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;neofetch
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian3.png&quot; alt=&quot;neofetch&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;jing-tai-ip-ssh-diao-shi&quot;&gt;静态 IP + ssh 调试&lt;&#x2F;h3&gt;
+&lt;p&gt;我更习惯使用我的工作机（一台mac）通过网线连接板子，使用 ssh 做基础路由设置以及一些软件更新，桌面系统开始会有卡顿（以及无浏览器等问题）&lt;&#x2F;p&gt;
+&lt;p&gt;插入网线后，假定工作机以太网接口连接开发版eth1接口&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;在工作机上设置网络-以太网&lt;code&gt;手动&lt;&#x2F;code&gt;配置IPv4，IP地址 &lt;code&gt;192.168.1.100&lt;&#x2F;code&gt;，子网掩码 &lt;code&gt;255.255.255.0&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;在开发版上设置网络 手动（Manual）IPv4（取消掉自动DHCP），IP地址 &lt;code&gt;192.168.1.1&lt;&#x2F;code&gt;（常见路由器地址），子网掩码 &lt;code&gt;255.255.255.0&lt;&#x2F;code&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;&lt;code&gt;ping&lt;&#x2F;code&gt;测试是否可以连通，确定ICMP可用，然后使用 Armbian初始配置中 设置的用户密码（桌面系统建议连接非root用户）&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#65737e;&quot;&gt;# 工作机 ping 开发板
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;zmac-mini:~:&lt;&#x2F;span&gt;&lt;span&gt;% ping&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -c&lt;&#x2F;span&gt;&lt;span&gt; 5 192.168.1.1
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;PING&lt;&#x2F;span&gt;&lt;span&gt; 192.168.1.1 (192.168.1.1)&lt;&#x2F;span&gt;&lt;span style=&quot;color:#96b5b4;&quot;&gt;:&lt;&#x2F;span&gt;&lt;span&gt; 56 data bytes
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt; bytes from 192.168.1.1: icmp_seq=0 ttl=64 time=0.918 ms
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt; bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.885 ms
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt; bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.818 ms
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt; bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.773 ms
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;64&lt;&#x2F;span&gt;&lt;span&gt; bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.867 ms
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;---&lt;&#x2F;span&gt;&lt;span&gt; 192.168.1.1 ping statistics ---
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span&gt; packets transmitted, 5 packets received, 0.0% packet loss
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;round-trip&lt;&#x2F;span&gt;&lt;span&gt; min&#x2F;avg&#x2F;max&#x2F;stddev = 0.773&#x2F;0.852&#x2F;0.918&#x2F;0.051 ms
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;使用 ssh 密码登录，后续 Armbian开发板 ssh 登录配置类似于 VPS 远程 ssh 登录配置&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-3-1&quot;&gt;&lt;a href=&quot;#fn-3&quot;&gt;[3]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;，可根据自己习惯和需求配置密钥登录等。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;diao-zheng-dian-yuan-ji-hua-he-xiu-mian-she-zhi&quot;&gt;调整电源计划和休眠设置&lt;&#x2F;h3&gt;
+&lt;p&gt;有些时候可能 ssh连接一段时间会遇到系统被挂起（suspend）的提示，方便起见还是关掉GNOME电源选项的 Automatic Suspend，&lt;del&gt;我并不确定是因为这个挂起的，因为suspend的日志没看懂也没找到命令行设置方式&lt;&#x2F;del&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian4.png&quot; alt=&quot;suspend&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;armbian-ji-chu-lu-you&quot;&gt;Armbian 基础路由&lt;&#x2F;h2&gt;
+&lt;p&gt;好的似乎终于进入正题了，先说说为什么突然想着折腾小板子，以及为什么选择了 Armbian，我先放几个理由，有想到再补充&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;兼顾软路由，但又不想要openwrt&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;openwrt固然很方便，但有两个点为人诟病：包管理问题、为照顾大量低性能的设备做了兼容（但事实上，你并不一定会用这些IoT设备对吗？）。Armbian 基于Ubuntu或者Debian给了更多玩法，特别是对有Linux使用经验的玩家&#x2F;开发者，可以使用apt包管理工具，充分利用这一价位开发版的价值（比如利用板载npu做一点推理，毕竟都自称mini computer了）&lt;&#x2F;li&gt;
+&lt;li&gt;套壳&#x2F;层叠的软件栈带来很多负担。个人便好，不喜欢docker虚拟机套壳最后只部署一个软路由。&lt;&#x2F;li&gt;
+&lt;li&gt;另外有技术佬说&lt;del&gt;openwrt 很灵车但我没遇到过&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;Use Armbian just like Ubuntu+&#x2F;Debian+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;ul&gt;
+&lt;li&gt;虽然没有openwrt或者硬路由提供的面板，&lt;code&gt;armbian-config&lt;&#x2F;code&gt;基本上覆盖了应有的便捷配置（如果你喜欢这种 CLI 交互就更适合了），&lt;del&gt;不过你现在还用不了，&lt;code&gt;armbian-config&lt;&#x2F;code&gt;需建立和github.com的通信&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;恰有基于arm镜像的服务需要跑&lt;&#x2F;li&gt;
+&lt;li&gt;剩余的性能释放出来跑我的脚本和检测🐤面板&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;del&gt;出来吧 NAS&lt;&#x2F;del&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;本节先更新基础的路由部分，以及对桌面环境的必要调整&lt;&#x2F;p&gt;
+&lt;p&gt;其实一个基本的（软）路由器系统主要包括下面几项服务，开箱即用的面板或者一键式脚本只是简化帮助完成这些配置&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-2&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;[1]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;。&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;DNS&lt;&#x2F;strong&gt;：域名解析服务，用于将主机名称（局域网主机名，域名解析）解析为IP地址
+&lt;ul&gt;
+&lt;li&gt;可以当作：&lt;strong&gt;小区户名-门牌号查询簿&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;请注意：公网上提供DNS服务是被禁止的，会被封IP，该项服务只允许运营商提供&lt;&#x2F;li&gt;
+&lt;li&gt;由于传统DNS查询是明文，可以被中间人截留修改造成DNS污染，需要适当调整，比如使用DoH和DoT分流。&lt;&#x2F;li&gt;
+&lt;li&gt;可用工具 systemd-resolved，TelescopeDNS，EasyMosdns和dnsmasq&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;DHCP&lt;&#x2F;strong&gt;：动态IP地址分配协议（服务器）。终端网络设备一般会装载DHCP客户端（client）来自动请求并获取动态ip。（软）路由器系统的DHCP这里实际上是指DHCP服务器（server），用来分发管理局域网的ip地址，回应DHCP客户端发来的请求。
+&lt;ul&gt;
+&lt;li&gt;可以当作：&lt;strong&gt;小区住户门牌号地址簿（搬家会更新）&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;可用工具  coredhcp（yaml配置）&#x2F; dnsmasq（conf配置）&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;NAT&lt;&#x2F;strong&gt;：网络地址转换，建立局域网&lt;code&gt;&amp;lt;IP,Port&amp;gt;&lt;&#x2F;code&gt;元组与外网&lt;code&gt;&amp;lt;IP,Port&amp;gt;&lt;&#x2F;code&gt;映射，并进行转换。
+&lt;ul&gt;
+&lt;li&gt;可以当作：&lt;strong&gt;小区特派巴士座位表（巴士是和城市沟通的交通方式）&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;li&gt;可用工具 iptables，nftables&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;strong&gt;IP Forwarding&lt;&#x2F;strong&gt;：IP转发，只有启用后才会将开发版某个接口（比如连接局域网设备）不经本地程序转发至外网接口。作为操作系统内核功能，用于支持多网卡设备在不同接口间的通信。
+&lt;ul&gt;
+&lt;li&gt;可以当作：&lt;strong&gt;手拿座位表的特派巴士司机&#x2F;售票员&lt;&#x2F;strong&gt;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;在基础路由中我都挑选配置尽量简单，易兼容的工具。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;wang-luo-lian-jie-guan-li&quot;&gt;网络连接管理&lt;&#x2F;h3&gt;
+&lt;p&gt;Linux的网络连接管理可以使用 &lt;code&gt;systemd-networkd&lt;&#x2F;code&gt; 或 &lt;code&gt;NetworkManager&lt;&#x2F;code&gt; 。我搭建的基于Ubuntu的Armbian习惯用后者，还提供了更高层次的抽象&lt;code&gt;netplan&lt;&#x2F;code&gt;。理解成网络计划，简化编写，完成后可以自动渲染成&lt;code&gt;NetworkManager&lt;&#x2F;code&gt;描述。&lt;&#x2F;p&gt;
+&lt;p&gt;修改&lt;code&gt;netplan&lt;&#x2F;code&gt;配置文件，默认在&lt;code&gt;&#x2F;etc&#x2F;netplan&#x2F;&lt;&#x2F;code&gt;目录，序号大的覆盖小的，为避免冲突，合并用一个文件描述，名字设为&lt;code&gt;00-default-use-network-manager.yaml&lt;&#x2F;code&gt;。如果你看到了其他以UUID命名的文件，则是通过GUI界面生成的配置，可以删除。&lt;&#x2F;p&gt;
+&lt;p&gt;未经修改的文件类似：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-yaml &quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;network&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;version&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;renderer&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;NetworkManager
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;修改后：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;yaml&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-yaml &quot;&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;network&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;version&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;2
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;renderer&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;NetworkManager
+&lt;&#x2F;span&gt;&lt;span&gt;  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;ethernets&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;eth1&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;dhcp4&lt;&#x2F;span&gt;&lt;span&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;addresses&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;        - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a3be8c;&quot;&gt;192.168.1.1&#x2F;24
+&lt;&#x2F;span&gt;&lt;span&gt;      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;nameservers&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;addresses&lt;&#x2F;span&gt;&lt;span&gt;:
+&lt;&#x2F;span&gt;&lt;span&gt;          - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#d08770;&quot;&gt;192.168.1.1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;执行&lt;code&gt;sudo netplan apply&lt;&#x2F;code&gt;使改变生效。可以在 GNOME 桌面的网络配置 GUI 中看到改变生效（名称暴露了是谁修改的）：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian5.png&quot; alt=&quot;netplan0&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian6.png&quot; alt=&quot;netplan1&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;dns-he-dhcp-pei-zhi&quot;&gt;DNS 和 DHCP 配置&lt;&#x2F;h3&gt;
+&lt;p&gt;Armbian 默认使用 NetworkManager 中的 systemd-resolved组件，这个 DNSstub 监听 &lt;code&gt;127.0.0.53&lt;&#x2F;code&gt; 上的 &lt;code&gt;53&lt;&#x2F;code&gt;端口，其仅能监听本机请求而不能接受局域网内其他机器的请求，当路由肯定是不够的，安装并使用 &lt;code&gt;dnsmasq&lt;&#x2F;code&gt;作为DNS服务器，同时它也是一个轻量级的DHCP服务器，配置文件默认在&lt;code&gt;&#x2F;etc&#x2F;dnsmasq.conf&lt;&#x2F;code&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-4-1&quot;&gt;&lt;a href=&quot;#fn-4&quot;&gt;[4]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; apt install dnsmasq
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; vim &#x2F;etc&#x2F;dnsmasq.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;dnsmasq默认配置注释，初看很吓人，但实际上我们需要让路由跑起来并不需要调整很多，大多数配置看注释就能明白。这里给出我的最小化配置（还是假定开发版的eth1接口连接局域网设备）&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;server=1.1.1.1                              # 指明上游 DNS服务器
+&lt;&#x2F;span&gt;&lt;span&gt;interface=eth1                              # 指定 DHCP 服务绑定的网络接口
+&lt;&#x2F;span&gt;&lt;span&gt;bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
+&lt;&#x2F;span&gt;&lt;span&gt;dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
+&lt;&#x2F;span&gt;&lt;span&gt;dhcp-option=option:router,192.168.1.1       # 指定使用本网关 （默认网关）
+&lt;&#x2F;span&gt;&lt;span&gt;dhcp-option=option:dns-server,192.168.1.1   # 指定使用本路由器 DNS
+&lt;&#x2F;span&gt;&lt;span&gt;log-queries
+&lt;&#x2F;span&gt;&lt;span&gt;log-dhcp
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;bind-interfaces&lt;&#x2F;code&gt; 设置使&lt;code&gt;dnsmasq&lt;&#x2F;code&gt;只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 &lt;code&gt;systemd-resolved&lt;&#x2F;code&gt; （监听127.0.0.53的53端口），防止冲突。&lt;code&gt;dhcp-option&lt;&#x2F;code&gt;开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。&lt;&#x2F;p&gt;
+&lt;p&gt;如果不打算兼容&lt;code&gt;systemd-resolved&lt;&#x2F;code&gt;，我们需要调整&lt;code&gt;&#x2F;etc&#x2F;resolv.conf&lt;&#x2F;code&gt;并停止&lt;code&gt;systemd-resolved&lt;&#x2F;code&gt;服务，这里我们暂不考虑，优先让路由器跑起来。&lt;&#x2F;p&gt;
+&lt;p&gt;重启 &lt;code&gt;dnsmasq&lt;&#x2F;code&gt; 服务，查看状态&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; systemctl restart dnsmasq.service
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; systemctl status dnsmasq.service
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;服务Active，&lt;del&gt;请先忽略那条Fail&lt;&#x2F;del&gt;，现在可以修改你工作机的网络设置，调整为DHCP（动态获取IP地址），效果如下：&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian7.png&quot; alt=&quot;dhcp&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;nat-he-ip-forwarding&quot;&gt;NAT 和 IP Forwarding&lt;&#x2F;h3&gt;
+&lt;p&gt;虽然客户机能拿到ip地址，但我们还不能访问外网。此时开发版并不会将数据包从eth1（内网接口）递送至eth0（外网接口），也不知道内网地址和外网地址的翻译规则。&lt;&#x2F;p&gt;
+&lt;p&gt;IP Forwarding 是 NAT 实现的基础，它负责将数据包在不同接口之间转发，而NAT更像是定义规则怎么修改为内网&#x2F;外网地址，两者搭配食用味道更佳。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;qi-yong-ip-zhuan-fa&quot;&gt;启用 IP 转发&lt;&#x2F;h4&gt;
+&lt;p&gt;编辑&lt;code&gt;&#x2F;etc&#x2F;systl.conf&lt;&#x2F;code&gt;：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; vim &#x2F;etc&#x2F;systl.conf
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;找到对应行取消注释，开启ipv4和ipv6转发。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;# Uncomment the next line to enable packet forwarding for IPv4
+&lt;&#x2F;span&gt;&lt;span&gt;net.ipv4.ip_forward=1
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;# Uncomment the next line to enable packet forwarding for IPv6
+&lt;&#x2F;span&gt;&lt;span&gt;#  Enabling this option disables Stateless Address Autoconfiguration
+&lt;&#x2F;span&gt;&lt;span&gt;#  based on Router Advertisements for this host
+&lt;&#x2F;span&gt;&lt;span&gt;net.ipv6.conf.all.forwarding=1
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;运行&lt;code&gt;sudo sysctl -p&lt;&#x2F;code&gt;使改变生效。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;pei-zhi-iptables-jin-xing-nat&quot;&gt;配置 iptables 进行 NAT&lt;&#x2F;h4&gt;
+&lt;p&gt;在我的实验环境中，外网接口为 &lt;code&gt;eth0&lt;&#x2F;code&gt;，内网接口为 &lt;code&gt;eth1&lt;&#x2F;code&gt;：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; iptables&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -t&lt;&#x2F;span&gt;&lt;span&gt; nat&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -A&lt;&#x2F;span&gt;&lt;span&gt; POSTROUTING&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -o&lt;&#x2F;span&gt;&lt;span&gt; eth0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; MASQUERADE
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; iptables&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -A&lt;&#x2F;span&gt;&lt;span&gt; FORWARD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span&gt; eth1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -o&lt;&#x2F;span&gt;&lt;span&gt; eth0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -m&lt;&#x2F;span&gt;&lt;span&gt; state&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --state&lt;&#x2F;span&gt;&lt;span&gt; RELATED,ESTABLISHED&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; ACCEPT
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; iptables&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -A&lt;&#x2F;span&gt;&lt;span&gt; FORWARD&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -i&lt;&#x2F;span&gt;&lt;span&gt; eth1&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -o&lt;&#x2F;span&gt;&lt;span&gt; eth0&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -j&lt;&#x2F;span&gt;&lt;span&gt; ACCEPT
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;保存规则：&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#2b303b;color:#c0c5ce;&quot;&gt;&lt;code&gt;&lt;span&gt;sudo apt-get install iptables-persistent
+&lt;&#x2F;span&gt;&lt;span&gt;sudo netfilter-persistent save
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;由于iptables规则默认只在当前会话生效。一旦系统重启或者服务重启规则会被清空，借助&lt;code&gt;iptables-persistent&lt;&#x2F;code&gt;持久化规则到文件中，每次系统或服务启动时自动加载。&lt;&#x2F;p&gt;
+&lt;p&gt;基本路由配置 Done！现在可以试试用工作机通过板子访问外部网络了。&lt;&#x2F;p&gt;
 &lt;hr&gt;&lt;ol class=&quot;footnotes-list&quot;&gt;
 &lt;li id=&quot;fn-1&quot;&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;cyp0633.icu&#x2F;post&#x2F;armbian-r2s&#x2F;&quot;&gt;Armbian，更适合 R2S 软路由的系统&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;cyp0633.icu&#x2F;post&#x2F;armbian-r2s&#x2F;&quot;&gt;Armbian，更适合 R2S 软路由的系统&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-1-2&quot;&gt;↩2&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li id=&quot;fn-2&quot;&gt;
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;xiau.net&#x2F;990.html&#x2F;&quot;&gt;夏的博客 | Armbian换源教程&lt;&#x2F;a&gt;. &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-2-2&quot;&gt;↩2&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;linux.do&#x2F;t&#x2F;topic&#x2F;267502#p-2476630-h-9&quot;&gt;VPS基本安全措施 - 开发调优 - LINUX DO&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-3-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-4&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;docs.redhat.com&#x2F;en&#x2F;documentation&#x2F;red_hat_enterprise_linux&#x2F;9&#x2F;html&#x2F;configuring_and_managing_networking&#x2F;using-different-dns-servers-for-different-domains_configuring-and-managing-networking#using-systemd-resolved-in-networkmanager-to-send-dns-requests-for-a-specific-domain-to-a-selected-dns-server_using-different-dns-servers-for-different-domains&quot;&gt;RHEL 9 | systemd-resolved 使用&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-4-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ol&gt;
 </content>

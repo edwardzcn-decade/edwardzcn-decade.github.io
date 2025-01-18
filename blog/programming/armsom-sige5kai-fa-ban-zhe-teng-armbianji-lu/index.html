@@ -304,7 +304,7 @@ id="top">
 
 
 
-<span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1660 words&nbsp;·&nbsp;edwardzcn-decade
+<span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;21 min&nbsp;·&nbsp;4084 words&nbsp;·&nbsp;edwardzcn-decade
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版折腾Armbian记录" target="_blank">Email me</a>
@@ -373,12 +373,49 @@ id="top">
               
             </li>
             
+            <li>
+              <a href="#jing-tai-ip-ssh-diao-shi" aria-label="静态 IP + ssh 调试">静态 IP + ssh 调试</a>
+              
+            </li>
+            
+            <li>
+              <a href="#diao-zheng-dian-yuan-ji-hua-he-xiu-mian-she-zhi" aria-label="调整电源计划和休眠设置">调整电源计划和休眠设置</a>
+              
+            </li>
+            
           </ul>
           
         </li>
         
         <li>
           <a href="#armbian-ji-chu-lu-you" aria-label="Armbian 基础路由">Armbian 基础路由</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#wang-luo-lian-jie-guan-li" aria-label="网络连接管理">网络连接管理</a>
+              
+            </li>
+            
+            <li>
+              <a href="#dns-he-dhcp-pei-zhi" aria-label="DNS 和 DHCP 配置">DNS 和 DHCP 配置</a>
+              
+            </li>
+            
+            <li>
+              <a href="#nat-he-ip-forwarding" aria-label="NAT 和 IP Forwarding">NAT 和 IP Forwarding</a>
+              
+              <ul>
+                
+                <li><a href="#qi-yong-ip-zhuan-fa" aria-label="启用 IP 转发">启用 IP 转发</a></li>
+                
+                <li><a href="#pei-zhi-iptables-jin-xing-nat" aria-label="配置 iptables 进行 NAT">配置 iptables 进行 NAT</a></li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
           
         </li>
         
@@ -591,13 +628,168 @@ id="top">
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt install neofetch</span><span style="color:#bf616a;"> -y </span><span>&amp;&amp; </span><span style="color:#bf616a;">neofetch
 </span></code></pre>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian3.png" alt="neofetch" /></p>
+<h3 id="jing-tai-ip-ssh-diao-shi">静态 IP + ssh 调试</h3>
+<p>我更习惯使用我的工作机（一台mac）通过网线连接板子，使用 ssh 做基础路由设置以及一些软件更新，桌面系统开始会有卡顿（以及无浏览器等问题）</p>
+<p>插入网线后，假定工作机以太网接口连接开发版eth1接口</p>
+<ul>
+<li>在工作机上设置网络-以太网<code>手动</code>配置IPv4，IP地址 <code>192.168.1.100</code>，子网掩码 <code>255.255.255.0</code></li>
+<li>在开发版上设置网络 手动（Manual）IPv4（取消掉自动DHCP），IP地址 <code>192.168.1.1</code>（常见路由器地址），子网掩码 <code>255.255.255.0</code></li>
+</ul>
+<p><code>ping</code>测试是否可以连通，确定ICMP可用，然后使用 Armbian初始配置中 设置的用户密码（桌面系统建议连接非root用户）</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># 工作机 ping 开发板
+</span><span style="color:#bf616a;">zmac-mini:~:</span><span>% ping</span><span style="color:#bf616a;"> -c</span><span> 5 192.168.1.1
+</span><span style="color:#bf616a;">PING</span><span> 192.168.1.1 (192.168.1.1)</span><span style="color:#96b5b4;">:</span><span> 56 data bytes
+</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=0 ttl=64 time=0.918 ms
+</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.885 ms
+</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.818 ms
+</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.773 ms
+</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.867 ms
+</span><span>
+</span><span style="color:#bf616a;">---</span><span> 192.168.1.1 ping statistics ---
+</span><span style="color:#bf616a;">5</span><span> packets transmitted, 5 packets received, 0.0% packet loss
+</span><span style="color:#bf616a;">round-trip</span><span> min/avg/max/stddev = 0.773/0.852/0.918/0.051 ms
+</span></code></pre>
+<p>使用 ssh 密码登录，后续 Armbian开发板 ssh 登录配置类似于 VPS 远程 ssh 登录配置<sup class="footnote-reference" id="fr-3-1"><a href="#fn-3">[3]</a></sup>，可根据自己习惯和需求配置密钥登录等。</p>
+<h3 id="diao-zheng-dian-yuan-ji-hua-he-xiu-mian-she-zhi">调整电源计划和休眠设置</h3>
+<p>有些时候可能 ssh连接一段时间会遇到系统被挂起（suspend）的提示，方便起见还是关掉GNOME电源选项的 Automatic Suspend，<del>我并不确定是因为这个挂起的，因为suspend的日志没看懂也没找到命令行设置方式</del>。</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian4.png" alt="suspend" /></p>
 <h2 id="armbian-ji-chu-lu-you">Armbian 基础路由</h2>
+<p>好的似乎终于进入正题了，先说说为什么突然想着折腾小板子，以及为什么选择了 Armbian，我先放几个理由，有想到再补充</p>
+<ol>
+<li>兼顾软路由，但又不想要openwrt</li>
+</ol>
+<ul>
+<li>openwrt固然很方便，但有两个点为人诟病：包管理问题、为照顾大量低性能的设备做了兼容（但事实上，你并不一定会用这些IoT设备对吗？）。Armbian 基于Ubuntu或者Debian给了更多玩法，特别是对有Linux使用经验的玩家/开发者，可以使用apt包管理工具，充分利用这一价位开发版的价值（比如利用板载npu做一点推理，毕竟都自称mini computer了）</li>
+<li>套壳/层叠的软件栈带来很多负担。个人便好，不喜欢docker虚拟机套壳最后只部署一个软路由。</li>
+<li>另外有技术佬说<del>openwrt 很灵车但我没遇到过</del></li>
+</ul>
+<ol start="2">
+<li>Use Armbian just like Ubuntu+/Debian+</li>
+</ol>
+<ul>
+<li>虽然没有openwrt或者硬路由提供的面板，<code>armbian-config</code>基本上覆盖了应有的便捷配置（如果你喜欢这种 CLI 交互就更适合了），<del>不过你现在还用不了，<code>armbian-config</code>需建立和github.com的通信</del></li>
+<li>恰有基于arm镜像的服务需要跑</li>
+<li>剩余的性能释放出来跑我的脚本和检测🐤面板</li>
+<li><del>出来吧 NAS</del></li>
+</ul>
+<p>本节先更新基础的路由部分，以及对桌面环境的必要调整</p>
+<p>其实一个基本的（软）路由器系统主要包括下面几项服务，开箱即用的面板或者一键式脚本只是简化帮助完成这些配置<sup class="footnote-reference" id="fr-1-2"><a href="#fn-1">[1]</a></sup>。</p>
+<ul>
+<li><strong>DNS</strong>：域名解析服务，用于将主机名称（局域网主机名，域名解析）解析为IP地址
+<ul>
+<li>可以当作：<strong>小区户名-门牌号查询簿</strong></li>
+<li>请注意：公网上提供DNS服务是被禁止的，会被封IP，该项服务只允许运营商提供</li>
+<li>由于传统DNS查询是明文，可以被中间人截留修改造成DNS污染，需要适当调整，比如使用DoH和DoT分流。</li>
+<li>可用工具 systemd-resolved，TelescopeDNS，EasyMosdns和dnsmasq</li>
+</ul>
+</li>
+<li><strong>DHCP</strong>：动态IP地址分配协议（服务器）。终端网络设备一般会装载DHCP客户端（client）来自动请求并获取动态ip。（软）路由器系统的DHCP这里实际上是指DHCP服务器（server），用来分发管理局域网的ip地址，回应DHCP客户端发来的请求。
+<ul>
+<li>可以当作：<strong>小区住户门牌号地址簿（搬家会更新）</strong></li>
+<li>可用工具  coredhcp（yaml配置）/ dnsmasq（conf配置）</li>
+</ul>
+</li>
+<li><strong>NAT</strong>：网络地址转换，建立局域网<code>&lt;IP,Port&gt;</code>元组与外网<code>&lt;IP,Port&gt;</code>映射，并进行转换。
+<ul>
+<li>可以当作：<strong>小区特派巴士座位表（巴士是和城市沟通的交通方式）</strong></li>
+<li>可用工具 iptables，nftables</li>
+</ul>
+</li>
+<li><strong>IP Forwarding</strong>：IP转发，只有启用后才会将开发版某个接口（比如连接局域网设备）不经本地程序转发至外网接口。作为操作系统内核功能，用于支持多网卡设备在不同接口间的通信。
+<ul>
+<li>可以当作：<strong>手拿座位表的特派巴士司机/售票员</strong></li>
+</ul>
+</li>
+</ul>
+<p>在基础路由中我都挑选配置尽量简单，易兼容的工具。</p>
+<h3 id="wang-luo-lian-jie-guan-li">网络连接管理</h3>
+<p>Linux的网络连接管理可以使用 <code>systemd-networkd</code> 或 <code>NetworkManager</code> 。我搭建的基于Ubuntu的Armbian习惯用后者，还提供了更高层次的抽象<code>netplan</code>。理解成网络计划，简化编写，完成后可以自动渲染成<code>NetworkManager</code>描述。</p>
+<p>修改<code>netplan</code>配置文件，默认在<code>/etc/netplan/</code>目录，序号大的覆盖小的，为避免冲突，合并用一个文件描述，名字设为<code>00-default-use-network-manager.yaml</code>。如果你看到了其他以UUID命名的文件，则是通过GUI界面生成的配置，可以删除。</p>
+<p>未经修改的文件类似：</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">network</span><span>:
+</span><span>  </span><span style="color:#bf616a;">version</span><span>: </span><span style="color:#d08770;">2
+</span><span>  </span><span style="color:#bf616a;">renderer</span><span>: </span><span style="color:#a3be8c;">NetworkManager
+</span></code></pre>
+<p>修改后：</p>
+<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">network</span><span>:
+</span><span>  </span><span style="color:#bf616a;">version</span><span>: </span><span style="color:#d08770;">2
+</span><span>  </span><span style="color:#bf616a;">renderer</span><span>: </span><span style="color:#a3be8c;">NetworkManager
+</span><span>  </span><span style="color:#bf616a;">ethernets</span><span>:
+</span><span>    </span><span style="color:#bf616a;">eth1</span><span>:
+</span><span>      </span><span style="color:#bf616a;">dhcp4</span><span>: </span><span style="color:#d08770;">false
+</span><span>      </span><span style="color:#bf616a;">addresses</span><span>:
+</span><span>        - </span><span style="color:#a3be8c;">192.168.1.1/24
+</span><span>      </span><span style="color:#bf616a;">nameservers</span><span>:
+</span><span>        </span><span style="color:#bf616a;">addresses</span><span>:
+</span><span>          - </span><span style="color:#d08770;">192.168.1.1
+</span></code></pre>
+<p>执行<code>sudo netplan apply</code>使改变生效。可以在 GNOME 桌面的网络配置 GUI 中看到改变生效（名称暴露了是谁修改的）：</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian5.png" alt="netplan0" /></p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian6.png" alt="netplan1" /></p>
+<h3 id="dns-he-dhcp-pei-zhi">DNS 和 DHCP 配置</h3>
+<p>Armbian 默认使用 NetworkManager 中的 systemd-resolved组件，这个 DNSstub 监听 <code>127.0.0.53</code> 上的 <code>53</code>端口，其仅能监听本机请求而不能接受局域网内其他机器的请求，当路由肯定是不够的，安装并使用 <code>dnsmasq</code>作为DNS服务器，同时它也是一个轻量级的DHCP服务器，配置文件默认在<code>/etc/dnsmasq.conf</code><sup class="footnote-reference" id="fr-4-1"><a href="#fn-4">[4]</a></sup>。</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt install dnsmasq
+</span><span style="color:#bf616a;">sudo</span><span> vim /etc/dnsmasq.conf
+</span></code></pre>
+<p>dnsmasq默认配置注释，初看很吓人，但实际上我们需要让路由跑起来并不需要调整很多，大多数配置看注释就能明白。这里给出我的最小化配置（还是假定开发版的eth1接口连接局域网设备）</p>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>server=1.1.1.1                              # 指明上游 DNS服务器
+</span><span>interface=eth1                              # 指定 DHCP 服务绑定的网络接口
+</span><span>bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
+</span><span>dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
+</span><span>dhcp-option=option:router,192.168.1.1       # 指定使用本网关 （默认网关）
+</span><span>dhcp-option=option:dns-server,192.168.1.1   # 指定使用本路由器 DNS
+</span><span>log-queries
+</span><span>log-dhcp
+</span></code></pre>
+<p><code>bind-interfaces</code> 设置使<code>dnsmasq</code>只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 <code>systemd-resolved</code> （监听127.0.0.53的53端口），防止冲突。<code>dhcp-option</code>开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。</p>
+<p>如果不打算兼容<code>systemd-resolved</code>，我们需要调整<code>/etc/resolv.conf</code>并停止<code>systemd-resolved</code>服务，这里我们暂不考虑，优先让路由器跑起来。</p>
+<p>重启 <code>dnsmasq</code> 服务，查看状态</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> systemctl restart dnsmasq.service
+</span><span style="color:#bf616a;">sudo</span><span> systemctl status dnsmasq.service
+</span></code></pre>
+<p>服务Active，<del>请先忽略那条Fail</del>，现在可以修改你工作机的网络设置，调整为DHCP（动态获取IP地址），效果如下：</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian7.png" alt="dhcp" /></p>
+<h3 id="nat-he-ip-forwarding">NAT 和 IP Forwarding</h3>
+<p>虽然客户机能拿到ip地址，但我们还不能访问外网。此时开发版并不会将数据包从eth1（内网接口）递送至eth0（外网接口），也不知道内网地址和外网地址的翻译规则。</p>
+<p>IP Forwarding 是 NAT 实现的基础，它负责将数据包在不同接口之间转发，而NAT更像是定义规则怎么修改为内网/外网地址，两者搭配食用味道更佳。</p>
+<h4 id="qi-yong-ip-zhuan-fa">启用 IP 转发</h4>
+<p>编辑<code>/etc/systl.conf</code>：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> vim /etc/systl.conf
+</span></code></pre>
+<p>找到对应行取消注释，开启ipv4和ipv6转发。</p>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span># Uncomment the next line to enable packet forwarding for IPv4
+</span><span>net.ipv4.ip_forward=1
+</span><span>
+</span><span># Uncomment the next line to enable packet forwarding for IPv6
+</span><span>#  Enabling this option disables Stateless Address Autoconfiguration
+</span><span>#  based on Router Advertisements for this host
+</span><span>net.ipv6.conf.all.forwarding=1
+</span></code></pre>
+<p>运行<code>sudo sysctl -p</code>使改变生效。</p>
+<h4 id="pei-zhi-iptables-jin-xing-nat">配置 iptables 进行 NAT</h4>
+<p>在我的实验环境中，外网接口为 <code>eth0</code>，内网接口为 <code>eth1</code>：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> iptables</span><span style="color:#bf616a;"> -t</span><span> nat</span><span style="color:#bf616a;"> -A</span><span> POSTROUTING</span><span style="color:#bf616a;"> -o</span><span> eth0</span><span style="color:#bf616a;"> -j</span><span> MASQUERADE
+</span><span style="color:#bf616a;">sudo</span><span> iptables</span><span style="color:#bf616a;"> -A</span><span> FORWARD</span><span style="color:#bf616a;"> -i</span><span> eth1</span><span style="color:#bf616a;"> -o</span><span> eth0</span><span style="color:#bf616a;"> -m</span><span> state</span><span style="color:#bf616a;"> --state</span><span> RELATED,ESTABLISHED</span><span style="color:#bf616a;"> -j</span><span> ACCEPT
+</span><span style="color:#bf616a;">sudo</span><span> iptables</span><span style="color:#bf616a;"> -A</span><span> FORWARD</span><span style="color:#bf616a;"> -i</span><span> eth1</span><span style="color:#bf616a;"> -o</span><span> eth0</span><span style="color:#bf616a;"> -j</span><span> ACCEPT
+</span></code></pre>
+<p>保存规则：</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo apt-get install iptables-persistent
+</span><span>sudo netfilter-persistent save
+</span></code></pre>
+<p>由于iptables规则默认只在当前会话生效。一旦系统重启或者服务重启规则会被清空，借助<code>iptables-persistent</code>持久化规则到文件中，每次系统或服务启动时自动加载。</p>
+<p>基本路由配置 Done！现在可以试试用工作机通过板子访问外部网络了。</p>
 <hr><ol class="footnotes-list">
 <li id="fn-1">
-<p><a href="https://cyp0633.icu/post/armbian-r2s/">Armbian，更适合 R2S 软路由的系统</a> <a href="#fr-1-1">↩</a></p>
+<p><a href="https://cyp0633.icu/post/armbian-r2s/">Armbian，更适合 R2S 软路由的系统</a> <a href="#fr-1-1">↩</a> <a href="#fr-1-2">↩2</a></p>
 </li>
 <li id="fn-2">
 <p><a href="https://xiau.net/990.html/">夏的博客 | Armbian换源教程</a>. <a href="#fr-2-1">↩</a> <a href="#fr-2-2">↩2</a></p>
+</li>
+<li id="fn-3">
+<p><a href="https://linux.do/t/topic/267502#p-2476630-h-9">VPS基本安全措施 - 开发调优 - LINUX DO</a> <a href="#fr-3-1">↩</a></p>
+</li>
+<li id="fn-4">
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/using-different-dns-servers-for-different-domains_configuring-and-managing-networking#using-systemd-resolved-in-networkmanager-to-send-dns-requests-for-a-specific-domain-to-a-selected-dns-server_using-different-dns-servers-for-different-domains">RHEL 9 | systemd-resolved 使用</a> <a href="#fr-4-1">↩</a></p>
 </li>
 </ol>
 
