@@ -754,7 +754,7 @@ id="top">
 <p>IP Forwarding 是 NAT 实现的基础，它负责将数据包在不同接口之间转发，而NAT更像是定义规则怎么修改为内网/外网地址，两者搭配食用味道更佳。</p>
 <h4 id="qi-yong-ip-zhuan-fa">启用 IP 转发</h4>
 <p>编辑<code>/etc/systl.conf</code>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> vim /etc/systl.conf
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> vim /etc/sysctl.conf
 </span></code></pre>
 <p>找到对应行取消注释，开启ipv4和ipv6转发。</p>
 <pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span># Uncomment the next line to enable packet forwarding for IPv4

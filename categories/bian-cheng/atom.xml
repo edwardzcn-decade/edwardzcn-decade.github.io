@@ -349,7 +349,7 @@
 &lt;p&gt;IP Forwarding 是 NAT 实现的基础，它负责将数据包在不同接口之间转发，而NAT更像是定义规则怎么修改为内网&#x2F;外网地址，两者搭配食用味道更佳。&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;qi-yong-ip-zhuan-fa&quot;&gt;启用 IP 转发&lt;&#x2F;h4&gt;
 &lt;p&gt;编辑&lt;code&gt;&#x2F;etc&#x2F;systl.conf&lt;&#x2F;code&gt;：&lt;&#x2F;p&gt;
-&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; vim &#x2F;etc&#x2F;systl.conf
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; vim &#x2F;etc&#x2F;sysctl.conf
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;找到对应行取消注释，开启ipv4和ipv6转发。&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;# Uncomment the next line to enable packet forwarding for IPv4
