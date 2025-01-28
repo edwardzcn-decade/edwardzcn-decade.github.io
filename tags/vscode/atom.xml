@@ -8,7 +8,7 @@
     <updated>2021-05-14T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/tags/vscode/atom.xml</id>
     <entry xml:lang="en">
-        <title>VSCode使用跳板机远程登陆共享内网穿透</title>
+        <title>VSCode使用跳板机远程登陆共享内网访问</title>
         <published>2021-05-14T00:00:00+00:00</published>
         <updated>2021-05-14T00:00:00+00:00</updated>
         
@@ -20,10 +20,10 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou/"/>
-        <id>https://www.edwardzcn.me/blog/programming/vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou/</id>
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/"/>
+        <id>https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/</id>
         
-        <summary type="html">&lt;p&gt;2025-01 记录：古早的VSCode使用说明。&lt;&#x2F;p&gt;
+        <summary type="html">&lt;p&gt;2025-01 记录：古早的VSCode使用说明。并不能叫做内网穿透，遂改名为内网访问。&lt;&#x2F;p&gt;
 </summary>
         
     </entry>

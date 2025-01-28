@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>VSCode使用跳板机远程登陆共享内网穿透</title>
+<title>VSCode使用跳板机远程登陆共享内网访问</title>
 
 
 
@@ -31,7 +31,7 @@
 
 
 
-<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou&#x2F;">
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;vscode-remote-ssh-proxyjump&#x2F;">
 
 <link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
 <link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
@@ -283,9 +283,9 @@ id="top">
       <div class="breadcrumbs">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
-          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou&#x2F;">VSCode使用跳板机远程登陆共享内网穿透</a>
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;vscode-remote-ssh-proxyjump&#x2F;">VSCode使用跳板机远程登陆共享内网访问</a>
       </div>
-      <h1 class="post-title">VSCode使用跳板机远程登陆共享内网穿透</h1>
+      <h1 class="post-title">VSCode使用跳板机远程登陆共享内网访问</h1>
       
       
       <div class="post-meta">
@@ -304,10 +304,10 @@ id="top">
 
 
 
-<span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;656 words&nbsp;·&nbsp;edwardzcn-decade
+<span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;554 words&nbsp;·&nbsp;edwardzcn-decade
       
           
-&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:VSCode使用跳板机远程登陆共享内网穿透" target="_blank">Email me</a>
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:VSCode使用跳板机远程登陆共享内网访问" target="_blank">Email me</a>
 
       
       </div>
@@ -360,7 +360,7 @@ id="top">
 
   
   <div class="post-content">
-      <p>2025-01 记录：古早的VSCode使用说明。</p>
+      <p>2025-01 记录：古早的VSCode使用说明。并不能叫做内网穿透，遂改名为内网访问。</p>
 <span id="continue-reading"></span>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-dark.png" alt="VSCode_01" /></p>
 <h2 id="background">Background</h2>
@@ -371,7 +371,7 @@ id="top">
 <li>直接调试或部署在服务器上的应用（比如网站）</li>
 </ol>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-remote.png" alt="VSCode_02" /></p>
-<p>我因为操作服务器比较多，也有些 vim/emacs 基础，之前一直使用<a href="https://mobaxterm.mobatek.net/">MobaXTerm</a>+<a href="https://github.com/tmux/tmux">tmux</a>+<a href="https://www.gnu.org/software/emacs/">emacs</a>来进行服务器上的开发。多机实验则会再用上<a href="https://git-scm.com/downloads">git</a>来进行代码同步和版本控制。整套工具包🧰用起来还是很舒畅自然的，只是最近的多机实验需要频繁调试改动某一台机器上部分代码，主要问题和需求</p>
+<p>主要需求：</p>
 <ul>
 <li>希望能有更方便的窗口来单独管理（<del>更重要的原因是我 vim/emacs 技术不够起飞</del>）。</li>
 <li>该机器并没有外网端口，需要借助跳板机 ssh 才可以使用。</li>

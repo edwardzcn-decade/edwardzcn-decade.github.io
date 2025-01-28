@@ -5,10 +5,30 @@
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/categories/gong-ju/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-01-18T00:00:00+00:00</updated>
+    <updated>2025-01-27T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/categories/gong-ju/atom.xml</id>
     <entry xml:lang="en">
-        <title>ArmSom-Sige5开发版折腾Armbian记录</title>
+        <title>ArmSom-Sige5开发版使用Armbian——Cockpit面板</title>
+        <published>2025-01-27T00:00:00+00:00</published>
+        <updated>2025-01-27T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-cockpit/"/>
+        <id>https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-cockpit/</id>
+        
+        <summary type="html">&lt;p&gt;接上一篇&lt;a href=&quot;https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-cockpit&#x2F;.&#x2F;ArmSom-Sige5%E5%BC%80%E5%8F%91%E7%89%88%E4%BD%BF%E7%94%A8Armbian%E2%80%94%E2%80%94%E5%9F%BA%E7%A1%80%E8%B7%AF%E7%94%B1.md&quot;&gt;《ArmSom-Sige5开发版使用Armbian——基础路由》&lt;&#x2F;a&gt;，本文将介绍如何在 ArmSom-Sige5 开发板上安装 &lt;a href=&quot;https:&#x2F;&#x2F;cockpit-project.org&#x2F;&quot;&gt;Cockpit&lt;&#x2F;a&gt; Web GUI 作为管理面板，监视其他服务器（包括 Homelab设备 和 VPS）。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>ArmSom-Sige5开发版使用Armbian——基础路由</title>
         <published>2025-01-18T00:00:00+00:00</published>
         <updated>2025-01-18T00:00:00+00:00</updated>
         
@@ -20,10 +40,10 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu/"/>
-        <id>https://www.edwardzcn.me/blog/programming/armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu/</id>
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-basic-router/"/>
+        <id>https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-basic-router/</id>
         
-        <content type="html" xml:base="https://www.edwardzcn.me/blog/programming/armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu/">&lt;p&gt;记录过年回家前的一次折腾，把ArmSom-Sige5开发版&lt;del&gt;刷了社区版Armbian又降回板子厂商提供的unofficial Armbian&lt;&#x2F;del&gt;，配置软路由功能兼有Linux环境开发体验。&lt;&#x2F;p&gt;
+        <content type="html" xml:base="https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-basic-router/">&lt;p&gt;记录过年回家前的一次折腾，把ArmSom-Sige5开发版&lt;del&gt;刷了社区版Armbian又降回板子厂商提供的unofficial Armbian&lt;&#x2F;del&gt;，配置软路由功能兼有Linux环境开发体验。&lt;&#x2F;p&gt;
 &lt;p&gt;免责声明：初次接触开发版&lt;del&gt;我也忘记哪里看到ArmSom的广告就买了，可能我只是喜欢他家的💜紫色外壳&lt;&#x2F;del&gt;，不保证本文有参考价值，仅作为个人踩坑记录。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;img src=&quot;https:&#x2F;&#x2F;eddyblog.oss-cn-shenzhen.aliyuncs.com&#x2F;2025-01-18&#x2F;armbian0.jpeg&quot; alt=&quot;sige5&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
 &lt;h2 id=&quot;gu-jian-emmcshao-xie&quot;&gt;固件eMMC烧写&lt;&#x2F;h2&gt;
@@ -327,7 +347,8 @@
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; vim &#x2F;etc&#x2F;dnsmasq.conf
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
 &lt;p&gt;dnsmasq默认配置注释，初看很吓人，但实际上我们需要让路由跑起来并不需要调整很多，大多数配置看注释就能明白。这里给出我的最小化配置（还是假定开发版的eth1接口连接局域网设备）&lt;&#x2F;p&gt;
-&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;server=1.1.1.1                              # 指明上游 DNS服务器
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;port=0                                      # 关闭 DNS
+&lt;&#x2F;span&gt;&lt;span&gt;server=1.1.1.1                              # 指明上游 DNS服务器
 &lt;&#x2F;span&gt;&lt;span&gt;interface=eth1                              # 指定 DHCP 服务绑定的网络接口
 &lt;&#x2F;span&gt;&lt;span&gt;bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
 &lt;&#x2F;span&gt;&lt;span&gt;dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
@@ -336,7 +357,7 @@
 &lt;&#x2F;span&gt;&lt;span&gt;log-queries
 &lt;&#x2F;span&gt;&lt;span&gt;log-dhcp
 &lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
-&lt;p&gt;&lt;code&gt;bind-interfaces&lt;&#x2F;code&gt; 设置使&lt;code&gt;dnsmasq&lt;&#x2F;code&gt;只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 &lt;code&gt;systemd-resolved&lt;&#x2F;code&gt; （监听127.0.0.53的53端口），防止冲突。&lt;code&gt;dhcp-option&lt;&#x2F;code&gt;开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;code&gt;bind-interfaces&lt;&#x2F;code&gt; 设置使&lt;code&gt;dnsmasq&lt;&#x2F;code&gt;只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 &lt;code&gt;systemd-resolved&lt;&#x2F;code&gt; （监听127.0.0.53的53端口），防止冲突。&lt;code&gt;port=0&lt;&#x2F;code&gt;配置也会禁用掉监听DNS请求的服务，也可以避免冲突（目前我们暂不使用 dnsmasq 的 DNS 服务）。&lt;code&gt;dhcp-option&lt;&#x2F;code&gt;开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。&lt;&#x2F;p&gt;
 &lt;p&gt;如果不打算兼容&lt;code&gt;systemd-resolved&lt;&#x2F;code&gt;，我们需要调整&lt;code&gt;&#x2F;etc&#x2F;resolv.conf&lt;&#x2F;code&gt;并停止&lt;code&gt;systemd-resolved&lt;&#x2F;code&gt;服务，这里我们暂不考虑，优先让路由器跑起来。&lt;&#x2F;p&gt;
 &lt;p&gt;重启 &lt;code&gt;dnsmasq&lt;&#x2F;code&gt; 服务，查看状态&lt;&#x2F;p&gt;
 &lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; systemctl restart dnsmasq.service
@@ -391,7 +412,7 @@
         
     </entry>
     <entry xml:lang="en">
-        <title>VSCode使用跳板机远程登陆共享内网穿透</title>
+        <title>VSCode使用跳板机远程登陆共享内网访问</title>
         <published>2021-05-14T00:00:00+00:00</published>
         <updated>2021-05-14T00:00:00+00:00</updated>
         
@@ -403,10 +424,10 @@
           </name>
         </author>
         
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou/"/>
-        <id>https://www.edwardzcn.me/blog/programming/vscodeshi-yong-tiao-ban-ji-yuan-cheng-deng-lu-gong-xiang-nei-wang-chuan-tou/</id>
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/"/>
+        <id>https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/</id>
         
-        <summary type="html">&lt;p&gt;2025-01 记录：古早的VSCode使用说明。&lt;&#x2F;p&gt;
+        <summary type="html">&lt;p&gt;2025-01 记录：古早的VSCode使用说明。并不能叫做内网穿透，遂改名为内网访问。&lt;&#x2F;p&gt;
 </summary>
         
     </entry>

@@ -7,7 +7,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>ArmSom-Sige5开发版折腾Armbian记录</title>
+<title>ArmSom-Sige5开发版使用Armbian——基础路由</title>
 
 
 
@@ -31,7 +31,7 @@
 
 
 
-<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu&#x2F;">
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;">
 
 <link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
 <link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
@@ -60,20 +60,6 @@
 </noscript>
 
 
-  
-  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']],
-        displayMath: [['$$', '$$'], ['\\[', '\\]']]
-      },
-      options: {
-        ignoreHtmlClass: "no-mathjax",
-        processHtmlClass: "mathjax"
-      }
-    };
-  </script>
   
 
   
@@ -283,9 +269,9 @@ id="top">
       <div class="breadcrumbs">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
-          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5kai-fa-ban-zhe-teng-armbianji-lu&#x2F;">ArmSom-Sige5开发版折腾Armbian记录</a>
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;">ArmSom-Sige5开发版使用Armbian——基础路由</a>
       </div>
-      <h1 class="post-title">ArmSom-Sige5开发版折腾Armbian记录</h1>
+      <h1 class="post-title">ArmSom-Sige5开发版使用Armbian——基础路由</h1>
       
       
       <div class="post-meta">
@@ -304,10 +290,10 @@ id="top">
 
 
 
-<span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;21 min&nbsp;·&nbsp;4084 words&nbsp;·&nbsp;edwardzcn-decade
+<span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;21 min&nbsp;·&nbsp;4126 words&nbsp;·&nbsp;edwardzcn-decade
       
           
-&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版折腾Armbian记录" target="_blank">Email me</a>
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版使用Armbian——基础路由" target="_blank">Email me</a>
 
       
       </div>
@@ -732,7 +718,8 @@ id="top">
 </span><span style="color:#bf616a;">sudo</span><span> vim /etc/dnsmasq.conf
 </span></code></pre>
 <p>dnsmasq默认配置注释，初看很吓人，但实际上我们需要让路由跑起来并不需要调整很多，大多数配置看注释就能明白。这里给出我的最小化配置（还是假定开发版的eth1接口连接局域网设备）</p>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>server=1.1.1.1                              # 指明上游 DNS服务器
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>port=0                                      # 关闭 DNS
+</span><span>server=1.1.1.1                              # 指明上游 DNS服务器
 </span><span>interface=eth1                              # 指定 DHCP 服务绑定的网络接口
 </span><span>bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
 </span><span>dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
@@ -741,7 +728,7 @@ id="top">
 </span><span>log-queries
 </span><span>log-dhcp
 </span></code></pre>
-<p><code>bind-interfaces</code> 设置使<code>dnsmasq</code>只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 <code>systemd-resolved</code> （监听127.0.0.53的53端口），防止冲突。<code>dhcp-option</code>开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。</p>
+<p><code>bind-interfaces</code> 设置使<code>dnsmasq</code>只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 <code>systemd-resolved</code> （监听127.0.0.53的53端口），防止冲突。<code>port=0</code>配置也会禁用掉监听DNS请求的服务，也可以避免冲突（目前我们暂不使用 dnsmasq 的 DNS 服务）。<code>dhcp-option</code>开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。</p>
 <p>如果不打算兼容<code>systemd-resolved</code>，我们需要调整<code>/etc/resolv.conf</code>并停止<code>systemd-resolved</code>服务，这里我们暂不考虑，优先让路由器跑起来。</p>
 <p>重启 <code>dnsmasq</code> 服务，查看状态</p>
 <pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> systemctl restart dnsmasq.service
@@ -818,6 +805,12 @@ id="top">
         <span>「我在泰缅边境调查电诈产业200天」</span>
     </a>
     
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-cockpit&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>ArmSom-Sige5开发版使用Armbian——Cockpit面板</span>
+    </a>
     
 </nav>
 
