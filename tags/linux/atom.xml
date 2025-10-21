@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>🌟Edwardzcn blog - Linux</title>
+    <subtitle>Promised land</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/linux/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2025-10-21T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/linux/atom.xml</id>
+    <entry xml:lang="en">
+        <title>Linux与macOS软件包验证公钥管理方式</title>
+        <published>2025-10-21T00:00:00+00:00</published>
+        <updated>2025-10-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/keyring-management-linux-macos/"/>
+        <id>https://www.edwardzcn.me/blog/programming/keyring-management-linux-macos/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/blog/programming/keyring-management-linux-macos/">&lt;h2 id=&quot;qian-ming-ruan-jian-bao-yu-yan-zheng-gong-yao&quot;&gt;签名软件包与验证公钥&lt;&#x2F;h2&gt;
+&lt;p&gt;接触过服务器的朋友对 &lt;code&gt;yum&lt;&#x2F;code&gt;、&lt;code&gt;rpm&lt;&#x2F;code&gt;、&lt;code&gt;apt&lt;&#x2F;code&gt;、&lt;code&gt;apt-get&lt;&#x2F;code&gt; 这些指令应该不陌生，它们属于不同 Linux 发行版的软件包管理系统（Package Management System, PMS），其历史可以追溯到上世纪 90 年代。现代操作系统中，我们常通过软件包管理器来安装或更新软件——服务器系统尤为常见，桌面系统如 macOS 的 &lt;code&gt;brew&lt;&#x2F;code&gt; 也是同类工具。软件包管理器通过从远程仓库拉取并下载，与当前系统匹配的预编译的软件包，简化安装和更新过程。&lt;&#x2F;p&gt;
+&lt;p&gt;在安全层面，软件包管理器依赖数字签名技术来确保软件包的完整性和来源可信。开发者会使用自己的私钥为发布的软件包签名，而用户系统则使用开发者提供的公钥来验证下载的完整性（确保软件包完整且未被篡改或伪造）。这一过程可以由软件包管理器自动完成，也可以手动执行。例如，在基于 RPM 的系统上可以使用 &lt;code&gt;rpm --checksig package.rpm&lt;&#x2F;code&gt; 来验证签名。比如在一个centOS7服务器检测手动下载的&lt;code&gt;openssl&lt;&#x2F;code&gt;包：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;rpm --checksig&lt;&#x2F;span&gt;&lt;span&gt; openssl-1.0.2k-25.el7_9.x86_64.rpm
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;openssl-1.0.2k-25.el7_9.x86_64.rpm:&lt;&#x2F;span&gt;&lt;span&gt; rsa sha1 (md5) &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;pgp&lt;&#x2F;span&gt;&lt;span&gt; md5 OK
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h3 id=&quot;gpg&quot;&gt;GPG&lt;&#x2F;h3&gt;
+&lt;p&gt;GPG 是 GNU Privacy Guard 的缩写，也称 GnuPG，是一个免费软件，用于确保分发文件的真实性。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;ge-xi-tong-de-mi-yao-guan-li-fang-shi&quot;&gt;各系统的密钥管理方式&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;debian-ubuntu-xi-tong&quot;&gt;Debian&#x2F;Ubuntu 系统&lt;&#x2F;h3&gt;
+&lt;h4 id=&quot;zao-qi-de-apt-key-yi-qi-yong&quot;&gt;早期的&lt;code&gt;apt-key&lt;&#x2F;code&gt;（已弃用）&lt;&#x2F;h4&gt;
+&lt;p&gt;在较早的 Debian 和 Ubuntu系统中，&lt;code&gt;apt-key&lt;&#x2F;code&gt; 工具被用来管理软件包验证公钥。用户可以通过 &lt;code&gt;apt-key add filename&lt;&#x2F;code&gt; 命令将公钥添加到系统中，通过该工具添加密钥默认被存储在 &lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg&lt;&#x2F;code&gt; 文件中。&lt;code&gt;apt-key list&lt;&#x2F;code&gt; 则用于列出已添加的公钥。该命令默认会显示所有存储在 &lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg&lt;&#x2F;code&gt; 以及 &lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.d&#x2F;&lt;&#x2F;code&gt; 目录下的密钥。&lt;&#x2F;p&gt;
+&lt;p&gt;通过&lt;code&gt;man apt-key&lt;&#x2F;code&gt;可以看到：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;apt-key(8) will last be available in Debian 12 and Ubuntu 24.04.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;在Debian 12和 Ubuntu 24.04之后，&lt;code&gt;apt-key&lt;&#x2F;code&gt; 将被完全弃用，我的系统是Ubuntu 24.04 所以还可以使用&lt;code&gt;list&lt;&#x2F;code&gt;指令，同时检查到&lt;code&gt;trusted.gpg.bak&lt;&#x2F;code&gt;文件备份，可以测试&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;apt-key&lt;&#x2F;span&gt;&lt;span&gt; list&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --keyring&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;etc&#x2F;apt&#x2F;trusted.gpg.bak
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;该工具将遍历&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.d&#x2F;&lt;&#x2F;code&gt;目录下的每个文件，将其中的公钥与备份的公钥二进制文件合并显示。&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.d&#x2F;syncthing.gpg
+&lt;&#x2F;span&gt;&lt;span&gt;------------------------------------
+&lt;&#x2F;span&gt;&lt;span&gt;pub   rsa4096 2024-11-24 [SC]
+&lt;&#x2F;span&gt;&lt;span&gt;      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
+&lt;&#x2F;span&gt;&lt;span&gt;uid           [ unknown] Syncthing Release Management &amp;lt;release@syncthing.net&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;sub   rsa4096 2024-11-24 [E]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.bak
+&lt;&#x2F;span&gt;&lt;span&gt;------------------------
+&lt;&#x2F;span&gt;&lt;span&gt;pub   rsa4096 2024-11-24 [SC]
+&lt;&#x2F;span&gt;&lt;span&gt;      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
+&lt;&#x2F;span&gt;&lt;span&gt;uid           [ unknown] Syncthing Release Management &amp;lt;release@syncthing.net&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;sub   rsa4096 2024-11-24 [E]
+&lt;&#x2F;span&gt;&lt;span&gt;
+&lt;&#x2F;span&gt;&lt;span&gt;pub   rsa4096 2015-03-16 [SC]
+&lt;&#x2F;span&gt;&lt;span&gt;      DF00 FAF1 C577 104B 50BF  1D00 93D6 889F 9F0E 78D5
+&lt;&#x2F;span&gt;&lt;span&gt;uid           [ unknown] Igor Pecovnik &amp;lt;igor@armbian.com&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;uid           [ unknown] Igor Pecovnik (Ljubljana, Slovenia) &amp;lt;igor.pecovnik@gmail.com&amp;gt;
+&lt;&#x2F;span&gt;&lt;span&gt;sub   rsa4096 2015-03-16 [E]
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;h4 id=&quot;zhi-biao-bu-zhi-ben-shou-xin-ren-de-gong-yao-lie-biao-bu-tui-jian&quot;&gt;治标不治本：受信任的公钥列表（不推荐）&lt;&#x2F;h4&gt;
+&lt;p&gt;一种改良方法是将手动编辑&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.d&#x2F;&lt;&#x2F;code&gt;目录下的文件，增加&lt;code&gt;.asc&lt;&#x2F;code&gt;或&lt;code&gt;.gpg&lt;&#x2F;code&gt;格式的公钥文件，文件名提供公钥用途的解释。参考&lt;code&gt;apt-key&lt;&#x2F;code&gt; 工具中的建议：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;add filename (deprecated)&lt;&#x2F;p&gt;
+&lt;p&gt;...&lt;&#x2F;p&gt;
+&lt;p&gt;Note: Instead of using this command a keyring should be placed directly in the &#x2F;etc&#x2F;apt&#x2F;trusted.gpg.d&#x2F; directory with a descriptive name and either &quot;gpg&quot; or &quot;asc&quot; as file extension&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;但这种方法实际上只是对原来单一文件进行了拆分，并不安全。在该目录下的公钥文件都会被所有仓库信赖，参考 &lt;a href=&quot;https:&#x2F;&#x2F;www.linuxuprising.com&#x2F;2021&#x2F;01&#x2F;apt-key-is-deprecated-how-to-add.html&quot;&gt;stark overflow上的讨论&lt;&#x2F;a&gt;&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-1&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;[1]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;tui-jian-de-xi-li-du-gong-yao-guan-li-fang-shi&quot;&gt;推荐的细粒度公钥管理方式&lt;&#x2F;h4&gt;
+&lt;p&gt;上述公钥列表方案也即将被废弃，apt (2.9.24) &lt;a href=&quot;https:&#x2F;&#x2F;salsa.debian.org&#x2F;apt-team&#x2F;apt&#x2F;-&#x2F;raw&#x2F;2.9.24&#x2F;debian&#x2F;NEWS&quot;&gt;更新报告&lt;&#x2F;a&gt;表示不再将该公钥列表认定为安全的配置方式&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-2-1&quot;&gt;&lt;a href=&quot;#fn-2&quot;&gt;[2]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;：&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;apt (2.9.24) unstable; urgency=medium&lt;&#x2F;p&gt;
+&lt;p&gt;&#x2F;etc&#x2F;apt&#x2F;trusted.gpg is no longer trusted. Setting the Dir::Etc::trusted option manually continues to work for some more time.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Debian 和 Ubuntu 推荐将每个仓库的公钥存储在仅root可写的目录下，比如 &lt;code&gt;&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&lt;&#x2F;code&gt;，并在仓库源（&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list&lt;&#x2F;code&gt;和&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;&lt;&#x2F;code&gt; 目录）通过 &lt;code&gt;signed-by&lt;&#x2F;code&gt; 参数指定对应的公钥文件。相较于先前较为粗暴的单一白名单文件，这种细粒度的管理方式，让每个仓库公钥可以独立管理，避免公钥信任扩展，同时提高配置的灵活性。具体而言分为以下步骤&lt;&#x2F;p&gt;
+&lt;ol&gt;
+&lt;li&gt;新建目录&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;如果没有独立的PGP钥匙串目录，新建并按推荐方式赋予权限&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-3-1&quot;&gt;&lt;a href=&quot;#fn-3&quot;&gt;[3]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; mkdir&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -m&lt;&#x2F;span&gt;&lt;span&gt; 0755&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; -p&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;一般而言这个过程只对于 Debian 12 和 Ubuntu 22.04 之前的系统是必须的，使用者可以自行检查是否已经有该默认目录用来存放公钥。&lt;&#x2F;p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;下载公钥&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;从受信任来源下载 APT 仓库的公钥文件：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;wget -O- &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;https:&#x2F;&#x2F;example.com&#x2F;key&#x2F;repo-key.gpg&amp;gt; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;gpg --dearmor &lt;&#x2F;span&gt;&lt;span&gt;| &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; tee &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&amp;lt;myrepository&amp;gt;-archive-keyring.gpg
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;解释其中的指令&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;wget&lt;&#x2F;code&gt; 从受信任来源 &lt;code&gt;https:&#x2F;&#x2F;example.com&#x2F;key&#x2F;repo-key.gpg&lt;&#x2F;code&gt; 下载公钥并输出至控制台 &lt;code&gt;stdout&lt;&#x2F;code&gt; （参数 &lt;code&gt;-O-&lt;&#x2F;code&gt;）。这里的 URL 应替换为你想要下载的公钥地址，比如docker&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;gpg --dearmor&lt;&#x2F;code&gt; 使用 gpg 工具 unpack 符合 OpenPGP ASCII armor的公钥&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;sudo tee &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&amp;lt;myrepository&amp;gt;-archive-keyring.gpg&lt;&#x2F;code&gt; 以管理员身份（&lt;code&gt;&#x2F;usr&#x2F;share&#x2F;keyrings&lt;&#x2F;code&gt;目录只有root写权限），读取unpack后的公钥并将其写入该目录下的文件，&lt;code&gt;&amp;lt;myrepository&amp;gt;&lt;&#x2F;code&gt;应替换为描述公钥用途的名称，按照要求一般要包含被签名仓库名称。&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;也可以通过 &lt;code&gt;curl&lt;&#x2F;code&gt; 下载，并通过 &lt;code&gt;gpg&lt;&#x2F;code&gt; 的 &lt;code&gt;--output &amp;lt;file&amp;gt;&lt;&#x2F;code&gt; 或 &lt;code&gt;-o &amp;lt;file&amp;gt;&lt;&#x2F;code&gt;合并后两条命令指定输出目录：&lt;&#x2F;p&gt;
+&lt;pre data-lang=&quot;bash&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-bash &quot;&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;curl -fsSL &lt;&#x2F;span&gt;&lt;span&gt;&amp;lt;https:&#x2F;&#x2F;example.com&#x2F;key&#x2F;repo-key.gpg&amp;gt; | &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt;sudo&lt;&#x2F;span&gt;&lt;span&gt; gpg&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bf616a;&quot;&gt; --dearmor --output&lt;&#x2F;span&gt;&lt;span&gt; &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&amp;lt;myrepository&amp;gt;-archive-keyring.gpg
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;编辑源&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+&lt;p&gt;上述只是添加公钥，对于软件包管理工具我们需要进一步编辑软件源，指明其使用的是哪一个公钥并验证，以&lt;code&gt;apt&lt;&#x2F;code&gt;工具为例。如果手动添加源，应该在&lt;code&gt;&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;&lt;&#x2F;code&gt;新建&lt;code&gt;.sources&lt;&#x2F;code&gt;文件，文件格式可使用单行格式（one-line format）或者使用更新的 DEB822 格式（DEB822 format）。以下是两种格式的示例：&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;单行格式（one-line format）：&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;deb [signed-by=&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&amp;lt;myrepository&amp;gt;-archive-keyring.gpg] https:&#x2F;&#x2F;example.com&#x2F;debian stable main
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;DEB822 格式（DEB822 format）：&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre data-lang=&quot;txt&quot; style=&quot;background-color:#2b303b;color:#c0c5ce;&quot; class=&quot;language-txt &quot;&gt;&lt;code class=&quot;language-txt&quot; data-lang=&quot;txt&quot;&gt;&lt;span&gt;Types: deb
+&lt;&#x2F;span&gt;&lt;span&gt;URIs: https:&#x2F;&#x2F;example.com&#x2F;debian
+&lt;&#x2F;span&gt;&lt;span&gt;Suites: stable
+&lt;&#x2F;span&gt;&lt;span&gt;Components: main
+&lt;&#x2F;span&gt;&lt;span&gt;Signed-By: &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&amp;lt;myrepository&amp;gt;-archive-keyring.gpg
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;&lt;code&gt;apt&lt;&#x2F;code&gt;（2.3.10）及更新版本还支持在&lt;code&gt;sources.list&lt;&#x2F;code&gt;中内嵌公钥&lt;sup class=&quot;footnote-reference&quot; id=&quot;fr-1-2&quot;&gt;&lt;a href=&quot;#fn-1&quot;&gt;[1]&lt;&#x2F;a&gt;&lt;&#x2F;sup&gt;。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;macos-xi-tong&quot;&gt;macOS 系统&lt;&#x2F;h3&gt;
+&lt;p&gt;在 macOS 上，Homebrew 使用 GPG 签名来验证软件包的完整性和来源。用户可以通过 Homebrew 安装 GPG 工具，并使用 GPG 密钥对软件包进行签名和验证。&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;can-kao-zi-liao&quot;&gt;参考资料&lt;&#x2F;h2&gt;
+&lt;hr&gt;&lt;ol class=&quot;footnotes-list&quot;&gt;
+&lt;li id=&quot;fn-1&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.linuxuprising.com&#x2F;2021&#x2F;01&#x2F;apt-key-is-deprecated-how-to-add.html&quot;&gt;Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-1-1&quot;&gt;↩&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-1-2&quot;&gt;↩2&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-2&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;salsa.debian.org&#x2F;apt-team&#x2F;apt&#x2F;-&#x2F;raw&#x2F;2.9.24&#x2F;debian&#x2F;NEWS&quot;&gt;APT release news&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-2-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li id=&quot;fn-3&quot;&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;wiki.debian.org&#x2F;DebianRepository&#x2F;UseThirdParty#OpenPGP_certificate_distribution&quot;&gt;Debian Wiki&lt;&#x2F;a&gt; &lt;a href=&quot;#fr-3-1&quot;&gt;↩&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
+    <entry xml:lang="en">
+        <title>Recommended Way to Manage Package Verification Keyrings on Linux and macOS</title>
+        <published>2025-10-21T00:00:00+00:00</published>
+        <updated>2025-10-21T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/manage-package-keyrings-linux-macos/"/>
+        <id>https://www.edwardzcn.me/blog/programming/manage-package-keyrings-linux-macos/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/blog/programming/manage-package-keyrings-linux-macos/">&lt;h2 id=&quot;signed-package-and-verification-keys&quot;&gt;Signed Package and Verification Keys&lt;&#x2F;h2&gt;
+</content>
+        
+    </entry>
+</feed>

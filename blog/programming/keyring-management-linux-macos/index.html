@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" dir="i18n_dir">
+
+<head>
+  <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Linux与macOS软件包验证公钥管理方式</title>
+
+
+
+
+<meta name="keywords" content="Linux, macOS, 安全">
+
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+
+<link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;keyring-management-linux-macos&#x2F;">
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
+                --entry: rgb(36, 39, 58);           /* macchiato-base  */
+                --primary: rgb(202, 211, 245);      /* macchiato-text */
+                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
+                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
+                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
+                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
+                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
+                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+    
+</noscript>
+
+
+  
+</head>
+
+<body
+class="" id="top">
+  <script>
+    const preft = localStorage.getItem("pref-theme");
+    if (preft === "dark") {
+      document.body.classList.add("dark");
+    } else if (preft === "light") {
+      document.body.classList.remove("dark");
+    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  </script>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        <ul class="lang-switch">
+          <li>en</li>
+          <li>zh</li>
+        </ul>
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading">
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags" title="Tags">
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories" title="Categories">
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me#" title="Search">
+          <span>Search</span></a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot">
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola">
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+<main class="main">
+  
+<article class="post-single">
+  <header class="post-header">
+      <div class="breadcrumbs">
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;keyring-management-linux-macos&#x2F;">Linux与macOS软件包验证公钥管理方式</a>
+      </div>
+      <h1 class="post-title">Linux与macOS软件包验证公钥管理方式</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2025-10-21 00:00:00 +0000">2025-10-21</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1699 words&nbsp;·&nbsp;edwardzcn-decade
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:Linux与macOS软件包验证公钥管理方式" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details  open>
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#qian-ming-ruan-jian-bao-yu-yan-zheng-gong-yao" aria-label="签名软件包与验证公钥">签名软件包与验证公钥</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#gpg" aria-label="GPG">GPG</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#ge-xi-tong-de-mi-yao-guan-li-fang-shi" aria-label="各系统的密钥管理方式">各系统的密钥管理方式</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#debian-ubuntu-xi-tong" aria-label="Debian&#x2F;Ubuntu 系统">Debian&#x2F;Ubuntu 系统</a>
+              
+              <ul>
+                
+                <li><a href="#zao-qi-de-apt-key-yi-qi-yong" aria-label="早期的apt-key（已弃用）">早期的apt-key（已弃用）</a></li>
+                
+                <li><a href="#zhi-biao-bu-zhi-ben-shou-xin-ren-de-gong-yao-lie-biao-bu-tui-jian" aria-label="治标不治本：受信任的公钥列表（不推荐）">治标不治本：受信任的公钥列表（不推荐）</a></li>
+                
+                <li><a href="#tui-jian-de-xi-li-du-gong-yao-guan-li-fang-shi" aria-label="推荐的细粒度公钥管理方式">推荐的细粒度公钥管理方式</a></li>
+                
+              </ul>
+              
+            </li>
+            
+            <li>
+              <a href="#macos-xi-tong" aria-label="macOS 系统">macOS 系统</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#can-kao-zi-liao" aria-label="参考资料">参考资料</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <h2 id="qian-ming-ruan-jian-bao-yu-yan-zheng-gong-yao">签名软件包与验证公钥</h2>
+<p>接触过服务器的朋友对 <code>yum</code>、<code>rpm</code>、<code>apt</code>、<code>apt-get</code> 这些指令应该不陌生，它们属于不同 Linux 发行版的软件包管理系统（Package Management System, PMS），其历史可以追溯到上世纪 90 年代。现代操作系统中，我们常通过软件包管理器来安装或更新软件——服务器系统尤为常见，桌面系统如 macOS 的 <code>brew</code> 也是同类工具。软件包管理器通过从远程仓库拉取并下载，与当前系统匹配的预编译的软件包，简化安装和更新过程。</p>
+<p>在安全层面，软件包管理器依赖数字签名技术来确保软件包的完整性和来源可信。开发者会使用自己的私钥为发布的软件包签名，而用户系统则使用开发者提供的公钥来验证下载的完整性（确保软件包完整且未被篡改或伪造）。这一过程可以由软件包管理器自动完成，也可以手动执行。例如，在基于 RPM 的系统上可以使用 <code>rpm --checksig package.rpm</code> 来验证签名。比如在一个centOS7服务器检测手动下载的<code>openssl</code>包：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">rpm --checksig</span><span> openssl-1.0.2k-25.el7_9.x86_64.rpm
+</span><span style="color:#bf616a;">openssl-1.0.2k-25.el7_9.x86_64.rpm:</span><span> rsa sha1 (md5) </span><span style="color:#bf616a;">pgp</span><span> md5 OK
+</span></code></pre>
+<h3 id="gpg">GPG</h3>
+<p>GPG 是 GNU Privacy Guard 的缩写，也称 GnuPG，是一个免费软件，用于确保分发文件的真实性。</p>
+<h2 id="ge-xi-tong-de-mi-yao-guan-li-fang-shi">各系统的密钥管理方式</h2>
+<h3 id="debian-ubuntu-xi-tong">Debian/Ubuntu 系统</h3>
+<h4 id="zao-qi-de-apt-key-yi-qi-yong">早期的<code>apt-key</code>（已弃用）</h4>
+<p>在较早的 Debian 和 Ubuntu系统中，<code>apt-key</code> 工具被用来管理软件包验证公钥。用户可以通过 <code>apt-key add filename</code> 命令将公钥添加到系统中，通过该工具添加密钥默认被存储在 <code>/etc/apt/trusted.gpg</code> 文件中。<code>apt-key list</code> 则用于列出已添加的公钥。该命令默认会显示所有存储在 <code>/etc/apt/trusted.gpg</code> 以及 <code>/etc/apt/trusted.gpg.d/</code> 目录下的密钥。</p>
+<p>通过<code>man apt-key</code>可以看到：</p>
+<blockquote>
+<p>apt-key(8) will last be available in Debian 12 and Ubuntu 24.04.</p>
+</blockquote>
+<p>在Debian 12和 Ubuntu 24.04之后，<code>apt-key</code> 将被完全弃用，我的系统是Ubuntu 24.04 所以还可以使用<code>list</code>指令，同时检查到<code>trusted.gpg.bak</code>文件备份，可以测试</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">apt-key</span><span> list</span><span style="color:#bf616a;"> --keyring</span><span> /etc/apt/trusted.gpg.bak
+</span></code></pre>
+<p>该工具将遍历<code>/etc/apt/trusted.gpg.d/</code>目录下的每个文件，将其中的公钥与备份的公钥二进制文件合并显示。</p>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>/etc/apt/trusted.gpg.d/syncthing.gpg
+</span><span>------------------------------------
+</span><span>pub   rsa4096 2024-11-24 [SC]
+</span><span>      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
+</span><span>uid           [ unknown] Syncthing Release Management &lt;release@syncthing.net&gt;
+</span><span>sub   rsa4096 2024-11-24 [E]
+</span><span>
+</span><span>/etc/apt/trusted.gpg.bak
+</span><span>------------------------
+</span><span>pub   rsa4096 2024-11-24 [SC]
+</span><span>      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
+</span><span>uid           [ unknown] Syncthing Release Management &lt;release@syncthing.net&gt;
+</span><span>sub   rsa4096 2024-11-24 [E]
+</span><span>
+</span><span>pub   rsa4096 2015-03-16 [SC]
+</span><span>      DF00 FAF1 C577 104B 50BF  1D00 93D6 889F 9F0E 78D5
+</span><span>uid           [ unknown] Igor Pecovnik &lt;igor@armbian.com&gt;
+</span><span>uid           [ unknown] Igor Pecovnik (Ljubljana, Slovenia) &lt;igor.pecovnik@gmail.com&gt;
+</span><span>sub   rsa4096 2015-03-16 [E]
+</span></code></pre>
+<h4 id="zhi-biao-bu-zhi-ben-shou-xin-ren-de-gong-yao-lie-biao-bu-tui-jian">治标不治本：受信任的公钥列表（不推荐）</h4>
+<p>一种改良方法是将手动编辑<code>/etc/apt/trusted.gpg.d/</code>目录下的文件，增加<code>.asc</code>或<code>.gpg</code>格式的公钥文件，文件名提供公钥用途的解释。参考<code>apt-key</code> 工具中的建议：</p>
+<blockquote>
+<p>add filename (deprecated)</p>
+<p>...</p>
+<p>Note: Instead of using this command a keyring should be placed directly in the /etc/apt/trusted.gpg.d/ directory with a descriptive name and either "gpg" or "asc" as file extension</p>
+</blockquote>
+<p>但这种方法实际上只是对原来单一文件进行了拆分，并不安全。在该目录下的公钥文件都会被所有仓库信赖，参考 <a href="https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html">stark overflow上的讨论</a><sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup>。</p>
+<h4 id="tui-jian-de-xi-li-du-gong-yao-guan-li-fang-shi">推荐的细粒度公钥管理方式</h4>
+<p>上述公钥列表方案也即将被废弃，apt (2.9.24) <a href="https://salsa.debian.org/apt-team/apt/-/raw/2.9.24/debian/NEWS">更新报告</a>表示不再将该公钥列表认定为安全的配置方式<sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>：</p>
+<blockquote>
+<p>apt (2.9.24) unstable; urgency=medium</p>
+<p>/etc/apt/trusted.gpg is no longer trusted. Setting the Dir::Etc::trusted option manually continues to work for some more time.</p>
+</blockquote>
+<p>Debian 和 Ubuntu 推荐将每个仓库的公钥存储在仅root可写的目录下，比如 <code>/usr/share/keyrings/</code>，并在仓库源（<code>/etc/apt/sources.list</code>和<code>/etc/apt/sources.list.d/</code> 目录）通过 <code>signed-by</code> 参数指定对应的公钥文件。相较于先前较为粗暴的单一白名单文件，这种细粒度的管理方式，让每个仓库公钥可以独立管理，避免公钥信任扩展，同时提高配置的灵活性。具体而言分为以下步骤</p>
+<ol>
+<li>新建目录</li>
+</ol>
+<p>如果没有独立的PGP钥匙串目录，新建并按推荐方式赋予权限<sup class="footnote-reference" id="fr-3-1"><a href="#fn-3">[3]</a></sup>：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> mkdir</span><span style="color:#bf616a;"> -m</span><span> 0755</span><span style="color:#bf616a;"> -p</span><span> /etc/apt/keyrings/
+</span></code></pre>
+<p>一般而言这个过程只对于 Debian 12 和 Ubuntu 22.04 之前的系统是必须的，使用者可以自行检查是否已经有该默认目录用来存放公钥。</p>
+<ol start="2">
+<li>下载公钥</li>
+</ol>
+<p>从受信任来源下载 APT 仓库的公钥文件：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">wget -O- </span><span>&lt;https://example.com/key/repo-key.gpg&gt; | </span><span style="color:#bf616a;">gpg --dearmor </span><span>| </span><span style="color:#bf616a;">sudo</span><span> tee /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg
+</span></code></pre>
+<p>解释其中的指令</p>
+<ul>
+<li><code>wget</code> 从受信任来源 <code>https://example.com/key/repo-key.gpg</code> 下载公钥并输出至控制台 <code>stdout</code> （参数 <code>-O-</code>）。这里的 URL 应替换为你想要下载的公钥地址，比如docker</li>
+<li><code>gpg --dearmor</code> 使用 gpg 工具 unpack 符合 OpenPGP ASCII armor的公钥</li>
+<li><code>sudo tee /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg</code> 以管理员身份（<code>/usr/share/keyrings</code>目录只有root写权限），读取unpack后的公钥并将其写入该目录下的文件，<code>&lt;myrepository&gt;</code>应替换为描述公钥用途的名称，按照要求一般要包含被签名仓库名称。</li>
+</ul>
+<p>也可以通过 <code>curl</code> 下载，并通过 <code>gpg</code> 的 <code>--output &lt;file&gt;</code> 或 <code>-o &lt;file&gt;</code>合并后两条命令指定输出目录：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">curl -fsSL </span><span>&lt;https://example.com/key/repo-key.gpg&gt; | </span><span style="color:#bf616a;">sudo</span><span> gpg</span><span style="color:#bf616a;"> --dearmor --output</span><span> /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg
+</span></code></pre>
+<ol start="3">
+<li>编辑源</li>
+</ol>
+<p>上述只是添加公钥，对于软件包管理工具我们需要进一步编辑软件源，指明其使用的是哪一个公钥并验证，以<code>apt</code>工具为例。如果手动添加源，应该在<code>/etc/apt/sources.list.d/</code>新建<code>.sources</code>文件，文件格式可使用单行格式（one-line format）或者使用更新的 DEB822 格式（DEB822 format）。以下是两种格式的示例：</p>
+<ul>
+<li>单行格式（one-line format）：</li>
+</ul>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>deb [signed-by=/usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg] https://example.com/debian stable main
+</span></code></pre>
+<ul>
+<li>DEB822 格式（DEB822 format）：</li>
+</ul>
+<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>Types: deb
+</span><span>URIs: https://example.com/debian
+</span><span>Suites: stable
+</span><span>Components: main
+</span><span>Signed-By: /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg
+</span></code></pre>
+<p><code>apt</code>（2.3.10）及更新版本还支持在<code>sources.list</code>中内嵌公钥<sup class="footnote-reference" id="fr-1-2"><a href="#fn-1">[1]</a></sup>。</p>
+<h3 id="macos-xi-tong">macOS 系统</h3>
+<p>在 macOS 上，Homebrew 使用 GPG 签名来验证软件包的完整性和来源。用户可以通过 Homebrew 安装 GPG 工具，并使用 GPG 密钥对软件包进行签名和验证。</p>
+<h2 id="can-kao-zi-liao">参考资料</h2>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p><a href="https://www.linuxuprising.com/2021/01/apt-key-is-deprecated-how-to-add.html">Warning: apt-key is deprecated. Manage keyring files in trusted.gpg.d instead</a> <a href="#fr-1-1">↩</a> <a href="#fr-1-2">↩2</a></p>
+</li>
+<li id="fn-2">
+<p><a href="https://salsa.debian.org/apt-team/apt/-/raw/2.9.24/debian/NEWS">APT release news</a> <a href="#fr-2-1">↩</a></p>
+</li>
+<li id="fn-3">
+<p><a href="https://wiki.debian.org/DebianRepository/UseThirdParty#OpenPGP_certificate_distribution">Debian Wiki</a> <a href="#fr-3-1">↩</a></p>
+</li>
+</ol>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;linux&#x2F;">Linux</a></li>
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;macos&#x2F;">macOS</a></li>
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;an-quan&#x2F;">安全</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;manage-package-keyrings-linux-macos&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>Recommended Way to Manage Package Verification Keyrings on Linux and macOS</span>
+    </a>
+    
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  
+  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+  
+  <span>
+      Powered by
+      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+  </span>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+<script>
+  let menu = document.getElementById('menu')
+  if (menu) {
+      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+      menu.onscroll = function () {
+          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+      }
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          var id = this.getAttribute("href").substr(1);
+          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                  behavior: "smooth"
+              });
+          } else {
+              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+          }
+          if (id === "top") {
+              history.replaceState(null, null, " ");
+          } else {
+              history.pushState(null, null, `#${id}`);
+          }
+      });
+  });
+
+</script>
+
+
+<script>
+  var mybutton = document.getElementById("top-link");
+  window.onscroll = function () {
+      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+          mybutton.style.visibility = "visible";
+          mybutton.style.opacity = "1";
+      } else {
+          mybutton.style.visibility = "hidden";
+          mybutton.style.opacity = "0";
+      }
+  };
+
+</script>
+
+
+
+<script>
+  document.getElementById("theme-toggle").addEventListener("click", () => {
+      if (document.body.className.includes("dark")) {
+          document.body.classList.remove('dark');
+          localStorage.setItem("pref-theme", 'light');
+      } else {
+          document.body.classList.add('dark');
+          localStorage.setItem("pref-theme", 'dark');
+      }
+  })
+
+</script>
+
+
+<script>
+  document.querySelectorAll('pre > code').forEach((codeblock) => {
+      const container = codeblock.parentNode.parentNode;
+
+      const copybutton = document.createElement('button');
+      copybutton.classList.add('copy-code');
+      copybutton.innerText = 'copy';
+      function copyingDone() {
+          copybutton.innerText = 'copied!';
+          setTimeout(() => {
+              copybutton.innerText = 'copy';
+          }, 2000);
+      }
+
+      copybutton.addEventListener('click', (cb) => {
+          if ('clipboard' in navigator) {
+              var content = codeblock.textContent;
+              if(codeblock.firstChild.tagName == 'TABLE') {
+                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
+              }
+              navigator.clipboard.writeText(content);
+              copyingDone();
+              return;
+          }
+
+          const range = document.createRange();
+          range.selectNodeContents(codeblock);
+          const selection = window.getSelection();
+          selection.removeAllRanges();
+          selection.addRange(range);
+          try {
+              document.execCommand('copy');
+              copyingDone();
+          } catch (e) { };
+          selection.removeRange(range);
+      });
+
+      if (container.classList.contains("highlight")) {
+          container.appendChild(copybutton);
+      } else if (container.parentNode.firstChild == container) {
+          // td containing LineNos
+      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+          // table containing LineNos and code
+          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+      } else {
+          // code blocks not having highlight as parent class
+          codeblock.parentNode.appendChild(copybutton);
+      }
+  });
+</script>
+
+
+
+
+
+
+<div id="searchbox" class="hidden">
+  <div class="search-modal">
+    <input type="text" id="searchInput" placeholder="Type to search..." />
+    <button id="searchButton">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+
+
+</body>
+
+</html>

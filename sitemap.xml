@@ -23,6 +23,9 @@
         <loc>https://www.edwardzcn.me/blog/page/11/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/blog/page/12/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/blog/page/2/</loc>
     </url>
     <url>
@@ -56,6 +59,14 @@
     <url>
         <loc>https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-cockpit/</loc>
         <lastmod>2025-01-27</lastmod>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/programming/keyring-management-linux-macos/</loc>
+        <lastmod>2025-10-21</lastmod>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/programming/manage-package-keyrings-linux-macos/</loc>
+        <lastmod>2025-10-21</lastmod>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/blog/programming/page/1/</loc>
@@ -421,6 +432,9 @@
         <loc>https://www.edwardzcn.me/tags/albert-camus/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/tags/an-quan/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/tags/armbian/</loc>
     </url>
     <url>
@@ -523,6 +537,9 @@
         <loc>https://www.edwardzcn.me/tags/liang-wen-dao/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/tags/linux/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/tags/long-ying-tai/</loc>
     </url>
     <url>
@@ -530,6 +547,9 @@
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/luo-xin/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/tags/macos/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/michael-j-sandel/</loc>
