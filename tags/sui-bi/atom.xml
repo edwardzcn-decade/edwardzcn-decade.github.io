@@ -2,96 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title>🌟Edwardzcn blog - 随笔</title>
     <subtitle>Promised land</subtitle>
-    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/categories/sui-bi/atom.xml"/>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/sui-bi/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-01-16T00:00:00+00:00</updated>
-    <id>https://www.edwardzcn.me/categories/sui-bi/atom.xml</id>
-    <entry xml:lang="en">
-        <title>「我在泰缅边境调查电诈产业200天」</title>
-        <published>2025-01-16T00:00:00+00:00</published>
-        <updated>2025-01-16T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/reading/wo-zai-tai-mian-bian-jing-diao-cha-dian-zha-chan-ye-200tian/"/>
-        <id>https://www.edwardzcn.me/blog/reading/wo-zai-tai-mian-bian-jing-diao-cha-dian-zha-chan-ye-200tian/</id>
-        
-        <summary type="html">&lt;p&gt;转自 伍勤 &lt;a href=&quot;https:&#x2F;&#x2F;mp.weixin.qq.com&#x2F;s&#x2F;t8y7yMyFfs7LI33zyXRMzw&quot;&gt;正面连接&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
-&lt;p&gt;泰缅边境成为了一片“法外之地”。&lt;&#x2F;p&gt;
-&lt;p&gt;军阀割据创造出治理真空，泰国成为交通枢纽，当地华人铺平道路——泰国华人打通移民局、警察局和边防军，缅甸华人打通“民地武”（民族地区武装）的门路，搞到园区用地。&lt;&#x2F;p&gt;
-&lt;p&gt;这些统一构成了逃避统治的基础设施，让电诈产业得以发展壮大。&lt;&#x2F;p&gt;
-&lt;p&gt;全球资本主义中“&lt;strong&gt;残余&lt;&#x2F;strong&gt;”的人被吸引或诱拐至此。&lt;&#x2F;p&gt;
-</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>「我躲在虹桥的卫生间，不知道去哪」</title>
-        <published>2023-11-21T00:00:00+00:00</published>
-        <updated>2023-11-21T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/reading/wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na/"/>
-        <id>https://www.edwardzcn.me/blog/reading/wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na/</id>
-        
-        <summary type="html">&lt;p&gt;原文链接 aHR0cHM6Ly9tcC53ZWl4aW4ucXEuY29tL3MvcFoxQm10SGVkUjByeEJaa3FON0ZTQQ==&lt;&#x2F;p&gt;
-&lt;p&gt;文字藏于节点之间，记得那些撰写的人。&lt;&#x2F;p&gt;
-</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>「用现实主义者的心态看问题」</title>
-        <published>2021-02-01T00:00:00+00:00</published>
-        <updated>2021-02-01T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/reading/yong-xian-shi-zhu-yi-zhe-de-xin-tai-kan-wen-ti/"/>
-        <id>https://www.edwardzcn.me/blog/reading/yong-xian-shi-zhu-yi-zhe-de-xin-tai-kan-wen-ti/</id>
-        
-        <summary type="html">&lt;p&gt;原文忘记在哪了。&lt;&#x2F;p&gt;
-</summary>
-        
-    </entry>
-    <entry xml:lang="en">
-        <title>《对青年数学家的建议》摘录的摘录</title>
-        <published>2020-10-30T00:00:00+00:00</published>
-        <updated>2020-10-30T00:00:00+00:00</updated>
-        
-        <author>
-          <name>
-            
-              edwardzcn-decade
-            
-          </name>
-        </author>
-        
-        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/reading/dui-qing-nian-shu-xue-jia-de-jian-yi-zhai-lu-de-zhai-lu/"/>
-        <id>https://www.edwardzcn.me/blog/reading/dui-qing-nian-shu-xue-jia-de-jian-yi-zhai-lu-de-zhai-lu/</id>
-        
-        <summary type="html">&lt;p&gt;“如果你对于挫败感不习惯的话，数学就可能对你不是一个理想的职业。”&lt;&#x2F;p&gt;
-</summary>
-        
-    </entry>
+    <updated>2020-03-10T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/tags/sui-bi/atom.xml</id>
     <entry xml:lang="en">
         <title>我的人生解答书——职业规划</title>
         <published>2020-03-10T00:00:00+00:00</published>
