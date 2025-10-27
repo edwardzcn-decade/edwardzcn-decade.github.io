@@ -5,8 +5,30 @@
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/categories/sui-bi/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-01-16T00:00:00+00:00</updated>
+    <updated>2025-10-25T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/categories/sui-bi/atom.xml</id>
+    <entry xml:lang="en">
+        <title>当山告诉我应该离开</title>
+        <published>2025-10-25T00:00:00+00:00</published>
+        <updated>2025-10-25T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/life/when-the-mountain-told-me-to-leave/"/>
+        <id>https://www.edwardzcn.me/blog/life/when-the-mountain-told-me-to-leave/</id>
+        
+        <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;“我的身体状态很好，向导也很好。但山告诉我应该离开了”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+</summary>
+        
+    </entry>
     <entry xml:lang="en">
         <title>「我在泰缅边境调查电诈产业200天」</title>
         <published>2025-01-16T00:00:00+00:00</published>
