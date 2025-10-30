@@ -24,7 +24,7 @@
         <id>https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/</id>
         
         <summary type="html">&lt;p&gt;GitHub 免费个人账户的私有仓库有一定权限限制，比如无法使用公开的 GitHub Pages 对外展示。这个限制可能会给博客作者带来不便，因为他们一方面希望保护原始内容的私有性，又希望渲染的文章界面能公开访问。&lt;&#x2F;p&gt;
-&lt;p&gt;其实这个问题一直有官方默许的方案，参考&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;peaceiris&#x2F;actions-gh-pages&#x2F;tree&#x2F;v4&#x2F;?tab=readme-ov-file#%EF%B8%8F-deploy-to-external-repository-external_repository&quot;&gt;actions-gh-pages&lt;&#x2F;a&gt; action 组件选项 &lt;code&gt;external_repository&lt;&#x2F;code&gt; 的说明：&lt;&#x2F;p&gt;
+&lt;p&gt;这个问题有官方默许的解决方案，参考&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;peaceiris&#x2F;actions-gh-pages&#x2F;tree&#x2F;v4&#x2F;?tab=readme-ov-file#%EF%B8%8F-deploy-to-external-repository-external_repository&quot;&gt;actions-gh-pages&lt;&#x2F;a&gt; action 组件选项 &lt;code&gt;external_repository&lt;&#x2F;code&gt; 的说明：&lt;&#x2F;p&gt;
 </summary>
         
     </entry>
