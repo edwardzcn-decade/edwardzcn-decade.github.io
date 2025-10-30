@@ -86,6 +86,13 @@
         <loc>https://www.edwardzcn.me/blog/programming/page/1/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/blog/programming/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/</loc>
+        <lastmod>2025-10-30</lastmod>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/</loc>
         <lastmod>2021-05-14</lastmod>
     </url>
@@ -338,6 +345,9 @@
         <loc>https://www.edwardzcn.me/categories/bian-cheng/page/1/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/categories/bian-cheng/page/2/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/categories/du-hou-gan/</loc>
     </url>
     <url>
@@ -348,6 +358,9 @@
     </url>
     <url>
         <loc>https://www.edwardzcn.me/categories/gong-ju/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/categories/gong-ju/page/2/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/categories/ren-sheng/</loc>
@@ -479,6 +492,9 @@
         <loc>https://www.edwardzcn.me/tags/chuan-ji/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/tags/ci/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/tags/covid-19/</loc>
     </url>
     <url>
@@ -510,6 +526,9 @@
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/gao-de-na/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/tags/github-actions/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/gustave-le-bon/</loc>
