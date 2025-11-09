@@ -318,7 +318,7 @@ class="" id="top">
 
 
 
-<span title="2025-10-30 00:00:00 +0000">2025-10-30</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1099 words&nbsp;·&nbsp;edwardzcn-decade
+<span title="2025-10-30 00:00:00 +0000">2025-10-30</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1146 words&nbsp;·&nbsp;edwardzcn-decade
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:私有仓库中自动部署 GitHub Pages" target="_blank">Email me</a>
@@ -346,7 +346,7 @@ class="" id="top">
           <ul>
             
             <li>
-              <a href="#deploy-key-she-zhi" aria-label="Deploy Key 设置">Deploy Key 设置</a>
+              <a href="#deploy-keys-she-zhi" aria-label="Deploy Keys 设置">Deploy Keys 设置</a>
               
             </li>
             
@@ -369,7 +369,7 @@ class="" id="top">
   
   <div class="post-content">
       <p>GitHub 免费个人账户的私有仓库有一定权限限制，比如无法使用公开的 GitHub Pages 对外展示。这个限制可能会给博客作者带来不便，因为他们一方面希望保护原始内容的私有性，又希望渲染的文章界面能公开访问。</p>
-<p>这个问题有官方默许的解决方案，参考<a href="https://github.com/peaceiris/actions-gh-pages/tree/v4/?tab=readme-ov-file#%EF%B8%8F-deploy-to-external-repository-external_repository">actions-gh-pages</a> action 组件选项 <code>external_repository</code> 的说明：</p>
+<p>这个问题有官方默许的解决方案，参考<a href="https://github.com/peaceiris/actions-gh-pages/tree/v4/?tab=readme-ov-file#%EF%B8%8F-deploy-to-external-repository-external_repository">actions-gh-pages</a> 组件对选项 <code>external_repository</code> 的说明：</p>
 <span id="continue-reading"></span>
 <blockquote>
 <p>⭐️ Deploy to external repository <code>external_repository</code></p>
@@ -466,8 +466,8 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
 <blockquote>
 <p><a href="https://docs.github.com/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys">Deploy keys</a> use an SSH key to grant readonly or write access to a single repository. They are not protected by a passphrase and can be a security risk if your server is compromised. If you have a complex project or want more fine-grain control over permissions, consider using GitHub Apps instead.</p>
 </blockquote>
-<p>此处，Actions 需要目标仓库的 “写入权限”，但不能暴露我的个人 Token，故采用仓库 Deploy Key + 仓库 Secret 的方式。</p>
-<h3 id="deploy-key-she-zhi">Deploy Key 设置</h3>
+<p>此处，Actions 需要目标仓库的 “写入权限”，但不能暴露我的个人 Token，故采用仓库 Deploy Keys + 仓库 Secrets 的方式。</p>
+<h3 id="deploy-keys-she-zhi">Deploy Keys 设置</h3>
 <ol>
 <li>生成 SSH 密钥对</li>
 </ol>
@@ -488,12 +488,20 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
 <li>添加私钥到源仓库的 Secrets</li>
 </ol>
 <p>打开源仓库（原始内容所在仓库） Settings -&gt; Secrets and variables -&gt; Actions，添加新的 Repository secret，名称为 <code>PAGES_DEPLOY_KEY</code>，内容为私钥 <code>id_github_pages_deploy_key</code> 的内容。</p>
-<p>这样就完成了源仓库可通过SSH密钥对目标仓库进行写入操作的配置。</p>
+<p>这样就完成了源仓库可通过SSH密钥对目标仓库进行写入操作的配置，有关部署密钥更多信息可以见官方文档<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup>。</p>
 <h2 id="cloudflare-pages">Cloudflare Pages</h2>
 <p>为了使用 Cloudflare 上已购买的域名和 CDN 加速，我使用 <a href="https://dash.cloudflare.com/">Cloudflare Workers &amp; Pages</a> 自动化同步 GitHub Pages 站点（xxx.github.io）。</p>
-<p><a href="https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/">集成 GitHub 仓库</a>内容可见文档，简单说只要在GithHub 账户设置中安装好
+<p>集成 GitHub 仓库内容可见 CF 文档<sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>，简单说只要在 GithHub 账户设置中安装好
 “Cloudflare Workers and Pages” 勾选对应的 GitHub Pages 公开仓库，授予权限就可以了。这样每次公开仓库有更新，会进一步触发 CF Pages 的Action，自动拉取同步最新内容并部署。</p>
 <p><img src="https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/cloudflare-repo-access.png" alt="Cloudflare Repository Access" /></p>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys">Managing deploy keys | GitHub Docs</a> <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p><a href="https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/">GitHub integration | Cloudflare Docs</a> <a href="#fr-2-1">↩</a></p>
+</li>
+</ol>
 
   </div>
   
@@ -523,6 +531,12 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
         <span>当山告诉我应该离开</span>
     </a>
     
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>Pyenv：多版本Python管理与虚拟环境设置</span>
+    </a>
     
 </nav>
 

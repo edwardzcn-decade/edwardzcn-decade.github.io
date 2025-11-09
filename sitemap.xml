@@ -93,6 +93,10 @@
         <lastmod>2025-10-30</lastmod>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/blog/programming/python-versions-with-pyenv/</loc>
+        <lastmod>2025-11-09</lastmod>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/</loc>
         <lastmod>2021-05-14</lastmod>
     </url>
@@ -598,6 +602,9 @@
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/mortimer-j-adler/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/tags/python/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/tags/rachel-joyce/</loc>
