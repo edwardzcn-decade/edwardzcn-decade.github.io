@@ -320,7 +320,7 @@ class="" id="top">
 
 
 
-<span title="2025-11-09 00:00:00 +0000">2025-11-09</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1687 words&nbsp;·&nbsp;edwardzcn-decade
+<span title="2025-11-09 00:00:00 +0000">2025-11-09</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1764 words&nbsp;·&nbsp;edwardzcn-decade
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:Pyenv：多版本Python管理与虚拟环境设置" target="_blank">Email me</a>
@@ -374,6 +374,12 @@ class="" id="top">
             
             <li>
               <a href="#xu-ni-huan-jing-pei-he-pyenv-virtualenv-shi-yong" aria-label="虚拟环境配合 pyenv-virtualenv 使用">虚拟环境配合 pyenv-virtualenv 使用</a>
+              
+              <ul>
+                
+                <li><a href="#que-ren-xu-ni-huan-jing-shi-yong-de-jie-shi-qi" aria-label="确认虚拟环境使用的解释器">确认虚拟环境使用的解释器</a></li>
+                
+              </ul>
               
             </li>
             
@@ -514,6 +520,15 @@ class="" id="top">
 </span><span>  </span><span style="color:#bf616a;">venv-name</span><span> --&gt; /Users/user_name/.pyenv/versions/3.14.0/envs/venv-name
 </span></code></pre>
 <p>清晰显示环境之间的实际关系。使用 <code>pyenv activate venv-name</code> 启动虚拟环境， <code>pyenv deactivate</code> 退出当前环境。</p>
+<h3 id="que-ren-xu-ni-huan-jing-shi-yong-de-jie-shi-qi">确认虚拟环境使用的解释器</h3>
+<p>这时候使用 <code>which python</code> 始终得到的是被 <code>shim</code> 层劫持的结果，即 <code>shim/python</code> 所在的位置：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">which</span><span> python
+</span><span style="color:#65737e;"># /Users/user_name/.pyenv/shims/python
+</span></code></pre>
+<p>正确方式是使用 <code>pyenv which python</code> ，Display the full path to an executable：</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> which python
+</span><span style="color:#65737e;"># /Users/user_name/.pyenv/versions/env_name/bin/python
+</span></code></pre>
 <h2 id="yan-shen-yue-du-yu-can-kao">延伸阅读与参考</h2>
 <p><a href="https://github.com/pyenv/pyenv">pyenv GitHub Repository</a></p>
 <p><a href="https://realpython.com/intro-to-pyenv/#understanding-the-benefits-of-using-pyenv">Managing Multiple Python Versions With pyenv</a></p>
