@@ -5,8 +5,34 @@
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/tags/sui-bi/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-11-11T00:00:00+00:00</updated>
+    <updated>2025-11-28T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/tags/sui-bi/atom.xml</id>
+    <entry xml:lang="en">
+        <title>The Three Laws of (Using) Shredder</title>
+        <published>2025-11-28T00:00:00+00:00</published>
+        <updated>2025-11-28T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/life/shredder-three-laws/"/>
+        <id>https://www.edwardzcn.me/blog/life/shredder-three-laws/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/blog/life/shredder-three-laws/">&lt;p&gt;Today the shredder is delivered. I write the &quot;The Three Laws of (Using) Shredder&quot; on my way carrying it from the delivery point to my lab in the campus, as a tribute to &lt;a href=&quot;https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Three_Laws_of_Robotics&quot;&gt;The Three Laws of Robotics&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;the-three-laws-of-using-shredder&quot;&gt;The Three Laws of (Using) Shredder&lt;&#x2F;h2&gt;
+&lt;ol&gt;
+&lt;li&gt;A shredder may not injure a human being or, through inaction, allow a human being to come to harm.&lt;&#x2F;li&gt;
+&lt;li&gt;A shredder must destroy all the sensitive files given it by human beings except where such orders would conflict with the First Law.&lt;&#x2F;li&gt;
+&lt;li&gt;A shredder should be eco-friendly  as long as such actions do not conflict with the First or Second Law.&lt;&#x2F;li&gt;
+&lt;&#x2F;ol&gt;
+</content>
+        
+    </entry>
     <entry xml:lang="en">
         <title>CSC Scholarship Application Guidance</title>
         <published>2025-11-11T00:00:00+00:00</published>
