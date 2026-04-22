@@ -33,9 +33,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -60,19 +59,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -80,7 +86,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -94,19 +100,31 @@
 </head>
 
 <body
-class="" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -296,11 +314,11 @@ class="" id="top">
   
 <article class="post-single">
   <header class="post-header">
-      <div class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;">ArmSom-Sige5开发版使用Armbian——基础路由</a>
-      </div>
+      </nav>
       <h1 class="post-title">ArmSom-Sige5开发版使用Armbian——基础路由</h1>
       
       
@@ -320,7 +338,9 @@ class="" id="top">
 
 
 
+
 <span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;21 min&nbsp;·&nbsp;4127 words&nbsp;·&nbsp;edwardzcn-decade
+
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版使用Armbian——基础路由" target="_blank">Email me</a>
@@ -491,31 +511,31 @@ class="" id="top">
 <p>其中 Loader Path 为MiniLoader路径，Image Path 为所烧录镜像的路径。起始地址为 0x0000 无需修改，注意勾选 Write by Address，点击 Run 开始烧录。右侧Download image完成即烧录完成。</p>
 <h4 id="linux-macos-rkdeveloptool">Linux/macOS rkdeveloptool</h4>
 <p>命令行执行</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">rkdeveloptool</span><span> db RK3576_MiniLoaderAll.bin
-</span><span style="color:#bf616a;">rkdeveloptool</span><span> wl 0x0000 Armbian_community_25.2.0-trunk.86_Armsom-sige5_noble_vendor_6.1.75_gnome_desktop.img
-</span><span style="color:#bf616a;">rkdeveloptool</span><span> rd
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">rkdeveloptool db RK3576_MiniLoaderAll.bin
+rkdeveloptool wl 0x0000 Armbian_community_25.2.0-trunk.86_Armsom-sige5_noble_vendor_6.1.75_gnome_desktop.img
+rkdeveloptool rd
+</code></pre>
 <p>等待烧录完成。</p>
 <h2 id="armbian-chu-shi-pei-zhi">Armbian 初始配置</h2>
 <p>开发版接电，使用HDMI接口外接显示器，我烧录的是带有GNOME桌面环境的Armbian镜像，初次登录需要一些配置，还不能直接进入桌面系统。<a href="https://docs.armbian.com/User-Guide_Getting-Started/">Armbian 默认登录root密码为1234</a>。初始配置包含以下：</p>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>Welcome to Armbian!
-</span><span>
-</span><span>Documentation: https://docs.armbian.com/ | Community support: https://forum.armbian.com/
-</span><span>
-</span><span>IP address:  Network connection timeout!
-</span><span>
-</span><span>Create root password: ********
-</span><span>Repeat root password: ********
-</span><span>
-</span><span>Shell: BASH
-</span><span>
-</span><span>Please provide a username (eg. your first name): ?
-</span><span>
-</span><span>Create user (Jane) password: ********
-</span><span>Repeat user (Jane) password: ********
-</span><span>
-</span><span>...
-</span></code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">Welcome to Armbian!
+
+Documentation: https:&#x2F;&#x2F;docs.armbian.com&#x2F; | Community support: https:&#x2F;&#x2F;forum.armbian.com&#x2F;
+
+IP address:  Network connection timeout!
+
+Create root password: ********
+Repeat root password: ********
+
+Shell: BASH
+
+Please provide a username (eg. your first name): ?
+
+Create user (Jane) password: ********
+Repeat user (Jane) password: ********
+
+...
+</code></pre>
 <p>完成配置后桌面系统会重启进入GNOME桌面，非桌面系统会新建 ssh 对话。</p>
 <h2 id="armbian-xi-tong-huan-yuan">Armbian 系统换源</h2>
 <p>由于国内网络问题，进入系统首先更换镜像源<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup> <sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>，Armbian是构建在Debian或Ubuntu发行版上，需要编辑：</p>
@@ -526,101 +546,101 @@ class="" id="top">
 <h3 id="armbian-zhuan-shu-ruan-jian-yuan-huan-yuan">Armbian 专属软件源换源</h3>
 <p>可参考 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/armbian/">TUNA Mirror Help</a></p>
 <p>或者使用下面的镜像选择脚本</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span>
-</span><span style="color:#65737e;">#!/bin/bash
-</span><span style="color:#bf616a;">GREEN</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0;32m</span><span>&#39;
-</span><span style="color:#bf616a;">CYAN</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0;36m</span><span>&#39;
-</span><span style="color:#bf616a;">RED</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0;31m</span><span>&#39;
-</span><span style="color:#bf616a;">NC</span><span>=&#39;</span><span style="color:#a3be8c;">\033[0m</span><span>&#39;
-</span><span>
-</span><span style="color:#bf616a;">SOURCE_FILE</span><span>=&quot;</span><span style="color:#a3be8c;">/etc/apt/sources.list.d/armbian.list</span><span>&quot;
-</span><span>
-</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">grep -Eo </span><span>&#39;</span><span style="color:#a3be8c;">https?://[^ ]+</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot; | </span><span style="color:#bf616a;">head -n</span><span style="color:#a3be8c;"> 1)
-</span><span>
-</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; == *&quot;</span><span style="color:#a3be8c;">tuna.tsinghua.edu.cn</span><span>&quot;* </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
-</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Tsinghua 清华大学镜像源</span><span>&quot;
-</span><span style="color:#b48ead;">elif </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; == *&quot;</span><span style="color:#a3be8c;">ustc.edu.cn</span><span>&quot;* </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
-</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">USTC 中国科学技术大学镜像源</span><span>&quot;
-</span><span style="color:#b48ead;">elif </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; == *&quot;</span><span style="color:#a3be8c;">apt.armbian.com</span><span>&quot;* </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
-</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">官方镜像源</span><span>&quot;
-</span><span style="color:#b48ead;">else
-</span><span>    </span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">未知镜像源</span><span>&quot;
-</span><span style="color:#b48ead;">fi
-</span><span>
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}======================================</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}   Armbian Mirror Switcher Script    </span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}======================================</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>
-</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[ </span><span style="color:#bf616a;">-n </span><span>&quot;$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>&quot; </span><span style="color:#96b5b4;">]</span><span>; </span><span style="color:#b48ead;">then
-</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}当前源：</span><span>$</span><span style="color:#bf616a;">CURRENT_SOURCE</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}镜像源名称：</span><span>$</span><span style="color:#bf616a;">CURRENT_SOURCE_NAME</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#b48ead;">else
-</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">RED</span><span style="color:#a3be8c;">}未检测到有效的源配置！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#b48ead;">fi
-</span><span>
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}请选择要切换的镜像源:</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;</span><span style="color:#a3be8c;">1. Tsinghua 清华大学源 (https://mirrors.tuna.tsinghua.edu.cn)</span><span>&quot;
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;</span><span style="color:#a3be8c;">2. USTC 中国科学技术大学源 (https://mirrors.ustc.edu.cn)</span><span>&quot;
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;</span><span style="color:#a3be8c;">3. 恢复为默认的官方源 (http://apt.armbian.com)</span><span>&quot;
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-ne </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}请输入选项 (1, 2 或 3): </span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#96b5b4;">read </span><span style="color:#bf616a;">-r</span><span> choice
-</span><span>
-</span><span style="color:#b48ead;">case </span><span>$</span><span style="color:#bf616a;">choice </span><span style="color:#b48ead;">in
-</span><span>    1</span><span style="color:#b48ead;">)
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}切换到 Tsinghua 源...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        </span><span style="color:#bf616a;">sudo</span><span> sed</span><span style="color:#bf616a;"> -i</span><span>.bak</span><span style="color:#bf616a;"> -E </span><span>&#39;</span><span style="color:#a3be8c;">s#https?://(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https://mirrors.tuna.tsinghua.edu.cn#g</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot;
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}源已成功更换为 Tsinghua 清华大学镜像！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        ;;
-</span><span>    2</span><span style="color:#b48ead;">)
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}切换到 USTC 源...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        </span><span style="color:#bf616a;">sudo</span><span> sed</span><span style="color:#bf616a;"> -i</span><span>.bak</span><span style="color:#bf616a;"> -E </span><span>&#39;</span><span style="color:#a3be8c;">s#https?://(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https://mirrors.ustc.edu.cn#g</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot;
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}源已成功更换为 USTC 中国科学技术大学镜像！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        ;;
-</span><span>    3</span><span style="color:#b48ead;">)
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}恢复为默认的官方源...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        </span><span style="color:#bf616a;">sudo</span><span> sed</span><span style="color:#bf616a;"> -i</span><span>.bak</span><span style="color:#bf616a;"> -E </span><span>&#39;</span><span style="color:#a3be8c;">s#https?://(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#http://apt.armbian.com#g</span><span>&#39; &quot;$</span><span style="color:#bf616a;">SOURCE_FILE</span><span>&quot;
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}源已恢复为默认的官方镜像！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        ;;
-</span><span>    *</span><span style="color:#b48ead;">)
-</span><span>        </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">RED</span><span style="color:#a3be8c;">}无效输入！请重新运行脚本并选择 1, 2 或 3。</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>        </span><span style="color:#96b5b4;">exit</span><span> 1
-</span><span>        ;;
-</span><span style="color:#b48ead;">esac
-</span><span>
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-ne </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}是否立即更新软件包索引？(y/n): </span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#96b5b4;">read </span><span style="color:#bf616a;">-r</span><span> update_choice
-</span><span>
-</span><span style="color:#b48ead;">if </span><span style="color:#96b5b4;">[[ </span><span>&quot;$</span><span style="color:#bf616a;">update_choice</span><span>&quot; =~ ^</span><span style="color:#b48ead;">[</span><span>Yy</span><span style="color:#b48ead;">]</span><span>$ </span><span style="color:#96b5b4;">]]</span><span>; </span><span style="color:#b48ead;">then
-</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}更新软件包索引...</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span>    </span><span style="color:#bf616a;">sudo</span><span> apt-get update
-</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}软件包索引更新完成！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#b48ead;">else
-</span><span>    </span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">CYAN</span><span style="color:#a3be8c;">}已跳过更新软件包索引。</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span><span style="color:#b48ead;">fi
-</span><span>
-</span><span style="color:#96b5b4;">echo </span><span style="color:#bf616a;">-e </span><span>&quot;$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">GREEN</span><span style="color:#a3be8c;">}镜像源切换操作完成！</span><span>$</span><span style="color:#a3be8c;">{</span><span style="color:#bf616a;">NC</span><span style="color:#a3be8c;">}</span><span>&quot;
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">
+#!&#x2F;bin&#x2F;bash
+GREEN=&#x27;\033[0;32m&#x27;
+CYAN=&#x27;\033[0;36m&#x27;
+RED=&#x27;\033[0;31m&#x27;
+NC=&#x27;\033[0m&#x27;
+
+SOURCE_FILE=&quot;&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;armbian.list&quot;
+
+CURRENT_SOURCE=$(grep -Eo &#x27;https?:&#x2F;&#x2F;[^ ]+&#x27; &quot;$SOURCE_FILE&quot; | head -n 1)
+
+if [[ &quot;$CURRENT_SOURCE&quot; == *&quot;tuna.tsinghua.edu.cn&quot;* ]]; then
+    CURRENT_SOURCE_NAME=&quot;Tsinghua 清华大学镜像源&quot;
+elif [[ &quot;$CURRENT_SOURCE&quot; == *&quot;ustc.edu.cn&quot;* ]]; then
+    CURRENT_SOURCE_NAME=&quot;USTC 中国科学技术大学镜像源&quot;
+elif [[ &quot;$CURRENT_SOURCE&quot; == *&quot;apt.armbian.com&quot;* ]]; then
+    CURRENT_SOURCE_NAME=&quot;官方镜像源&quot;
+else
+    CURRENT_SOURCE_NAME=&quot;未知镜像源&quot;
+fi
+
+echo -e &quot;${CYAN}======================================${NC}&quot;
+echo -e &quot;${CYAN}   Armbian Mirror Switcher Script    ${NC}&quot;
+echo -e &quot;${CYAN}======================================${NC}&quot;
+
+if [ -n &quot;$CURRENT_SOURCE&quot; ]; then
+    echo -e &quot;${GREEN}当前源：$CURRENT_SOURCE${NC}&quot;
+    echo -e &quot;${GREEN}镜像源名称：$CURRENT_SOURCE_NAME${NC}&quot;
+else
+    echo -e &quot;${RED}未检测到有效的源配置！${NC}&quot;
+fi
+
+echo -e &quot;${GREEN}请选择要切换的镜像源:${NC}&quot;
+echo -e &quot;1. Tsinghua 清华大学源 (https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn)&quot;
+echo -e &quot;2. USTC 中国科学技术大学源 (https:&#x2F;&#x2F;mirrors.ustc.edu.cn)&quot;
+echo -e &quot;3. 恢复为默认的官方源 (http:&#x2F;&#x2F;apt.armbian.com)&quot;
+echo -ne &quot;${CYAN}请输入选项 (1, 2 或 3): ${NC}&quot;
+read -r choice
+
+case $choice in
+    1)
+        echo -e &quot;${GREEN}切换到 Tsinghua 源...${NC}&quot;
+        sudo sed -i.bak -E &#x27;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn#g&#x27; &quot;$SOURCE_FILE&quot;
+        echo -e &quot;${GREEN}源已成功更换为 Tsinghua 清华大学镜像！${NC}&quot;
+        ;;
+    2)
+        echo -e &quot;${GREEN}切换到 USTC 源...${NC}&quot;
+        sudo sed -i.bak -E &#x27;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https:&#x2F;&#x2F;mirrors.ustc.edu.cn#g&#x27; &quot;$SOURCE_FILE&quot;
+        echo -e &quot;${GREEN}源已成功更换为 USTC 中国科学技术大学镜像！${NC}&quot;
+        ;;
+    3)
+        echo -e &quot;${GREEN}恢复为默认的官方源...${NC}&quot;
+        sudo sed -i.bak -E &#x27;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#http:&#x2F;&#x2F;apt.armbian.com#g&#x27; &quot;$SOURCE_FILE&quot;
+        echo -e &quot;${GREEN}源已恢复为默认的官方镜像！${NC}&quot;
+        ;;
+    *)
+        echo -e &quot;${RED}无效输入！请重新运行脚本并选择 1, 2 或 3。${NC}&quot;
+        exit 1
+        ;;
+esac
+
+echo -ne &quot;${CYAN}是否立即更新软件包索引？(y&#x2F;n): ${NC}&quot;
+read -r update_choice
+
+if [[ &quot;$update_choice&quot; =~ ^[Yy]$ ]]; then
+    echo -e &quot;${CYAN}更新软件包索引...${NC}&quot;
+    sudo apt-get update
+    echo -e &quot;${GREEN}软件包索引更新完成！${NC}&quot;
+else
+    echo -e &quot;${CYAN}已跳过更新软件包索引。${NC}&quot;
+fi
+
+echo -e &quot;${GREEN}镜像源切换操作完成！${NC}&quot;
+</code></pre>
 <h3 id="fa-xing-ban-ji-chu-debian-ubuntu-huan-yuan">发行版基础Debian/Ubuntu 换源</h3>
 <p>根据登录开发版 motd 信息获取确定发行版基础<sup class="footnote-reference" id="fr-2-2"><a href="#fn-2">[2]</a></sup>，比如我的显示如下：</p>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian2.png" alt="motd" /></p>
 <p>Noble 表示基于 Ubuntu 24.04 (noble)</p>
 <p>或者可以使用<code>cat /etc/os-release</code>获取详细系统信息</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">edwardzcn@armsom-sige5:~$</span><span> cat /etc/os-release
-</span><span style="color:#bf616a;">PRETTY_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Armbian 24.11.3 noble</span><span>&quot;
-</span><span style="color:#bf616a;">NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Ubuntu</span><span>&quot;
-</span><span style="color:#bf616a;">VERSION_ID</span><span>=&quot;</span><span style="color:#a3be8c;">24.04</span><span>&quot;
-</span><span style="color:#bf616a;">VERSION</span><span>=&quot;</span><span style="color:#a3be8c;">24.04 LTS (Noble Numbat)</span><span>&quot;
-</span><span style="color:#bf616a;">VERSION_CODENAME</span><span>=</span><span style="color:#a3be8c;">noble
-</span><span style="color:#bf616a;">ID</span><span>=</span><span style="color:#a3be8c;">ubuntu
-</span><span style="color:#bf616a;">ID_LIKE</span><span>=</span><span style="color:#a3be8c;">debian
-</span><span style="color:#bf616a;">HOME_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://www.armbian.com</span><span>&quot;
-</span><span style="color:#bf616a;">SUPPORT_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://forum.armbian.com</span><span>&quot;
-</span><span style="color:#bf616a;">BUG_REPORT_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://www.armbian.com/bugs</span><span>&quot;
-</span><span style="color:#bf616a;">PRIVACY_POLICY_URL</span><span>=&quot;</span><span style="color:#a3be8c;">https://www.armbian.com</span><span>&quot;
-</span><span style="color:#bf616a;">UBUNTU_CODENAME</span><span>=</span><span style="color:#a3be8c;">noble
-</span><span style="color:#bf616a;">LOGO</span><span>=&quot;</span><span style="color:#a3be8c;">armbian-logo</span><span>&quot;
-</span><span style="color:#bf616a;">ARMBIAN_PRETTY_NAME</span><span>=&quot;</span><span style="color:#a3be8c;">Armbian 24.11.3 noble</span><span>&quot;
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">edwardzcn@armsom-sige5:~$ cat &#x2F;etc&#x2F;os-release
+PRETTY_NAME=&quot;Armbian 24.11.3 noble&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;24.04&quot;
+VERSION=&quot;24.04 LTS (Noble Numbat)&quot;
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https:&#x2F;&#x2F;www.armbian.com&quot;
+SUPPORT_URL=&quot;https:&#x2F;&#x2F;forum.armbian.com&quot;
+BUG_REPORT_URL=&quot;https:&#x2F;&#x2F;www.armbian.com&#x2F;bugs&quot;
+PRIVACY_POLICY_URL=&quot;https:&#x2F;&#x2F;www.armbian.com&quot;
+UBUNTU_CODENAME=noble
+LOGO=&quot;armbian-logo&quot;
+ARMBIAN_PRETTY_NAME=&quot;Armbian 24.11.3 noble&quot;
+</code></pre>
 <p>确定是ubuntu还是debian就可以选择镜像源，以清华源为例</p>
 <ul>
 <li>清华大学Debian源 https://mirrors.tuna.tsinghua.edu.cn/help/debian</li>
@@ -628,22 +648,22 @@ class="" id="top">
 </ul>
 <p>注意Ubuntu系要选择ubuntu-port源，换源可参考 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/">TUNA Mirror help</a> 或者 <a href="https://mirrors.ustc.edu.cn/help/ubuntu-ports.html">USTC Mirror Help</a></p>
 <p>还是以使用清华源为例，手动修改<code>/etc/apt/sources.list</code></p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> nano /etc/apt/sources.list
-</span></code></pre>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble main restricted universe multiverse
-</span><span># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble main restricted universe multiverse
-</span><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-updates main restricted universe multiverse
-</span><span># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-updates main restricted universe multiverse
-</span><span>deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-backports main restricted universe multiverse
-</span><span># deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu-ports/ noble-backports main restricted universe multiverse
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo nano &#x2F;etc&#x2F;apt&#x2F;sources.list
+</code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble main restricted universe multiverse
+# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble main restricted universe multiverse
+deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-updates main restricted universe multiverse
+# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-updates main restricted universe multiverse
+deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-backports main restricted universe multiverse
+# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-backports main restricted universe multiverse
+</code></pre>
 <p>现在你<del>不用看着10+Kbps的网速干着急</del>可放心使用</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt update
-</span><span style="color:#bf616a;">sudo</span><span> apt upgrade
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt upgrade
+</code></pre>
 <p>瞧瞧你的板子，说实话ASCII画我还是喜欢原来那个大A。</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt install neofetch</span><span style="color:#bf616a;"> -y </span><span>&amp;&amp; </span><span style="color:#bf616a;">neofetch
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo apt install neofetch -y &amp;&amp; neofetch
+</code></pre>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian3.png" alt="neofetch" /></p>
 <h3 id="jing-tai-ip-ssh-diao-shi">静态 IP + ssh 调试</h3>
 <p>我更习惯使用我的工作机（一台mac）通过网线连接板子，使用 ssh 做基础路由设置以及一些软件更新，桌面系统开始会有卡顿（以及无浏览器等问题）</p>
@@ -653,19 +673,19 @@ class="" id="top">
 <li>在开发版上设置网络 手动（Manual）IPv4（取消掉自动DHCP），IP地址 <code>192.168.1.1</code>（常见路由器地址），子网掩码 <code>255.255.255.0</code></li>
 </ul>
 <p><code>ping</code>测试是否可以连通，确定ICMP可用，然后使用 Armbian初始配置中 设置的用户密码（桌面系统建议连接非root用户）</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;"># 工作机 ping 开发板
-</span><span style="color:#bf616a;">zmac-mini:~:</span><span>% ping</span><span style="color:#bf616a;"> -c</span><span> 5 192.168.1.1
-</span><span style="color:#bf616a;">PING</span><span> 192.168.1.1 (192.168.1.1)</span><span style="color:#96b5b4;">:</span><span> 56 data bytes
-</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=0 ttl=64 time=0.918 ms
-</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.885 ms
-</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.818 ms
-</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.773 ms
-</span><span style="color:#bf616a;">64</span><span> bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.867 ms
-</span><span>
-</span><span style="color:#bf616a;">---</span><span> 192.168.1.1 ping statistics ---
-</span><span style="color:#bf616a;">5</span><span> packets transmitted, 5 packets received, 0.0% packet loss
-</span><span style="color:#bf616a;">round-trip</span><span> min/avg/max/stddev = 0.773/0.852/0.918/0.051 ms
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash"># 工作机 ping 开发板
+zmac-mini:~:% ping -c 5 192.168.1.1
+PING 192.168.1.1 (192.168.1.1): 56 data bytes
+64 bytes from 192.168.1.1: icmp_seq=0 ttl=64 time=0.918 ms
+64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.885 ms
+64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.818 ms
+64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.773 ms
+64 bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.867 ms
+
+--- 192.168.1.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0.0% packet loss
+round-trip min&#x2F;avg&#x2F;max&#x2F;stddev = 0.773&#x2F;0.852&#x2F;0.918&#x2F;0.051 ms
+</code></pre>
 <p>使用 ssh 密码登录，后续 Armbian开发板 ssh 登录配置类似于 VPS 远程 ssh 登录配置<sup class="footnote-reference" id="fr-3-1"><a href="#fn-3">[3]</a></sup>，可根据自己习惯和需求配置密钥登录等。</p>
 <h3 id="diao-zheng-dian-yuan-ji-hua-he-xiu-mian-she-zhi">调整电源计划和休眠设置</h3>
 <p>有些时候可能 ssh连接一段时间会遇到系统被挂起（suspend）的提示，方便起见还是关掉GNOME电源选项的 Automatic Suspend，<del>我并不确定是因为这个挂起的，因为suspend的日志没看懂也没找到命令行设置方式</del>。</p>
@@ -723,48 +743,48 @@ class="" id="top">
 <p>Linux的网络连接管理可以使用 <code>systemd-networkd</code> 或 <code>NetworkManager</code> 。我搭建的基于Ubuntu的Armbian习惯用后者，还提供了更高层次的抽象<code>netplan</code>。理解成网络计划，简化编写，完成后可以自动渲染成<code>NetworkManager</code>描述。</p>
 <p>修改<code>netplan</code>配置文件，默认在<code>/etc/netplan/</code>目录，序号大的覆盖小的，为避免冲突，合并用一个文件描述，名字设为<code>00-default-use-network-manager.yaml</code>。如果你看到了其他以UUID命名的文件，则是通过GUI界面生成的配置，可以删除。</p>
 <p>未经修改的文件类似：</p>
-<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">network</span><span>:
-</span><span>  </span><span style="color:#bf616a;">version</span><span>: </span><span style="color:#d08770;">2
-</span><span>  </span><span style="color:#bf616a;">renderer</span><span>: </span><span style="color:#a3be8c;">NetworkManager
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">network:
+  version: 2
+  renderer: NetworkManager
+</code></pre>
 <p>修改后：</p>
-<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">network</span><span>:
-</span><span>  </span><span style="color:#bf616a;">version</span><span>: </span><span style="color:#d08770;">2
-</span><span>  </span><span style="color:#bf616a;">renderer</span><span>: </span><span style="color:#a3be8c;">NetworkManager
-</span><span>  </span><span style="color:#bf616a;">ethernets</span><span>:
-</span><span>    </span><span style="color:#bf616a;">eth1</span><span>:
-</span><span>      </span><span style="color:#bf616a;">dhcp4</span><span>: </span><span style="color:#d08770;">false
-</span><span>      </span><span style="color:#bf616a;">addresses</span><span>:
-</span><span>        - </span><span style="color:#a3be8c;">192.168.1.1/24
-</span><span>      </span><span style="color:#bf616a;">nameservers</span><span>:
-</span><span>        </span><span style="color:#bf616a;">addresses</span><span>:
-</span><span>          - </span><span style="color:#d08770;">192.168.1.1
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    eth1:
+      dhcp4: false
+      addresses:
+        - 192.168.1.1&#x2F;24
+      nameservers:
+        addresses:
+          - 192.168.1.1
+</code></pre>
 <p>执行<code>sudo netplan apply</code>使改变生效。可以在 GNOME 桌面的网络配置 GUI 中看到改变生效（名称暴露了是谁修改的）：</p>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian5.png" alt="netplan0" /></p>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian6.png" alt="netplan1" /></p>
 <h3 id="dns-he-dhcp-pei-zhi">DNS 和 DHCP 配置</h3>
 <p>Armbian 默认使用 NetworkManager 中的 systemd-resolved组件，这个 DNSstub 监听 <code>127.0.0.53</code> 上的 <code>53</code>端口，其仅能监听本机请求而不能接受局域网内其他机器的请求，当路由肯定是不够的，安装并使用 <code>dnsmasq</code>作为DNS服务器，同时它也是一个轻量级的DHCP服务器，配置文件默认在<code>/etc/dnsmasq.conf</code><sup class="footnote-reference" id="fr-4-1"><a href="#fn-4">[4]</a></sup>。</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> apt install dnsmasq
-</span><span style="color:#bf616a;">sudo</span><span> vim /etc/dnsmasq.conf
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo apt install dnsmasq
+sudo vim &#x2F;etc&#x2F;dnsmasq.conf
+</code></pre>
 <p>dnsmasq默认配置注释，初看很吓人，但实际上我们需要让路由跑起来并不需要调整很多，大多数配置看注释就能明白。这里给出我的最小化配置（还是假定开发版的eth1接口连接局域网设备）</p>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>port=0                                      # 关闭 DNS
-</span><span>server=1.1.1.1                              # 指明上游 DNS服务器
-</span><span>interface=eth1                              # 指定 DHCP 服务绑定的网络接口
-</span><span>bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
-</span><span>dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
-</span><span>dhcp-option=option:router,192.168.1.1       # 指定使用本网关 （默认网关）
-</span><span>dhcp-option=option:dns-server,192.168.1.1   # 指定使用本路由器 DNS
-</span><span>log-queries
-</span><span>log-dhcp
-</span></code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">port=0                                      # 关闭 DNS
+server=1.1.1.1                              # 指明上游 DNS服务器
+interface=eth1                              # 指定 DHCP 服务绑定的网络接口
+bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
+dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
+dhcp-option=option:router,192.168.1.1       # 指定使用本网关 （默认网关）
+dhcp-option=option:dns-server,192.168.1.1   # 指定使用本路由器 DNS
+log-queries
+log-dhcp
+</code></pre>
 <p><code>bind-interfaces</code> 设置使<code>dnsmasq</code>只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 <code>systemd-resolved</code> （监听127.0.0.53的53端口），防止冲突。<code>port=0</code>配置也会禁用掉监听DNS请求的服务，也可以避免冲突（目前我们暂不使用 dnsmasq 的 DNS 服务）。<code>dhcp-option</code>开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。</p>
 <p>如果不打算兼容<code>systemd-resolved</code>，我们需要调整<code>/etc/resolv.conf</code>并停止<code>systemd-resolved</code>服务，这里我们暂不考虑，优先让路由器跑起来。</p>
 <p>重启 <code>dnsmasq</code> 服务，查看状态</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> systemctl restart dnsmasq.service
-</span><span style="color:#bf616a;">sudo</span><span> systemctl status dnsmasq.service
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo systemctl restart dnsmasq.service
+sudo systemctl status dnsmasq.service
+</code></pre>
 <p>服务Active，<del>请先忽略那条Fail</del>，现在可以修改你工作机的网络设置，调整为DHCP（动态获取IP地址），效果如下：</p>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian7.png" alt="dhcp" /></p>
 <h3 id="nat-he-ip-forwarding">NAT 和 IP Forwarding</h3>
@@ -772,28 +792,28 @@ class="" id="top">
 <p>IP Forwarding 是 NAT 实现的基础，它负责将数据包在不同接口之间转发，而NAT更像是定义规则怎么修改为内网/外网地址，两者搭配食用味道更佳。</p>
 <h4 id="qi-yong-ip-zhuan-fa">启用 IP 转发</h4>
 <p>编辑<code>/etc/systl.conf</code>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> vim /etc/sysctl.conf
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo vim &#x2F;etc&#x2F;sysctl.conf
+</code></pre>
 <p>找到对应行取消注释，开启ipv4和ipv6转发。</p>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span># Uncomment the next line to enable packet forwarding for IPv4
-</span><span>net.ipv4.ip_forward=1
-</span><span>
-</span><span># Uncomment the next line to enable packet forwarding for IPv6
-</span><span>#  Enabling this option disables Stateless Address Autoconfiguration
-</span><span>#  based on Router Advertisements for this host
-</span><span>net.ipv6.conf.all.forwarding=1
-</span></code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt"># Uncomment the next line to enable packet forwarding for IPv4
+net.ipv4.ip_forward=1
+
+# Uncomment the next line to enable packet forwarding for IPv6
+#  Enabling this option disables Stateless Address Autoconfiguration
+#  based on Router Advertisements for this host
+net.ipv6.conf.all.forwarding=1
+</code></pre>
 <p>运行<code>sudo sysctl -p</code>使改变生效。</p>
 <h4 id="pei-zhi-iptables-jin-xing-nat">配置 iptables 进行 NAT</h4>
 <p>在我的实验环境中，外网接口为 <code>eth0</code>，内网接口为 <code>eth1</code>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> iptables</span><span style="color:#bf616a;"> -t</span><span> nat</span><span style="color:#bf616a;"> -A</span><span> POSTROUTING</span><span style="color:#bf616a;"> -o</span><span> eth0</span><span style="color:#bf616a;"> -j</span><span> MASQUERADE
-</span><span style="color:#bf616a;">sudo</span><span> iptables</span><span style="color:#bf616a;"> -A</span><span> FORWARD</span><span style="color:#bf616a;"> -i</span><span> eth1</span><span style="color:#bf616a;"> -o</span><span> eth0</span><span style="color:#bf616a;"> -m</span><span> state</span><span style="color:#bf616a;"> --state</span><span> RELATED,ESTABLISHED</span><span style="color:#bf616a;"> -j</span><span> ACCEPT
-</span><span style="color:#bf616a;">sudo</span><span> iptables</span><span style="color:#bf616a;"> -A</span><span> FORWARD</span><span style="color:#bf616a;"> -i</span><span> eth1</span><span style="color:#bf616a;"> -o</span><span> eth0</span><span style="color:#bf616a;"> -j</span><span> ACCEPT
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth1 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+</code></pre>
 <p>保存规则：</p>
-<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo apt-get install iptables-persistent
-</span><span>sudo netfilter-persistent save
-</span></code></pre>
+<pre><code>sudo apt-get install iptables-persistent
+sudo netfilter-persistent save
+</code></pre>
 <p>由于iptables规则默认只在当前会话生效。一旦系统重启或者服务重启规则会被清空，借助<code>iptables-persistent</code>持久化规则到文件中，每次系统或服务启动时自动加载。</p>
 <p>基本路由配置 Done！现在可以试试用工作机通过板子访问外部网络了。</p>
 <hr><ol class="footnotes-list">
@@ -854,14 +874,24 @@ class="" id="top">
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -870,119 +900,6 @@ class="" id="top">
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -1000,7 +917,9 @@ class="" id="top">
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>

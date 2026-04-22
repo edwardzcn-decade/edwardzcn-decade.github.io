@@ -33,9 +33,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;private-repo-public-github-pages&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -60,19 +59,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -80,7 +86,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -94,19 +100,31 @@
 </head>
 
 <body
-class="" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -296,11 +314,11 @@ class="" id="top">
   
 <article class="post-single">
   <header class="post-header">
-      <div class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;private-repo-public-github-pages&#x2F;">私有仓库中自动部署 GitHub Pages</a>
-      </div>
+      </nav>
       <h1 class="post-title">私有仓库中自动部署 GitHub Pages</h1>
       
       
@@ -320,7 +338,9 @@ class="" id="top">
 
 
 
+
 <span title="2025-10-30 00:00:00 +0000">2025-10-30</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1146 words&nbsp;·&nbsp;edwardzcn-decade
+
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:私有仓库中自动部署 GitHub Pages" target="_blank">Email me</a>
@@ -389,74 +409,74 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
 <p>该选项支持从一个仓库（可以私有）渲染出来的网页资源，推送到另一个仓库中。作者也在这里特地标注了使用场景：在保证原始内容私有的情况下部署 GitHub Pages 网站到另一个公共仓库。</p>
 <h2 id="github-actions">GitHub Actions</h2>
 <p>新建并编辑私有仓库的 <code>.github/workflows/deploy.yml</code> 文件</p>
-<pre data-lang="yaml" style="background-color:#2b303b;color:#c0c5ce;" class="language-yaml "><code class="language-yaml" data-lang="yaml"><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Deploy pages to external repo
-</span><span>
-</span><span style="color:#d08770;">on</span><span>:
-</span><span>  </span><span style="color:#65737e;"># Triggers the workflow on push or pull request events but only for the main branch
-</span><span>  </span><span style="color:#bf616a;">push</span><span>:
-</span><span>    </span><span style="color:#bf616a;">branches</span><span>:
-</span><span>      - </span><span style="color:#a3be8c;">main
-</span><span>  </span><span style="color:#bf616a;">pull_request</span><span>:
-</span><span>    </span><span style="color:#bf616a;">branches</span><span>:
-</span><span>      - </span><span style="color:#a3be8c;">main
-</span><span>
-</span><span style="color:#bf616a;">jobs</span><span>:
-</span><span>  </span><span style="color:#bf616a;">build-artifacts</span><span>:
-</span><span>    </span><span style="color:#bf616a;">runs-on</span><span>: </span><span style="color:#a3be8c;">ubuntu-latest
-</span><span>
-</span><span>    </span><span style="color:#bf616a;">steps</span><span>:
-</span><span>      </span><span style="color:#65737e;"># Step 1: Checkout code
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Checkout code
-</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">actions/checkout@v3
-</span><span>        </span><span style="color:#bf616a;">with</span><span>:
-</span><span>          </span><span style="color:#bf616a;">submodules</span><span>: </span><span style="color:#a3be8c;">recursive
-</span><span>
-</span><span>      </span><span style="color:#65737e;"># Step 2: Sync Git Submodule
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Git Submodule Sync
-</span><span>        </span><span style="color:#bf616a;">run</span><span>: </span><span style="color:#b48ead;">|
-</span><span style="color:#a3be8c;">          git submodule sync
-</span><span style="color:#a3be8c;">          git submodule update --init --recursive
-</span><span style="color:#a3be8c;">
-</span><span>      </span><span style="color:#65737e;"># Step 3: Install Zola (the static site generator I used)
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Install Zola
-</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">taiki-e/install-action@v2
-</span><span>        </span><span style="color:#bf616a;">with</span><span>:
-</span><span>          </span><span style="color:#bf616a;">tool</span><span>: </span><span style="color:#a3be8c;">zola@0.19.1
-</span><span>
-</span><span>      </span><span style="color:#65737e;"># Step 4: Build Zola static sites
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Build Zola static site(s)
-</span><span>        </span><span style="color:#bf616a;">run</span><span>: </span><span style="color:#a3be8c;">zola build
-</span><span>
-</span><span>      </span><span style="color:#65737e;"># Step 5: Save build artifacts
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Save build artifacts
-</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">actions/upload-artifact@v4
-</span><span>        </span><span style="color:#bf616a;">with</span><span>:
-</span><span>          </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">zola-site
-</span><span>          </span><span style="color:#bf616a;">path</span><span>: </span><span style="color:#a3be8c;">public/
-</span><span>          </span><span style="color:#bf616a;">if-no-files-found</span><span>: </span><span style="color:#a3be8c;">error
-</span><span>
-</span><span>  </span><span style="color:#bf616a;">deploy-public</span><span>:
-</span><span>    </span><span style="color:#65737e;"># Depends on &#39;build-artifacts&#39; job
-</span><span>    </span><span style="color:#bf616a;">needs</span><span>: </span><span style="color:#a3be8c;">build-artifacts
-</span><span>    </span><span style="color:#bf616a;">runs-on</span><span>: </span><span style="color:#a3be8c;">ubuntu-latest
-</span><span>
-</span><span>    </span><span style="color:#bf616a;">steps</span><span>:
-</span><span>      </span><span style="color:#65737e;"># Step 6: Download the artifacts (zola-site)
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Download build artifacts
-</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">actions/download-artifact@v4
-</span><span>        </span><span style="color:#bf616a;">with</span><span>:
-</span><span>          </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">zola-site
-</span><span>          </span><span style="color:#bf616a;">path</span><span>: </span><span style="color:#a3be8c;">public/
-</span><span>      </span><span style="color:#65737e;"># Step 7: Deploy to another repository
-</span><span>      - </span><span style="color:#bf616a;">name</span><span>: </span><span style="color:#a3be8c;">Deploy to GitHub Pages
-</span><span>        </span><span style="color:#bf616a;">uses</span><span>: </span><span style="color:#a3be8c;">peaceiris/actions-gh-pages@v4
-</span><span>        </span><span style="color:#bf616a;">with</span><span>:
-</span><span>          </span><span style="color:#bf616a;">deploy_key</span><span>: </span><span style="color:#a3be8c;">${{ secrets.PAGES_DEPLOY_KEY }}
-</span><span>          </span><span style="color:#bf616a;">publish_dir</span><span>: </span><span style="color:#a3be8c;">./public
-</span><span>          </span><span style="color:#bf616a;">allow_empty_commit</span><span>: </span><span style="color:#d08770;">false
-</span><span>          </span><span style="color:#bf616a;">external_repository</span><span>: </span><span style="color:#a3be8c;">&lt;user_name&gt;/&lt;user_name&gt;.github.io
-</span><span>          </span><span style="color:#bf616a;">publish_branch</span><span>: </span><span style="color:#a3be8c;">main
-</span></code></pre>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: Deploy pages to external repo
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions&#x2F;checkout@v3
+        with:
+          submodules: recursive
+
+      # Step 2: Sync Git Submodule
+      - name: Git Submodule Sync
+        run: |
+          git submodule sync
+          git submodule update --init --recursive
+
+      # Step 3: Install Zola (the static site generator I used)
+      - name: Install Zola
+        uses: taiki-e&#x2F;install-action@v2
+        with:
+          tool: zola@0.19.1
+
+      # Step 4: Build Zola static sites
+      - name: Build Zola static site(s)
+        run: zola build
+
+      # Step 5: Save build artifacts
+      - name: Save build artifacts
+        uses: actions&#x2F;upload-artifact@v4
+        with:
+          name: zola-site
+          path: public&#x2F;
+          if-no-files-found: error
+
+  deploy-public:
+    # Depends on &#x27;build-artifacts&#x27; job
+    needs: build-artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 6: Download the artifacts (zola-site)
+      - name: Download build artifacts
+        uses: actions&#x2F;download-artifact@v4
+        with:
+          name: zola-site
+          path: public&#x2F;
+      # Step 7: Deploy to another repository
+      - name: Deploy to GitHub Pages
+        uses: peaceiris&#x2F;actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          publish_dir: .&#x2F;public
+          allow_empty_commit: false
+          external_repository: &lt;user_name&gt;&#x2F;&lt;user_name&gt;.github.io
+          publish_branch: main
+</code></pre>
 <p>我构建的工作流分为两步：</p>
 <ol>
 <li>生成站点资源后 upload artifact 并保存</li>
@@ -474,8 +494,8 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
 <li>生成 SSH 密钥对</li>
 </ol>
 <p>和本地生成 SSH 密钥对类似，现在本地终端执行 <code>ssh-keygen</code> 生成密钥对</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">ssh-keygen -t</span><span> ed25519</span><span style="color:#bf616a;"> -C </span><span>&quot;</span><span style="color:#a3be8c;">github-pages-deploy@example.com</span><span>&quot;</span><span style="color:#bf616a;"> -f ~</span><span>/.ssh/id_github_pages_deploy_key
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -C &quot;github-pages-deploy@example.com&quot; -f ~&#x2F;.ssh&#x2F;id_github_pages_deploy_key
+</code></pre>
 <p>生成后会得到两个文件：</p>
 <ul>
 <li><code>id_github_pages_deploy_key</code>：私钥</li>
@@ -551,14 +571,24 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -567,119 +597,6 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -697,7 +614,9 @@ When you use <code>deploy_key</code>, set your private key to the repository whi
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>

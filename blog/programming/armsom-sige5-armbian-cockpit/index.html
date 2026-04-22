@@ -33,9 +33,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-cockpit&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -60,19 +59,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -80,7 +86,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -94,19 +100,31 @@
 </head>
 
 <body
-class="" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -296,11 +314,11 @@ class="" id="top">
   
 <article class="post-single">
   <header class="post-header">
-      <div class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-cockpit&#x2F;">ArmSom-Sige5开发版使用Armbian——Cockpit面板</a>
-      </div>
+      </nav>
       <h1 class="post-title">ArmSom-Sige5开发版使用Armbian——Cockpit面板</h1>
       
       
@@ -320,7 +338,9 @@ class="" id="top">
 
 
 
+
 <span title="2025-01-27 00:00:00 +0000">2025-01-27</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;512 words&nbsp;·&nbsp;edwardzcn-decade
+
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版使用Armbian——Cockpit面板" target="_blank">Email me</a>
@@ -400,49 +420,49 @@ class="" id="top">
 <h2 id="start-up">Start up</h2>
 <h3 id="an-zhuang">安装</h3>
 <p>我的 Armbian 是基于 Ubuntu 24.04 Nobel，这里直接按照<a href="https://cockpit-project.org/running.html#ubuntu">官方参考文档</a> Ubuntu 的安装步骤</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">.</span><span> /etc/os-release
-</span><span style="color:#bf616a;">sudo</span><span> apt install</span><span style="color:#bf616a;"> -t </span><span>${</span><span style="color:#bf616a;">VERSION_CODENAME</span><span>}-backports cockpit
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">. &#x2F;etc&#x2F;os-release
+sudo apt install -t ${VERSION_CODENAME}-backports cockpit
+</code></pre>
 <h3 id="qi-yong-yu-guan-bi">启用与关闭</h3>
 <p>当浏览器访问 <code>cockpit.socket</code> 时，实际进行服务的 <code>cockpit.service</code> 和 <code>cockpit-ws</code> 进程将按需启动，默认端口为 9090 （后续配置可更改），安装完成后我们启动 <code>cockpit.socket</code>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> systemctl enable cockpit.socket
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo systemctl enable cockpit.socket
+</code></pre>
 <p>如果要停止通过浏览器访问</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> systemctl disable cockpit.socket
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo systemctl disable cockpit.socket
+</code></pre>
 <h2 id="pei-zhi">配置</h2>
 <h3 id="jian-ting-duan-kou-pei-zhi">监听端口配置</h3>
 <p>要更改其端口和/或地址，应在 <code>/etc/systemd/system/cockpit.socket.d/listen.conf</code> 修改</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> mkdir</span><span style="color:#bf616a;"> -p</span><span> /etc/systemd/system/cockpit.socket.d
-</span><span style="color:#bf616a;">sudo</span><span> vim /etc/systemd/system/cockpit.socket.d/listen.conf
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo mkdir -p &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;cockpit.socket.d
+sudo vim &#x2F;etc&#x2F;systemd&#x2F;system&#x2F;cockpit.socket.d&#x2F;listen.conf
+</code></pre>
 <p>增加以下内容</p>
-<pre data-lang="conf" style="background-color:#2b303b;color:#c0c5ce;" class="language-conf "><code class="language-conf" data-lang="conf"><span style="color:#b48ead;">[Socket]
-</span><span style="color:#bf616a;">ListenStream</span><span>=
-</span><span style="color:#bf616a;">ListenStream</span><span>=</span><span style="color:#d08770;">7777
-</span><span style="color:#bf616a;">FreeBind</span><span>=</span><span style="color:#d08770;">yes
-</span></code></pre>
+<pre data-lang="conf" class="language-conf "><code class="language-conf" data-lang="conf">[Socket]
+ListenStream=
+ListenStream=7777
+FreeBind=yes
+</code></pre>
 <blockquote>
 <p>注意：第一行的空值是有意留出的。 <code>systemd</code> 允许在单个 <code>Socket</code> 单元中声明多个 <code>Listen</code> 指令；在插入文件中的空值会重置列表，从而禁用原始单元的默认端口 9090。这里<a href="https://cockpit-project.org/guide/latest/listen.html#listen-systemd">参考Cockpit官方文档</a>，更多<code>systemd.socket</code>配置说明可参考<a href="https://www.freedesktop.org/software/systemd/man/latest/systemd.socket.html">手册</a>。</p>
 </blockquote>
 <p>应用改变，现在尝试访问 7777</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> systemctl daemon-reload
-</span><span style="color:#bf616a;">sudo</span><span> systemctl restart cockpit.socket
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo systemctl daemon-reload
+sudo systemctl restart cockpit.socket
+</code></pre>
 <p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-27/armbian0.png" alt="cockpit-web" /></p>
 <h3 id="cockpit-conf-pei-zhi">cockpit.conf 配置</h3>
 <p>默认配置文件在 <code>/etc/cockpit/cockpit.conf</code></p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> vim /etc/cockpit/cockpit.conf
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo vim &#x2F;etc&#x2F;cockpit&#x2F;cockpit.conf
+</code></pre>
 <p>增加以下内容</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">[WebService]
-</span><span style="color:#bf616a;">Origins</span><span> = http://your.domain </span><span style="color:#65737e;"># 内网域名
-</span><span style="color:#bf616a;">ProtocolHeader</span><span> = X-Forwarded-Proto </span><span style="color:#65737e;"># 与nginx中一致
-</span><span style="color:#bf616a;">ForwardedForHeader</span><span> = X-Forwarded-For </span><span style="color:#65737e;"># 与nginx中一致
-</span><span style="color:#bf616a;">LoginTo</span><span> = false
-</span><span style="color:#bf616a;">AllowUnencrypted</span><span> = true </span><span style="color:#65737e;"># 由于我在内网不使用https 这里需要允许
-</span><span style="color:#bf616a;">AllowMultiHost</span><span> = true
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">[WebService]
+Origins = http:&#x2F;&#x2F;your.domain # 内网域名
+ProtocolHeader = X-Forwarded-Proto # 与nginx中一致
+ForwardedForHeader = X-Forwarded-For # 与nginx中一致
+LoginTo = false
+AllowUnencrypted = true # 由于我在内网不使用https 这里需要允许
+AllowMultiHost = true
+</code></pre>
 
   </div>
   
@@ -487,14 +507,24 @@ class="" id="top">
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -503,119 +533,6 @@ class="" id="top">
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -633,7 +550,9 @@ class="" id="top">
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>

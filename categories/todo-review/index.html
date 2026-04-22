@@ -31,9 +31,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories&#x2F;todo-review&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -58,19 +57,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -78,7 +84,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -92,19 +98,31 @@
 </head>
 
 <body
-class="list" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class="list"
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -320,13 +338,15 @@ class="list" id="top">
 </h1>
 </header>
 
+
+
 <article class="post-entry">
   <header class="entry-header">
-      <h2>《暴力拓扑学》摘录</h2>
+    <h2>《暴力拓扑学》摘录</h2>
   </header>
   
   <div class="entry-content">
-      <p><h2 id="dao-yan">导言</h2>
+    <p><h2 id="dao-yan">导言</h2>
 <blockquote>
 <p>P2 “暴力拓扑学首先要面对暴力的那些宏观表象，它们以排斥的形式登台亮相，即是说，它们在诸如自我与他我、内在与外在、朋友与敌人等两极化的紧张关系中得以发展，其表达方式通常都是表现式的、爆炸式的、群体式的、战争式的。远古的流血牺牲式暴力，嫉妒和复仇女神的神话暴力，统治者的杀戮暴力，刑讯暴力，皆属此类。宏观物理学上的暴力还采取一种更为精密的形式，比如通过语言暴力表现出来。”</p>
 </blockquote>
@@ -392,7 +412,9 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
-      
+    
+    
+
 
 
 
@@ -408,17 +430,23 @@ class="list" id="top">
 
 
 <span title="2022-04-25 00:00:00 +0000">2022-04-25</span>&nbsp;·&nbsp;52 min&nbsp;·&nbsp;10288 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《暴力拓扑学》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;topology-of-violence-excerpt&#x2F;"></a>
 </article>
 
+
+
+
 <article class="post-entry">
   <header class="entry-header">
-      <h2>《鼠疫》摘录</h2>
+    <h2>《鼠疫》摘录</h2>
   </header>
   
   <footer class="entry-footer">
-      
+    
+    
+
 
 
 
@@ -434,17 +462,21 @@ class="list" id="top">
 
 
 <span title="2022-03-30 00:00:00 +0000">2022-03-30</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;224 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《鼠疫》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;shu-yi-zhai-lu&#x2F;"></a>
 </article>
 
+
+
+
 <article class="post-entry">
   <header class="entry-header">
-      <h2>《你当像鸟飞往你的山》摘录</h2>
+    <h2>《你当像鸟飞往你的山》摘录</h2>
   </header>
   
   <div class="entry-content">
-      <p><p>序</p>
+    <p><p>序</p>
 <p>巴克峰、父亲、童年。</p>
 <p>连绵山脉与芭蕾舞团般漫山遍野的野生小麦，局外人是浪漫与自由，局中人只会说：“这里有我的童年”。</p>
 <blockquote>
@@ -454,7 +486,9 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
-      
+    
+    
+
 
 
 
@@ -470,17 +504,21 @@ class="list" id="top">
 
 
 <span title="2021-08-25 00:00:00 +0000">2021-08-25</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1491 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《你当像鸟飞往你的山》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;educated-tara-westover-excerpt&#x2F;"></a>
 </article>
 
+
+
+
 <article class="post-entry">
   <header class="entry-header">
-      <h2>《迦陵说词讲稿》摘录</h2>
+    <h2>《迦陵说词讲稿》摘录</h2>
   </header>
   
   <div class="entry-content">
-      <p><h2 id="di-yi-jiang-cong-xi-fang-wen-lun-kan-hua-jian-ci-de-mei-gan-te-zhi">第一讲 从西方文论看花间词的美感特质。</h2>
+    <p><h2 id="di-yi-jiang-cong-xi-fang-wen-lun-kan-hua-jian-ci-de-mei-gan-te-zhi">第一讲 从西方文论看花间词的美感特质。</h2>
 <p>传统文学批评是模糊的，叶先生的学生们常常提出，希望她做些更详细、更有逻辑条理性的分析。感慨我所见的课堂上，学生缺乏这种主导课堂的能力以及向授课教师提出要求的勇气。</p>
 <p>先提出困惑</p>
 <blockquote>
@@ -497,7 +535,9 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
-      
+    
+    
+
 
 
 
@@ -513,22 +553,28 @@ class="list" id="top">
 
 
 <span title="2019-03-31 00:00:00 +0000">2019-03-31</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;750 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《迦陵说词讲稿》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;jia-ling-shuo-ci-jiang-gao-zhai-lu&#x2F;"></a>
 </article>
 
+
+
+
 <article class="post-entry">
   <header class="entry-header">
-      <h2>《解忧杂货店》摘录</h2>
+    <h2>《解忧杂货店》摘录</h2>
   </header>
   
   <div class="entry-content">
-      <p><p>“我衷心的祈祷你可以相信你自己，无悔地燃烧自己的人生。”</p>
+    <p><p>“我衷心的祈祷你可以相信你自己，无悔地燃烧自己的人生。”</p>
 </p>
   </div>
   
   <footer class="entry-footer">
-      
+    
+    
+
 
 
 
@@ -544,17 +590,23 @@ class="list" id="top">
 
 
 <span title="2018-07-13 00:00:00 +0000">2018-07-13</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;419 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《解忧杂货店》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;the-miracles-of-the-namiya-general-store-excerpt&#x2F;"></a>
 </article>
 
+
+
+
 <article class="post-entry">
   <header class="entry-header">
-      <h2>《1Q84》摘录</h2>
+    <h2>《1Q84》摘录</h2>
   </header>
   
   <footer class="entry-footer">
-      
+    
+    
+
 
 
 
@@ -570,22 +622,34 @@ class="list" id="top">
 
 
 <span title="2018-04-08 00:00:00 +0000">2018-04-08</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;797 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《1Q84》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;1q84-excerpt&#x2F;"></a>
 </article>
 
 
+
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -594,119 +658,6 @@ class="list" id="top">
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -724,7 +675,9 @@ class="list" id="top">
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>

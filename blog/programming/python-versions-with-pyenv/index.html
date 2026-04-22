@@ -33,9 +33,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -60,19 +59,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -80,7 +86,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -94,19 +100,31 @@
 </head>
 
 <body
-class="" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -296,11 +314,11 @@ class="" id="top">
   
 <article class="post-single">
   <header class="post-header">
-      <div class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;">Pyenv：多版本Python管理与虚拟环境设置</a>
-      </div>
+      </nav>
       <h1 class="post-title">Pyenv：多版本Python管理与虚拟环境设置</h1>
       
       
@@ -320,7 +338,9 @@ class="" id="top">
 
 
 
+
 <span title="2025-11-09 00:00:00 +0000">2025-11-09</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1764 words&nbsp;·&nbsp;edwardzcn-decade
+
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:Pyenv：多版本Python管理与虚拟环境设置" target="_blank">Email me</a>
@@ -460,16 +480,16 @@ class="" id="top">
 <h2 id="an-zhuang-pyenv">安装 <code>pyenv</code></h2>
 <p>参考 <a href="https://github.com/pyenv/pyenv?tab=readme-ov-file#installation">Installation of <code>pyenv</code> | GitHub</a></p>
 <p>对于 macOS 用户可以方便的从 Homebrew 下载</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">brew</span><span> update
-</span><span style="color:#bf616a;">brew</span><span> install pyenv
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">brew update
+brew install pyenv
+</code></pre>
 <p>安装完成后，在你的 <code>~/.zshrc</code> 或 <code>~/.zprofile</code> （bash 则为<code>~/.bashrc</code> 或 <code>~/.bash_profile</code>）末尾添加：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PYENV_ROOT</span><span>=&quot;$</span><span style="color:#bf616a;">HOME</span><span style="color:#a3be8c;">/.pyenv</span><span>&quot;
-</span><span style="color:#96b5b4;">[[ </span><span style="color:#bf616a;">-d </span><span>$</span><span style="color:#bf616a;">PYENV_ROOT</span><span>/bin </span><span style="color:#96b5b4;">]] </span><span>&amp;&amp; </span><span style="color:#b48ead;">export </span><span style="color:#bf616a;">PATH</span><span>=&quot;$</span><span style="color:#bf616a;">PYENV_ROOT</span><span style="color:#a3be8c;">/bin:</span><span>$</span><span style="color:#bf616a;">PATH</span><span>&quot;
-</span><span style="color:#96b5b4;">eval </span><span>&quot;$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">pyenv</span><span style="color:#a3be8c;"> init - zsh)</span><span>&quot;
-</span><span style="color:#65737e;"># or
-</span><span style="color:#65737e;"># eval &quot;$(pyenv init - bash)&quot;
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">export PYENV_ROOT=&quot;$HOME&#x2F;.pyenv&quot;
+[[ -d $PYENV_ROOT&#x2F;bin ]] &amp;&amp; export PATH=&quot;$PYENV_ROOT&#x2F;bin:$PATH&quot;
+eval &quot;$(pyenv init - zsh)&quot;
+# or
+# eval &quot;$(pyenv init - bash)&quot;
+</code></pre>
 <h2 id="he-xin-ji-zhi">核心机制</h2>
 <p><code>pyenv</code> 通过一个 “shim 层” 实现版本控制，当 shell 中运行 <code>python</code> 或 <code>pip</code> 命令时：</p>
 <ol>
@@ -477,58 +497,58 @@ class="" id="top">
 <li>shim 层会根据你的配置 (global/local/shell) 自动转发到正确的解释器</li>
 </ol>
 <p>可以通过 <code>which python</code> 观察到命令被劫持，以及 <code>pyenv which python</code> 确认实际运行的解释器。</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">which</span><span> python
-</span><span style="color:#65737e;"># /Users/user_name/.pyenv/shims/python
-</span><span style="color:#bf616a;">pyenv</span><span> which python
-</span><span style="color:#65737e;"># /Users/user_name/.pyenv/versions/3.14.0/bin/python
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;shims&#x2F;python
+pyenv which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;versions&#x2F;3.14.0&#x2F;bin&#x2F;python
+</code></pre>
 <h2 id="an-zhuang-yu-qie-huan-python-ban-ben">安装与切换 Python 版本</h2>
 <p>列出可安装版本：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> install</span><span style="color:#bf616a;"> --list
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv install --list
+</code></pre>
 <p>安装指定版本</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> install 3.12.3
-</span><span style="color:#bf616a;">pyenv</span><span> install 3.14.0
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv install 3.12.3
+pyenv install 3.14.0
+</code></pre>
 <p>设置全局版本（影响所有 shell） <code>.python-version</code> 文件生成在用户根目录 <code>~/.pyenv</code> 中：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> global 3.14.0
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv global 3.14.0
+</code></pre>
 <p>设置本地版本（仅当前目录） <code>.python-version</code> 在当前目录：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> local 3.12.3
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv local 3.12.3
+</code></pre>
 <h2 id="xu-ni-huan-jing-pei-he-pyenv-virtualenv-shi-yong">虚拟环境配合 pyenv-virtualenv 使用</h2>
 <p>在 macOS 环境中，<code>python -m venv</code> 设置的虚拟环境，有时会因 <code>pyenv</code> 的 <code>shim</code> 层劫持导致环境激活异常，建议统一使用 <code>pyenv</code> 和配套插件管理基础版本与虚拟环境。</p>
 <p>安装 <code>pyenv-virtualenv</code> 插件：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">brew</span><span> install pyenv-virtualenv
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">brew install pyenv-virtualenv
+</code></pre>
 <p>在 <code>~/.zshrc</code> 末尾额外增加初始化 （bash 为<code>~/.bashrc</code>）：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#96b5b4;">eval </span><span>&quot;$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">pyenv</span><span style="color:#a3be8c;"> virtualenv-init - zsh)</span><span>&quot;
-</span><span style="color:#65737e;"># or
-</span><span style="color:#65737e;"># eval &quot;$(pyenv virtualenv-init - bash)&quot;
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">eval &quot;$(pyenv virtualenv-init - zsh)&quot;
+# or
+# eval &quot;$(pyenv virtualenv-init - bash)&quot;
+</code></pre>
 <p>新建虚拟环境，此处以 3.14.0 环境为基，虚拟环境名称为 <code>venv-name</code>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> virtualenv 3.14.0 venv-name
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv virtualenv 3.14.0 venv-name
+</code></pre>
 <p>需要指出的是与 <code>python -m venv .venv</code> 不同，默认并不是在当前工作目录建立， <code>pyenv</code> 将虚拟环境统一到<code>~/.pyenv</code> 中管理：</p>
 <p>列出安装的所有版本，或者使用<code>pyenv virtualenvs</code>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> versions
-</span><span>  </span><span style="color:#bf616a;">system
-</span><span>  </span><span style="color:#bf616a;">3.9.24
-</span><span>  </span><span style="color:#bf616a;">3.12.12
-</span><span style="color:#bf616a;">*</span><span> 3.14.0 (set by /Users/user_name/.pyenv/version)
-</span><span>  </span><span style="color:#bf616a;">3.14.0/envs/venv-name
-</span><span>  </span><span style="color:#bf616a;">venv-name</span><span> --&gt; /Users/user_name/.pyenv/versions/3.14.0/envs/venv-name
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv versions
+  system
+  3.9.24
+  3.12.12
+* 3.14.0 (set by &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;version)
+  3.14.0&#x2F;envs&#x2F;venv-name
+  venv-name --&gt; &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;versions&#x2F;3.14.0&#x2F;envs&#x2F;venv-name
+</code></pre>
 <p>清晰显示环境之间的实际关系。使用 <code>pyenv activate venv-name</code> 启动虚拟环境， <code>pyenv deactivate</code> 退出当前环境。</p>
 <h3 id="que-ren-xu-ni-huan-jing-shi-yong-de-jie-shi-qi">确认虚拟环境使用的解释器</h3>
 <p>这时候使用 <code>which python</code> 始终得到的是被 <code>shim</code> 层劫持的结果，即 <code>shim/python</code> 所在的位置：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">which</span><span> python
-</span><span style="color:#65737e;"># /Users/user_name/.pyenv/shims/python
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;shims&#x2F;python
+</code></pre>
 <p>正确方式是使用 <code>pyenv which python</code> ，Display the full path to an executable：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">pyenv</span><span> which python
-</span><span style="color:#65737e;"># /Users/user_name/.pyenv/versions/env_name/bin/python
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;versions&#x2F;env_name&#x2F;bin&#x2F;python
+</code></pre>
 <h2 id="yan-shen-yue-du-yu-can-kao">延伸阅读与参考</h2>
 <p><a href="https://github.com/pyenv/pyenv">pyenv GitHub Repository</a></p>
 <p><a href="https://realpython.com/intro-to-pyenv/#understanding-the-benefits-of-using-pyenv">Managing Multiple Python Versions With pyenv</a></p>
@@ -576,14 +596,24 @@ class="" id="top">
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -592,119 +622,6 @@ class="" id="top">
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -722,7 +639,9 @@ class="" id="top">
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>

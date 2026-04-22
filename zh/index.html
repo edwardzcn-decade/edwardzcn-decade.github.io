@@ -32,9 +32,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;zh&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -55,19 +54,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -75,7 +81,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -89,19 +95,31 @@
 </head>
 
 <body
-class="list" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class="list"
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.zh.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.zh.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -289,7 +307,7 @@ class="list" id="top">
 
 <main class="main">
   
-  <article class="first-entry home-info">
+  <article class="first-entry home-info home-hero reveal-on-scroll">
     <header class="entry-header">
         <h1>Edwardzcn blog</h1>
     </header>
@@ -298,7 +316,7 @@ class="list" id="top">
     </div>
     <footer class="entry-footer">
         
-            <div class="social-icons">
+            <div class="social-icons home-social-icons">
     
     
     
@@ -407,6 +425,7 @@ class="list" id="top">
 </article>
 
 
+
   
 
 
@@ -414,15 +433,19 @@ class="list" id="top">
 <!-- Add home section pages (and transparent subsection pages)-->
 
 
-<h1>2025</h1>
+<h1 class="home-year reveal-on-scroll">2025</h1>
 
-<article class="post-entry">
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>The Three Laws of (Using) Shredder</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -438,11 +461,15 @@ class="list" id="top">
 
 
 <span title="2025-11-28 00:00:00 +0000">2025-11-28</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;113 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to The Three Laws of (Using) Shredder" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;shredder-three-laws&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《聂鲁达诗精选》摘录</h2>
   </header>
@@ -456,6 +483,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -471,17 +500,23 @@ class="list" id="top">
 
 
 <span title="2025-11-18 00:00:00 +0000">2025-11-18</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;958 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《聂鲁达诗精选》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;nie-lu-da-shi-jing-xuan-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>CSC Scholarship Application Guidance</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -497,11 +532,15 @@ class="list" id="top">
 
 
 <span title="2025-11-11 00:00:00 +0000">2025-11-11</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;488 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to CSC Scholarship Application Guidance" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;csc-scholarship-application-guide&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>Pyenv：多版本Python管理与虚拟环境设置</h2>
   </header>
@@ -517,6 +556,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -532,11 +573,15 @@ class="list" id="top">
 
 
 <span title="2025-11-09 00:00:00 +0000">2025-11-09</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1764 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to Pyenv：多版本Python管理与虚拟环境设置" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>私有仓库中自动部署 GitHub Pages</h2>
   </header>
@@ -549,6 +594,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -564,11 +611,15 @@ class="list" id="top">
 
 
 <span title="2025-10-30 00:00:00 +0000">2025-10-30</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1146 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 私有仓库中自动部署 GitHub Pages" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;private-repo-public-github-pages&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>当山告诉我应该离开</h2>
   </header>
@@ -582,6 +633,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -597,17 +650,23 @@ class="list" id="top">
 
 
 <span title="2025-10-25 00:00:00 +0000">2025-10-25</span>&nbsp;·&nbsp;42 min&nbsp;·&nbsp;8202 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 当山告诉我应该离开" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;when-the-mountain-told-me-to-leave&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>Linux与macOS软件包验证公钥管理方式</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -623,17 +682,23 @@ class="list" id="top">
 
 
 <span title="2025-10-21 00:00:00 +0000">2025-10-21</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1699 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to Linux与macOS软件包验证公钥管理方式" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;keyring-management-linux-macos&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>Recommended Way to Manage Package Verification Keyrings on Linux and macOS</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -649,11 +714,15 @@ class="list" id="top">
 
 
 <span title="2025-10-21 00:00:00 +0000">2025-10-21</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;5 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to Recommended Way to Manage Package Verification Keyrings on Linux and macOS" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;manage-package-keyrings-linux-macos&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《一个人的朝圣》摘录</h2>
   </header>
@@ -665,6 +734,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -680,11 +751,15 @@ class="list" id="top">
 
 
 <span title="2025-06-27 00:00:00 +0000">2025-06-27</span>&nbsp;·&nbsp;18 min&nbsp;·&nbsp;3444 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《一个人的朝圣》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;yi-ge-ren-de-zhao-sheng-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《世界尽头的小小书店》摘录</h2>
   </header>
@@ -697,6 +772,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -712,11 +789,15 @@ class="list" id="top">
 
 
 <span title="2025-06-22 00:00:00 +0000">2025-06-22</span>&nbsp;·&nbsp;28 min&nbsp;·&nbsp;5429 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《世界尽头的小小书店》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;shi-jie-jin-tou-de-xiao-xiao-shu-dian-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>ArmSom-Sige5开发版使用Armbian——Cockpit面板</h2>
   </header>
@@ -728,6 +809,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -743,11 +826,15 @@ class="list" id="top">
 
 
 <span title="2025-01-27 00:00:00 +0000">2025-01-27</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;512 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to ArmSom-Sige5开发版使用Armbian——Cockpit面板" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-cockpit&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>ArmSom-Sige5开发版使用Armbian——基础路由</h2>
   </header>
@@ -759,6 +846,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -774,11 +863,15 @@ class="list" id="top">
 
 
 <span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;21 min&nbsp;·&nbsp;4127 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to ArmSom-Sige5开发版使用Armbian——基础路由" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>「我在泰缅边境调查电诈产业200天」</h2>
   </header>
@@ -794,6 +887,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -809,11 +904,15 @@ class="list" id="top">
 
 
 <span title="2025-01-16 00:00:00 +0000">2025-01-16</span>&nbsp;·&nbsp;55 min&nbsp;·&nbsp;10956 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 「我在泰缅边境调查电诈产业200天」" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-zai-tai-mian-bian-jing-diao-cha-dian-zha-chan-ye-200tian&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>Blog Migration to Zola</h2>
   </header>
@@ -825,6 +924,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -840,14 +941,18 @@ class="list" id="top">
 
 
 <span title="2025-01-10 00:00:00 +0000">2025-01-10</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;29 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to Blog Migration to Zola" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;blog-migration&#x2F;"></a>
 </article>
 
 
-<h1>2023</h1>
 
-<article class="post-entry">
+<h1 class="home-year reveal-on-scroll">2023</h1>
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>「我躲在虹桥的卫生间，不知道去哪」</h2>
   </header>
@@ -860,6 +965,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -875,14 +982,18 @@ class="list" id="top">
 
 
 <span title="2023-11-21 00:00:00 +0000">2023-11-21</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;2859 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 「我躲在虹桥的卫生间，不知道去哪」" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-duo-zai-hong-qiao-de-wei-sheng-jian-bu-zhi-dao-qu-na&#x2F;"></a>
 </article>
 
 
-<h1>2022</h1>
 
-<article class="post-entry">
+<h1 class="home-year reveal-on-scroll">2022</h1>
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《台北人》摘录</h2>
   </header>
@@ -896,6 +1007,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -911,11 +1024,15 @@ class="list" id="top">
 
 
 <span title="2022-08-08 00:00:00 +0000">2022-08-08</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1922 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《台北人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;tai-bei-ren-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《我承认我不曾经历沧桑》摘录</h2>
   </header>
@@ -927,6 +1044,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -942,17 +1061,23 @@ class="list" id="top">
 
 
 <span title="2022-07-26 00:00:00 +0000">2022-07-26</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;2962 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《我承认我不曾经历沧桑》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-cheng-ren-wo-bu-ceng-jing-li-cang-sang-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《必有人重写爱情》摘录</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -968,17 +1093,23 @@ class="list" id="top">
 
 
 <span title="2022-07-17 00:00:00 +0000">2022-07-17</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;894 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《必有人重写爱情》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;bi-you-ren-zhong-xie-ai-qing-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《奶奶的星星》摘录</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -994,11 +1125,15 @@ class="list" id="top">
 
 
 <span title="2022-05-19 00:00:00 +0000">2022-05-19</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;981 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《奶奶的星星》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;nai-nai-de-xing-xing-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《北岛作品》摘录</h2>
   </header>
@@ -1011,6 +1146,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1026,11 +1163,15 @@ class="list" id="top">
 
 
 <span title="2022-05-17 00:00:00 +0000">2022-05-17</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2127 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《北岛作品》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;a-bei-dao-reader-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《蛤蟆先生去看心理医生》摘录</h2>
   </header>
@@ -1042,6 +1183,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1057,11 +1200,15 @@ class="list" id="top">
 
 
 <span title="2022-05-12 00:00:00 +0000">2022-05-12</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1981 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《蛤蟆先生去看心理医生》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ha-ma-xian-sheng-qu-kan-xin-li-yi-sheng-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《法治的细节》摘录</h2>
   </header>
@@ -1074,6 +1221,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1089,11 +1238,15 @@ class="list" id="top">
 
 
 <span title="2022-05-10 00:00:00 +0000">2022-05-10</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1462 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《法治的细节》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;fa-zhi-de-xi-jie-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《病隙随笔》摘录</h2>
   </header>
@@ -1105,6 +1258,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1120,16 +1275,21 @@ class="list" id="top">
 
 
 <span title="2022-04-29 00:00:00 +0000">2022-04-29</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;374 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《病隙随笔》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;bing-xi-sui-bi-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《美国的反智传统》摘录</h2>
   </header>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -1145,12 +1305,17 @@ class="list" id="top">
 
 
 
+
 <span title="2022-04-25 00:00:00 +0000">2022-04-25</span>&nbsp;·&nbsp;19 min&nbsp;·&nbsp;3720 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《美国的反智传统》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;mei-guo-de-fan-zhi-chuan-tong-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《暴力拓扑学》摘录</h2>
   </header>
@@ -1223,6 +1388,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1238,11 +1405,15 @@ class="list" id="top">
 
 
 <span title="2022-04-25 00:00:00 +0000">2022-04-25</span>&nbsp;·&nbsp;52 min&nbsp;·&nbsp;10288 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《暴力拓扑学》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;topology-of-violence-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《走吧——给L》北岛</h2>
   </header>
@@ -1268,6 +1439,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1283,17 +1456,23 @@ class="list" id="top">
 
 
 <span title="2022-04-19 00:00:00 +0000">2022-04-19</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;94 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《走吧——给L》北岛" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;zou-ba-gei-l-bei-dao&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《鼠疫》摘录</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1309,11 +1488,15 @@ class="list" id="top">
 
 
 <span title="2022-03-30 00:00:00 +0000">2022-03-30</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;224 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《鼠疫》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;shu-yi-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《一个叫欧维的男人决定去死》摘录</h2>
   </header>
@@ -1325,6 +1508,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1340,16 +1525,21 @@ class="list" id="top">
 
 
 <span title="2022-03-15 00:00:00 +0000">2022-03-15</span>&nbsp;·&nbsp;17 min&nbsp;·&nbsp;3221 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《一个叫欧维的男人决定去死》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;en-man-som-heter-ove-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《局外人》摘录</h2>
   </header>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -1365,15 +1555,20 @@ class="list" id="top">
 
 
 
+
 <span title="2022-02-14 00:00:00 +0000">2022-02-14</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;961 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《局外人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;l-etranger-excerpt&#x2F;"></a>
 </article>
 
 
-<h1>2021</h1>
 
-<article class="post-entry">
+<h1 class="home-year reveal-on-scroll">2021</h1>
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《你当像鸟飞往你的山》摘录</h2>
   </header>
@@ -1390,6 +1585,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1405,11 +1602,15 @@ class="list" id="top">
 
 
 <span title="2021-08-25 00:00:00 +0000">2021-08-25</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1491 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《你当像鸟飞往你的山》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;educated-tara-westover-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>VSCode使用跳板机远程登陆共享内网访问</h2>
   </header>
@@ -1421,6 +1622,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1436,11 +1639,15 @@ class="list" id="top">
 
 
 <span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;554 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to VSCode使用跳板机远程登陆共享内网访问" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;vscode-remote-ssh-proxyjump&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《我与地坛》摘录</h2>
   </header>
@@ -1451,6 +1658,7 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -1466,12 +1674,17 @@ class="list" id="top">
 
 
 
+
 <span title="2021-03-06 00:00:00 +0000">2021-03-06</span>&nbsp;·&nbsp;31 min&nbsp;·&nbsp;6196 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《我与地坛》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-yu-di-tan-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《街拍，我的信仰》摘录</h2>
   </header>
@@ -1493,6 +1706,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1508,11 +1723,15 @@ class="list" id="top">
 
 
 <span title="2021-02-15 00:00:00 +0000">2021-02-15</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;2395 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《街拍，我的信仰》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;jie-pai-wo-de-xin-yang-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>「用现实主义者的心态看问题」</h2>
   </header>
@@ -1524,6 +1743,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1539,14 +1760,18 @@ class="list" id="top">
 
 
 <span title="2021-02-01 00:00:00 +0000">2021-02-01</span>&nbsp;·&nbsp;20 min&nbsp;·&nbsp;3954 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 「用现实主义者的心态看问题」" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;yong-xian-shi-zhu-yi-zhe-de-xin-tai-kan-wen-ti&#x2F;"></a>
 </article>
 
 
-<h1>2020</h1>
 
-<article class="post-entry">
+<h1 class="home-year reveal-on-scroll">2020</h1>
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《对青年数学家的建议》摘录的摘录</h2>
   </header>
@@ -1557,6 +1782,7 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -1572,12 +1798,17 @@ class="list" id="top">
 
 
 
+
 <span title="2020-10-30 00:00:00 +0000">2020-10-30</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;813 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《对青年数学家的建议》摘录的摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;dui-qing-nian-shu-xue-jia-de-jian-yi-zhai-lu-de-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《战争时期日本精神史：1931-1945》摘录</h2>
   </header>
@@ -1724,37 +1955,6 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2020-09-28 00:00:00 +0000">2020-09-28</span>&nbsp;·&nbsp;54 min&nbsp;·&nbsp;10625 words&nbsp;·&nbsp;edwardzcn-decade
-  </footer>
-  <a class="entry-link" aria-label="post link to 《战争时期日本精神史：1931-1945》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;zhan-zheng-shi-qi-ri-ben-jing-shen-shi-1931-1945-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>《计算机程序设计艺术卷1》摘录</h2>
-  </header>
-  
-  <div class="entry-content">
-    <p><p>这本“圣经”体量太大，所以笔者只记录自己想记录的或者有必要记录的。</p>
-<p>根据作者所提整套丛书的内容总览，卷 1（基本算法）可以看成整套丛书的交集，包含了其他卷都需要用到的基本内容，不仅可以作为阅读其他各卷的参考书，还可以用作一些课程的教材，比如离散数学（1.1 节、1.2 节、1.3.3 节和 2.3.4 节），数据结构（主要是第 2 章）。</p>
-</p>
-  </div>
-  
-  <footer class="entry-footer">
     
 
 
@@ -1770,12 +1970,55 @@ class="list" id="top">
 
 
 
+
+<span title="2020-09-28 00:00:00 +0000">2020-09-28</span>&nbsp;·&nbsp;54 min&nbsp;·&nbsp;10625 words&nbsp;·&nbsp;edwardzcn-decade
+
+  </footer>
+  <a class="entry-link" aria-label="post link to 《战争时期日本精神史：1931-1945》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;zhan-zheng-shi-qi-ri-ben-jing-shen-shi-1931-1945-zhai-lu&#x2F;"></a>
+</article>
+
+
+
+
+<article class="post-entry reveal-on-scroll">
+  <header class="entry-header">
+    <h2>《计算机程序设计艺术卷1》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+    <p><p>这本“圣经”体量太大，所以笔者只记录自己想记录的或者有必要记录的。</p>
+<p>根据作者所提整套丛书的内容总览，卷 1（基本算法）可以看成整套丛书的交集，包含了其他卷都需要用到的基本内容，不仅可以作为阅读其他各卷的参考书，还可以用作一些课程的教材，比如离散数学（1.1 节、1.2 节、1.3.3 节和 2.3.4 节），数据结构（主要是第 2 章）。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span title="2020-09-10 00:00:00 +0000">2020-09-10</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1332 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《计算机程序设计艺术卷1》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ji-suan-ji-cheng-xu-she-ji-yi-shu-juan-1-du-shu-bi-ji&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《我执》摘录</h2>
   </header>
@@ -1827,31 +2070,6 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2020-07-16 00:00:00 +0000">2020-07-16</span>&nbsp;·&nbsp;17 min&nbsp;·&nbsp;3360 words&nbsp;·&nbsp;edwardzcn-decade
-  </footer>
-  <a class="entry-link" aria-label="post link to 《我执》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-zhi-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>《孤独六讲》摘录</h2>
-  </header>
-  
-  <footer class="entry-footer">
     
 
 
@@ -1867,12 +2085,49 @@ class="list" id="top">
 
 
 
+
+<span title="2020-07-16 00:00:00 +0000">2020-07-16</span>&nbsp;·&nbsp;17 min&nbsp;·&nbsp;3360 words&nbsp;·&nbsp;edwardzcn-decade
+
+  </footer>
+  <a class="entry-link" aria-label="post link to 《我执》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-zhi-zhai-lu&#x2F;"></a>
+</article>
+
+
+
+
+<article class="post-entry reveal-on-scroll">
+  <header class="entry-header">
+    <h2>《孤独六讲》摘录</h2>
+  </header>
+  
+  <footer class="entry-footer">
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span title="2020-07-02 00:00:00 +0000">2020-07-02</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1545 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《孤独六讲》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;gu-du-liu-jiang-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《武汉人》摘录</h2>
   </header>
@@ -1906,6 +2161,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1921,17 +2178,23 @@ class="list" id="top">
 
 
 <span title="2020-06-14 00:00:00 +0000">2020-06-14</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1191 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《武汉人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wu-yi-ren-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《有所不为的反叛者》摘录</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -1947,11 +2210,15 @@ class="list" id="top">
 
 
 <span title="2020-06-03 00:00:00 +0000">2020-06-03</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;718 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《有所不为的反叛者》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;you-suo-bu-wei-de-fan-pan-zhe-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《看见》摘录</h2>
   </header>
@@ -1962,6 +2229,7 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -1977,12 +2245,17 @@ class="list" id="top">
 
 
 
+
 <span title="2020-05-25 00:00:00 +0000">2020-05-25</span>&nbsp;·&nbsp;28 min&nbsp;·&nbsp;5500 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《看见》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;seeing-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>我的人生解答书——职业规划</h2>
   </header>
@@ -2034,6 +2307,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2049,20 +2324,26 @@ class="list" id="top">
 
 
 <span title="2020-03-10 00:00:00 +0000">2020-03-10</span>&nbsp;·&nbsp;44 min&nbsp;·&nbsp;8691 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 我的人生解答书——职业规划" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;key-of-life-career-planning&#x2F;"></a>
 </article>
 
 
-<h1>2019</h1>
 
-<article class="post-entry">
+<h1 class="home-year reveal-on-scroll">2019</h1>
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《文化商人——21世纪的出版业》读后感</h2>
   </header>
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2078,11 +2359,15 @@ class="list" id="top">
 
 
 <span title="2019-12-26 00:00:00 +0000">2019-12-26</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;419 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《文化商人——21世纪的出版业》读后感" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wen-hua-shang-ren-21shi-ji-de-chu-ban-ye-du-hou-gan&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《Justice》摘录</h2>
   </header>
@@ -2094,6 +2379,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2109,16 +2396,21 @@ class="list" id="top">
 
 
 <span title="2019-08-29 00:00:00 +0000">2019-08-29</span>&nbsp;·&nbsp;14 min&nbsp;·&nbsp;2669 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《Justice》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;justice-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《日本电子产业兴衰录》摘录</h2>
   </header>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -2134,12 +2426,17 @@ class="list" id="top">
 
 
 
+
 <span title="2019-04-15 00:00:00 +0000">2019-04-15</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1056 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《日本电子产业兴衰录》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ri-ben-dian-zi-chan-ye-xing-shuai-lu-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《迦陵说词讲稿》摘录</h2>
   </header>
@@ -2163,36 +2460,6 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2019-03-31 00:00:00 +0000">2019-03-31</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;750 words&nbsp;·&nbsp;edwardzcn-decade
-  </footer>
-  <a class="entry-link" aria-label="post link to 《迦陵说词讲稿》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;jia-ling-shuo-ci-jiang-gao-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>《枪炮、病菌与钢铁》摘录</h2>
-  </header>
-  
-  <div class="entry-content">
-    <p><p>笔记是按初版写的，非常独特的历史视角。再版<del>似乎删减了一些</del>。</p>
-</p>
-  </div>
-  
-  <footer class="entry-footer">
     
 
 
@@ -2208,12 +2475,54 @@ class="list" id="top">
 
 
 
+
+<span title="2019-03-31 00:00:00 +0000">2019-03-31</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;750 words&nbsp;·&nbsp;edwardzcn-decade
+
+  </footer>
+  <a class="entry-link" aria-label="post link to 《迦陵说词讲稿》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;jia-ling-shuo-ci-jiang-gao-zhai-lu&#x2F;"></a>
+</article>
+
+
+
+
+<article class="post-entry reveal-on-scroll">
+  <header class="entry-header">
+    <h2>《枪炮、病菌与钢铁》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+    <p><p>笔记是按初版写的，非常独特的历史视角。再版<del>似乎删减了一些</del>。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span title="2019-03-25 00:00:00 +0000">2019-03-25</span>&nbsp;·&nbsp;61 min&nbsp;·&nbsp;12030 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《枪炮、病菌与钢铁》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;qiang-pao-bing-jun-yu-gang-tie-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《無印良品的改革》摘录</h2>
   </header>
@@ -2250,6 +2559,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2265,14 +2576,18 @@ class="list" id="top">
 
 
 <span title="2019-01-24 00:00:00 +0000">2019-01-24</span>&nbsp;·&nbsp;33 min&nbsp;·&nbsp;6402 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《無印良品的改革》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wu-yin-liang-pin-de-gai-ge-zhai-lu&#x2F;"></a>
 </article>
 
 
-<h1>2018</h1>
 
-<article class="post-entry">
+<h1 class="home-year reveal-on-scroll">2018</h1>
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《不得贪胜》摘录</h2>
   </header>
@@ -2285,6 +2600,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2300,16 +2617,21 @@ class="list" id="top">
 
 
 <span title="2018-11-26 00:00:00 +0000">2018-11-26</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;2942 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《不得贪胜》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;bu-de-tan-sheng-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《金融的本质：伯南克四讲美联储》摘录</h2>
   </header>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -2325,12 +2647,17 @@ class="list" id="top">
 
 
 
+
 <span title="2018-10-28 00:00:00 +0000">2018-10-28</span>&nbsp;·&nbsp;35 min&nbsp;·&nbsp;6907 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《金融的本质：伯南克四讲美联储》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;jin-rong-de-ben-zhi-bo-nan-ke-si-jiang-mei-lian-chu-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《我辈孤雏》摘录</h2>
   </header>
@@ -2357,6 +2684,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2372,11 +2701,15 @@ class="list" id="top">
 
 
 <span title="2018-08-22 00:00:00 +0000">2018-08-22</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1871 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《我辈孤雏》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wo-bei-gu-chu-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《银河帝国8：我，机器人》摘录</h2>
   </header>
@@ -2393,36 +2726,6 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2018-08-10 00:00:00 +0000">2018-08-10</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;724 words&nbsp;·&nbsp;edwardzcn-decade
-  </footer>
-  <a class="entry-link" aria-label="post link to 《银河帝国8：我，机器人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;yin-he-di-guo-8-wo-ji-qi-ren-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>《刺杀骑士团长》摘录笔记</h2>
-  </header>
-  
-  <div class="entry-content">
-    <p><p>后半部没有读完</p>
-</p>
-  </div>
-  
-  <footer class="entry-footer">
     
 
 
@@ -2438,12 +2741,54 @@ class="list" id="top">
 
 
 
+
+<span title="2018-08-10 00:00:00 +0000">2018-08-10</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;724 words&nbsp;·&nbsp;edwardzcn-decade
+
+  </footer>
+  <a class="entry-link" aria-label="post link to 《银河帝国8：我，机器人》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;yin-he-di-guo-8-wo-ji-qi-ren-zhai-lu&#x2F;"></a>
+</article>
+
+
+
+
+<article class="post-entry reveal-on-scroll">
+  <header class="entry-header">
+    <h2>《刺杀骑士团长》摘录笔记</h2>
+  </header>
+  
+  <div class="entry-content">
+    <p><p>后半部没有读完</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span title="2018-08-06 00:00:00 +0000">2018-08-06</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;621 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《刺杀骑士团长》摘录笔记" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ci-sha-qi-shi-tuan-chang-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《如何阅读一本书》摘录</h2>
   </header>
@@ -2462,6 +2807,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2477,11 +2824,15 @@ class="list" id="top">
 
 
 <span title="2018-07-13 00:00:00 +0000">2018-07-13</span>&nbsp;·&nbsp;14 min&nbsp;·&nbsp;2607 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《如何阅读一本书》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ru-he-yue-du-yi-ben-shu-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《解忧杂货店》摘录</h2>
   </header>
@@ -2493,6 +2844,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2508,16 +2861,21 @@ class="list" id="top">
 
 
 <span title="2018-07-13 00:00:00 +0000">2018-07-13</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;419 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《解忧杂货店》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;the-miracles-of-the-namiya-general-store-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《1Q84》摘录</h2>
   </header>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -2533,12 +2891,17 @@ class="list" id="top">
 
 
 
+
 <span title="2018-04-08 00:00:00 +0000">2018-04-08</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;797 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《1Q84》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;1q84-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《岛上书店》摘录</h2>
   </header>
@@ -2555,6 +2918,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2570,11 +2935,15 @@ class="list" id="top">
 
 
 <span title="2018-03-16 00:00:00 +0000">2018-03-16</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;744 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《岛上书店》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;dao-shang-shu-dian-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《亲爱的安德烈》摘录</h2>
   </header>
@@ -2606,39 +2975,6 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2018-03-16 00:00:00 +0000">2018-03-16</span>&nbsp;·&nbsp;18 min&nbsp;·&nbsp;3416 words&nbsp;·&nbsp;edwardzcn-decade
-  </footer>
-  <a class="entry-link" aria-label="post link to 《亲爱的安德烈》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;qin-ai-de-an-de-lie-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-  <header class="entry-header">
-    <h2>《1988：我想和这个世界谈谈》摘录</h2>
-  </header>
-  
-  <div class="entry-content">
-    <p><blockquote>
-<p>P62 “这样的旅行在我年少时曾经幻想过无数次，夜晚的国道里，我等待着自己梦寐以求的女子，开着自己梦寐以求的车，去往未知旅程的终点。未知旅程怎么会有终点，旅途上没有疲劳和困意，我们聊着电影和音乐，穿越群山和丛林，最终停在一泓无人的湖水旁边，有一个没有任何经济头脑的人开的酒店，干净便宜。”</p>
-</blockquote>
-<p>六年后再翻到这篇摘抄，发现我将“我带着自己梦寐以求的女子”，无意间错打成了“我等待着...”，也不知是韩寒再版的书真做了如此改动，还是潜意识作祟，“等待”与“带”，就留在这里吧。</p>
-</p>
-  </div>
-  
-  <footer class="entry-footer">
     
 
 
@@ -2654,12 +2990,57 @@ class="list" id="top">
 
 
 
+
+<span title="2018-03-16 00:00:00 +0000">2018-03-16</span>&nbsp;·&nbsp;18 min&nbsp;·&nbsp;3416 words&nbsp;·&nbsp;edwardzcn-decade
+
+  </footer>
+  <a class="entry-link" aria-label="post link to 《亲爱的安德烈》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;qin-ai-de-an-de-lie-zhai-lu&#x2F;"></a>
+</article>
+
+
+
+
+<article class="post-entry reveal-on-scroll">
+  <header class="entry-header">
+    <h2>《1988：我想和这个世界谈谈》摘录</h2>
+  </header>
+  
+  <div class="entry-content">
+    <p><blockquote>
+<p>P62 “这样的旅行在我年少时曾经幻想过无数次，夜晚的国道里，我等待着自己梦寐以求的女子，开着自己梦寐以求的车，去往未知旅程的终点。未知旅程怎么会有终点，旅途上没有疲劳和困意，我们聊着电影和音乐，穿越群山和丛林，最终停在一泓无人的湖水旁边，有一个没有任何经济头脑的人开的酒店，干净便宜。”</p>
+</blockquote>
+<p>六年后再翻到这篇摘抄，发现我将“我带着自己梦寐以求的女子”，无意间错打成了“我等待着...”，也不知是韩寒再版的书真做了如此改动，还是潜意识作祟，“等待”与“带”，就留在这里吧。</p>
+</p>
+  </div>
+  
+  <footer class="entry-footer">
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <span title="2018-03-03 00:00:00 +0000">2018-03-03</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1072 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《1988：我想和这个世界谈谈》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;1988-i-want-to-talk-with-the-world-excerpt&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《野火集》摘录</h2>
   </header>
@@ -2682,6 +3063,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2697,11 +3080,15 @@ class="list" id="top">
 
 
 <span title="2018-02-20 00:00:00 +0000">2018-02-20</span>&nbsp;·&nbsp;12 min&nbsp;·&nbsp;2276 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《野火集》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ye-huo-ji-zhai-lu&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《天幕红尘》与豆豆</h2>
   </header>
@@ -2715,6 +3102,8 @@ class="list" id="top">
   
   <footer class="entry-footer">
     
+    
+
 
 
 
@@ -2730,11 +3119,15 @@ class="list" id="top">
 
 
 <span title="2018-02-19 00:00:00 +0000">2018-02-19</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;770 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《天幕红尘》与豆豆" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;tian-mu-hong-chen-yu-dou-dou&#x2F;"></a>
 </article>
 
-<article class="post-entry">
+
+
+
+<article class="post-entry reveal-on-scroll">
   <header class="entry-header">
     <h2>《乌合之众——群体心理研究》摘录</h2>
   </header>
@@ -2745,6 +3138,7 @@ class="list" id="top">
   </div>
   
   <footer class="entry-footer">
+    
     
 
 
@@ -2760,10 +3154,14 @@ class="list" id="top">
 
 
 
+
 <span title="2018-01-08 00:00:00 +0000">2018-01-08</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;457 words&nbsp;·&nbsp;edwardzcn-decade
+
   </footer>
   <a class="entry-link" aria-label="post link to 《乌合之众——群体心理研究》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;wu-he-zhi-zhong-qun-ti-xin-li-yan-jiu-zhai-lu&#x2F;"></a>
 </article>
+
+
 
 
 
@@ -2772,14 +3170,24 @@ class="list" id="top">
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -2788,119 +3196,6 @@ class="list" id="top">
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -2918,7 +3213,9 @@ class="list" id="top">
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>

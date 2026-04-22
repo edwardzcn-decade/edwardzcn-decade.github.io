@@ -33,9 +33,8 @@
   <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;keyring-management-linux-macos&#x2F;">
 
 
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-vars.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-base.css">
-<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-common.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
 <link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
@@ -60,19 +59,26 @@
     <style>
         @media (prefers-color-scheme: dark) {
             :root {
-                --theme: rgb(30, 32, 48);           /* macchiato-mantle */
-                --entry: rgb(36, 39, 58);           /* macchiato-base  */
-                --primary: rgb(202, 211, 245);      /* macchiato-text */
-                --secondary: rgb(184,192, 224);     /* macchiato-subtext1 */
-                --tertiary: rgb(54, 58, 79);        /* macchiato-surface0 */
-                --content: rgb(165, 173, 203);      /* macchiato-subtext0 */
-                --hljs-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --code-bg: rgb(24, 25, 38);         /* macchiato-crust */
-                --border: rgb(30, 32, 48);          /* macchiato-mantle */
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
             }
 
             .list {
-                background: var(--theme);
+                background: var(--theme-bg);
             }
 
             .list:not(.dark)::-webkit-scrollbar-track {
@@ -80,7 +86,7 @@
             }
 
             .list:not(.dark)::-webkit-scrollbar-thumb {
-                border-color: var(--theme);
+                border-color: var(--theme-bg);
             }
         }
 
@@ -94,19 +100,31 @@
 </head>
 
 <body
-class="" id="top">
-  <script>
-    const preft = localStorage.getItem("pref-theme");
-    if (preft === "dark") {
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+  <script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
       document.body.classList.add("dark");
-    } else if (preft === "light") {
-      document.body.classList.remove("dark");
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      document.body.classList.add("dark");
-    } else {
-      document.body.classList.remove("dark");
     }
-  </script>
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
 <header class="header">
   <nav class="nav">
     <div class="logo">
@@ -296,11 +314,11 @@ class="" id="top">
   
 <article class="post-single">
   <header class="post-header">
-      <div class="breadcrumbs">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
           <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
           <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;keyring-management-linux-macos&#x2F;">Linux与macOS软件包验证公钥管理方式</a>
-      </div>
+      </nav>
       <h1 class="post-title">Linux与macOS软件包验证公钥管理方式</h1>
       
       
@@ -320,7 +338,9 @@ class="" id="top">
 
 
 
+
 <span title="2025-10-21 00:00:00 +0000">2025-10-21</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1699 words&nbsp;·&nbsp;edwardzcn-decade
+
       
           
 &nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:Linux与macOS软件包验证公钥管理方式" target="_blank">Email me</a>
@@ -402,9 +422,9 @@ class="" id="top">
       <h2 id="qian-ming-ruan-jian-bao-yu-yan-zheng-gong-yao">签名软件包与验证公钥</h2>
 <p>接触过服务器的朋友对 <code>yum</code>、<code>rpm</code>、<code>apt</code>、<code>apt-get</code> 这些指令应该不陌生，它们属于不同 Linux 发行版的软件包管理系统（Package Management System, PMS），其历史可以追溯到上世纪 90 年代。现代操作系统中，我们常通过软件包管理器来安装或更新软件——服务器系统尤为常见，桌面系统如 macOS 的 <code>brew</code> 也是同类工具。软件包管理器通过从远程仓库拉取并下载，与当前系统匹配的预编译的软件包，简化安装和更新过程。</p>
 <p>在安全层面，软件包管理器依赖数字签名技术来确保软件包的完整性和来源可信。开发者会使用自己的私钥为发布的软件包签名，而用户系统则使用开发者提供的公钥来验证下载的完整性（确保软件包完整且未被篡改或伪造）。这一过程可以由软件包管理器自动完成，也可以手动执行。例如，在基于 RPM 的系统上可以使用 <code>rpm --checksig package.rpm</code> 来验证签名。比如在一个centOS7服务器检测手动下载的<code>openssl</code>包：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">rpm --checksig</span><span> openssl-1.0.2k-25.el7_9.x86_64.rpm
-</span><span style="color:#bf616a;">openssl-1.0.2k-25.el7_9.x86_64.rpm:</span><span> rsa sha1 (md5) </span><span style="color:#bf616a;">pgp</span><span> md5 OK
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">rpm --checksig openssl-1.0.2k-25.el7_9.x86_64.rpm
+openssl-1.0.2k-25.el7_9.x86_64.rpm: rsa sha1 (md5) pgp md5 OK
+</code></pre>
 <h3 id="gpg">GPG</h3>
 <p>GPG 是 GNU Privacy Guard 的缩写，也称 GnuPG，是一个免费软件，用于确保分发文件的真实性。</p>
 <h2 id="ge-xi-tong-de-mi-yao-guan-li-fang-shi">各系统的密钥管理方式</h2>
@@ -416,29 +436,29 @@ class="" id="top">
 <p>apt-key(8) will last be available in Debian 12 and Ubuntu 24.04.</p>
 </blockquote>
 <p>在Debian 12和 Ubuntu 24.04之后，<code>apt-key</code> 将被完全弃用，我的系统是Ubuntu 24.04 所以还可以使用<code>list</code>指令，同时检查到<code>trusted.gpg.bak</code>文件备份，可以测试</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">apt-key</span><span> list</span><span style="color:#bf616a;"> --keyring</span><span> /etc/apt/trusted.gpg.bak
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">apt-key list --keyring &#x2F;etc&#x2F;apt&#x2F;trusted.gpg.bak
+</code></pre>
 <p>该工具将遍历<code>/etc/apt/trusted.gpg.d/</code>目录下的每个文件，将其中的公钥与备份的公钥二进制文件合并显示。</p>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>/etc/apt/trusted.gpg.d/syncthing.gpg
-</span><span>------------------------------------
-</span><span>pub   rsa4096 2024-11-24 [SC]
-</span><span>      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
-</span><span>uid           [ unknown] Syncthing Release Management &lt;release@syncthing.net&gt;
-</span><span>sub   rsa4096 2024-11-24 [E]
-</span><span>
-</span><span>/etc/apt/trusted.gpg.bak
-</span><span>------------------------
-</span><span>pub   rsa4096 2024-11-24 [SC]
-</span><span>      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
-</span><span>uid           [ unknown] Syncthing Release Management &lt;release@syncthing.net&gt;
-</span><span>sub   rsa4096 2024-11-24 [E]
-</span><span>
-</span><span>pub   rsa4096 2015-03-16 [SC]
-</span><span>      DF00 FAF1 C577 104B 50BF  1D00 93D6 889F 9F0E 78D5
-</span><span>uid           [ unknown] Igor Pecovnik &lt;igor@armbian.com&gt;
-</span><span>uid           [ unknown] Igor Pecovnik (Ljubljana, Slovenia) &lt;igor.pecovnik@gmail.com&gt;
-</span><span>sub   rsa4096 2015-03-16 [E]
-</span></code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.d&#x2F;syncthing.gpg
+------------------------------------
+pub   rsa4096 2024-11-24 [SC]
+      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
+uid           [ unknown] Syncthing Release Management &lt;release@syncthing.net&gt;
+sub   rsa4096 2024-11-24 [E]
+
+&#x2F;etc&#x2F;apt&#x2F;trusted.gpg.bak
+------------------------
+pub   rsa4096 2024-11-24 [SC]
+      FBA2 E162 F2F4 4657 B38F  0309 E566 5F9B D597 0C47
+uid           [ unknown] Syncthing Release Management &lt;release@syncthing.net&gt;
+sub   rsa4096 2024-11-24 [E]
+
+pub   rsa4096 2015-03-16 [SC]
+      DF00 FAF1 C577 104B 50BF  1D00 93D6 889F 9F0E 78D5
+uid           [ unknown] Igor Pecovnik &lt;igor@armbian.com&gt;
+uid           [ unknown] Igor Pecovnik (Ljubljana, Slovenia) &lt;igor.pecovnik@gmail.com&gt;
+sub   rsa4096 2015-03-16 [E]
+</code></pre>
 <h4 id="zhi-biao-bu-zhi-ben-shou-xin-ren-de-gong-yao-lie-biao-bu-tui-jian">治标不治本：受信任的公钥列表（不推荐）</h4>
 <p>一种改良方法是将手动编辑<code>/etc/apt/trusted.gpg.d/</code>目录下的文件，增加<code>.asc</code>或<code>.gpg</code>格式的公钥文件，文件名提供公钥用途的解释。参考<code>apt-key</code> 工具中的建议：</p>
 <blockquote>
@@ -458,15 +478,15 @@ class="" id="top">
 <li>新建目录</li>
 </ol>
 <p>如果没有独立的PGP钥匙串目录，新建并按推荐方式赋予权限<sup class="footnote-reference" id="fr-3-1"><a href="#fn-3">[3]</a></sup>：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">sudo</span><span> mkdir</span><span style="color:#bf616a;"> -m</span><span> 0755</span><span style="color:#bf616a;"> -p</span><span> /etc/apt/keyrings/
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo mkdir -m 0755 -p &#x2F;etc&#x2F;apt&#x2F;keyrings&#x2F;
+</code></pre>
 <p>一般而言这个过程只对于 Debian 12 和 Ubuntu 22.04 之前的系统是必须的，使用者可以自行检查是否已经有该默认目录用来存放公钥。</p>
 <ol start="2">
 <li>下载公钥</li>
 </ol>
 <p>从受信任来源下载 APT 仓库的公钥文件：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">wget -O- </span><span>&lt;https://example.com/key/repo-key.gpg&gt; | </span><span style="color:#bf616a;">gpg --dearmor </span><span>| </span><span style="color:#bf616a;">sudo</span><span> tee /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">wget -O- &lt;https:&#x2F;&#x2F;example.com&#x2F;key&#x2F;repo-key.gpg&gt; | gpg --dearmor | sudo tee &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&lt;myrepository&gt;-archive-keyring.gpg
+</code></pre>
 <p>解释其中的指令</p>
 <ul>
 <li><code>wget</code> 从受信任来源 <code>https://example.com/key/repo-key.gpg</code> 下载公钥并输出至控制台 <code>stdout</code> （参数 <code>-O-</code>）。这里的 URL 应替换为你想要下载的公钥地址，比如docker</li>
@@ -474,8 +494,8 @@ class="" id="top">
 <li><code>sudo tee /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg</code> 以管理员身份（<code>/usr/share/keyrings</code>目录只有root写权限），读取unpack后的公钥并将其写入该目录下的文件，<code>&lt;myrepository&gt;</code>应替换为描述公钥用途的名称，按照要求一般要包含被签名仓库名称。</li>
 </ul>
 <p>也可以通过 <code>curl</code> 下载，并通过 <code>gpg</code> 的 <code>--output &lt;file&gt;</code> 或 <code>-o &lt;file&gt;</code>合并后两条命令指定输出目录：</p>
-<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#bf616a;">curl -fsSL </span><span>&lt;https://example.com/key/repo-key.gpg&gt; | </span><span style="color:#bf616a;">sudo</span><span> gpg</span><span style="color:#bf616a;"> --dearmor --output</span><span> /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg
-</span></code></pre>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">curl -fsSL &lt;https:&#x2F;&#x2F;example.com&#x2F;key&#x2F;repo-key.gpg&gt; | sudo gpg --dearmor --output &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&lt;myrepository&gt;-archive-keyring.gpg
+</code></pre>
 <ol start="3">
 <li>编辑源</li>
 </ol>
@@ -483,17 +503,17 @@ class="" id="top">
 <ul>
 <li>单行格式（one-line format）：</li>
 </ul>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>deb [signed-by=/usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg] https://example.com/debian stable main
-</span></code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">deb [signed-by=&#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&lt;myrepository&gt;-archive-keyring.gpg] https:&#x2F;&#x2F;example.com&#x2F;debian stable main
+</code></pre>
 <ul>
 <li>DEB822 格式（DEB822 format）：</li>
 </ul>
-<pre data-lang="txt" style="background-color:#2b303b;color:#c0c5ce;" class="language-txt "><code class="language-txt" data-lang="txt"><span>Types: deb
-</span><span>URIs: https://example.com/debian
-</span><span>Suites: stable
-</span><span>Components: main
-</span><span>Signed-By: /usr/share/keyrings/&lt;myrepository&gt;-archive-keyring.gpg
-</span></code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">Types: deb
+URIs: https:&#x2F;&#x2F;example.com&#x2F;debian
+Suites: stable
+Components: main
+Signed-By: &#x2F;usr&#x2F;share&#x2F;keyrings&#x2F;&lt;myrepository&gt;-archive-keyring.gpg
+</code></pre>
 <p><code>apt</code>（2.3.10）及更新版本还支持在<code>sources.list</code>中内嵌公钥<sup class="footnote-reference" id="fr-1-2"><a href="#fn-1">[1]</a></sup>。</p>
 <h3 id="macos-xi-tong">macOS 系统</h3>
 <p>在 macOS 上，Homebrew 使用 GPG 签名来验证软件包的完整性和来源。用户可以通过 Homebrew 安装 GPG 工具，并使用 GPG 密钥对软件包进行签名和验证。</p>
@@ -559,14 +579,24 @@ class="" id="top">
 </main>
 
 <footer class="footer">
-  
-  <span>&copy; 2025 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
-  
-  <span>
-      Powered by
-      <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
-      <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
-  </span>
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
 </footer>
 
 
@@ -575,119 +605,6 @@ class="" id="top">
       <path d="M12 6H0l6-6z" />
   </svg>
 </a>
-
-
-<script>
-  let menu = document.getElementById('menu')
-  if (menu) {
-      menu.scrollLeft = localStorage.getItem("menu-scroll-position");
-      menu.onscroll = function () {
-          localStorage.setItem("menu-scroll-position", menu.scrollLeft);
-      }
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener("click", function (e) {
-          e.preventDefault();
-          var id = this.getAttribute("href").substr(1);
-          if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                  behavior: "smooth"
-              });
-          } else {
-              document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
-          }
-          if (id === "top") {
-              history.replaceState(null, null, " ");
-          } else {
-              history.pushState(null, null, `#${id}`);
-          }
-      });
-  });
-
-</script>
-
-
-<script>
-  var mybutton = document.getElementById("top-link");
-  window.onscroll = function () {
-      if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-          mybutton.style.visibility = "visible";
-          mybutton.style.opacity = "1";
-      } else {
-          mybutton.style.visibility = "hidden";
-          mybutton.style.opacity = "0";
-      }
-  };
-
-</script>
-
-
-
-<script>
-  document.getElementById("theme-toggle").addEventListener("click", () => {
-      if (document.body.className.includes("dark")) {
-          document.body.classList.remove('dark');
-          localStorage.setItem("pref-theme", 'light');
-      } else {
-          document.body.classList.add('dark');
-          localStorage.setItem("pref-theme", 'dark');
-      }
-  })
-
-</script>
-
-
-<script>
-  document.querySelectorAll('pre > code').forEach((codeblock) => {
-      const container = codeblock.parentNode.parentNode;
-
-      const copybutton = document.createElement('button');
-      copybutton.classList.add('copy-code');
-      copybutton.innerText = 'copy';
-      function copyingDone() {
-          copybutton.innerText = 'copied!';
-          setTimeout(() => {
-              copybutton.innerText = 'copy';
-          }, 2000);
-      }
-
-      copybutton.addEventListener('click', (cb) => {
-          if ('clipboard' in navigator) {
-              var content = codeblock.textContent;
-              if(codeblock.firstChild.tagName == 'TABLE') {
-                  content = Array(...codeblock.firstChild.getElementsByTagName('span')).map((span) => { return span.textContent; }).join('');
-              }
-              navigator.clipboard.writeText(content);
-              copyingDone();
-              return;
-          }
-
-          const range = document.createRange();
-          range.selectNodeContents(codeblock);
-          const selection = window.getSelection();
-          selection.removeAllRanges();
-          selection.addRange(range);
-          try {
-              document.execCommand('copy');
-              copyingDone();
-          } catch (e) { };
-          selection.removeRange(range);
-      });
-
-      if (container.classList.contains("highlight")) {
-          container.appendChild(copybutton);
-      } else if (container.parentNode.firstChild == container) {
-          // td containing LineNos
-      } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
-          // table containing LineNos and code
-          codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
-      } else {
-          // code blocks not having highlight as parent class
-          codeblock.parentNode.appendChild(copybutton);
-      }
-  });
-</script>
 
 
 
@@ -705,7 +622,9 @@ class="" id="top">
 
 
 
-<script src="https://www.edwardzcn.me/js/toggle-sections.js"></script>
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
 
 
 </body>
