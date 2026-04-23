@@ -5,8 +5,29 @@
     <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/categories/bian-cheng/atom.xml"/>
     <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
     <generator uri="https://www.getzola.org/">Zola</generator>
-    <updated>2025-11-09T00:00:00+00:00</updated>
+    <updated>2026-04-23T00:00:00+00:00</updated>
     <id>https://www.edwardzcn.me/categories/bian-cheng/atom.xml</id>
+    <entry xml:lang="en">
+        <title>用Skill开发Skill并测试Skill</title>
+        <published>2026-04-23T00:00:00+00:00</published>
+        <updated>2026-04-23T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/blog/programming/skill-skill-skill/"/>
+        <id>https://www.edwardzcn.me/blog/programming/skill-skill-skill/</id>
+        
+        <summary type="html">&lt;h2 id=&quot;yong-skill-kai-fa-skill-bing-ce-shi-skill&quot;&gt;用 Skill 开发 Skill 并测试 Skill&lt;&#x2F;h2&gt;
+&lt;p&gt;Vibe Coding 一阵子，对 skill 的认知一直保持在 “自带环境的 prompt 模版”的阶段。盲目装上一堆 skill 无疑会加大 token 消耗，且更大概率会触发语义矛盾让 agent 左右为难，但不用又显得太“过”装清高了，更不用说那 skill 是真有用啊。考虑到媒体放卫星式的噪音，我自己动手写了几个 skill，目前 CC 和 Codex 都使用一套 skill 配置。这篇文章简单记录一下过程中的有趣发现。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
     <entry xml:lang="en">
         <title>Pyenv：多版本Python管理与虚拟环境设置</title>
         <published>2025-11-09T00:00:00+00:00</published>

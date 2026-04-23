@@ -6,12 +6,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
-<title>Posts</title>
+<title>用Skill开发Skill并测试Skill</title>
 
 
 
 
-<meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
+
+<meta name="keywords" content="AI, agent, skill">
 
 
 
@@ -29,7 +30,7 @@
 
 
   
-  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;">
+  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;&#x2F;blog&#x2F;programming&#x2F;skill-skill-skill&#x2F;">
 
 
 <link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
@@ -99,7 +100,7 @@
 </head>
 
 <body
-class="list"
+class=""
 id="top"
 data-show-code-copy-buttons="true"
 data-show-theme-toggle="true"
@@ -107,7 +108,6 @@ data-remember-choice="true"
 data-search-page-url="https://www.edwardzcn.me/search"
 data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
 data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
-  
   <script>document.documentElement.classList.add("js");</script>
 <script>
   (function () {
@@ -310,204 +310,173 @@ data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
   </nav>
 </header>
 
-
 <main class="main">
   
-  <header class="page-header">
-  <nav class="breadcrumbs" aria-label="breadcrumb">
-      <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>
-  </nav>
-  <h1>Posts
+<article class="post-single">
+  <header class="post-header">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          <a href="https://www.edwardzcn.me/blog/">Posts</a>&nbsp;»&nbsp;
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;skill-skill-skill&#x2F;">用Skill开发Skill并测试Skill</a>
+      </nav>
+      <h1 class="post-title">用Skill开发Skill并测试Skill</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2026-04-23 00:00:00 +0000">2026-04-23</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1214 words&nbsp;·&nbsp;edwardzcn-decade
+
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:用Skill开发Skill并测试Skill" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details >
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#yong-skill-kai-fa-skill-bing-ce-shi-skill" aria-label="用 Skill 开发 Skill 并测试 Skill">用 Skill 开发 Skill 并测试 Skill</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#na-ge-mo-xing-de-andrej-karpathy-skills-dao-di-zuo-liao-shen-me" aria-label="那个万星的 andrej-karpathy-skills 到底做了什么">那个万星的 andrej-karpathy-skills 到底做了什么</a>
+              
+            </li>
+            
+            <li>
+              <a href="#agent-yong-skill-lai-xie-skill" aria-label="Agent 用 Skill 来写 Skill">Agent 用 Skill 来写 Skill</a>
+              
+            </li>
+            
+            <li>
+              <a href="#qing-hao-hao-xie-description" aria-label="请好好写 description">请好好写 description</a>
+              
+            </li>
+            
+            <li>
+              <a href="#yi-liao-zhi-wai-de-shi" aria-label="意料之外的事">意料之外的事</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <h2 id="yong-skill-kai-fa-skill-bing-ce-shi-skill">用 Skill 开发 Skill 并测试 Skill</h2>
+<p>Vibe Coding 一阵子，对 skill 的认知一直保持在 “自带环境的 prompt 模版”的阶段。盲目装上一堆 skill 无疑会加大 token 消耗，且更大概率会触发语义矛盾让 agent 左右为难，但不用又显得太“过”装清高了，更不用说那 skill 是真有用啊。考虑到媒体放卫星式的噪音，我自己动手写了几个 skill，目前 CC 和 Codex 都使用一套 skill 配置。这篇文章简单记录一下过程中的有趣发现。</p>
+<span id="continue-reading"></span>
+<p>仓库地址为：<a href="https://github.com/edwardzcn-decade/skills-repo">我在 GitHub 上的 skills-repo</a></p>
+<h3 id="na-ge-mo-xing-de-andrej-karpathy-skills-dao-di-zuo-liao-shen-me">那个万星的 andrej-karpathy-skills 到底做了什么</h3>
+<p>有一个经媒体大力宣传，GitHub 上 Starred 过万的项目，叫 <a href="https://github.com/andrej-karpathy/skills">andrej-karpathy-skills</a>。号称一个 skill 便能让你的 agent 按照 “vibe coding” 概念的提出者 Andrej Karpathy 的理念来写代码。听着很诱人对不对，颇有种请祖师爷上身的感觉。</p>
+<p>Skill 本体很简单，一个 65 行纯文本 markdown 文件，没有附带任何脚本，没有黑魔法，就像仓库介绍一样 “A single CLAUDE.md file to improve Claude Code behavior”。</p>
+<p>这 65 行的内容，是对 Karpathy 在 2026 年 1 月发布的<a href="https://x.com/karpathy/status/2015883857489522876">一条推文</a>进行内容压缩、指令化，来指导 agent 行为。举例来说</p>
+<blockquote>
+<p>[Karpathy's Post] They also don't manage their confusion, they don't seek clarifications, they don't surface inconsistencies, they don't present tradeoffs, they don't push back when they should, and they are still a little too sycophantic.</p>
+</blockquote>
+<p>K 在这段话中列举了 agent 当前阶段一些表现不佳的方面，比如遇到模糊概念擅自作主，过于迎合用户（You're absolutely right!）等等。</p>
+<blockquote>
+<p>[Skill.md] Don't assume. Don't hide confusion. Surface tradeoffs.</p>
+<p>Before implementing:</p>
+<ul>
+<li>State your assumptions explicitly. If uncertain, ask.</li>
+<li>If multiple interpretations exist, present them - don't pick silently.</li>
+<li>If a simpler approach exists, say so. Push back when warranted.</li>
+<li>If something is unclear, stop. Name what's confusing. Ask.</li>
+</ul>
+</blockquote>
+<p>Skill 针对 Karpathy 的吐槽反向要求，表达成这四条。核心很简单，要求 agent 对一切模糊概念与用户进行“<strong>交互式确认</strong>”。</p>
+<p>我完整阅读完原始 Post，并使用了这个 Skill 两天。诚然，它确实能缓解一些问题，但还是太粗暴太naive了，毕竟<strong>压缩是有代价</strong>的，而且<strong>对 Karpathy 所述内容的理解因人/agent而异</strong>。我自己重新写了个 Karpathy Behavioral Guidelines (KBG) skill。倒不是吹嘘自己的理解比原仓库更好（不可能，毕竟都用了差不多的 model 哈哈哈），我个人的建议是这样的，每个人都应当<strong>重新读一下原始 Post</strong>，并根据你自己的理解/喜好，edit/rewrite/write 一套适合自己的 KBG skill。想想看，你就像在指导一个知识储备很丰富但理解不了你意图的实习生一样，最重要的是让 ta 和你合作更加融洽。拷贝一个上万 star 的 skill只能说你克隆了原始作者的理解，但你和他的行为方式一样吗？他命令的风格是你的风格吗？他认定放弃自由度和效率换取准确度的 tradeoff 和你完全一致吗？对我而言，答案是否定的。</p>
+<h3 id="agent-yong-skill-lai-xie-skill">Agent 用 Skill 来写 Skill</h3>
+<p>Codex 系统自带的 skill 中有一个叫 Skill Creator。功能不仅包含构建新的 skill，还可以用来更新现有 skill，进行迭代。比如我的 git-commit-assist skill 首版运行状况不及预期，就通过这个 “元 skill“ 进行修改。</p>
+<p>细想还是挺有趣的，用 Skill 来写 Skill，像是 agent 领域的自我指涉（self-reference）。这个说法不准确，可能用 Skill Creator 来修改 Skill Creator 才算。</p>
+<h3 id="qing-hao-hao-xie-description">请好好写 description</h3>
+<p>之前编写项目 description 或者仓库 description 时我总是不够用心，因为这个描述对实际功能不造成影响。Agent skill 不一样，<strong>description 决定了 agent 什么时候会调用这个 skill，并影响 skill 的实际效果</strong>。</p>
+<p>比如下面这段 skill 描述：</p>
+<pre data-lang="markdown" class="language-markdown "><code class="language-markdown" data-lang="markdown">---
+name: git-commit-assist
+description: Draft Angular-style git commit messages and complete git commit workflows with explicit AI participation metadata. Use when the user asks to create a commit, says &quot;git commit&quot;, &quot;commit this&quot;, &quot;write a commit message&quot;, &quot;will commit&quot;, &quot;help me commit&quot; in English or Chinese, or needs to choose AI attribution and Co-authored-by (coauthor) trailers for a commit.
+---
+</code></pre>
+<h3 id="yi-liao-zhi-wai-de-shi">意料之外的事</h3>
+<p>分享一个有趣的意料之外的事，当我进行 git-commit-assist 这个 skill 时，修改完成但还没有推送更新，即编辑的 <code>/tmp/skills</code> 包含新版本 git-commit-assist 但是 <code>~/.claude/skills</code> 中的还是旧版本。新版本主要功能就是调用了一个 <code>AskUserQuestion</code> 来让 agent 和用户进行交互式确认。当我在 claude 中敲出 <code>help me commit</code> 的时候 Claude 使用了新版本的功能。至于原因，可能是我太傻了没意识到哈哈哈我还问了下他，各位可以按自己理解解释下。</p>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;ai&#x2F;">AI</a></li>
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;agent&#x2F;">agent</a></li>
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;skill&#x2F;">skill</a></li>
+          
+      </ul>
+      
+
     
-    <a href="https://www.edwardzcn.me/atom.xml" title="RSS" aria-label="RSS">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height="23">
-        <path d="M4 11a9 9 0 0 1 9 9"></path>
-        <path d="M4 4a16 16 0 0 1 16 16"></path>
-        <circle cx="5" cy="19" r="1"></circle>
-      </svg>
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;shredder-three-laws&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>The Three Laws of (Using) Shredder</span>
     </a>
     
-</h1>
-</header>
-
-
-<article class="post-entry">
-<header class="entry-header">
-  <h2>《北岛作品》摘录</h2>
-</header>
-
-<div class="entry-content">
-    <p><p>必将有人重写生活，还这世间一个清白。</p>
-<p>北岛的诗，凡以月份开头，总带着些历史的厚重感。有机器（人）言：“一月的夜晚像一封信，藏着无法送达的秘密”。</p>
-</p>
-</div>
-
-<footer class="entry-footer">
     
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2022-05-17 00:00:00 +0000">2022-05-17</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2127 words&nbsp;·&nbsp;edwardzcn-decade
-
-</footer>
-<a class="entry-link" aria-label="post link to 《北岛作品》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;a-bei-dao-reader-excerpt&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-<header class="entry-header">
-  <h2>《蛤蟆先生去看心理医生》摘录</h2>
-</header>
-
-<div class="entry-content">
-    <p><p>尝试和解，学会拒绝，懂得愤怒。</p>
-</p>
-</div>
-
-<footer class="entry-footer">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2022-05-12 00:00:00 +0000">2022-05-12</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;1981 words&nbsp;·&nbsp;edwardzcn-decade
-
-</footer>
-<a class="entry-link" aria-label="post link to 《蛤蟆先生去看心理医生》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;ha-ma-xian-sheng-qu-kan-xin-li-yi-sheng-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-<header class="entry-header">
-  <h2>《法治的细节》摘录</h2>
-</header>
-
-<div class="entry-content">
-    <p><p>序言部分真的写太好了，如果你还在费力找寻读此书的意义，先看序言。<br>
-唯愿公平如大水滚滚，使公义如江河滔滔。</p>
-</p>
-</div>
-
-<footer class="entry-footer">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2022-05-10 00:00:00 +0000">2022-05-10</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1462 words&nbsp;·&nbsp;edwardzcn-decade
-
-</footer>
-<a class="entry-link" aria-label="post link to 《法治的细节》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;fa-zhi-de-xi-jie-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-<header class="entry-header">
-  <h2>《病隙随笔》摘录</h2>
-</header>
-
-<div class="entry-content">
-    <p><p>古园寂寥，我求一心安定。</p>
-</p>
-</div>
-
-<footer class="entry-footer">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2022-04-29 00:00:00 +0000">2022-04-29</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;374 words&nbsp;·&nbsp;edwardzcn-decade
-
-</footer>
-<a class="entry-link" aria-label="post link to 《病隙随笔》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;bing-xi-sui-bi-zhai-lu&#x2F;"></a>
-</article>
-
-<article class="post-entry">
-<header class="entry-header">
-  <h2>《美国的反智传统》摘录</h2>
-</header>
-
-<footer class="entry-footer">
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span title="2022-04-25 00:00:00 +0000">2022-04-25</span>&nbsp;·&nbsp;19 min&nbsp;·&nbsp;3720 words&nbsp;·&nbsp;edwardzcn-decade
-
-</footer>
-<a class="entry-link" aria-label="post link to 《美国的反智传统》摘录" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading&#x2F;mei-guo-de-fan-zhi-chuan-tong-zhai-lu&#x2F;"></a>
-</article>
-
-
-
-
-
-<footer class="page-footer">
-<nav class="pagination">
-  
-  <a class="previous" href="https://www.edwardzcn.me/blog/page/4/">« Previous</a>
-  
-  
-  <a class="next" href="https://www.edwardzcn.me/blog/page/6/">Next »</a>
-  
 </nav>
-</footer>
 
+    
+    
+  </footer>
+
+</article>
 
 </main>
 
