@@ -374,6 +374,12 @@
         <loc>https://www.edwardzcn.me/categories/bian-cheng/page/2/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/categories/blog/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/categories/blog/page/1/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/categories/du-hou-gan/</loc>
     </url>
     <url>
@@ -480,9 +486,6 @@
     </url>
     <url>
         <loc>https://www.edwardzcn.me/gallery/</loc>
-    </url>
-    <url>
-        <loc>https://www.edwardzcn.me/music/</loc>
     </url>
     <url>
         <loc>https://www.edwardzcn.me/robot/</loc>
@@ -725,15 +728,34 @@
         <loc>https://www.edwardzcn.me/tags/zhuan-zai/</loc>
     </url>
     <url>
+        <loc>https://www.edwardzcn.me/tags/zola/</loc>
+    </url>
+    <url>
         <loc>https://www.edwardzcn.me/zh/</loc>
     </url>
     <url>
-        <loc>https://www.edwardzcn.me/zh/biao-qian/</loc>
+        <loc>https://www.edwardzcn.me/zh/blog/</loc>
     </url>
     <url>
-        <loc>https://www.edwardzcn.me/zh/fen-lei/</loc>
+        <loc>https://www.edwardzcn.me/zh/blog/blog-migration/</loc>
+        <lastmod>2025-01-10</lastmod>
     </url>
     <url>
-        <loc>https://www.edwardzcn.me/zh/yin-le/</loc>
+        <loc>https://www.edwardzcn.me/zh/blog/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/zh/categories/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/zh/categories/bo-ke/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/zh/categories/bo-ke/page/1/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/zh/tags/</loc>
+    </url>
+    <url>
+        <loc>https://www.edwardzcn.me/zh/tags/zola/</loc>
     </url>
 </urlset>
