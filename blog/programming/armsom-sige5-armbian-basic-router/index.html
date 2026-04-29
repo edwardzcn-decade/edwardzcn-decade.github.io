@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>ArmSom-Sige5开发版使用Armbian——基础路由</title>
+
+
+
+
+
+<meta name="keywords" content="Armbian">
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;">
+
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
+            }
+
+            .list {
+                background: var(--theme-bg);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme-bg);
+            }
+        }
+
+    </style>
+    
+</noscript>
+
+
+  
+
+</head>
+
+<body
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+<script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
+    }
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        
+
+<div class="language-switcher" aria-label="Language">
+  <span class="language-switcher-icon" aria-hidden="true">
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=18 width=18>
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+
+
+
+  </span>
+  
+    
+    
+    
+
+    
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-basic-router/"
+      hreflang="en"
+      lang="en"
+      class="active" aria-current="true"
+      
+    >EN</a>
+  
+    
+    
+    
+
+    
+    
+      
+        
+      
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/armsom-sige5-armbian-basic-router/"
+      hreflang="zh"
+      lang="zh"
+      
+      data-missing-translation="true" data-missing-translation-message="Translation is not available"
+    >ZH</a>
+  
+</div>
+
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading"
+          
+          >
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+              
+            
+          
+            
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;" title="Tags"
+          
+          >
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories&#x2F;" title="Categories"
+          
+          >
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="#" title="Search"
+          data-search-toggle="true"
+          >
+          <span>Search</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot"
+          
+          >
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola"
+          
+          >
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+<main class="main">
+
+
+
+
+
+
+
+
+
+<article class="post-single">
+  <header class="post-header">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+          <a href="https://www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;">Posts</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-basic-router&#x2F;">ArmSom-Sige5开发版使用Armbian——基础路由</a>
+      </nav>
+      <h1 class="post-title">ArmSom-Sige5开发版使用Armbian——基础路由</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2025-01-18 00:00:00 +0000">2025-01-18</span>&nbsp;·&nbsp;21 min&nbsp;·&nbsp;4127 words&nbsp;·&nbsp;edwardzcn-decade
+
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:ArmSom-Sige5开发版使用Armbian——基础路由" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details >
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#gu-jian-emmcshao-xie" aria-label="固件eMMC烧写">固件eMMC烧写</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#zhun-bei-gong-zuo" aria-label="准备工作">准备工作</a>
+              
+            </li>
+            
+            <li>
+              <a href="#shao-lu-bu-zou" aria-label="烧录步骤">烧录步骤</a>
+              
+              <ul>
+                
+                <li><a href="#windows-rkdevtool" aria-label="Windows RkDevTool">Windows RkDevTool</a></li>
+                
+                <li><a href="#linux-macos-rkdeveloptool" aria-label="Linux&#x2F;macOS rkdeveloptool">Linux&#x2F;macOS rkdeveloptool</a></li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#armbian-chu-shi-pei-zhi" aria-label="Armbian 初始配置">Armbian 初始配置</a>
+          
+        </li>
+        
+        <li>
+          <a href="#armbian-xi-tong-huan-yuan" aria-label="Armbian 系统换源">Armbian 系统换源</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#armbian-zhuan-shu-ruan-jian-yuan-huan-yuan" aria-label="Armbian 专属软件源换源">Armbian 专属软件源换源</a>
+              
+            </li>
+            
+            <li>
+              <a href="#fa-xing-ban-ji-chu-debian-ubuntu-huan-yuan" aria-label="发行版基础Debian&#x2F;Ubuntu 换源">发行版基础Debian&#x2F;Ubuntu 换源</a>
+              
+            </li>
+            
+            <li>
+              <a href="#jing-tai-ip-ssh-diao-shi" aria-label="静态 IP + ssh 调试">静态 IP + ssh 调试</a>
+              
+            </li>
+            
+            <li>
+              <a href="#diao-zheng-dian-yuan-ji-hua-he-xiu-mian-she-zhi" aria-label="调整电源计划和休眠设置">调整电源计划和休眠设置</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#armbian-ji-chu-lu-you" aria-label="Armbian 基础路由">Armbian 基础路由</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#wang-luo-lian-jie-guan-li" aria-label="网络连接管理">网络连接管理</a>
+              
+            </li>
+            
+            <li>
+              <a href="#dns-he-dhcp-pei-zhi" aria-label="DNS 和 DHCP 配置">DNS 和 DHCP 配置</a>
+              
+            </li>
+            
+            <li>
+              <a href="#nat-he-ip-forwarding" aria-label="NAT 和 IP Forwarding">NAT 和 IP Forwarding</a>
+              
+              <ul>
+                
+                <li><a href="#qi-yong-ip-zhuan-fa" aria-label="启用 IP 转发">启用 IP 转发</a></li>
+                
+                <li><a href="#pei-zhi-iptables-jin-xing-nat" aria-label="配置 iptables 进行 NAT">配置 iptables 进行 NAT</a></li>
+                
+              </ul>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>记录过年回家前的一次折腾，把ArmSom-Sige5开发版<del>刷了社区版Armbian又降回板子厂商提供的unofficial Armbian</del>，配置软路由功能兼有Linux环境开发体验。</p>
+<span id="continue-reading"></span>
+<p>免责声明：初次接触开发版<del>我也忘记哪里看到ArmSom的广告就买了，可能我只是喜欢他家的💜紫色外壳</del>，不保证本文有参考价值，仅作为个人踩坑记录。</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian0.jpeg" alt="sige5" /></p>
+<h2 id="gu-jian-emmcshao-xie">固件eMMC烧写</h2>
+<p>因为手头没有可用的microSD卡，选择type-C数据线直连电脑和板子烧录固件到eMMC。具体步骤如下：</p>
+<h3 id="zhun-bei-gong-zuo">准备工作</h3>
+<ul>
+<li>两根type-C线，一根用于开发版和电脑连接，一根为开发版供电。</li>
+<li>准备 MiniLoader （ArmSom官方提供，sige5为RK3576_MiniLoaderAll）</li>
+<li>准备 System Image
+<ul>
+<li>我使用的是ArmSom提供的unofficial Armbian镜像</li>
+<li><a href="https://github.com/armbian/community/releases/">Armbian Community 镜像</a></li>
+<li>其他镜像请参考<a href="https://docs.armsom.org/zh/armsom-sige5">ArmSom Sige5文档</a></li>
+</ul>
+</li>
+<li>烧录工具
+<ul>
+<li>Windows 使用 RKDevTool（ArmSom官方提供）</li>
+<li>Linux/macOS 使用 <a href="https://github.com/rockchip-linux/rkdeveloptool">rkdeveloptool</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="shao-lu-bu-zou">烧录步骤</h3>
+<p>进入 Maskrom 模式，参考<a href="https://docs.armsom.org/zh/getting-start/flash-img#232-usb%E7%BA%BF%E7%83%A7%E5%BD%95%E5%88%B0emmc">镜像烧录步骤</a></p>
+<ol>
+<li>断开所有供电电线，连接开发版和电脑</li>
+<li>使用一根Type-C线连接开发版Type-C口（非供电接口）和电脑的usb接口，使用软件检测
+<ul>
+<li>Windows RKDevTool 下方显示 <code>No Devices Found</code></li>
+<li>Linux/macOS 运行 <code>rkdevelotool ld</code> 显示 <code>not found any devices!</code></li>
+</ul>
+</li>
+<li>按住Mashrom按键，使用另一根Type-C线连接开发版Type-C口（供电接口）和电源
+<ul>
+<li>Windows RKDevTool 下方显示 “Found One Loader Device”，可松开按键</li>
+<li>Linux/macOS 运行 <code>rkdevelotool ld</code> 检测到设备 <code>DevNo=1 Vid=0x2207,Pid=0x350e,LocationID=201    Maskrom</code>，可松开按键</li>
+</ul>
+</li>
+<li>根据下面的平台/软件选择要烧录的 System Image 进行烧录</li>
+</ol>
+<h4 id="windows-rkdevtool">Windows RkDevTool</h4>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian1.png" alt="RKDevTool" /></p>
+<p>其中 Loader Path 为MiniLoader路径，Image Path 为所烧录镜像的路径。起始地址为 0x0000 无需修改，注意勾选 Write by Address，点击 Run 开始烧录。右侧Download image完成即烧录完成。</p>
+<h4 id="linux-macos-rkdeveloptool">Linux/macOS rkdeveloptool</h4>
+<p>命令行执行</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">rkdeveloptool db RK3576_MiniLoaderAll.bin
+rkdeveloptool wl 0x0000 Armbian_community_25.2.0-trunk.86_Armsom-sige5_noble_vendor_6.1.75_gnome_desktop.img
+rkdeveloptool rd
+</code></pre>
+<p>等待烧录完成。</p>
+<h2 id="armbian-chu-shi-pei-zhi">Armbian 初始配置</h2>
+<p>开发版接电，使用HDMI接口外接显示器，我烧录的是带有GNOME桌面环境的Armbian镜像，初次登录需要一些配置，还不能直接进入桌面系统。<a href="https://docs.armbian.com/User-Guide_Getting-Started/">Armbian 默认登录root密码为1234</a>。初始配置包含以下：</p>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">Welcome to Armbian!
+
+Documentation: https:&#x2F;&#x2F;docs.armbian.com&#x2F; | Community support: https:&#x2F;&#x2F;forum.armbian.com&#x2F;
+
+IP address:  Network connection timeout!
+
+Create root password: ********
+Repeat root password: ********
+
+Shell: BASH
+
+Please provide a username (eg. your first name): ?
+
+Create user (Jane) password: ********
+Repeat user (Jane) password: ********
+
+...
+</code></pre>
+<p>完成配置后桌面系统会重启进入GNOME桌面，非桌面系统会新建 ssh 对话。</p>
+<h2 id="armbian-xi-tong-huan-yuan">Armbian 系统换源</h2>
+<p>由于国内网络问题，进入系统首先更换镜像源<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup> <sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>，Armbian是构建在Debian或Ubuntu发行版上，需要编辑：</p>
+<ul>
+<li><code>/etc/apt/sources.list/armbian.list</code>armbian专属软件源和</li>
+<li><code>/etc/apt/sources.list</code>发行版基础的软件源。</li>
+</ul>
+<h3 id="armbian-zhuan-shu-ruan-jian-yuan-huan-yuan">Armbian 专属软件源换源</h3>
+<p>可参考 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/armbian/">TUNA Mirror Help</a></p>
+<p>或者使用下面的镜像选择脚本</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">
+#!&#x2F;bin&#x2F;bash
+GREEN=&#x27;\033[0;32m&#x27;
+CYAN=&#x27;\033[0;36m&#x27;
+RED=&#x27;\033[0;31m&#x27;
+NC=&#x27;\033[0m&#x27;
+
+SOURCE_FILE=&quot;&#x2F;etc&#x2F;apt&#x2F;sources.list.d&#x2F;armbian.list&quot;
+
+CURRENT_SOURCE=$(grep -Eo &#x27;https?:&#x2F;&#x2F;[^ ]+&#x27; &quot;$SOURCE_FILE&quot; | head -n 1)
+
+if [[ &quot;$CURRENT_SOURCE&quot; == *&quot;tuna.tsinghua.edu.cn&quot;* ]]; then
+    CURRENT_SOURCE_NAME=&quot;Tsinghua 清华大学镜像源&quot;
+elif [[ &quot;$CURRENT_SOURCE&quot; == *&quot;ustc.edu.cn&quot;* ]]; then
+    CURRENT_SOURCE_NAME=&quot;USTC 中国科学技术大学镜像源&quot;
+elif [[ &quot;$CURRENT_SOURCE&quot; == *&quot;apt.armbian.com&quot;* ]]; then
+    CURRENT_SOURCE_NAME=&quot;官方镜像源&quot;
+else
+    CURRENT_SOURCE_NAME=&quot;未知镜像源&quot;
+fi
+
+echo -e &quot;${CYAN}======================================${NC}&quot;
+echo -e &quot;${CYAN}   Armbian Mirror Switcher Script    ${NC}&quot;
+echo -e &quot;${CYAN}======================================${NC}&quot;
+
+if [ -n &quot;$CURRENT_SOURCE&quot; ]; then
+    echo -e &quot;${GREEN}当前源：$CURRENT_SOURCE${NC}&quot;
+    echo -e &quot;${GREEN}镜像源名称：$CURRENT_SOURCE_NAME${NC}&quot;
+else
+    echo -e &quot;${RED}未检测到有效的源配置！${NC}&quot;
+fi
+
+echo -e &quot;${GREEN}请选择要切换的镜像源:${NC}&quot;
+echo -e &quot;1. Tsinghua 清华大学源 (https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn)&quot;
+echo -e &quot;2. USTC 中国科学技术大学源 (https:&#x2F;&#x2F;mirrors.ustc.edu.cn)&quot;
+echo -e &quot;3. 恢复为默认的官方源 (http:&#x2F;&#x2F;apt.armbian.com)&quot;
+echo -ne &quot;${CYAN}请输入选项 (1, 2 或 3): ${NC}&quot;
+read -r choice
+
+case $choice in
+    1)
+        echo -e &quot;${GREEN}切换到 Tsinghua 源...${NC}&quot;
+        sudo sed -i.bak -E &#x27;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn#g&#x27; &quot;$SOURCE_FILE&quot;
+        echo -e &quot;${GREEN}源已成功更换为 Tsinghua 清华大学镜像！${NC}&quot;
+        ;;
+    2)
+        echo -e &quot;${GREEN}切换到 USTC 源...${NC}&quot;
+        sudo sed -i.bak -E &#x27;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#https:&#x2F;&#x2F;mirrors.ustc.edu.cn#g&#x27; &quot;$SOURCE_FILE&quot;
+        echo -e &quot;${GREEN}源已成功更换为 USTC 中国科学技术大学镜像！${NC}&quot;
+        ;;
+    3)
+        echo -e &quot;${GREEN}恢复为默认的官方源...${NC}&quot;
+        sudo sed -i.bak -E &#x27;s#https?:&#x2F;&#x2F;(mirrors\.(tuna\.tsinghua\.edu\.cn|ustc\.edu\.cn)|apt\.armbian\.com)#http:&#x2F;&#x2F;apt.armbian.com#g&#x27; &quot;$SOURCE_FILE&quot;
+        echo -e &quot;${GREEN}源已恢复为默认的官方镜像！${NC}&quot;
+        ;;
+    *)
+        echo -e &quot;${RED}无效输入！请重新运行脚本并选择 1, 2 或 3。${NC}&quot;
+        exit 1
+        ;;
+esac
+
+echo -ne &quot;${CYAN}是否立即更新软件包索引？(y&#x2F;n): ${NC}&quot;
+read -r update_choice
+
+if [[ &quot;$update_choice&quot; =~ ^[Yy]$ ]]; then
+    echo -e &quot;${CYAN}更新软件包索引...${NC}&quot;
+    sudo apt-get update
+    echo -e &quot;${GREEN}软件包索引更新完成！${NC}&quot;
+else
+    echo -e &quot;${CYAN}已跳过更新软件包索引。${NC}&quot;
+fi
+
+echo -e &quot;${GREEN}镜像源切换操作完成！${NC}&quot;
+</code></pre>
+<h3 id="fa-xing-ban-ji-chu-debian-ubuntu-huan-yuan">发行版基础Debian/Ubuntu 换源</h3>
+<p>根据登录开发版 motd 信息获取确定发行版基础<sup class="footnote-reference" id="fr-2-2"><a href="#fn-2">[2]</a></sup>，比如我的显示如下：</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian2.png" alt="motd" /></p>
+<p>Noble 表示基于 Ubuntu 24.04 (noble)</p>
+<p>或者可以使用<code>cat /etc/os-release</code>获取详细系统信息</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">edwardzcn@armsom-sige5:~$ cat &#x2F;etc&#x2F;os-release
+PRETTY_NAME=&quot;Armbian 24.11.3 noble&quot;
+NAME=&quot;Ubuntu&quot;
+VERSION_ID=&quot;24.04&quot;
+VERSION=&quot;24.04 LTS (Noble Numbat)&quot;
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL=&quot;https:&#x2F;&#x2F;www.armbian.com&quot;
+SUPPORT_URL=&quot;https:&#x2F;&#x2F;forum.armbian.com&quot;
+BUG_REPORT_URL=&quot;https:&#x2F;&#x2F;www.armbian.com&#x2F;bugs&quot;
+PRIVACY_POLICY_URL=&quot;https:&#x2F;&#x2F;www.armbian.com&quot;
+UBUNTU_CODENAME=noble
+LOGO=&quot;armbian-logo&quot;
+ARMBIAN_PRETTY_NAME=&quot;Armbian 24.11.3 noble&quot;
+</code></pre>
+<p>确定是ubuntu还是debian就可以选择镜像源，以清华源为例</p>
+<ul>
+<li>清华大学Debian源 https://mirrors.tuna.tsinghua.edu.cn/help/debian</li>
+<li>清华大学Ubuntu Ports源 https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports</li>
+</ul>
+<p>注意Ubuntu系要选择ubuntu-port源，换源可参考 <a href="https://mirrors.tuna.tsinghua.edu.cn/help/ubuntu-ports/">TUNA Mirror help</a> 或者 <a href="https://mirrors.ustc.edu.cn/help/ubuntu-ports.html">USTC Mirror Help</a></p>
+<p>还是以使用清华源为例，手动修改<code>/etc/apt/sources.list</code></p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo nano &#x2F;etc&#x2F;apt&#x2F;sources.list
+</code></pre>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble main restricted universe multiverse
+# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble main restricted universe multiverse
+deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-updates main restricted universe multiverse
+# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-updates main restricted universe multiverse
+deb https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-backports main restricted universe multiverse
+# deb-src https:&#x2F;&#x2F;mirrors.tuna.tsinghua.edu.cn&#x2F;ubuntu-ports&#x2F; noble-backports main restricted universe multiverse
+</code></pre>
+<p>现在你<del>不用看着10+Kbps的网速干着急</del>可放心使用</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo apt update
+sudo apt upgrade
+</code></pre>
+<p>瞧瞧你的板子，说实话ASCII画我还是喜欢原来那个大A。</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo apt install neofetch -y &amp;&amp; neofetch
+</code></pre>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian3.png" alt="neofetch" /></p>
+<h3 id="jing-tai-ip-ssh-diao-shi">静态 IP + ssh 调试</h3>
+<p>我更习惯使用我的工作机（一台mac）通过网线连接板子，使用 ssh 做基础路由设置以及一些软件更新，桌面系统开始会有卡顿（以及无浏览器等问题）</p>
+<p>插入网线后，假定工作机以太网接口连接开发版eth1接口</p>
+<ul>
+<li>在工作机上设置网络-以太网<code>手动</code>配置IPv4，IP地址 <code>192.168.1.100</code>，子网掩码 <code>255.255.255.0</code></li>
+<li>在开发版上设置网络 手动（Manual）IPv4（取消掉自动DHCP），IP地址 <code>192.168.1.1</code>（常见路由器地址），子网掩码 <code>255.255.255.0</code></li>
+</ul>
+<p><code>ping</code>测试是否可以连通，确定ICMP可用，然后使用 Armbian初始配置中 设置的用户密码（桌面系统建议连接非root用户）</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash"># 工作机 ping 开发板
+zmac-mini:~:% ping -c 5 192.168.1.1
+PING 192.168.1.1 (192.168.1.1): 56 data bytes
+64 bytes from 192.168.1.1: icmp_seq=0 ttl=64 time=0.918 ms
+64 bytes from 192.168.1.1: icmp_seq=1 ttl=64 time=0.885 ms
+64 bytes from 192.168.1.1: icmp_seq=2 ttl=64 time=0.818 ms
+64 bytes from 192.168.1.1: icmp_seq=3 ttl=64 time=0.773 ms
+64 bytes from 192.168.1.1: icmp_seq=4 ttl=64 time=0.867 ms
+
+--- 192.168.1.1 ping statistics ---
+5 packets transmitted, 5 packets received, 0.0% packet loss
+round-trip min&#x2F;avg&#x2F;max&#x2F;stddev = 0.773&#x2F;0.852&#x2F;0.918&#x2F;0.051 ms
+</code></pre>
+<p>使用 ssh 密码登录，后续 Armbian开发板 ssh 登录配置类似于 VPS 远程 ssh 登录配置<sup class="footnote-reference" id="fr-3-1"><a href="#fn-3">[3]</a></sup>，可根据自己习惯和需求配置密钥登录等。</p>
+<h3 id="diao-zheng-dian-yuan-ji-hua-he-xiu-mian-she-zhi">调整电源计划和休眠设置</h3>
+<p>有些时候可能 ssh连接一段时间会遇到系统被挂起（suspend）的提示，方便起见还是关掉GNOME电源选项的 Automatic Suspend，<del>我并不确定是因为这个挂起的，因为suspend的日志没看懂也没找到命令行设置方式</del>。</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian4.png" alt="suspend" /></p>
+<h2 id="armbian-ji-chu-lu-you">Armbian 基础路由</h2>
+<p>好的似乎终于进入正题了，先说说为什么突然想着折腾小板子，以及为什么选择了 Armbian，我先放几个理由，有想到再补充</p>
+<ol>
+<li>兼顾软路由，但又不想要openwrt</li>
+</ol>
+<ul>
+<li>openwrt固然很方便，但有两个点为人诟病：包管理问题、为照顾大量低性能的设备做了兼容（但事实上，你并不一定会用这些IoT设备对吗？）。Armbian 基于Ubuntu或者Debian给了更多玩法，特别是对有Linux使用经验的玩家/开发者，可以使用apt包管理工具，充分利用这一价位开发版的价值（比如利用板载npu做一点推理，毕竟都自称mini computer了）</li>
+<li>套壳/层叠的软件栈带来很多负担。个人便好，不喜欢docker虚拟机套壳最后只部署一个软路由。</li>
+<li>另外有技术佬说<del>openwrt 很灵车但我没遇到过</del></li>
+</ul>
+<ol start="2">
+<li>Use Armbian just like Ubuntu+/Debian+</li>
+</ol>
+<ul>
+<li>虽然没有openwrt或者硬路由提供的面板，<code>armbian-config</code>基本上覆盖了应有的便捷配置（如果你喜欢这种 CLI 交互就更适合了），<del>不过你现在还用不了，<code>armbian-config</code>需建立和github.com的通信</del></li>
+<li>恰有基于arm镜像的服务需要跑</li>
+<li>剩余的性能释放出来跑我的脚本和检测🐤面板</li>
+<li><del>出来吧 NAS</del></li>
+</ul>
+<p>本节先更新基础的路由部分，以及对桌面环境的必要调整</p>
+<p>其实一个基本的（软）路由器系统主要包括下面几项服务，开箱即用的面板或者一键式脚本只是简化帮助完成这些配置<sup class="footnote-reference" id="fr-1-2"><a href="#fn-1">[1]</a></sup>。</p>
+<ul>
+<li><strong>DNS</strong>：域名解析服务，用于将主机名称（局域网主机名，域名解析）解析为IP地址
+<ul>
+<li>可以当作：<strong>小区户名-门牌号查询簿</strong></li>
+<li>请注意：公网上提供DNS服务是被禁止的，会被封IP，该项服务只允许运营商提供</li>
+<li>由于传统DNS查询是明文，可以被中间人截留修改造成DNS污染，需要适当调整，比如使用DoH和DoT分流。</li>
+<li>可用工具 systemd-resolved，TelescopeDNS，EasyMosdns和dnsmasq</li>
+</ul>
+</li>
+<li><strong>DHCP</strong>：动态IP地址分配协议（服务器）。终端网络设备一般会装载DHCP客户端（client）来自动请求并获取动态ip。（软）路由器系统的DHCP这里实际上是指DHCP服务器（server），用来分发管理局域网的ip地址，回应DHCP客户端发来的请求。
+<ul>
+<li>可以当作：<strong>小区住户门牌号地址簿（搬家会更新）</strong></li>
+<li>可用工具  coredhcp（yaml配置）/ dnsmasq（conf配置）</li>
+</ul>
+</li>
+<li><strong>NAT</strong>：网络地址转换，建立局域网<code>&lt;IP,Port&gt;</code>元组与外网<code>&lt;IP,Port&gt;</code>映射，并进行转换。
+<ul>
+<li>可以当作：<strong>小区特派巴士座位表（巴士是和城市沟通的交通方式）</strong></li>
+<li>可用工具 iptables，nftables</li>
+</ul>
+</li>
+<li><strong>IP Forwarding</strong>：IP转发，只有启用后才会将开发版某个接口（比如连接局域网设备）不经本地程序转发至外网接口。作为操作系统内核功能，用于支持多网卡设备在不同接口间的通信。
+<ul>
+<li>可以当作：<strong>手拿座位表的特派巴士司机/售票员</strong></li>
+</ul>
+</li>
+</ul>
+<p>在基础路由中我都挑选配置尽量简单，易兼容的工具。</p>
+<h3 id="wang-luo-lian-jie-guan-li">网络连接管理</h3>
+<p>Linux的网络连接管理可以使用 <code>systemd-networkd</code> 或 <code>NetworkManager</code> 。我搭建的基于Ubuntu的Armbian习惯用后者，还提供了更高层次的抽象<code>netplan</code>。理解成网络计划，简化编写，完成后可以自动渲染成<code>NetworkManager</code>描述。</p>
+<p>修改<code>netplan</code>配置文件，默认在<code>/etc/netplan/</code>目录，序号大的覆盖小的，为避免冲突，合并用一个文件描述，名字设为<code>00-default-use-network-manager.yaml</code>。如果你看到了其他以UUID命名的文件，则是通过GUI界面生成的配置，可以删除。</p>
+<p>未经修改的文件类似：</p>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">network:
+  version: 2
+  renderer: NetworkManager
+</code></pre>
+<p>修改后：</p>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+    eth1:
+      dhcp4: false
+      addresses:
+        - 192.168.1.1&#x2F;24
+      nameservers:
+        addresses:
+          - 192.168.1.1
+</code></pre>
+<p>执行<code>sudo netplan apply</code>使改变生效。可以在 GNOME 桌面的网络配置 GUI 中看到改变生效（名称暴露了是谁修改的）：</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian5.png" alt="netplan0" /></p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian6.png" alt="netplan1" /></p>
+<h3 id="dns-he-dhcp-pei-zhi">DNS 和 DHCP 配置</h3>
+<p>Armbian 默认使用 NetworkManager 中的 systemd-resolved组件，这个 DNSstub 监听 <code>127.0.0.53</code> 上的 <code>53</code>端口，其仅能监听本机请求而不能接受局域网内其他机器的请求，当路由肯定是不够的，安装并使用 <code>dnsmasq</code>作为DNS服务器，同时它也是一个轻量级的DHCP服务器，配置文件默认在<code>/etc/dnsmasq.conf</code><sup class="footnote-reference" id="fr-4-1"><a href="#fn-4">[4]</a></sup>。</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo apt install dnsmasq
+sudo vim &#x2F;etc&#x2F;dnsmasq.conf
+</code></pre>
+<p>dnsmasq默认配置注释，初看很吓人，但实际上我们需要让路由跑起来并不需要调整很多，大多数配置看注释就能明白。这里给出我的最小化配置（还是假定开发版的eth1接口连接局域网设备）</p>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">port=0                                      # 关闭 DNS
+server=1.1.1.1                              # 指明上游 DNS服务器
+interface=eth1                              # 指定 DHCP 服务绑定的网络接口
+bind-interfaces                             # 只监听对应接口的请求（即eth1 接口的地址）
+dhcp-range=192.168.1.100,192.168.1.200,12h  # 分配 IP 地址范围（这里分配100-200）
+dhcp-option=option:router,192.168.1.1       # 指定使用本网关 （默认网关）
+dhcp-option=option:dns-server,192.168.1.1   # 指定使用本路由器 DNS
+log-queries
+log-dhcp
+</code></pre>
+<p><code>bind-interfaces</code> 设置使<code>dnsmasq</code>只监听对应接口请求，而非监听0.0.0.0所有可用地址，用于兼容正在运行的 <code>systemd-resolved</code> （监听127.0.0.53的53端口），防止冲突。<code>port=0</code>配置也会禁用掉监听DNS请求的服务，也可以避免冲突（目前我们暂不使用 dnsmasq 的 DNS 服务）。<code>dhcp-option</code>开头的设置都和DHCP协议中option段有关，上述两条会让client端自动配置网关和DNS为当前配置路由器的地址。</p>
+<p>如果不打算兼容<code>systemd-resolved</code>，我们需要调整<code>/etc/resolv.conf</code>并停止<code>systemd-resolved</code>服务，这里我们暂不考虑，优先让路由器跑起来。</p>
+<p>重启 <code>dnsmasq</code> 服务，查看状态</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo systemctl restart dnsmasq.service
+sudo systemctl status dnsmasq.service
+</code></pre>
+<p>服务Active，<del>请先忽略那条Fail</del>，现在可以修改你工作机的网络设置，调整为DHCP（动态获取IP地址），效果如下：</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/2025-01-18/armbian7.png" alt="dhcp" /></p>
+<h3 id="nat-he-ip-forwarding">NAT 和 IP Forwarding</h3>
+<p>虽然客户机能拿到ip地址，但我们还不能访问外网。此时开发版并不会将数据包从eth1（内网接口）递送至eth0（外网接口），也不知道内网地址和外网地址的翻译规则。</p>
+<p>IP Forwarding 是 NAT 实现的基础，它负责将数据包在不同接口之间转发，而NAT更像是定义规则怎么修改为内网/外网地址，两者搭配食用味道更佳。</p>
+<h4 id="qi-yong-ip-zhuan-fa">启用 IP 转发</h4>
+<p>编辑<code>/etc/systl.conf</code>：</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo vim &#x2F;etc&#x2F;sysctl.conf
+</code></pre>
+<p>找到对应行取消注释，开启ipv4和ipv6转发。</p>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt"># Uncomment the next line to enable packet forwarding for IPv4
+net.ipv4.ip_forward=1
+
+# Uncomment the next line to enable packet forwarding for IPv6
+#  Enabling this option disables Stateless Address Autoconfiguration
+#  based on Router Advertisements for this host
+net.ipv6.conf.all.forwarding=1
+</code></pre>
+<p>运行<code>sudo sysctl -p</code>使改变生效。</p>
+<h4 id="pei-zhi-iptables-jin-xing-nat">配置 iptables 进行 NAT</h4>
+<p>在我的实验环境中，外网接口为 <code>eth0</code>，内网接口为 <code>eth1</code>：</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+sudo iptables -A FORWARD -i eth1 -o eth0 -m state --state RELATED,ESTABLISHED -j ACCEPT
+sudo iptables -A FORWARD -i eth1 -o eth0 -j ACCEPT
+</code></pre>
+<p>保存规则：</p>
+<pre><code>sudo apt-get install iptables-persistent
+sudo netfilter-persistent save
+</code></pre>
+<p>由于iptables规则默认只在当前会话生效。一旦系统重启或者服务重启规则会被清空，借助<code>iptables-persistent</code>持久化规则到文件中，每次系统或服务启动时自动加载。</p>
+<p>基本路由配置 Done！现在可以试试用工作机通过板子访问外部网络了。</p>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p><a href="https://cyp0633.icu/post/armbian-r2s/">Armbian，更适合 R2S 软路由的系统</a> <a href="#fr-1-1">↩</a> <a href="#fr-1-2">↩2</a></p>
+</li>
+<li id="fn-2">
+<p><a href="https://xiau.net/990.html/">夏的博客 | Armbian换源教程</a>. <a href="#fr-2-1">↩</a> <a href="#fr-2-2">↩2</a></p>
+</li>
+<li id="fn-3">
+<p><a href="https://linux.do/t/topic/267502#p-2476630-h-9">VPS基本安全措施 - 开发调优 - LINUX DO</a> <a href="#fr-3-1">↩</a></p>
+</li>
+<li id="fn-4">
+<p><a href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_networking/using-different-dns-servers-for-different-domains_configuring-and-managing-networking#using-systemd-resolved-in-networkmanager-to-send-dns-requests-for-a-specific-domain-to-a-selected-dns-server_using-different-dns-servers-for-different-domains">RHEL 9 | systemd-resolved 使用</a> <a href="#fr-4-1">↩</a></p>
+</li>
+</ol>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;armbian&#x2F;">Armbian</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;blog-migration&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>Blog Migration to Zola</span>
+    </a>
+    
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;armsom-sige5-armbian-cockpit&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>ArmSom-Sige5开发版使用Armbian——Cockpit面板</span>
+    </a>
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+
+
+
+
+
+
+<div id="search-toggle-box" class="hidden">
+  <div class="search-toggle-modal">
+    <input type="text" id="search-toggle-input" placeholder="Type to search..." />
+    <button id="search-toggle-button">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
+
+
+</body>
+
+</html>

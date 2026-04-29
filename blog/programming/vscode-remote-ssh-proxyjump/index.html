@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>VSCode使用跳板机远程登陆共享内网访问</title>
+
+
+
+
+
+<meta name="keywords" content="VScode">
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;vscode-remote-ssh-proxyjump&#x2F;">
+
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
+            }
+
+            .list {
+                background: var(--theme-bg);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme-bg);
+            }
+        }
+
+    </style>
+    
+</noscript>
+
+
+  
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      options: {
+        ignoreHtmlClass: "no-mathjax",
+        processHtmlClass: "mathjax"
+      }
+    };
+  </script>
+  
+
+</head>
+
+<body
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+<script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
+    }
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        
+
+<div class="language-switcher" aria-label="Language">
+  <span class="language-switcher-icon" aria-hidden="true">
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=18 width=18>
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+
+
+
+  </span>
+  
+    
+    
+    
+
+    
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/"
+      hreflang="en"
+      lang="en"
+      class="active" aria-current="true"
+      
+    >EN</a>
+  
+    
+    
+    
+
+    
+    
+      
+        
+      
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/vscode-remote-ssh-proxyjump/"
+      hreflang="zh"
+      lang="zh"
+      
+      data-missing-translation="true" data-missing-translation-message="Translation is not available"
+    >ZH</a>
+  
+</div>
+
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading"
+          
+          >
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+              
+            
+          
+            
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;" title="Tags"
+          
+          >
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories&#x2F;" title="Categories"
+          
+          >
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="#" title="Search"
+          data-search-toggle="true"
+          >
+          <span>Search</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot"
+          
+          >
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola"
+          
+          >
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+<main class="main">
+
+
+
+
+
+
+
+
+
+<article class="post-single">
+  <header class="post-header">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+          <a href="https://www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;">Posts</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;vscode-remote-ssh-proxyjump&#x2F;">VSCode使用跳板机远程登陆共享内网访问</a>
+      </nav>
+      <h1 class="post-title">VSCode使用跳板机远程登陆共享内网访问</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2021-05-14 00:00:00 +0000">2021-05-14</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;554 words&nbsp;·&nbsp;edwardzcn-decade
+
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:VSCode使用跳板机远程登陆共享内网访问" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details >
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#background" aria-label="Background">Background</a>
+          
+        </li>
+        
+        <li>
+          <a href="#ji-qun-pei-zhi" aria-label="集群配置">集群配置</a>
+          
+        </li>
+        
+        <li>
+          <a href="#vscode-ssh-configuration" aria-label="VSCode SSH Configuration">VSCode SSH Configuration</a>
+          
+        </li>
+        
+        <li>
+          <a href="#other-tips" aria-label="Other Tips">Other Tips</a>
+          
+        </li>
+        
+        <li>
+          <a href="#reference" aria-label="Reference">Reference</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>2025-01 记录：古早的VSCode使用说明。并不能叫做内网穿透，遂改名为内网访问。</p>
+<span id="continue-reading"></span>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-dark.png" alt="VSCode_01" /></p>
+<h2 id="background">Background</h2>
+<p>VSCode 19 年加入的 Remote Development 功能极大的方便了用户通过本地 VSCode 界面操作远程服务器、容器或者<a href="https://docs.microsoft.com/windows/wsl">WSL</a>，兼有好看易用的 GUI、插件生态与 Linux shell，可以说是很多轻度服务器使用者的福音了。根据<a href="https://code.visualstudio.com/docs/remote/remote-overview">官网描述</a>，VSCode Remote Development 可以用来做很多事情，比如：</p>
+<ol>
+<li>隔离远程与本地环境</li>
+<li>在远程配置不适用本地的工具或环境</li>
+<li>直接调试或部署在服务器上的应用（比如网站）</li>
+</ol>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-remote.png" alt="VSCode_02" /></p>
+<p>主要需求：</p>
+<ul>
+<li>希望能有更方便的窗口来单独管理（<del>更重要的原因是我 vim/emacs 技术不够起飞</del>）。</li>
+<li>该机器并没有外网端口，需要借助跳板机 ssh 才可以使用。</li>
+</ul>
+<h2 id="ji-qun-pei-zhi">集群配置</h2>
+<p>我实验的配置一共五个计算节点，由一台 n1 服务器充当跳板机，n2、n4、n5（n3 有外部端口但不使用）不提供外部端口，仅能从 n1 跳转，均禁止密码访问（为了防止被矿工爆破）</p>
+<h2 id="vscode-ssh-configuration">VSCode SSH Configuration</h2>
+<p>我使用 VSCode 的配置如下</p>
+<pre data-lang="txt" class="language-txt "><code class="language-txt" data-lang="txt">Host USTC-n1
+  HostName your-externel-ip
+  User your-user-name
+  Port your-port
+
+Host USTC-n2
+  HostName your-internel-ip
+  User your-user-name
+  ProxyJump USTC-n1
+</code></pre>
+<p>注意区分外网 IP<code>your-externel-ip</code>（外界访问集群的 IP）与内网 IP<code>your-internel</code>，当然如果设置了 hostname，也可以直接替换，比如在我的配置里将内网 IP 替换为 n2。</p>
+<p>配置成功后，<code>F1</code>建输入 <code>Connect to Host...</code> 然后选择 USTC-n2 进行测试，成功后结果如下图:</p>
+<p><img src="https://eddyblog.oss-cn-shenzhen.aliyuncs.com/Blog/bg/vscode-remote-success.png" alt="VSCode_03" /></p>
+<h2 id="other-tips">Other Tips</h2>
+<p>当然配置文件还有很多其他选项可用，比如使用<code>ProxyCommand</code>或是密钥配置之类的。</p>
+<p>更多奇技淫巧可以参考 <a href="https://code.visualstudio.com/blogs/2019/10/03/remote-ssh-tips-and-tricks">Tips and Tricks</a></p>
+<h2 id="reference">Reference</h2>
+<ol>
+<li><a href="https://www.cnblogs.com/azureology/p/14620969.html">VScode remote配置跳板机实现远程登陆 | Azure's Blog</a></li>
+<li><a href="https://code.visualstudio.com/blogs/2021/02/16/extension-bisect">Visual Studio Code Blog</a></li>
+</ol>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;vscode&#x2F;">VScode</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;key-of-life-career-planning&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>我的人生解答书——职业规划</span>
+    </a>
+    
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;blog-migration&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>Blog Migration to Zola</span>
+    </a>
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+
+
+
+
+
+
+<div id="search-toggle-box" class="hidden">
+  <div class="search-toggle-modal">
+    <input type="text" id="search-toggle-input" placeholder="Type to search..." />
+    <button id="search-toggle-button">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
+
+
+</body>
+
+</html>

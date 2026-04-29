@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+    <title>Edwardzcn 博客 - 豆豆</title>
+    <subtitle>应许之地</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/zh/tags/dou-dou/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2018-02-19T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/zh/tags/dou-dou/atom.xml</id>
+    <entry xml:lang="zh">
+        <title>《天幕红尘》与豆豆</title>
+        <published>2018-02-19T00:00:00+00:00</published>
+        <updated>2018-02-19T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/zh/blog/reading/tian-mu-hong-chen-yu-dou-dou/"/>
+        <id>https://www.edwardzcn.me/zh/blog/reading/tian-mu-hong-chen-yu-dou-dou/</id>
+        
+        <summary type="html">&lt;p&gt;转自豆瓣 &lt;a href=&quot;https:&#x2F;&#x2F;book.douban.com&#x2F;subject&#x2F;24748615&#x2F;&quot;&gt;书籍链接&lt;&#x2F;a&gt;，&lt;a href=&quot;https:&#x2F;&#x2F;book.douban.com&#x2F;review&#x2F;6539282&#x2F;&quot;&gt;书评&lt;&#x2F;a&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;数年前，看电视剧《天道》的时候，面对剧尾的那一场诉讼，我佩服得五体投地，于是，给某人出了一道题：如果一个农村家庭作坊被人谴责为滥用童工，怎么辩护？
+彼时，还算是民商法才子的某人给了一个答案。但是，我依然觉得是电视剧中的辩护词更赞。&lt;&#x2F;p&gt;
+</summary>
+        
+    </entry>
+</feed>

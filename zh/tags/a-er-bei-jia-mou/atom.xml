@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh">
+    <title>Edwardzcn 博客 - 阿尔贝·加缪</title>
+    <subtitle>应许之地</subtitle>
+    <link rel="self" type="application/atom+xml" href="https://www.edwardzcn.me/zh/tags/a-er-bei-jia-mou/atom.xml"/>
+    <link rel="alternate" type="text/html" href="https://www.edwardzcn.me"/>
+    <generator uri="https://www.getzola.org/">Zola</generator>
+    <updated>2022-03-30T00:00:00+00:00</updated>
+    <id>https://www.edwardzcn.me/zh/tags/a-er-bei-jia-mou/atom.xml</id>
+    <entry xml:lang="zh">
+        <title>《鼠疫》摘录</title>
+        <published>2022-03-30T00:00:00+00:00</published>
+        <updated>2022-03-30T00:00:00+00:00</updated>
+        
+        <author>
+          <name>
+            
+              edwardzcn-decade
+            
+          </name>
+        </author>
+        
+        <link rel="alternate" type="text/html" href="https://www.edwardzcn.me/zh/blog/reading/shu-yi-zhai-lu/"/>
+        <id>https://www.edwardzcn.me/zh/blog/reading/shu-yi-zhai-lu/</id>
+        
+        <content type="html" xml:base="https://www.edwardzcn.me/zh/blog/reading/shu-yi-zhai-lu/">&lt;span id=&quot;continue-reading&quot;&gt;&lt;&#x2F;span&gt;&lt;h2 id=&quot;yi&quot;&gt;一&lt;&#x2F;h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;P039 “‘我可知道。我也不需要化验。我有一段时间曾在中国行医，二十几年前，我曾在巴黎见到过几例类似病理。只是当时大家都不敢说出它的真实名称。公众舆论，神圣不可侵犯：不能恐慌，尤其不能恐慌。另外，正如一位同行所说：‘这不可能发生，大家都知道，这种病在西方已经绝迹。’是的，这事大家都知道，只有私人不知道。得了，里厄，您跟我一样清楚这是什么疾病。’&lt;&#x2F;p&gt;
+&lt;p&gt;里厄在思考。从诊室的窗口，他望着在远处环抱海湾的悬崖崖肩。天空虽然呈蓝色，但不打明亮，并在下午随着时间的流逝而渐渐暗淡。&lt;&#x2F;p&gt;
+&lt;p&gt;‘是的，卡斯泰尔，’里厄说，‘这几乎无法相信。但似乎很像鼠疫。’”&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;h2 id=&quot;er&quot;&gt;二&lt;&#x2F;h2&gt;
+</content>
+        
+    </entry>
+</feed>

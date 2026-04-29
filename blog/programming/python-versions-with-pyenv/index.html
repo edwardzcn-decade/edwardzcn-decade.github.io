@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Pyenv: Managing Multiple Python Versions and Virtual Environments</title>
+
+
+
+
+
+<meta name="keywords" content="Python">
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;">
+
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
+            }
+
+            .list {
+                background: var(--theme-bg);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme-bg);
+            }
+        }
+
+    </style>
+    
+</noscript>
+
+
+  
+
+</head>
+
+<body
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+<script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
+    }
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        
+
+<div class="language-switcher" aria-label="Language">
+  <span class="language-switcher-icon" aria-hidden="true">
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=18 width=18>
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+
+
+
+  </span>
+  
+    
+    
+    
+
+    
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/python-versions-with-pyenv/"
+      hreflang="en"
+      lang="en"
+      class="active" aria-current="true"
+      
+    >EN</a>
+  
+    
+    
+    
+
+    
+    
+      
+        
+      
+        
+          
+          
+        
+      
+    
+    <a
+      href="https://www.edwardzcn.me/zh/blog/programming/python-versions-with-pyenv/"
+      hreflang="zh"
+      lang="zh"
+      
+      
+    >ZH</a>
+  
+</div>
+
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading"
+          
+          >
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+              
+            
+          
+            
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;" title="Tags"
+          
+          >
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories&#x2F;" title="Categories"
+          
+          >
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="#" title="Search"
+          data-search-toggle="true"
+          >
+          <span>Search</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot"
+          
+          >
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola"
+          
+          >
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+<main class="main">
+
+
+
+
+
+
+
+
+
+<article class="post-single">
+  <header class="post-header">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+          <a href="https://www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;">Posts</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;">Pyenv: Managing Multiple Python Versions and Virtual Environments</a>
+      </nav>
+      <h1 class="post-title">Pyenv: Managing Multiple Python Versions and Virtual Environments</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2025-11-09 00:00:00 +0000">2025-11-09</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1032 words&nbsp;·&nbsp;edwardzcn-decade
+
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:Pyenv: Managing Multiple Python Versions and Virtual Environments" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details >
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#what-and-why" aria-label="What and Why">What and Why</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#understanding-the-benefits-of-pyenv" aria-label="Understanding the Benefits of pyenv">Understanding the Benefits of pyenv</a>
+              
+            </li>
+            
+            <li>
+              <a href="#comparison-of-version-management-tools" aria-label="Comparison of Version Management Tools">Comparison of Version Management Tools</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#installing-pyenv" aria-label="Installing pyenv">Installing pyenv</a>
+          
+        </li>
+        
+        <li>
+          <a href="#core-mechanism" aria-label="Core Mechanism">Core Mechanism</a>
+          
+        </li>
+        
+        <li>
+          <a href="#installing-and-switching-python-versions" aria-label="Installing and Switching Python Versions">Installing and Switching Python Versions</a>
+          
+        </li>
+        
+        <li>
+          <a href="#virtual-environments-with-pyenv-virtualenv" aria-label="Virtual Environments with pyenv-virtualenv">Virtual Environments with pyenv-virtualenv</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#verifying-the-interpreter-used-by-a-virtual-environment" aria-label="Verifying the Interpreter Used by a Virtual Environment">Verifying the Interpreter Used by a Virtual Environment</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#further-reading" aria-label="Further Reading">Further Reading</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>This post is a personal Python environment configuration cheatsheet.</p>
+<blockquote>
+<p>Origin: <a href="https://realpython.com/intro-to-pyenv/">Real Python – Managing Multiple Python Versions with pyenv</a></p>
+<p>Platforms: macOS / Linux / WSL</p>
+</blockquote>
+<span id="continue-reading"></span><h2 id="what-and-why">What and Why</h2>
+<p><code>pyenv</code> is a <a href="https://github.com/pyenv/pyenv?tab=readme-ov-file#simple-python-version-management-pyenv">lightweight Python version management tool</a> that allows users to switch between different Python versions.</p>
+<p>Modern languages like Rust use the official tool <code>rustup</code> for version management, while <code>pyenv</code> is a third-party maintained project. It was developed with reference to Ruby's <code>rbenv</code> and <code>ruby-build</code> as a Python version control tool.</p>
+<p><code>pyenv</code> solves the problem of managing multiple Python versions on a single machine. It can also be combined with virtual environments (such as <code>venv</code> or <code>pyenv-virtualenv</code>) to achieve project-level dependency isolation, preventing package pollution and conflicts.</p>
+<h3 id="understanding-the-benefits-of-pyenv">Understanding the Benefits of <code>pyenv</code></h3>
+<blockquote>
+<p>TL;DR: <code>pyenv</code> enables flexible management of multiple Python versions (both Python 2 and 3) on a single machine. It ensures proper isolation between projects with virtual environments setting.</p>
+</blockquote>
+<p><code>pyenv</code> is specifically designed for cleanly managing multiple Python versions. Even if your OS system already comes with Python preinstalled, using <code>pyenv</code> is still highly recommended. It keeps the system Python clean/untouched and allows you to work with multiple projects requiring different Python versions.</p>
+<p>Q: Why not use the system Python in daily?</p>
+<p><strong>System Python</strong> is installed and managed directly by the operating system.</p>
+<p>On macOS and Linux, a default Python is usually preinstalled; on Windows, it typically requires manual installation.</p>
+<p>You can think of system Python as “<strong>belonging to the OS</strong>“.</p>
+<p>In many cases, system components depend on this specific Python version to function correctly. Modifying it by upgrading/downgrading or installing packages may break system functionality and lead to critical crash.</p>
+<p>Additionally, you often have limited control over the system preinstalled Python version.</p>
+<p>For example, on Ubuntu, the Python version in official repositories may be outdated. You might have to wait for a new OS release to get a newer Python version.</p>
+<p>If you install third-party packages globally using <code>pip</code>, they are added to the system-wide environment. This creates conflicts when different projects require different versions of the same package.</p>
+<p>In many systems, installing Python versions or global packages requires administrator privileges. It is inconvenient especially in restricted enterprise environments.</p>
+<p>In summary, using system Python directly has several drawbacks:</p>
+<ul>
+<li>Potentially breaking the operating system</li>
+<li>Inability to use the latest Python versions and features</li>
+<li>Compatibility issues with projects requiring older versions</li>
+<li>Inability to develop projects requiring newer features</li>
+<li>Dependency installation may require admin intervention</li>
+</ul>
+<p>✅ Ideal solution: flexible and safe Python environment management</p>
+<p>An ideal Python setup should allow you to:</p>
+<ul>
+<li>Install Python in user space (no admin privileges required)</li>
+<li>Freely install, manage, and uninstall multiple Python versions</li>
+<li>Specify exact Python versions per project</li>
+<li>Switch between versions at any time</li>
+</ul>
+<p><code>pyenv</code> provides all of these capabilities. It also supports installing pre-release versions of Python, allowing you to test new features and compatibility in advance.</p>
+<hr />
+<h3 id="comparison-of-version-management-tools">Comparison of Version Management Tools</h3>
+<table><thead><tr><th>Feature</th><th>🦀 Rust – <code>rustup</code></th><th>🐍 Python – <code>pyenv</code></th><th>💎 Ruby – <code>rbenv</code></th></tr></thead><tbody>
+<tr><td><strong>Maintained by</strong></td><td>Official</td><td>Community</td><td>Community</td></tr>
+<tr><td><strong>Managed objects</strong></td><td>Compiler &amp; toolchain</td><td>Python interpreter versions</td><td>Ruby interpreter</td></tr>
+<tr><td><strong>Version switching</strong></td><td>Toolchain-level</td><td>Interpreter-level</td><td>Interpreter-level</td></tr>
+<tr><td><strong>Isolation mechanism</strong></td><td>Toolchain isolation</td><td>With <code>venv</code> / <code>pyenv-virtualenv</code></td><td>With <code>gemset</code> or plugins</td></tr>
+<tr><td><strong>Path mechanism</strong></td><td><code>~/.cargo/bin</code> shim</td><td>PATH shim + env vars</td><td>PATH shim + env vars</td></tr>
+<tr><td><strong>Cross-platform</strong></td><td>macOS / Linux / Windows</td><td>macOS / Linux / WSL</td><td>macOS / Linux</td></tr>
+<tr><td><strong>Package management</strong></td><td>Built-in <code>cargo</code></td><td>With <code>pip</code> / <code>poetry</code></td><td>With <code>bundler</code></td></tr>
+</tbody></table>
+<p>(Adapted from GPT5 answers)</p>
+<h2 id="installing-pyenv">Installing <code>pyenv</code></h2>
+<p>Refer to: <a href="https://github.com/pyenv/pyenv?tab=readme-ov-file#installation">Installation of <code>pyenv</code> | GitHub</a></p>
+<p>For macOS users, use Homebrew and <code>brew</code> command:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">brew update
+brew install pyenv
+</code></pre>
+<p>After installation, add the following to your <code>~/.zshrc</code> or <code>~/.zprofile</code> (for bash, use <code>~/.bashrc</code> or <code>~/.bash_profile</code>):</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">export PYENV_ROOT=&quot;$HOME&#x2F;.pyenv&quot;
+[[ -d $PYENV_ROOT&#x2F;bin ]] &amp;&amp; export PATH=&quot;$PYENV_ROOT&#x2F;bin:$PATH&quot;
+eval &quot;$(pyenv init - zsh)&quot;
+# or
+# eval &quot;$(pyenv init - bash)&quot;
+</code></pre>
+<h2 id="core-mechanism">Core Mechanism</h2>
+<p><code>pyenv</code> uses a "shim layer" to manage versions. When running <code>python</code> or <code>pip</code> commands in the shell:</p>
+<ol>
+<li>The shell first resolves to <code>~/.pyenv/shims/python</code> (intercepted by the shim layer)</li>
+<li>The shim forwards the command to the appropriate interpreter based on your configuration (global / local / shell)</li>
+</ol>
+<p>You can verify this behavior using <code>which python</code> and <code>pyenv which python</code>:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;shims&#x2F;python
+
+pyenv which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;versions&#x2F;3.14.0&#x2F;bin&#x2F;python
+</code></pre>
+<h2 id="installing-and-switching-python-versions">Installing and Switching Python Versions</h2>
+<p>Listing available versions:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv install --list
+</code></pre>
+<p>Install specific versions:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv install 3.12.3
+pyenv install 3.14.0
+</code></pre>
+<p>Set the global version (affects all shells) <code>.python-version</code>. This file is located in <code>~/.pyenv</code>:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv global 3.14.0
+</code></pre>
+<p>Set the local version (only affects the current directory) <code>.python-version</code> in the current directory:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv local 3.12.3
+</code></pre>
+<h2 id="virtual-environments-with-pyenv-virtualenv">Virtual Environments with pyenv-virtualenv</h2>
+<p>On macOS, virtual environments created via <code>python -m venv</code> may sometimes behave unexpectedly due to pyenv’s shim layer. It is recommended to use <code>pyenv</code> and together with <code>pyenv-virtualenv</code> for consistent management.</p>
+<p>Install <code>pyenv-virtualenv</code>:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">brew install pyenv-virtualenv
+</code></pre>
+<p>Add the following initialization to your shell config (<code>~/.zshrc</code> for zsh, <code>~/.bashrc</code> for bash):</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">eval &quot;$(pyenv virtualenv-init - zsh)&quot;
+# or
+# eval &quot;$(pyenv virtualenv-init - bash)&quot;
+</code></pre>
+<p>Create a virtual environment (based on Python 3.14.0, named <code>venv-name</code>):</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv virtualenv 3.14.0 venv-name
+</code></pre>
+<p>Unlike <code>python -m venv .venv</code>, virtual environments are not created in the current directory. Instead, <code>pyenv</code> manages them in <code>~/.pyenv</code>:</p>
+<p>List installed versions and environments (or use <code>pyenv virtualenvs</code>):</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv versions
+  system
+  3.9.24
+  3.12.12
+* 3.14.0 (set by &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;version)
+  3.14.0&#x2F;envs&#x2F;venv-name
+  venv-name --&gt; &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;versions&#x2F;3.14.0&#x2F;envs&#x2F;venv-name
+</code></pre>
+<p>Activate and deactivate environments:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv activate venv-name
+pyenv deactivate
+</code></pre>
+<h3 id="verifying-the-interpreter-used-by-a-virtual-environment">Verifying the Interpreter Used by a Virtual Environment</h3>
+<p>Running <code>which python</code> will always return the path intercepted by the <code>shim</code> layer, i.e. the location of <code>shim/python</code>:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;shims&#x2F;python
+</code></pre>
+<p>The correct way is running <code>pyenv which python</code>. Display the full path to an executable:</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">pyenv which python
+# &#x2F;Users&#x2F;user_name&#x2F;.pyenv&#x2F;versions&#x2F;env_name&#x2F;bin&#x2F;python
+</code></pre>
+<h2 id="further-reading">Further Reading</h2>
+<p><a href="https://github.com/pyenv/pyenv">pyenv GitHub Repository</a></p>
+<p><a href="https://realpython.com/intro-to-pyenv/#understanding-the-benefits-of-using-pyenv">Managing Multiple Python Versions With pyenv</a></p>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;python&#x2F;">Python</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;private-repo-public-github-pages&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>私有仓库中自动部署 GitHub Pages</span>
+    </a>
+    
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;csc-scholarship-application-guide&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>CSC Scholarship Application Guidance</span>
+    </a>
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+
+
+
+
+
+
+<div id="search-toggle-box" class="hidden">
+  <div class="search-toggle-modal">
+    <input type="text" id="search-toggle-input" placeholder="Type to search..." />
+    <button id="search-toggle-button">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
+
+
+</body>
+
+</html>

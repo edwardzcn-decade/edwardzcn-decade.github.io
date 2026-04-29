@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>私有仓库中自动部署 GitHub Pages</title>
+
+
+
+
+
+<meta name="keywords" content="GitHub Actions, CI">
+
+
+
+
+<meta name="description" content="Promised land">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;private-repo-public-github-pages&#x2F;">
+
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
+            }
+
+            .list {
+                background: var(--theme-bg);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme-bg);
+            }
+        }
+
+    </style>
+    
+</noscript>
+
+
+  
+
+</head>
+
+<body
+class=""
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.en.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.en.js">
+<script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
+    }
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        
+
+<div class="language-switcher" aria-label="Language">
+  <span class="language-switcher-icon" aria-hidden="true">
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=18 width=18>
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+
+
+
+  </span>
+  
+    
+    
+    
+
+    
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/"
+      hreflang="en"
+      lang="en"
+      class="active" aria-current="true"
+      
+    >EN</a>
+  
+    
+    
+    
+
+    
+    
+      
+        
+      
+    
+    <a
+      href="https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/"
+      hreflang="zh"
+      lang="zh"
+      
+      data-missing-translation="true" data-missing-translation-message="Translation is not available"
+    >ZH</a>
+  
+</div>
+
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;reading" title="Reading"
+          
+          >
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+              
+            
+          
+            
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;" title="Tags"
+          
+          >
+          <span>Tags</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;categories&#x2F;" title="Categories"
+          
+          >
+          <span>Categories</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="#" title="Search"
+          data-search-toggle="true"
+          >
+          <span>Search</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;robot" title="Robot"
+          
+          >
+          <span>Robot</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola"
+          
+          >
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+<main class="main">
+
+
+
+
+
+
+
+
+
+<article class="post-single">
+  <header class="post-header">
+      <nav class="breadcrumbs" aria-label="breadcrumb">
+          <a href="https://www.edwardzcn.me">Home</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;">Posts</a>&nbsp;»&nbsp;
+          
+          <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;private-repo-public-github-pages&#x2F;">私有仓库中自动部署 GitHub Pages</a>
+      </nav>
+      <h1 class="post-title">私有仓库中自动部署 GitHub Pages</h1>
+      
+      
+      <div class="post-meta">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<span title="2025-10-30 00:00:00 +0000">2025-10-30</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1146 words&nbsp;·&nbsp;edwardzcn-decade
+
+      
+          
+&nbsp;|&nbsp;<a href="mailto:edwardzcn98@gmail.com?subject=Ref:私有仓库中自动部署 GitHub Pages" target="_blank">Email me</a>
+
+      
+      </div>
+      
+  </header>
+
+  
+  
+
+<div class="toc">
+  <details >
+    <summary accesskey="c" title="(Alt + C)">
+      <span class="details">Table of Contents</span>
+    </summary>
+
+    <div class="inner">
+      <ul>
+        
+        <li>
+          <a href="#github-actions" aria-label="GitHub Actions">GitHub Actions</a>
+          
+          <ul>
+            
+            <li>
+              <a href="#deploy-keys-she-zhi" aria-label="Deploy Keys 设置">Deploy Keys 设置</a>
+              
+            </li>
+            
+          </ul>
+          
+        </li>
+        
+        <li>
+          <a href="#cloudflare-pages" aria-label="Cloudflare Pages">Cloudflare Pages</a>
+          
+        </li>
+        
+      </ul>
+    </div>
+  </details>
+</div>
+
+  
+
+  
+  <div class="post-content">
+      <p>GitHub 免费个人账户的私有仓库有一定权限限制，比如无法使用公开的 GitHub Pages 对外展示。这个限制可能会给博客作者带来不便，因为他们一方面希望保护原始内容的私有性，又希望渲染的文章界面能公开访问。</p>
+<p>这个问题有官方默许的解决方案，参考<a href="https://github.com/peaceiris/actions-gh-pages/tree/v4/?tab=readme-ov-file#%EF%B8%8F-deploy-to-external-repository-external_repository">actions-gh-pages</a> 组件对选项 <code>external_repository</code> 的说明：</p>
+<span id="continue-reading"></span>
+<blockquote>
+<p>⭐️ Deploy to external repository <code>external_repository</code></p>
+<p>...</p>
+<p>You can use <code>deploy_key</code> or <code>personal_token</code>.
+When you use <code>deploy_key</code>, set your private key to the repository which includes this action and set your public key to your external repository.</p>
+<p>...</p>
+<p>Use case:</p>
+<p>A GitHub Free Plan account cannot use the GitHub Pages in a private repository. To make your source contents private and deploy it with the GitHub Pages, you can deploy your site from a private repository to a public repository using this option.</p>
+<ul>
+<li><code>peaceiris/homepage</code>: A private repository running this action with <code>external_repository: peaceiris/peaceiris.github.io</code></li>
+<li><code>peaceiris/peaceiris.github.io</code>: A public repository using GitHub Pages</li>
+</ul>
+</blockquote>
+<p>该选项支持从一个仓库（可以私有）渲染出来的网页资源，推送到另一个仓库中。作者也在这里特地标注了使用场景：在保证原始内容私有的情况下部署 GitHub Pages 网站到另一个公共仓库。</p>
+<h2 id="github-actions">GitHub Actions</h2>
+<p>新建并编辑私有仓库的 <code>.github/workflows/deploy.yml</code> 文件</p>
+<pre data-lang="yaml" class="language-yaml "><code class="language-yaml" data-lang="yaml">name: Deploy pages to external repo
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-artifacts:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions&#x2F;checkout@v3
+        with:
+          submodules: recursive
+
+      # Step 2: Sync Git Submodule
+      - name: Git Submodule Sync
+        run: |
+          git submodule sync
+          git submodule update --init --recursive
+
+      # Step 3: Install Zola (the static site generator I used)
+      - name: Install Zola
+        uses: taiki-e&#x2F;install-action@v2
+        with:
+          tool: zola@0.19.1
+
+      # Step 4: Build Zola static sites
+      - name: Build Zola static site(s)
+        run: zola build
+
+      # Step 5: Save build artifacts
+      - name: Save build artifacts
+        uses: actions&#x2F;upload-artifact@v4
+        with:
+          name: zola-site
+          path: public&#x2F;
+          if-no-files-found: error
+
+  deploy-public:
+    # Depends on &#x27;build-artifacts&#x27; job
+    needs: build-artifacts
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 6: Download the artifacts (zola-site)
+      - name: Download build artifacts
+        uses: actions&#x2F;download-artifact@v4
+        with:
+          name: zola-site
+          path: public&#x2F;
+      # Step 7: Deploy to another repository
+      - name: Deploy to GitHub Pages
+        uses: peaceiris&#x2F;actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          publish_dir: .&#x2F;public
+          allow_empty_commit: false
+          external_repository: &lt;user_name&gt;&#x2F;&lt;user_name&gt;.github.io
+          publish_branch: main
+</code></pre>
+<p>我构建的工作流分为两步：</p>
+<ol>
+<li>生成站点资源后 upload artifact 并保存</li>
+<li>下载资源后使用 <code>peaceiris/actions-gh-pages</code> 组件，配合 <code>external_repository</code> 推送到 GitHub 默认的个人资料公共仓库 xxxx.github.io。</li>
+</ol>
+<p>拆分为两部分的好处，我可以在 GitHub Actions 界面 Artifacts 下找到生成的静态资源，方便人工核查备份。</p>
+<p><img src="https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/github-action-%20artifacts.png" alt="GitHub Actions Artifacts" /></p>
+<p>除了 <code>external_repository</code> 选项外，另一选项 <code>deploy_key</code>，也需要额外设置。这个就是指的仓库设置中的部署密钥（Deploy Keys）。仓库级别的细粒度读写权限配置。</p>
+<blockquote>
+<p><a href="https://docs.github.com/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys">Deploy keys</a> use an SSH key to grant readonly or write access to a single repository. They are not protected by a passphrase and can be a security risk if your server is compromised. If you have a complex project or want more fine-grain control over permissions, consider using GitHub Apps instead.</p>
+</blockquote>
+<p>此处，Actions 需要目标仓库的 “写入权限”，但不能暴露我的个人 Token，故采用仓库 Deploy Keys + 仓库 Secrets 的方式。</p>
+<h3 id="deploy-keys-she-zhi">Deploy Keys 设置</h3>
+<ol>
+<li>生成 SSH 密钥对</li>
+</ol>
+<p>和本地生成 SSH 密钥对类似，现在本地终端执行 <code>ssh-keygen</code> 生成密钥对</p>
+<pre data-lang="bash" class="language-bash "><code class="language-bash" data-lang="bash">ssh-keygen -t ed25519 -C &quot;github-pages-deploy@example.com&quot; -f ~&#x2F;.ssh&#x2F;id_github_pages_deploy_key
+</code></pre>
+<p>生成后会得到两个文件：</p>
+<ul>
+<li><code>id_github_pages_deploy_key</code>：私钥</li>
+<li><code>id_github_pages_deploy_key.pub</code>：公钥</li>
+</ul>
+<ol start="2">
+<li>添加公钥到目标仓库的 Deploy Keys</li>
+</ol>
+<p>进入目标仓库（xxx.github.io） Settings -&gt; Deploy Keys，添加新的 Deploy Key，粘贴公钥内容 <code>id_github_pages_deploy_key.pub</code>，并勾选 Allow write access。</p>
+<p><img src="https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/github-deploy-keys.png" alt="GitHub Deploy Keys" /></p>
+<ol start="3">
+<li>添加私钥到源仓库的 Secrets</li>
+</ol>
+<p>打开源仓库（原始内容所在仓库） Settings -&gt; Secrets and variables -&gt; Actions，添加新的 Repository secret，名称为 <code>PAGES_DEPLOY_KEY</code>，内容为私钥 <code>id_github_pages_deploy_key</code> 的内容。</p>
+<p>这样就完成了源仓库可通过SSH密钥对目标仓库进行写入操作的配置，有关部署密钥更多信息可以见官方文档<sup class="footnote-reference" id="fr-1-1"><a href="#fn-1">[1]</a></sup>。</p>
+<h2 id="cloudflare-pages">Cloudflare Pages</h2>
+<p>为了使用 Cloudflare 上已购买的域名和 CDN 加速，我使用 <a href="https://dash.cloudflare.com/">Cloudflare Workers &amp; Pages</a> 自动化同步 GitHub Pages 站点（xxx.github.io）。</p>
+<p>集成 GitHub 仓库内容可见 CF 文档<sup class="footnote-reference" id="fr-2-1"><a href="#fn-2">[2]</a></sup>，简单说只要在 GithHub 账户设置中安装好
+“Cloudflare Workers and Pages” 勾选对应的 GitHub Pages 公开仓库，授予权限就可以了。这样每次公开仓库有更新，会进一步触发 CF Pages 的Action，自动拉取同步最新内容并部署。</p>
+<p><img src="https://www.edwardzcn.me/blog/programming/private-repo-public-github-pages/cloudflare-repo-access.png" alt="Cloudflare Repository Access" /></p>
+<hr><ol class="footnotes-list">
+<li id="fn-1">
+<p><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/managing-deploy-keys#set-up-deploy-keys">Managing deploy keys | GitHub Docs</a> <a href="#fr-1-1">↩</a></p>
+</li>
+<li id="fn-2">
+<p><a href="https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/">GitHub integration | Cloudflare Docs</a> <a href="#fr-2-1">↩</a></p>
+</li>
+</ol>
+
+  </div>
+  
+
+  <footer class="post-footer">
+      
+      <ul class="post-tags">
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;github-actions&#x2F;">GitHub Actions</a></li>
+          
+          
+          <li><a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;tags&#x2F;ci&#x2F;">CI</a></li>
+          
+      </ul>
+      
+
+    
+    
+
+
+<nav class="paginav">
+    
+    <a class="prev" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;life&#x2F;when-the-mountain-told-me-to-leave&#x2F;">
+        <span class="title">« Prev</span>
+        <br>
+        <span>当山告诉我应该离开</span>
+    </a>
+    
+    
+    <a class="next" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;blog&#x2F;programming&#x2F;python-versions-with-pyenv&#x2F;">
+        <span class="title">Next »</span>
+        <br>
+        <span>Pyenv: Managing Multiple Python Versions and Virtual Environments</span>
+    </a>
+    
+</nav>
+
+    
+    
+  </footer>
+
+</article>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+
+
+
+
+
+
+<div id="search-toggle-box" class="hidden">
+  <div class="search-toggle-modal">
+    <input type="text" id="search-toggle-input" placeholder="Type to search..." />
+    <button id="search-toggle-button">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
+
+
+</body>
+
+</html>

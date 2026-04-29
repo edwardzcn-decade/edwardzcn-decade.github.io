@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>标签</title>
+
+
+
+
+<meta name="keywords" content="Rust zola blog, cela theme, edwardzcn">
+
+
+
+
+<meta name="description" content="应许之地">
+
+
+
+<meta name="author" content="edwardzcn-decade">
+
+
+
+
+
+
+
+  <link rel="canonical" href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;">
+
+
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme-runtime.css">
+<link rel="stylesheet" href="https://www.edwardzcn.me/css/theme.css">
+<link rel="icon" href="https://www.edwardzcn.me/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://www.edwardzcn.me/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://www.edwardzcn.me/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://www.edwardzcn.me/apple-touch-icon.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+
+
+
+<link rel="alternate" type="application/atom+xml" title="RSS" href="https://www.edwardzcn.me/zh/atom.xml">
+
+
+
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+    </style>
+    
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme-bg: rgb(24, 25, 38);
+                --surface-bg: rgb(36, 39, 58);
+                --surface-muted: rgb(54, 58, 79);
+                --surface-strong: rgb(68, 71, 90);
+                --text-main: rgb(202, 211, 245);
+                --text-muted: rgb(165, 173, 203);
+                --content-text: rgb(184, 192, 224);
+                --highlight-bg: rgb(54, 58, 79);
+                --code-bg: rgb(30, 32, 48);
+                --border-color: rgb(68, 71, 90);
+                --accent-color: rgb(138, 173, 244);
+                --accent-strong: rgb(125, 196, 228);
+                --accent-soft: rgba(138, 173, 244, 0.18);
+                --focus-ring: rgba(138, 173, 244, 0.32);
+                --overlay-backdrop: rgba(17, 17, 27, 0.72);
+                --hero-glow: radial-gradient(circle at top, rgba(138, 173, 244, 0.18), transparent 55%);
+            }
+
+            .list {
+                background: var(--theme-bg);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme-bg);
+            }
+        }
+
+    </style>
+    
+</noscript>
+
+
+  
+
+</head>
+
+<body
+class="list"
+id="top"
+data-show-code-copy-buttons="true"
+data-show-theme-toggle="true"
+data-remember-choice="true"
+data-search-page-url="https://www.edwardzcn.me/zh/search"
+data-search-index-json-url="https://www.edwardzcn.me/search_index.zh.json"
+data-search-index-js-url="https://www.edwardzcn.me/search_index.zh.js">
+<script>document.documentElement.classList.add("js");</script>
+<script>
+  (function () {
+    var scheme;
+    var darkSchemes = ["catppuccin-macchiato", "rose-pine", "nord"];
+    scheme = localStorage.getItem("pref-scheme");
+    if (!scheme) {
+      scheme = "catppuccin-macchiato";
+      }
+    document.documentElement.setAttribute("data-scheme", scheme);
+    if (darkSchemes.indexOf(scheme) !== -1) {
+      document.documentElement.classList.add("dark");
+      document.body.classList.add("dark");
+    }
+    localStorage.setItem("pref-scheme", scheme);
+    })();
+</script>
+<header class="header">
+  <nav class="nav">
+    <div class="logo">
+      <a
+        href="https:&#x2F;&#x2F;www.edwardzcn.me"
+        accesskey="h"
+        title="Edwardzcn blog (Alt + H)"
+      >
+        
+        <svg
+          id="cela-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          height="30"
+          viewBox="0 0 50 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="butt"
+          stroke-linejoin="miter"
+          stroke-miterlimit="4"
+          stroke-opacity="1"
+        >
+          <path
+            style="fill: currentColor; stroke-width: 0.0479086"
+            d="M 12.270265,1.9966968 V 2.442102 h 10.985976 v 9.68036 H 12.50726 v 0.474769 h 10.748981 v 9.712398 H 1.3364433 V 1.9971379 H 0.86090326 V 22.751899 H 23.731004 V 1.9966869 Z"
+          />
+          <path
+            style="fill: none; stroke-width: 0.574903"
+            d="M 32.198343,22.621669 40.600759,2.5585859 49.04204,22.613747"
+          />
+          <path
+            style="fill: currentColor; stroke-width: 0.574903"
+            d="m 36.438812,12.346394 h 8.364306"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="8.8630762"
+            height="0.4188053"
+            x="23.518629"
+            y="22.305271"
+          />
+          <rect
+            style="fill: currentColor; stroke-width: 0.134146"
+            width="9.8420162"
+            height="0.4188053"
+            x="1.0488266"
+            y="1.9709774"
+          />
+        </svg>
+        
+        
+      </a>
+      <div class="logo-switches">
+        <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+          <svg
+            id="moon"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+          <svg
+            id="sun"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+        </button>
+        
+
+<div class="language-switcher" aria-label="语言">
+  <span class="language-switcher-icon" aria-hidden="true">
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=18 width=18>
+    <circle cx="12" cy="12" r="10"></circle>
+    <path d="M2 12h20"></path>
+    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+</svg>
+
+
+
+  </span>
+  
+    
+    
+    
+
+    
+    
+      
+      
+      
+      
+        
+        
+      
+    
+    <a
+      href="https://www.edwardzcn.me/tags/"
+      hreflang="en"
+      lang="en"
+      
+      
+    >EN</a>
+  
+    
+    
+    
+
+    
+    
+    <a
+      href="https://www.edwardzcn.me/zh/tags/"
+      hreflang="zh"
+      lang="zh"
+      class="active" aria-current="true"
+      
+    >ZH</a>
+  
+</div>
+
+      </div>
+    </div>
+    
+    <ul id="menu">
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;blog&#x2F;reading" title="Reading"
+          
+          >
+          <span>Reading</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+              
+            
+          
+            
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;" title="标签"
+          
+          >
+          <span class="active">标签</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+              
+            
+          
+
+          
+            
+            
+            
+              
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;categories&#x2F;" title="分类"
+          
+          >
+          <span>分类</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="#" title="搜索"
+          data-search-toggle="true"
+          >
+          <span>搜索</span></a>
+      </li>
+      
+        
+        
+        
+        
+          
+
+          
+          
+            
+            
+          
+            
+            
+          
+
+          
+            
+          
+        
+
+        
+        
+        
+          
+          
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;robot" title="工具"
+          
+          >
+          <span>工具</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6z"></path>
+    <circle cx="8" cy="12" r="1.5"></circle>
+    <circle cx="16" cy="12" r="1.5"></circle>
+
+
+</a>
+      </li>
+      
+        
+        
+        
+        
+          
+          
+        
+
+        
+        
+        
+        
+      <li>
+        <a href="https:&#x2F;&#x2F;getzola.org&#x2F;" title="Zola"
+          
+          >
+          <span>Zola</span>
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+  stroke-width="2"·
+  stroke-linecap="round" stroke-linejoin="round" height=12 width=12>
+  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+  <path d="M15 3h6v6"></path>
+  <path d="M10 14L21 3"></path>
+</svg>
+
+
+</a>
+      </li>
+      
+    </ul>
+    
+  </nav>
+</header>
+
+<main class="main">
+
+
+  
+	
+
+
+<article class="taxonomy-list-entry">
+	
+<header class="taxonomy-header">
+	<h1>标签</h1>
+</header>
+
+
+<div class="taxonomy-desc">
+
+
+
+	
+
+
+
+
+
+
+	
+
+
+
+
+
+
+<p>Here are all the tags 🏷️ in this site.</p>
+</div>
+
+</article>
+
+
+<ul class="terms-tags terms-tags">
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;404&#x2F;">404 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;a-er-bei-jia-mou&#x2F;">阿尔贝·加缪 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;ai-sa-ke-a-xi-mo-fu&#x2F;">艾萨克·阿西莫夫 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;albert-camus&#x2F;">Albert Camus <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;bai-xian-yong&#x2F;">白先勇 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;bei-dao&#x2F;">北岛 <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;ben-bo-nan-ke&#x2F;">本·伯南克 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;chai-jing&#x2F;">柴静 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;chu-ban-ye&#x2F;">出版业 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;chuan-ji&#x2F;">传记 <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;covid-19&#x2F;">COVID-19 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;cun-shang-chun-shu&#x2F;">村上春树 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;dong-ye-gui-wu&#x2F;">东野圭吾 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;dou-dou&#x2F;">豆豆 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;du-bian-mi-ying&#x2F;">渡边米英 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;fa-lu&#x2F;">法律 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;fang-fang&#x2F;">方方 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;fei-xiao-shuo&#x2F;">非小说 <sup><strong><sup>9</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;fredrik-backman&#x2F;">Fredrik Backman <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;gabrielle-zevin&#x2F;">Gabrielle Zevin <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;gao-de-na&#x2F;">高德纳 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;gu-si-ta-fu-le-pang&#x2F;">古斯塔夫·勒庞 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;han-bing-zhe&#x2F;">韩炳哲 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;han-han&#x2F;">韩寒 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;he-jian-jun-fu&#x2F;">鹤见俊辅 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;jared-diamond&#x2F;">Jared Diamond <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;ji-suan-ji&#x2F;">计算机 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;jia-de-dai-meng&#x2F;">贾德·戴蒙 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;jiang-fang-zhou&#x2F;">蒋方舟 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;jiang-xun&#x2F;">蒋勋 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;jiao-yu&#x2F;">教育 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;jin-rong&#x2F;">金融 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;john-brookshire-thompson&#x2F;">John Brookshire Thompson <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;ke-huan&#x2F;">科幻 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;li-cha-de-huo-fu-shi-ta-te&#x2F;">理查德·霍夫施塔特 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;li-chang-hao&#x2F;">李昌镐 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;li-shi&#x2F;">历史 <sup><strong><sup>6</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;liang-wen-dao&#x2F;">梁文道 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;long-ying-tai&#x2F;">龙应台 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;lu-si-xiao&#x2F;">鲁思·肖 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;luo-bo-di-bao-de&#x2F;">罗伯·狄保德 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;luo-xiang&#x2F;">罗翔 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;luo-xin&#x2F;">罗新 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;mo-di-mo-jie-er-mu-a-de-le&#x2F;">莫蒂默·杰尔姆·阿德勒 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;nie-lu-da&#x2F;">聂鲁达 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;python&#x2F;">Python <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;rachel-joyce&#x2F;">Rachel Joyce <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;ri-ben&#x2F;">日本 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;richard-hofstadter&#x2F;">Richard Hofstadter <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;san-wen&#x2F;">散文 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;sang-de-er&#x2F;">桑德尔 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;shang-ye&#x2F;">商业 <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;she-hui-xue&#x2F;">社会学 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;she-ying&#x2F;">摄影 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;shi-ci&#x2F;">诗词 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;shi-ge&#x2F;">诗歌 <sup><strong><sup>4</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;shi-hei-yi-xiong&#x2F;">石黑一雄 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;shi-tie-sheng&#x2F;">史铁生 <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;shu-xue&#x2F;">数学 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;ta-la-wei-si-te-fu&#x2F;">塔拉·韦斯特弗 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;tai-wan&#x2F;">台湾 <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;xi-cun-ji-xiong&#x2F;">西村吉雄 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;xiao-shuo&#x2F;">小说 <sup><strong><sup>16</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;xie-jia-ying&#x2F;">叶嘉莹 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;xin-li-xue&#x2F;">心理学 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;xin-wen&#x2F;">新闻 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;yue-han-bu-lu-ke-xi-er-tang-pu-sen&#x2F;">约翰·布鲁克希尔·汤普森 <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;za-wen&#x2F;">杂文 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;zhe-xue&#x2F;">哲学 <sup><strong><sup>4</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;zheng-zhi&#x2F;">政治 <sup><strong><sup>2</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;zhuan-zai&#x2F;">转载 <sup><strong><sup>3</sup></strong></sup> </a>
+    </li>
+    
+    <li>
+        <a href="https:&#x2F;&#x2F;www.edwardzcn.me&#x2F;zh&#x2F;tags&#x2F;zola&#x2F;">Zola <sup><strong><sup>1</sup></strong></sup> </a>
+    </li>
+    
+</ul>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-credits">
+    
+    <span>&copy; 2026 <a href="https:&#x2F;&#x2F;www.edwardzcn.me">edwardzcn-decade</a></span>
+    
+    <span>
+        Powered by
+        <a href="https://www.getzola.org/" rel="noopener noreferrer" target="_blank">Zola</a> &
+        <a href="https://github.com/edwardzcn-decade/cela" rel="noopener" target="_blank">Cela</a>
+    </span>
+  </div>
+  <div class="footer-scheme">
+    <select id="scheme-select" title="Color scheme" aria-label="Color scheme">
+      <option value="catppuccin-latte">Latte</option>
+      <option value="catppuccin-macchiato">Macchiato</option>
+      <option value="rose-pine">Rosé Pine</option>
+      <option value="nord">Nord</option>
+    </select>
+  </div>
+</footer>
+
+
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+      <path d="M12 6H0l6-6z" />
+  </svg>
+</a>
+
+
+
+
+
+
+
+
+<div id="search-toggle-box" class="hidden">
+  <div class="search-toggle-modal">
+    <input type="text" id="search-toggle-input" placeholder="Type to search..." />
+    <button id="search-toggle-button">Search</button>
+  </div>
+</div>
+
+
+
+<script src="https://www.edwardzcn.me/js/site-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/search-ui.js"></script>
+<script src="https://www.edwardzcn.me/js/home-effects.js"></script>
+
+
+</body>
+
+</html>
